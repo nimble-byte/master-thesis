@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QEffects of Explainability Alternatives in Generative AI on Users' Cognition and Metacognition Goepfert, Til 238061 Master Applied Computer Sciene Proposal for Masterthesis dd.mm.yyyy dd.mm.yyyy Prof. Dr. Christian Janiesch Dr. Philip Stahmann\\E$"}

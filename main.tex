@@ -1,0 +1,187 @@
+\documentclass[12pt,oneside]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   Zusaetzliche Pakete  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{acronym}
+\usepackage{enumitem}
+\usepackage{a4wide}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{palatino}
+\usepackage{blindtext}
+\usepackage{multirow}
+\usepackage[ruled,longend]{algorithm2e}
+\usepackage{float}
+\usepackage{acronym}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+
+%Hervorherbung für Links entfernen
+%\usepackage[bookmarks]{hyperref}
+\usepackage[bookmarks, pdfborder={0 0 0}]{hyperref}
+
+\usepackage[justification=centering]{caption}
+\usepackage{csquotes}
+
+% APA Style für Bibtex
+\usepackage[style=apa,natbib=true,backend=biber]{biblatex}
+
+\bibliography{literature}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definition der Kopfzeile %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\setlength{\headheight}{16pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Definition des Deckblattes und der Titelseite  %%
+%%  Do not edit                                    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\UDOTitle}[9]{
+
+  \thispagestyle{empty}
+  \includegraphics[width=3in]{images/tud_logo_rgb.jpg}
+  \vspace*{\stretch{1}}
+  \\
+  {\parindent0cm
+  \rule{\linewidth}{.1ex}}
+  \begin{flushright}
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\Huge
+    #1\\
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\large
+    #2\\
+    \vspace*{\stretch{1}}
+  \end{flushright}
+  \rule{\linewidth}{.1ex}
+
+  \vspace*{\stretch{1}}
+  \begin{center}
+
+    \vspace*{\stretch{1}}
+    \large #5\\
+
+    \vspace*{\stretch{1}}
+    \large Course of Studies: #4 \\[1mm]
+    \large Matricle Number: #3\\[1mm]
+    \large Supervisor: #8 \\[1mm]
+    \large Co-Supervisor:  #9 \\[1mm]
+
+    % \vspace*{\stretch{1}}
+    % \large Bearbeitungszeit: #6 -- #7
+
+    \vspace*{\stretch{2}}
+    \large Chair for Enterprise Computing\\
+    \large Faculty for Computer Science\\
+  \end{center}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Beginning of Document %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\sloppy
+
+  \UDOTitle
+      {Effects of Explainability Alternatives in Generative AI on Users' Cognition and Metacognition}                            % Titel der Arbeit
+      {Goepfert, Til}                               % Vor- und Nachname des Autors
+      {238061}                                      % Matrikelnummer des Autors
+      {Master Applied Computer Sciene}              % Studiengang
+      {Proposal for Masterthesis}                   % Art der Arbeit
+      {dd.mm.yyyy}                                  % Tag der Anmeldung
+      {dd.mm.yyyy}                                  % Tag der Abgabe
+      {Prof. Dr. Christian Janiesch}                % Name des Erstgutachters
+      {Dr. Philip Stahmann}                         % Name des Zweitgutachters
+
+  \clearpage
+
+\pagenumbering{Roman}
+    \setcounter{page}{1}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Abstract   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \markboth{Abstract}{Abstract}
+% \section*{Abstract}
+% Zusammenfassung in englischer Sprache.
+
+% \clearpage
+
+\lhead{}
+
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+\pagenumbering{Roman}
+    \setcounter{page}{3}
+
+% \addcontentsline{toc}{section}{\listfigurename}
+% \listoffigures
+% \clearpage
+
+% \addcontentsline{toc}{section}{\listtablename}
+% \listoftables
+% \clearpage
+
+\addcontentsline{toc}{section}{Acronym}
+\input{acronym.tex}
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Settings  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\pagenumbering{arabic}
+    \setcounter{page}{1}
+\lhead{\nouppercase{\leftmark}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Main  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Chapters with page breaks
+\include{contents/01-introduction.tex}
+\include{contents/02-literature.tex}
+\include{contents/03-methods.tex}
+\include{contents/04-data_collection.tex}
+\include{contents/05-results.tex}
+\include{contents/06-discussion.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% References are inserted automatically
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+\lhead{}
+\addcontentsline{toc}{section}{\bibname}
+\printbibliography
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Appendix  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
+% \addcontentsline{toc}{section}{Appendix}
+\input{contents/99-appendix.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Eidesstattliche Erklärung
+%% muss angepasst werden
+%% in Erklaerung.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Erklaerung.tex}
+
+\end{document}

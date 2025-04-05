@@ -1,0 +1,19 @@
+# Latex Helper Files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+
+# Build Dir & Output
+build/
+*.pdf
+!images/*.pdf
+
+# Mac Stuff
+.DS_Store
