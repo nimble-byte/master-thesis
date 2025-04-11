@@ -115,8 +115,7 @@
 %%  Abstract   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \markboth{Abstract}{Abstract}
-% \section*{Abstract}
-% Zusammenfassung in englischer Sprache.
+% \include{helper/abstract.tex}
 
 % \clearpage
 
@@ -137,8 +136,8 @@
 % \listoftables
 % \clearpage
 
-\addcontentsline{toc}{section}{Acronym}
-\input{acronym.tex}
+\addcontentsline{toc}{section}{Acronyms}
+\input{helper/acronym.tex}
 \clearpage
 
 
@@ -182,6 +181,6 @@
 %% muss angepasst werden
 %% in Erklaerung.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{Erklaerung.tex}
+\input{helper/Erklaerung.tex}
 
 \end{document}
