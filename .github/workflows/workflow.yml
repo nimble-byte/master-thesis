@@ -28,6 +28,9 @@ jobs:
   publish_pdf:
     runs-on: ubuntu-latest
     needs: build_latex
+    on:
+      tag:
+        types: [created]
     permissions:
       contents: write
     steps:
@@ -37,8 +40,6 @@ jobs:
           name: Thesis
       - name: Publish PDF as Release
         uses: softprops/action-gh-release@v2
-        # if: github.ref_type == 'tag'
         with:
           fail_on_unmatched_files: true
           files: thesis.pdf
-          tag_name: CI_DEBUGv1
