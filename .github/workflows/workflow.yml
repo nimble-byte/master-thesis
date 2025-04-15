@@ -1,12 +1,12 @@
-name: Build & Publish LaTeX document
+name: Build & Publish LaTeX Document
 
-on: [push, pull_request]
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build_latex:
