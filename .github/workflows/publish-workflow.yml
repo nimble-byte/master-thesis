@@ -13,6 +13,7 @@ jobs:
       - name: Download PDF Artifact
         uses: actions/download-artifact@v4
         with:
+          workflow: 'Build LaTeX Document'
           name: Thesis
       - name: Publish PDF as Release
         uses: softprops/action-gh-release@v2
