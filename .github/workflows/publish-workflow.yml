@@ -1,0 +1,22 @@
+name: Publish LaTeX Document
+on:
+  push:
+    tags:
+      - 'v*.*.*' # Matches semantic versioning tags (e.g., v1.0.0)
+
+jobs:
+  publish_pdf:
+    runs-on: ubuntu-latest
+    needs: build_latex
+    permissions:
+      contents: write
+    steps:
+      - name: Download PDF Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Thesis
+      - name: Publish PDF as Release
+        uses: softprops/action-gh-release@v2
+        with:
+          fail_on_unmatched_files: true
+          files: thesis.pdf
