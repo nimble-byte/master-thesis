@@ -26,7 +26,7 @@ jobs:
           path: thesis.pdf
           retention-days: 7
 
-  publish_pdf:
+  publish:
     if: github.ref_type == 'tag'
     needs: build
     runs-on: ubuntu-latest
