@@ -13,8 +13,10 @@ jobs:
       - name: Download PDF Artifact
         uses: actions/download-artifact@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           name: Thesis
+          workflow: build-workflow.yml
+          workflow_conclusion: success
+          branch: main
       - name: Publish PDF as Release
         uses: softprops/action-gh-release@v2
         with:
