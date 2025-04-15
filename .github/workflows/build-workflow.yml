@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*.*.*'
   pull_request:
     branches:
       - main
@@ -23,3 +25,20 @@ jobs:
           name: Thesis
           path: thesis.pdf
           retention-days: 7
+
+  publish_pdf:
+    if: github.ref_type == 'tag'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download PDF Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Thesis
+      - name: Publish PDF as Release
+        uses: softprops/action-gh-release@v2
+        with:
+          fail_on_unmatched_files: true
+          files: thesis.pdf
