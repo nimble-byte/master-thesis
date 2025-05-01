@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Definition of titlepage  %%
+%%  Do not edit              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\UDOTitle}[9]{
+
+  \thispagestyle{empty}
+  \includegraphics[width=3in]{images/tud_logo_rgb.jpg}
+  \vspace*{\stretch{1}}
+  \\
+  {\parindent0cm
+  \rule{\linewidth}{.1ex}}
+  \begin{flushright}
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\Huge
+    #1\\
+    \vspace*{\stretch{1}}
+    \sffamily\bfseries\large
+    #2\\
+    \vspace*{\stretch{1}}
+  \end{flushright}
+  \rule{\linewidth}{.1ex}
+
+  \vspace*{\stretch{1}}
+  \begin{center}
+
+    \vspace*{\stretch{1}}
+    \large #5\\
+
+    \vspace*{\stretch{1}}
+    \large Course of Studies: #4 \\[1mm]
+    \large Matricle Number: #3\\[1mm]
+    \large Supervisor: #8 \\[1mm]
+    \large Co-Supervisor:  #9 \\[1mm]
+
+    % \vspace*{\stretch{1}}
+    % \large Bearbeitungszeit: #6 -- #7
+
+    \vspace*{\stretch{2}}
+    \large Chair for Enterprise Computing\\
+    \large Faculty for Computer Science\\
+  \end{center}
+}

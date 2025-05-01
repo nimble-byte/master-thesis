@@ -7,3 +7,4 @@
 {"rule":"BOX","sentence":"^\\QExplainable AI: from black box to glass box\\E$"}
 {"rule":"EN_QUOTES","sentence":"^\\Q\"Why Should I Trust You?\": Explaining the Predictions of Any Classifier\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QAbstract Abstract\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qenglish bibliography = References,\\E$"}

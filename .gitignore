@@ -1,7 +1,9 @@
 # Latex Helper Files
 *.aux
 *.bbl
+*.bcf
 *.blg
+*.dvi
 *.fdb_latexmk
 *.fls
 *.lof
@@ -9,6 +11,7 @@
 *.out
 *.run.xml
 *.synctex.gz
+*.toc
 
 # Build Dir & Output
 build/
