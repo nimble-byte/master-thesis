@@ -8,3 +8,8 @@
 {"rule":"EN_QUOTES","sentence":"^\\Q\"Why Should I Trust You?\": Explaining the Predictions of Any Classifier\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QAbstract Abstract\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qenglish bibliography = References,\\E$"}
+{"rule":"PUNCTUATION_PARAGRAPH_END","sentence":"^\\QCausal and Control Beliefs\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QEffects of Explainability Alternatives in Generative AI on Users' Cognition and Metacognition Til Goepfert 238061 Master Applied Computer Science Master Thesis 30.04.2025 30.10.2025 Prof. Dr. Christian Janiesch Dr. Philip Stahmann\\E$"}
+{"rule":"PUNCTUATION_PARAGRAPH_END","sentence":"^\\QNarrative-driven XAI with Large Language Models\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFarrar, Strauss and Giroux, New York, NY\\E$"}
+{"rule":"FAST","sentence":"^\\QThinking Fast and Slow\\E$"}
