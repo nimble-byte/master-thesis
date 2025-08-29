@@ -1,7 +1,42 @@
 \section{Methodology} \label{sec:methodology}
 
+To investigate the effect of explainable generative \ac{AI} on users' problem-solving process and their metacognitions a grounded-theory approach based on \cite{Gioia2013} was chosen. The following sections will present the design and execution of the study, as well as the procedure for data analysis inspired by \cite{Jussupow2021}.
+
 \subsection{Research Design} \label{ssec:research_design}
 
-\subsection{Study Execution} \label{ssec:study_execution}
+% What data was collected
+The 13 participants were tasked with solving maths problems with the help of a chatbot, that was tuned to assist the users without solving the problems for them. Qualitative data about the problem-solving approach was collected as think-aloud protocols, while additional quantitative data about the perception of the chatbot was recorded using questionnaires. To investigate the effects of explanations, participants were split into two separate groups, that provided different chatbots: Group (A) was using a chatbot, that provided an explanation for its outputs, group (B) did not receive an explanation. Both groups were served tasks from the same pool and answered the same questionnaires after completing the tasks.
+
+\subsubsection{Tasks} \label{sssec:tasks}
+
+% TODO: consider citing idea to use maths problems?
+The problems given to the participants needed to be of sufficient complexity to require assistance from the chatbot, while still being solvable by a wide range of potential participants. Ideally the problems should offer multiple solution strategies, to allow for a variety of approaches. To save time during the study design, the problems were selected form an existing dataset. While the MathVista dataset \parencite{MathVista2024} was desinged for evaluating \ac{AI} systems, it can be reused for this study, since the problems are posed in natural language and often require combining visual and textual information to solve them. The selection was performed to ensure that the problems were solvable by \acs{STEM}-students, taking into account the clarity and difficulty of the problems. The final selection consisted of 15 problems from the domain of geometry.
+
+Participants were given sets of three random problems selected, with the constraint that only “medium” and “difficult” problems were included during the study. The problems were presented digitally in a custom web application, that recorded participants responses and time taken. In case a participant was unable to solve a problem, it was replaced by a new problem of the same difficulty.
+
+\subsubsection{Chatbot Design} \label{sssec:chatbot_design}
+
+% Requirements
+% - runnable on laptop
+% - ideally multi-modality (includes vision for images)
+% - capable of providing explanation "on demand" for one group
+% Options
+% - Qwen
+% - Mistral
+% - Gemma3
+
+\subsubsection{Experiment Procedure} \label{sssec:experiment_procedure}
+
+% How was data collected + details about types of data
+% think-aloud protocols & workflow
+% post-task questionnaires & selection of metrics
+% include cover story here
+
+\subsubsection{Participants} \label{sssec:participants}
+
+% 13 participants
+% required to have STEM background (studied STEM or working in the sector)
+% - achieve a certain level of prior knowledge
+% - recruited via university channels and personal network
 
 \subsection{Data Analysis} \label{ssec:data_analysis}
