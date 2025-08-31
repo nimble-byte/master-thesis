@@ -9,21 +9,31 @@ The 13 participants were tasked with solving maths problems with the help of a c
 
 \subsubsection{Tasks} \label{sssec:tasks}
 
-% TODO: consider citing idea to use maths problems?
-The problems given to the participants needed to be of sufficient complexity to require assistance from the chatbot, while still being solvable by a wide range of potential participants. Ideally the problems should offer multiple solution strategies, to allow for a variety of approaches. To save time during the study design, the problems were selected form an existing dataset. While the MathVista dataset \parencite{MathVista2024} was desinged for evaluating \ac{AI} systems, it can be reused for this study, since the problems are posed in natural language and often require combining visual and textual information to solve them. The selection was performed to ensure that the problems were solvable by \acs{STEM}-students, taking into account the clarity and difficulty of the problems. The final selection consisted of 15 problems from the domain of geometry.
+% TODO: consider citation idea to use maths problems?
+The problems given to the participants needed to be of sufficient complexity to require assistance from the chatbot, while still being solvable by a wide range of potential participants. Ideally the problems should offer multiple solution strategies, to allow for a variety of approaches. To save time during the study design, the problems were selected form an existing dataset. While the MathVista dataset \parencite{MathVista2024} was designed for evaluating \ac{AI} systems, it can be reused for this study, since the problems are posed in natural language and often require combining visual and textual information to solve them. The selection was performed to ensure that the problems were solvable by \acs{STEM}-students, taking into account the clarity and difficulty of the problems. The final selection consisted of 15 problems from the domain of geometry.
 
-Participants were given sets of three random problems selected, with the constraint that only “medium” and “difficult” problems were included during the study. The problems were presented digitally in a custom web application, that recorded participants responses and time taken. In case a participant was unable to solve a problem, it was replaced by a new problem of the same difficulty.
+Participants were given sets of three random problems selected, with the constraint that only “medium” and “difficult” problems were included during the study. The problems were presented digitally in a custom web application. The participant were shown the task image, text, and answer options at once. The tool recorded participants responses and time taken to solve the tasks. In case a participant was unable to solve a problem, it was replaced by a new problem of the same difficulty.
 
 \subsubsection{Chatbot Design} \label{sssec:chatbot_design}
 
-% Requirements
-% - runnable on laptop
-% - ideally multi-modality (includes vision for images)
-% - capable of providing explanation "on demand" for one group
-% Options
-% - Qwen
-% - Mistral
-% - Gemma3
+The design of the chatbot was driven by several requirements and constraints, derived from the research questions and practical considerations. The main consideration was to ensure that the chatbot would assist the participants, without solving the problems for them. Additionally, the chatbot should support image inputs, as the problems included visual information. Lastly, that chatbot should be able to provide a \ac{CoT} explanations, to allow for comparison between users with and without explanations.
+
+In addition to the research-related requirements described above, practical considerations also influenced the design and implementation of the chatbot. The chatbot needed to be either runnable on a laptop or accessible via a free API, to keep the cost of the study low. Additionally, the implementation of the chatbot should be build using existing software as much as possible. Due to a lack of free API options that sufficed the research requirements, the chatbot was implemented locally using LM Studio \parencite{ElementLabs2025}, which allowed to experiment with different models and configurations before the study. It also allowed to easily experiment with additional system prompts, that could be used to tailor the responses of the model to the specific use case.
+
+The available models were filtered automatically to only include models that were runnable on a M4 MacBook Pro (12cpu, 24 GB RAM) according to the program. After curating the list of available models and eliminating identical models of different sizes, the following options remained:
+
+% specify parameter counts to be more precise
+\begin{itemize}
+    \item Qwen 3 \parencite{Yang2025} lacks vision capabilities, but has the unique ability to turn \ac{CoT} explanations on and off using the \texttt{/nothink} command in prompts.
+
+    \item Gemma 3 \parencite{GemmaTeam2025} offers vision capabilities and is the largest model, that can reliably be used on the device available. It lacks explicit \ac{CoT} explanation capabilities.
+
+    \item Mistral Small 3.2 \parencite{Mistral2025} is the newest of the three architectures and has vision capabilities. Like Gemma 3 it lacks \ac{CoT} explanations.
+\end{itemize}
+
+Initial experiments yielded, that vision capabilities would likely be of high importance. This meant Qwen 3 would need to be equipped with visual capabilities. Additionally, Qwen struggled with following the system prompts, forbidding to reveal the solution to the user, especially when \ac{CoT} explanations where enabled. It was therefore removed from the shortlist.
+% TODO: give reason for Mistral over Gemma
+% TODO: explain use of system prompts to refine behaviour + emulate CoT (in appendix)
 
 \subsubsection{Experiment Procedure} \label{sssec:experiment_procedure}
 
