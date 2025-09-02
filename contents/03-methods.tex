@@ -22,18 +22,17 @@ In addition to the research-related requirements described above, practical cons
 
 The available models were filtered automatically to only include models that were runnable on a M4 MacBook Pro (12cpu, 24 GB RAM) according to the program. After curating the list of available models and eliminating identical models of different sizes, the following options remained:
 
-% specify parameter counts to be more precise
 \begin{itemize}
-    \item Qwen 3 \parencite{Yang2025} lacks vision capabilities, but has the unique ability to turn \ac{CoT} explanations on and off using the \texttt{/nothink} command in prompts.
+    \item Qwen 3 (30B A3B) lacks vision capabilities, but has the unique ability to turn \ac{CoT} explanations on and off using the \texttt{/nothink} command in prompts \parencite{Qwen2025}.
 
-    \item Gemma 3 \parencite{GemmaTeam2025} offers vision capabilities and is the largest model, that can reliably be used on the device available. It lacks explicit \ac{CoT} explanation capabilities.
+    \item Gemma 3 (27B) offers vision capabilities and is the largest model, that can reliably be used on the device available. It lacks explicit \ac{CoT} explanation capabilities \parencite{GemmaTeam2025}.
 
-    \item Mistral Small 3.2 \parencite{Mistral2025} is the newest of the three architectures and has vision capabilities. Like Gemma 3 it lacks \ac{CoT} explanations.
+    \item Mistral Small 3.2 is the newest of the three architectures and has vision capabilities. Like Gemma 3 it lacks \ac{CoT} explanations \parencite{Mistral2025}.
 \end{itemize}
 
 Initial experiments yielded, that vision capabilities would likely be of high importance. This meant Qwen 3 would need to be equipped with visual capabilities. Additionally, Qwen struggled with following the system prompts, forbidding to reveal the solution to the user, especially when \ac{CoT} explanations where enabled. It was therefore removed from the shortlist.
-% TODO: give reason for Mistral over Gemma
-% TODO: explain use of system prompts to refine behaviour + emulate CoT (in appendix)
+
+The remaining two models were tested using identical 2 identical system prompts. Both prompts instructed the model to act as helpful assistant, that would not solve the maths problems for the user, but instead provide guidance and hints. The difference between the prompts was that one prompt instructed the model to provide a \ac{CoT} for each response wrapped in a \texttt{<think>} tag. Both versions of the prompt can be found in the appendix. The results of the tests showed, that Mistral Small 3.2 was more reliable in following the instructions, while Gemma 3 often revealed the solution to the user, despite the system prompt. Mistral Small 3.2 was therefore chosen as the model for the chatbot.
 
 \subsubsection{Experiment Procedure} \label{sssec:experiment_procedure}
 

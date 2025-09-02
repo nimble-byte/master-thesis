@@ -16,7 +16,17 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+% Listings configuration: monospaced style, line numbers, line breaks and UTF-8 input
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  % inputencoding=utf8,
+  % Map common German characters so listings shows them correctly under pdflatex
+  literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1
+}
 
 % Links without borders/highlighting
 \usepackage[bookmarks, pdfborder={0 0 0}]{hyperref}
@@ -133,7 +143,7 @@
 %%  Appendix  %%
 %%%%%%%%%%%%%%%%
 % \newpage
-% \addcontentsline{toc}{section}{Appendix}
+\addcontentsline{toc}{section}{Appendix}
 \include{contents/99-appendix.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
