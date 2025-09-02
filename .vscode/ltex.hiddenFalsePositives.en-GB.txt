@@ -1,15 +1,16 @@
-{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QEffects of Explainability Alternatives in Generative AI on Users' Cognition and Metacognition Goepfert, Til 238061 Master Applied Computer Sciene Proposal for Masterthesis dd.mm.yyyy dd.mm.yyyy Prof. Dr. Christian Janiesch Dr. Philip Stahmann\\E$"}
-{"rule":"SERIAL_COMMA_ON","sentence":"^\\QExplainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI\\E$"}
-{"rule":"DASH_RULE","sentence":"^\\QGitHub Copilot - Your AI par programmer\\E$"}
-{"rule":"PUNCTUATION_PARAGRAPH_END","sentence":"^\\QAn Investigation into Physicians' Decision-Making Process with Artificial Intelligence\\E$"}
-{"rule":"SERIAL_COMMA_ON","sentence":"^\\QArtificial Intelligence (AI): Multidisciplinary perspectives on emerging challenges, opportunities, and agenda for research, practice and policy\\E$"}
-{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QArtificial intelligence applications in the agrifood sectors\\E$"}
-{"rule":"BOX","sentence":"^\\QExplainable AI: from black box to glass box\\E$"}
-{"rule":"EN_QUOTES","sentence":"^\\Q\"Why Should I Trust You?\": Explaining the Predictions of Any Classifier\\E$"}
-{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QAbstract Abstract\\E$"}
-{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qenglish bibliography = References,\\E$"}
-{"rule":"PUNCTUATION_PARAGRAPH_END","sentence":"^\\QCausal and Control Beliefs\\E$"}
-{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QEffects of Explainability Alternatives in Generative AI on Users' Cognition and Metacognition Til Goepfert 238061 Master Applied Computer Science Master Thesis 30.04.2025 30.10.2025 Prof. Dr. Christian Janiesch Dr. Philip Stahmann\\E$"}
-{"rule":"PUNCTUATION_PARAGRAPH_END","sentence":"^\\QNarrative-driven XAI with Large Language Models\\E$"}
-{"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFarrar, Strauss and Giroux, New York, NY\\E$"}
-{"rule":"FAST","sentence":"^\\QThinking Fast and Slow\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QQualitative data about the problem-solving approach was collected as think-aloud protocols, while additional quantitative data about the perception of the chatbot was recorded using questionnaires.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe 13 participants were tasked with solving maths problems with the help of a chatbot, that was tuned to assist the users without solving the problems for them.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QTo investigate the effects of explanations, participants were split into two separate groups, that provided different chatbots: Group (A) was using a chatbot, that provided an explanation for its outputs, group (B) did not receive an explanation.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QBoth groups were served tasks from the same pool and answered the same questionnaires after completing the tasks.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QWhile the MathVista dataset \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q was designed for evaluating \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q systems, it can be reused for this study, since the problems are posed in natural language and often require combining visual and textual information to solve them.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe selection was performed to ensure that the problems were solvable by \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-students, taking into account the clarity and difficulty of the problems.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QParticipants were given sets of three random problems selected, with the constraint that only “medium” and “difficult” problems were included during the study.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QTo save time during the study design, the problems were selected form an existing dataset.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe problems were presented digitally in a custom web application.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe participant were shown the task image, text, and answer options at once.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe design of the chatbot was driven by several requirements and constraints, derived from the research questions and practical considerations.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QDue to a lack of free API options that sufficed the research requirements, the chatbot was implemented locally using LM Studio \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, which allowed to experiment with different models and configurations before the study.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe available models were filtered automatically to only include models that were runnable on a M4 MacBook Pro (12cpu, 24 GB RAM) according to the program.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe remaining two models were tested using identical 2 identical system prompts.\\E$"}
+{"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q[caption=System Prompt with \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Explanations]../code/system_prompt-cot.txt\\E$"}
+{"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q[caption=System Prompt without Explanations]../code/system_prompt-plain.txt\\E$"}

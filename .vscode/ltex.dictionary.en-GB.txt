@@ -3,3 +3,6 @@ MathVista
 XAI
 LLMs
 causability
+Qwen
+nothink
+CoT
