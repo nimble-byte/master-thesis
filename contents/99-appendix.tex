@@ -6,8 +6,103 @@
 
 % Besteht der Anhang aus mehreren Elementen, so sind die einzelnen Elemente durch Nummerierung voneinander zu trennen.
 
+% ignore spacing issues in the appendix, since tables tend to underflow
+\hbadness 10000
+
 \subsection*{System Prompts}
 
 \lstinputlisting[caption={System Prompt with \ac{CoT} Explanations}]{../code/system_prompt-cot.txt}
 
+\clearpage
+
 \lstinputlisting[caption={System Prompt without Explanations}]{../code/system_prompt-plain.txt}
+
+% LTeX: enabled=false
+\newpage
+\subsection*{Questionnaires}
+
+\subsubsection*{Technology Acceptance Model}
+
+\begingroup
+\setlength{\tabcolsep}{12pt}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{table}[ht]
+\begin{tabularx}{\textwidth}{l|X|X}
+    \textbf{ID} & \textbf{English} & \textbf{German} \\
+    \hline
+    01 & Using CHART-MASTER in my job would enable me to accomplish tasks more quickly. & Die Nutzung des Chatbots würde mir helfen die Matheaufgaben schneller zu lösen. \\
+    02 & Using CHART-MASTER would improve my job performance. & Die Nutzung des Chatbots würde mir helfen bessere Noten in Mathe zu erzielen. \\
+    03 & Using CHART-MASTER in my Job would increase my productivity. & Die Nutzung des Chatbots würde mir helfen bessere Lernerfolge zu erzielen \\
+    04 & Using CHART-MASTER would enhance my effectiveness on the job. & Die Nutzung des Chatbots würde mir helfen effektiver zu lernen. \\
+    05 & Using CHART-MASTER would make it easier to do my job. & Die Nutzung des Chatbots würde das Lernen einfacher machen. \\
+    06 & I would find CHART-MASTER useful in my job. & Ich finde den Chatbot hilfreich beim lernen. \\
+\end{tabularx}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabularx}{\textwidth}{l|X|X}
+    \textbf{ID} & \textbf{English} & \textbf{German} \\
+    \hline
+    01 & Learning to operate CHART-MASTER would be easy for me. & Den Umgang mit dem Chatbot zu lernen würde mir leicht fallen. \\
+    02 & I would find it easy to get CHART-MASTER to do what I want. & Ich fände es einfach, den Chatbot dazu zu bringen zu tun, was ich von ihm möchte. \\
+    03 & My interaction with CHART-MASTER would be clear and understandable. & Meine Interaktion mit dem Chatbot wäre einfach zu verstehen. \\
+    04 & I would find CHART-MASTER to be flexible to interact with. & Ich fände den Chatbot flexibel in seinen Interaktionsmöglichkeiten. \\
+    05 & It would be easy for me to become skillful at using CHART-MASTER. & Es wäre einfach guten Umgang mit dem Chatbot zu erlernen. \\
+    06 & I would find CHART-MASTER easy to use. & Ich fände den Chatbot einfach zu nutzen. \\
+\end{tabularx}
+\end{table}
+
+\endgroup
+
+\clearpage
+\subsubsection*{Computer Self-Efficacy}
+
+\begingroup
+\setlength{\tabcolsep}{12pt}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{table}[ht]
+\begin{tabularx}{\textwidth}{l|X|X}
+    \textbf{ID} & \textbf{English} & \textbf{German} \\
+    \hline
+    00 & I could complete the job using the software package... & Ich könnte die Matheaufgaben mithilfe des Chatbots lösen wenn... \\
+    \hline
+    01 & ...if there was no one around to tell me what to do as I go. & ...niemand mich anleitet, während ich die Aufgaben löse. \\
+    02 & ...if I had never used a tool like it before. & ...ich noch nie ein LLM genutzt hätte. \\
+    03 & ...if I had only the software manuals for reference. & ...ich nur eine Anleitung für den Chatbot als Hilfe hätte. \\
+    04 & ...if I had seen someone else using it before trying it myself. & ...ich vorher gesehen hätte wie jemand mit dem Chatbot Matheaufgaben löst. \\
+    05 & ...if I could call someone for help if I got stuck. & ...ich jemanden um Hilfe fragen könnte, falls ich Probleme habe. \\
+    06 & ...if someone else had helped me get started. & ...mir jemand anfänglich hilft. \\
+    07 & ...if I had a lot of time to solve the problems for which the tool was provided. & ...ich viel Zeit hätte die Matheaufgaben zu lösen. \\
+    08 & ...if I had just the built-in help facility for assistance. & ...ich nur die im Chatbot verbauten Hilfen zur Verfügung hätte. \\
+    09 & ...if someone showed me how to do it first. & ...jemand mir zuerst zeigt wie man den Chatbot nutzt. \\
+    10 & ...if I had used a similar tool before this one to solve the same problems. & ...ich vergleichbare Chatbots bereits zum Lösen von Matheaufgaben genutzt hätte. \\
+\end{tabularx}
+\end{table}
+
+\endgroup
+
+\clearpage
+\subsubsection*{NASA-TLX}
+
+\begingroup
+\setlength{\tabcolsep}{12pt}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{table}[ht]
+\begin{tabularx}{\textwidth}{l|X|X}
+    \textbf{ID} & \textbf{English} & \textbf{German} \\
+    \hline
+    01 & How mentally demanding was the task? & Wie hoch war die mentale Anforderung beim Lösen der Aufgaben? \\
+    02 & How physically demanding was the task? & Wie hoch war die körperliche Anforderung beim Lösen der Aufgaben? \\
+    03 & How hurried or rushed was the pace of the task? & Wie hoch war der Zeitdruck beim Lösen dern Aufgaben? \\
+    04 & How successful were you in accomplishing what you were asked to do? & Wie hoch ist Ihrer Zufriedenheit mit Ihrer Leistung beim Lösen der Aufgaben? \\
+    05 & How hard did you have to work to accomplish your level of performance? & Wie hoch war die empfundene Anstrengung beim Lösen der Aufgaben? \\
+    06 & How insecure, discouraged, irritated, stressed, and annoyed were you? & Wie frustriert, genervt, gestresst oder entmutigt haben Sie sich beim Lösen der Aufgaben gefühlt? \\
+\end{tabularx}
+\end{table}
+
+\endgroup
+
+% LTeX: enabled=true
