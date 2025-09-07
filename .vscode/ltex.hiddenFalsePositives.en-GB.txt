@@ -28,3 +28,12 @@
 {"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q[caption=System Prompt without Explanations]../code/system_prompt-plain.txt\\E$"}
 {"rule":"PASSIVE_VOICE","sentence":"^\\QParticipants were selected from university students, colleagues, friends, and acquaintances.\\E$"}
 {"rule":"PASSIVE_VOICE","sentence":"^\\QThe participants were split into two groups pseudo randomly in order of their registration, alternating between the two groups.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe following coding methods cycles were performed (using the terminology of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q):\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QSecond Cycle Coding: Axial Coding: The codes from the first cycle were then grouped and organized using axial coding.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QTheoretical Coding: Finally, theoretical coding was used to develop a theory or process model from the previously grouped codes.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QQuantitative data was collected and evaluated to complement the qualitative data.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe questionnaires were evaluated according to the instructions provided in the original publications.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe results were then compared between the two groups to identify any significant differences between the different chatbot versions.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe data analysis was divided into qualitative and quantitative analysis, which were performed separately and then combined during the interpretation of the results.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe qualitative data was analysed using a grounded-theory approach and focused on retaining the data-to-theory connection \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QTo preserve this connection, the analysis was performed in two cycles following the example of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and general methodology for coding outlined by \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
