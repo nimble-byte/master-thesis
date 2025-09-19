@@ -23,7 +23,6 @@
 {"rule":"PASSIVE_VOICE","sentence":"^\\QQuantitative data was gathered using a number of post-experiment questionnaires to gather data about user's acceptance, self-efficacy, and mental load during the tasks.\\E$"}
 {"rule":"PASSIVE_VOICE","sentence":"^\\QAs the study was performed in German translations for the questions and responses were required.\\E$"}
 {"rule":"PASSIVE_VOICE","sentence":"^\\QTherefore, the questionnaires were manually translated.\\E$"}
-{"rule":"PASSIVE_VOICE","sentence":"^\\QResearch showed, the NASA-\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q questionnaire \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q were available translated and validated, but both versions were adopted for specific studies, which made them insufficient for this study.\\E$"}
 {"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q[caption=System Prompt with \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Explanations]../code/system_prompt-cot.txt\\E$"}
 {"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q[caption=System Prompt without Explanations]../code/system_prompt-plain.txt\\E$"}
 {"rule":"PASSIVE_VOICE","sentence":"^\\QParticipants were selected from university students, colleagues, friends, and acquaintances.\\E$"}
@@ -44,3 +43,4 @@
 {"rule":"PASSIVE_VOICE","sentence":"^\\QTo determine if there were significant differences between the two groups, a Mann-Whitney U test was performed for each of the seven constructs.\\E$"}
 {"rule":"PASSIVE_VOICE","sentence":"^\\QThe Mann-Whitney U test was chosen, as it does not assume normal distribution of the data and is suitable for small sample sizes.\\E$"}
 {"rule":"PASSIVE_VOICE","sentence":"^\\QThe evaluation of the questionnaires was performed using Python with the libraries Pandas and SciPy.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QResearch showed, the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q questionnaire \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q were available translated and validated, but both versions were adopted for specific studies, which made them insufficient for this study.\\E$"}
