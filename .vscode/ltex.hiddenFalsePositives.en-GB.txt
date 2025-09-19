@@ -37,3 +37,10 @@
 {"rule":"PASSIVE_VOICE","sentence":"^\\QThe data analysis was divided into qualitative and quantitative analysis, which were performed separately and then combined during the interpretation of the results.\\E$"}
 {"rule":"PASSIVE_VOICE","sentence":"^\\QThe qualitative data was analysed using a grounded-theory approach and focused on retaining the data-to-theory connection \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"PASSIVE_VOICE","sentence":"^\\QTo preserve this connection, the analysis was performed in two cycles following the example of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and general methodology for coding outlined by \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QIn accordance with the original publications the scores for TAM and CSE were calculated as the mean of the respective questionnaire items, where TAM was split into the two dimensions Perceived Usefulness and Perceived Ease of Use \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q questionnaire was evaluated on four of the six subscales.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe subscales for Physical Load and Temporal Demand were excluded from the evaluation, since there was no significant physical effort required and no time limit set for the tasks.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QIn accordance with \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q constructs were evaluated using the “raw TLX” (sometimes called “RTLX”) to reduce the data collection and evaluation effort.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QTo determine if there were significant differences between the two groups, a Mann-Whitney U test was performed for each of the seven constructs.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe Mann-Whitney U test was chosen, as it does not assume normal distribution of the data and is suitable for small sample sizes.\\E$"}
+{"rule":"PASSIVE_VOICE","sentence":"^\\QThe evaluation of the questionnaires was performed using Python with the libraries Pandas and SciPy.\\E$"}
