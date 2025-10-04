@@ -9,8 +9,7 @@ Study participants were recruited through two channels: (1) students associated 
 The participants were exclusively male, with additional demographic information presented in Table \ref{tab:age_dist} and Table \ref{tab:edu_bg}. The final sample consisted of 12 participants, with 5 in group (B) without explanations and 7 in group (E) with explanations.
 
 \begingroup
-\setlength{\tabcolsep}{12pt}
-\renewcommand{\arraystretch}{1.5}
+\tablespacing
 
 \begin{table}[ht]
     \parbox{.45\linewidth}{
@@ -43,5 +42,40 @@ The participants were exclusively male, with additional demographic information 
 \endgroup
 
 \subsection{Qualitative Results} \label{ssec:qual_results}
+
+The qualitative data collected from the think-aloud protocols was analysed through two rounds of coding as described in section \ref{sssec:qualitative_analysis}. The codes produced in the first round of coding, were then grouped into categories (axes). Overall four conclusions are drawn from the qualitative data, which are presented in the following.
+
+\subsubsection{Usage Patterns} \label{sssec:usage_patterns}
+
+Participants in both groups utilized the chatbot for varying purposes, if they decided to use it at all. Questions posed to the chatbot ranged from very specific questions for formulas to more general questions asking for a solution approach. Some participants used the chatbot to verify their own solutions or solution approaches. Taking into account the possibility of non-use of the chatbot, four different usage patterns can be identified:
+
+\begin{ctable}
+    \begin{tabularx}{\textwidth}{l|X|X}
+        \textbf{Usage Pattern} & \textbf{Definition} & \textbf{Example} \\
+        \hline
+        Non-Use & The participant does not use the chatbot at all & “I did not need the LLM for that.” (P3) \\
+        Fact Questions & The participant uses the chatbot to ask for specific facts, formulas, or definitions & “What is the formula for the circumference of a circle if 'r' is given?” (P13) \\
+        Approach Questions & The participant uses the chatbot to ask for a solution or solution approach & “What approach should I take and how should I take the relationship into account.” \\
+        Validation Questions & The participant uses the chatbot to verify their own solution or solution approach & “I'll send the solution to [\dots] the chatbot to see if it makes sense.” (P5)
+    \end{tabularx}
+    \caption{Usage Patterns of the Chatbot}
+    \label{tab:usage_patterns}
+\end{ctable}
+
+Especially the usage pattern of \textit{Non-Use} is particularly interesting, as the decision to not use the chatbot was only commented by two participants (P3, P8) after the fact. Other participants also solved tasks without using the chatbot, but did not mention this decision at all. This indicates that the decision whether to use the chatbot or not, is not a conscious decision, but rather a subconscious one. Additionally, the usage patterns could change during the same task, with participants starting with approach questions (for an initial hint) and later switching to validation questions, indicating that the a (subconscious) decision is made for each interaction with the chatbot.
+
+Overall the usage patterns align with the behaviour for cognitive offloading described in section \ref{sssec:cognitive_offloading}. This particularly applies to the decision whether and how to use the chatbot, which is “[\dots] influenced by a metacognitive evaluation of the available options” \parencite{Risko2015}. A factor that could influence these decisions is the perceived difficulty of the task, which was mentioned by several participants prior to using the chatbot (P1, P5). Based on the behaviour of participants combined with the think-aloud protocols, it can also be assumed, that the \textit{Availability} heuristic \parencite{Tversky1974} played a role in the decision whether to use the chatbot or not. Participants more often used the chatbot for developing a solution approach, if they had exhausted their own ideas (P3, P8, P10). A third factor that could influence is the perceived effort of using the chatbot compared to solving the task without it. This is supported by the fact that some participants justified their use of the chatbot by stating they did not “want to [solve the problem]” themselves (P5).
+
+\subsubsection{Errors and Conflicts} \label{sssec:errors_conflicts}
+
+Participants in both groups encountered errors and conflicts during their interactions with the chatbot.
+
+\subsubsection{Additional Observations} \label{sssec:additional_observations}
+
+Participants rarely actively engaged with the explanations provided by the chatbot in group (E). Only two participants (P8, P9) explicitly mention the \ac{CoT} explanation. In both instances the explanation was treated as additional information, that was used once the user was stuck. Other participants in group (E) did not mention the explanations at all. Similarly, users in group (B) did not comment on the lack of explanations. Therefore the explanations did not seem to have a significant impact on the participants' behaviour or perception of the chatbot. The instances where the explanations were used, could also be due to the interface design, which initially hid the explanations in a collapsed section.
+
+The think-aloud protocols also showed, that conscious reflection of the chatbot's responses was rare.
+
+Only two participants (P5, P10) explicitly mentioned that they were reflecting on the chatbot's responses. Other participants seemed to accept the chatbot's responses without much scrutiny, even when they were incorrect. This could be due to a lack of trust in their own abilities or an over-reliance on the chatbot.
 
 \subsection{Quantitative Results} \label{ssec:quant_results}
