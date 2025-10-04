@@ -1,0 +1,18 @@
+% LTex: enabled=false
+\newcommand{\tablespacing}{
+    \setlength{\tabcolsep}{12pt}
+    \renewcommand{\arraystretch}{1.5}
+}
+
+\newenvironment{ctable}[1][ht]{
+    \begingroup
+    \tablespacing
+
+    \begin{table}[#1]
+    \centering
+}{
+    \end{table}
+    \endgroup
+}
+
+% LTex: enabled=true
