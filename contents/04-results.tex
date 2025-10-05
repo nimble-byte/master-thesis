@@ -62,20 +62,47 @@ Participants in both groups utilized the chatbot for varying purposes, if they d
     \label{tab:usage_patterns}
 \end{ctable}
 
-Especially the usage pattern of \textit{Non-Use} is particularly interesting, as the decision to not use the chatbot was only commented by two participants (P3, P8) after the fact. Other participants also solved tasks without using the chatbot, but did not mention this decision at all. This indicates that the decision whether to use the chatbot or not, is not a conscious decision, but rather a subconscious one. Additionally, the usage patterns could change during the same task, with participants starting with approach questions (for an initial hint) and later switching to validation questions, indicating that the a (subconscious) decision is made for each interaction with the chatbot.
+The usage pattern of \textit{Non-Use} is noteworthy, as the decision to not use the chatbot was only commented by two participants (P3, P8) after the fact. Other participants also solved tasks without using the chatbot, but did not mention this decision at all. This indicates that the decision whether to use the chatbot or not, is not a conscious decision, but rather a subconscious one. Additionally, the usage patterns could change during the same task, with participants starting with approach questions (for an initial hint) and later switching to validation questions, indicating that the a (subconscious) decision is made for each interaction with the chatbot.
 
 Overall the usage patterns align with the behaviour for cognitive offloading described in section \ref{sssec:cognitive_offloading}. This particularly applies to the decision whether and how to use the chatbot, which is “[\dots] influenced by a metacognitive evaluation of the available options” \parencite{Risko2015}. A factor that could influence these decisions is the perceived difficulty of the task, which was mentioned by several participants prior to using the chatbot (P1, P5). Based on the behaviour of participants combined with the think-aloud protocols, it can also be assumed, that the \textit{Availability} heuristic \parencite{Tversky1974} played a role in the decision whether to use the chatbot or not. Participants more often used the chatbot for developing a solution approach, if they had exhausted their own ideas (P3, P8, P10). A third factor that could influence is the perceived effort of using the chatbot compared to solving the task without it. This is supported by the fact that some participants justified their use of the chatbot by stating they did not “want to [solve the problem]” themselves (P5).
 
 \subsubsection{Errors and Conflicts} \label{sssec:errors_conflicts}
 
-Participants in both groups encountered errors and conflicts during their interactions with the chatbot.
+Participants in both groups encountered errors and conflicts during their interactions with the chatbot. It is important to note, that the problems described here, are conflicts and errors perceived by the participants, and not objective conflicts. These perceived issues can be grouped into three categories, which are presented in Table \ref{tab:conflicts_errors}.
+
+% ToDo: Is distinguishing between misundersanding and incorrect information necessary sensible?
+% - since the issues are distinguished by the participants, it is irrelevant whether the information is actually incorrect or not
+
+\begin{ctable}
+    \begin{tabularx}{\textwidth}{l|X|X}
+        \textbf{Category} & \textbf{Definition} & \textbf{Example} \\
+        \hline
+        Incorrect Information & The chatbot provides factually incorrect information & “But it [the chatbot] says, that I have $\overline{AB}$ given, which is not correct either.” (P4) \\
+        Misunderstanding & The participant misinterprets the chatbot's response & “Okay, 'intersects at two points' is the same as 'touches at two points'. Not for me.” (P11) \\
+        Conflicting Information & The chatbot provides information that contradicts previous responses or known facts & “First it [the chatbot] says 'almost correct', then 'correct' [for the same solution]” (P11) \\
+    \end{tabularx}
+    \caption{Categories of Errors and Conflicts with the Chatbot}
+    \label{tab:conflicts_errors}
+\end{ctable}
+
+The most frequently encountered issue was \textit{Incorrect Information}, where participants perceived the chatbot's responses as factually incorrect (P4, P8, P13, P15). In many cases however, the participants simply misread the response (P8) or forgot information provided in the task or previously calculated (P4, P13, P15). Similarly, \textit{Misunderstandings} were often due to participants misreading or misinterpreting the chatbot's response (e.g. P11, P13). Conversely, during task 54 participants frequently received wrong advice from the chatbot, but did not recognize the error immediately. Given that none mentioned the wrong information from the chatbot in their think-aloud protocols, it can be assumed, that a form of “satisficing” \parencite{Simon1955} took place, where participants accepted the chatbot's response without further scrutiny.
+
+The conflict behaviour observed during the study aligns with the findings from \cite{Jussupow2021}, where medical practitioners experienced similar conflicts when using a decision support system to diagnose \ac{COPD}. When being confronted with AI decisions that conflicted with their own assessment, the practitioners experience a \textit{belief conflict}, where they had to decide whether to trust their own judgement or the AI's decision. A similar conflict was observed in this study, but participants did rarely verbalize the conflict. Instead, most participants moved to the \textit{validation conflict}, seeking additional information to resolve the conflict. “Aiming to resolve the validation conflict, decision makers continuously evaluate their personal confidence into their own frame against their perception of the system accuracy” \parencite{Jussupow2021}. During the study the validation conflict was often resolved users discovering their own mistakes (P4, P9, P15) and adopting the chatbot's position.
+
+\subsubsection{Reflection and Learning}
+
+The think-aloud protocols also showed, that participants did not actively reflect on every interaction with the chatbot. Reflection primarily occurred after participants resolved a conflict with the chatbot (P8, P11) or when they were positively surprised by the chatbot's assistance (P1, P2). Participant 8 noted that it “sad, that the chatbot does not detect these logic errors” after realizing he had made a mistake transforming a formula step by step. On the other hand, participant 1 assessed, that “the chatbot helped quite a lot”. It is unclear under which conditions participants actively reflect on interaction with the chatbot, but several general cognitive patterns may play a role:
+
+\begin{itemize}
+    \item \textbf{Abnormality:} % Arrieta2020? Miller2019?
+    \item \textbf{Anchoring \& Ajdustment:} % Tversky1974
+    \item \textbf{Confirmation Bias:} % Nickerson1998
+\end{itemize}
+
+Since questionnaires were only administered after all tasks were completed, it is unclear whether participants' perceptions of the chatbot changed during the study.
 
 \subsubsection{Additional Observations} \label{sssec:additional_observations}
 
-Participants rarely actively engaged with the explanations provided by the chatbot in group (E). Only two participants (P8, P9) explicitly mention the \ac{CoT} explanation. In both instances the explanation was treated as additional information, that was used once the user was stuck. Other participants in group (E) did not mention the explanations at all. Similarly, users in group (B) did not comment on the lack of explanations. Therefore the explanations did not seem to have a significant impact on the participants' behaviour or perception of the chatbot. The instances where the explanations were used, could also be due to the interface design, which initially hid the explanations in a collapsed section.
-
-The think-aloud protocols also showed, that conscious reflection of the chatbot's responses was rare.
-
-Only two participants (P5, P10) explicitly mentioned that they were reflecting on the chatbot's responses. Other participants seemed to accept the chatbot's responses without much scrutiny, even when they were incorrect. This could be due to a lack of trust in their own abilities or an over-reliance on the chatbot.
+Participants rarely actively engaged with the explanations provided by the chatbot in group (E). Only two participants (P8, P9) explicitly mention the \ac{CoT} explanation. In both instances the explanation was treated as additional information, that was used once the user was stuck. Other participants in group (E) did not mention the explanations at all. Similarly, users in group (B) did not comment on the lack of explanations. Therefore, the explanations did not seem to have a significant impact on the participants' behaviour or perception of the chatbot. The instances where the explanations were used, could also be due to the interface design, which initially hid the explanations in a collapsed section.
 
 \subsection{Quantitative Results} \label{ssec:quant_results}
