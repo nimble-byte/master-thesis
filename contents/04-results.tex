@@ -120,24 +120,26 @@ In total seven constructs were evaluated using established questionnaires, as de
     \begin{tabularx}{\textwidth}{l|X|X|X|X|X}
         \textbf{Construct} & \textbf{Mean (B)} & \textbf{Mean (E)} & \textbf{U} & \textbf{p-value} \\
         \hline
-        Perceived Usefulness (TAM) & $5.233$ &  $5.905$ &  $9.000$ &  $0.095$* \\
-        Perceived Ease of Use (TAM) & $6.300$ &  $5.929$ &  $21.000$ &  $0.745$ \\
-        Computer Self-Efficacy (CSE) & $9.240$ &  $8.214$ &  $19.500$ &  $0.659$ \\
-        Mental Load (\ac{NASA}-\ac{TLX}) & $12.800$ &  $10.714$ &  $21.500$ &  $0.282$ \\
-        Performance (\ac{NASA}-\ac{TLX}) & $8.000$ &  $3.857$ &  $24.500$ &  $0.143$ \\
-        Effort (\ac{NASA}-\ac{TLX}) & $10.800$ &  $9.429$ &  $18.000$ &  $0.500$ \\
-        Frustration (\ac{NASA}-\ac{TLX}) & $12.200$ &  $2.571$ &  $33.500$ &  $0.005$* \\
+        Perceived Usefulness $\uparrow$ & $5.233$ &  $5.905$ &  $9.000$ &  $0.095$* \\
+        Perceived Ease of Use $\uparrow$ & $6.300$ &  $5.929$ &  $21.000$ &  $0.745$ \\
+        Computer Self-Efficacy $\uparrow$ & $9.240$ &  $8.214$ &  $19.500$ &  $0.659$ \\
+        Mental Load $\downarrow$ & $12.800$ &  $10.714$ &  $21.500$ &  $0.282$ \\
+        Performance $\downarrow$ & $8.000$ &  $3.857$ &  $24.500$ &  $0.143$ \\
+        Effort $\downarrow$ & $10.800$ &  $9.429$ &  $18.000$ &  $0.500$ \\
+        Frustration $\downarrow$ & $12.200$ &  $2.571$ &  $33.500$ &  $0.005$* \\
     \end{tabularx}
-    \caption[Quantitative Results of the Study]{Quantitative Results of the Study (Constructs marked with * are significant)}
+    \caption[Quantitative Results of the Study]{Quantitative Results of the Study. Arrows indicate if a higher or lower score is better. Constructs marked with * are significant.}
     \label{tab:quant_results}
 \end{ctable}
 
 The results indicate, that the initial hypotheses that explanations improve acceptance and reduce load and stress are correct. The constructs \textit{perceived usefulness} and \textit{frustration} show statistically significant differences between the two groups. Even though the other constructs do not show statistically significant differences, the scores indicate, that explanations could have a positive effect on these constructs as well. The two statistically significant constructs are discussed further in the following sections.
 
-Additional information about the quantitative evaluation can be found in the repository accompanying this thesis \parencite{Goepfert2025}. This includes the raw data, as well as the analysis scripts used to prepare, analyse and visualize the data. The analysis scripts are written in Python as Jupyter Notebooks and rely on Pandas, SciPy and Matplotlib.
+Further statistical analysis (e.g. corrlation of constructs) has been omitted due to the small sample size. Additional information about the quantitative evaluation can be found in the repository accompanying this thesis \parencite{Goepfert2025}. This includes the raw data, as well as the analysis scripts used to prepare, analyse and visualize the data. The analysis scripts are written in Python as Jupyter Notebooks and rely on Pandas, SciPy and Matplotlib.
 
 \subsubsection{Perceived Usefulness} \label{sssec:model_acceptance}
 
 The perceived usefulness of the chatbot was significantly higher in group (E) with explanations ($M=5.905$) compared to group (B) without explanations ($M=5.233$), $U=9.000$, $p=0.095$. This indicates, that participants in group (E) found the chatbot more useful for completing the tasks compared to participants in group (B).
 
 \subsubsection{Frustration} \label{sssec:frustration}
+
+The frustration experienced by participants was significantly lower in group (E) with explanations ($M=2.571$) compared to group (B) without explanations ($M=12.200$), $U=33.500$, $p=0.005$. This indicates, that participants in group (E) felt less frustrated when using the chatbot compared to participants in group (B).
