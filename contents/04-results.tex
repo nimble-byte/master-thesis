@@ -107,3 +107,35 @@ Participants rarely actively engaged with the explanations provided by the chatb
 
 \subsection{Quantitative Results} \label{ssec:quant_results}
 
+The quantitative data collected from the questionnaires was cleaned and analysed as described in section \ref{sssec:quantitative_analysis}. The quantitative analysis focuses on the differences between the two groups ((E) with explanations and (B) without explanations as baseline).
+For readability results will be rounded to two decimals.
+
+\subsubsection{Evaluation Procedure} \label{sssec:eval_procedure}
+
+In total seven constructs were evaluated using established questionnaires, as described in section \ref{sssec:quantitative_analysis}. The raw data was prepared by excluding participants that did not follow the instructions sufficiently (see section \ref{ssec:study_participants}) and calculating the mean score for each construct. The mean scores were then compared between the two groups using Mann-Whitney U tests. The results of the quantitative evaluation are presented in Table \ref{tab:quant_results}. The table shows the mean scores for each construct split by Group, as well as the U statistic and p-value for the Mann-Whitney U tests. A significance level of $\alpha = 0.1$ was used for all tests.
+
+\begin{ctable}
+    \begin{tabularx}{\textwidth}{l|X|X|X|X|X}
+        \textbf{Construct} & \textbf{Mean (B)} & \textbf{Mean (E)} & \textbf{U} & \textbf{p-value} \\
+        \hline
+        Perceived Usefulness (TAM) & $5.233$ &  $5.905$ &  $9.000$ &  $0.095$* \\
+        Perceived Ease of Use (TAM) & $6.300$ &  $5.929$ &  $21.000$ &  $0.745$ \\
+        Computer Self-Efficacy (CSE) & $9.240$ &  $8.214$ &  $19.500$ &  $0.659$ \\
+        Mental Load (\ac{NASA}-\ac{TLX}) & $12.800$ &  $10.714$ &  $21.500$ &  $0.282$ \\
+        Performance (\ac{NASA}-\ac{TLX}) & $8.000$ &  $3.857$ &  $24.500$ &  $0.143$ \\
+        Effort (\ac{NASA}-\ac{TLX}) & $10.800$ &  $9.429$ &  $18.000$ &  $0.500$ \\
+        Frustration (\ac{NASA}-\ac{TLX}) & $12.200$ &  $2.571$ &  $33.500$ &  $0.005$* \\
+    \end{tabularx}
+    \caption[Quantitative Results of the Study]{Quantitative Results of the Study (Constructs marked with * are significant)}
+    \label{tab:quant_results}
+\end{ctable}
+
+The results indicate, that the initial hypotheses that explanations improve acceptance and reduce load and stress are correct. The constructs \textit{perceived usefulness} and \textit{frustration} show statistically significant differences between the two groups. Even though the other constructs do not show statistically significant differences, the scores indicate, that explanations could have a positive effect on these constructs as well. The two statistically significant constructs are discussed further in the following sections.
+
+Additional information about the quantitative evaluation can be found in the repository accompanying this thesis \parencite{Goepfert2025}. This includes the raw data, as well as the analysis scripts used to prepare, analyse and visualize the data. The analysis scripts are written in Python as Jupyter Notebooks and rely on Pandas, SciPy and Matplotlib.
+
+\subsubsection{Perceived Usefulness} \label{sssec:model_acceptance}
+
+The perceived usefulness of the chatbot was significantly higher in group (E) with explanations ($M=5.905$) compared to group (B) without explanations ($M=5.233$), $U=9.000$, $p=0.095$. This indicates, that participants in group (E) found the chatbot more useful for completing the tasks compared to participants in group (B).
+
+\subsubsection{Frustration} \label{sssec:frustration}
