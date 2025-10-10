@@ -62,6 +62,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+% Include helper commands
+\include{helper/commands.tex}
+
 \sloppy
 
   \UDOTitle
@@ -103,9 +106,9 @@
 % \listoffigures
 % \clearpage
 
-% \addcontentsline{toc}{section}{\listtablename}
-% \listoftables
-% \clearpage
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+\clearpage
 
 \addcontentsline{toc}{section}{Acronyms}
 \input{helper/acronym.tex}
@@ -128,9 +131,8 @@
 \include{contents/01-introduction.tex}
 \include{contents/02-literature.tex}
 \include{contents/03-methods.tex}
-\include{contents/04-data_collection.tex}
-\include{contents/05-results.tex}
-\include{contents/06-discussion.tex}
+\include{contents/04-results.tex}
+\include{contents/05-discussion.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% References are inserted automatically %%
