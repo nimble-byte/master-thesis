@@ -8,3 +8,4 @@ nothink
 CoT
 TLX
 RTLX
+satisficing
