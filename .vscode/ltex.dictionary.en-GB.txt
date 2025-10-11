@@ -8,4 +8,4 @@ nothink
 CoT
 TLX
 RTLX
-satisficing
+LLM-based
