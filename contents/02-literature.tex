@@ -80,45 +80,33 @@ Like other metacognitive processes, individuals are not always aware of the eval
 
 \subsection{Cognition of AI Decisions} \label{ssec:cognition_ai_decisions}
 
-\subsection{Additional Notions} \label{ssec:additional_notions}
+Two recent studies have investigated how users cognitively process AI output in decision support systems and \acp{LLM}. Results suggest a heuristic-systematic approach to processing AI output, suggesting that users employ both Type 1 and Type 2 processing when interacting with AI systems \parencite{Jussupow2021,Kazemitabaar2024}. Findings from both studies indicate also that problems arise when users fail to switch from heuristic to systematic processing when necessary.
 
-% % New proposed structure for the section:
-% \subsection{Explainable Artificial Intelligence (XAI)} \label{ssec:xai}
+\cite{Jussupow2021} investigated the cognitive and metacognitive processes of doctors using \ac{AI}-based decision support systems. Their findings present a process model based on \ac{NDM} \parencite{Klein2008, Klein2015}, where the user initially constructs a \textit{frame} for a decision based on their initial (heuristic) assessment of the situation. If the \ac{AI} confirms the frame, users usually accept the frame as final decision. If the \ac{AI} contradicts the frame however, users enter a \textit{belief conflict}, in which they have to decide whether they believe more in their own abilities or the \ac{AI}'s capabilities. “If neither belief is dominant, physicians move into the validation conflict, in which they use additional data to validate their own frame and the AI advice.” During this conflict, users engage in systematic processing of additional information to find support for either their own decision or the \ac{AI}'s. Failure to correctly switch to systematic processing leads to errors more frequently. The complete process model is shown in Figure \ref{fig:jussupow_process_model}.
 
-% \ac{XAI}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/fig_jussupow_model.png}
+    \caption[Process Model of AI-Assisted Decision-Making]{Process Model of AI-Assisted Decision-Making \parencite{Jussupow2021}}
+    \label{fig:jussupow_process_model}
+\end{figure}
 
-% \cite{Arieta2020}
+In an experiment having researchers perform data analysis tasks with the support of a \ac{LLM}, \cite{Kazemitabaar2024} found that stepwise task decomposition improves the perceived ease of use of the \ac{AI} and reduced frustration. Users cited improved steering and transparency as key factors for this improvement. Additionally, users reported that the ability to have side conversations with the \ac{LLM} to clarify steps or request additional information was particularly important. Furthermore, users found it easier to verify the output and to intervene and fix errors with stepwise decomposition. These findings suggest, that a \ac{CoT} approach can facilitate an improved perception of transparency and act as an explanation for the \ac{LLM}'s output. This improved perception can facilitate the switch from heuristic to systematic processing when necessary, leading to improved decision-making with \acp{LLM}.
 
-% \subsubsection{Discriminative vs. Generative Models} \label{sssec:disc_vs_gen}
+\subsection{Psychology of Explanations} \label{ssec:psychology_explanations}
 
-% \subsubsection{Transparency and Post-hoc Explainability} \label{sssec:transparency_posthoc}
+\cite{Miller2019} reviewed literature from cognitive psychology and social sciences to identify key challenges for \ac{XAI}. A key finding of the review is that explanations can be seen through three different lenses:
 
-% \subsubsection{Established Explainability Methods} \label{sssec:established_methods}
+\begin{itemize}
+    \item Explanations are a \textbf{cognitive process}, that involves the selection and organization of information to create an explanation.
+    \item The cognitive process results in a \textbf{product}, which is the explanation itself.
+    \item Explanations are a \textbf{social process}, that involves the interaction between the explainer and the explainee.
+\end{itemize}
 
-% \cite{Ribeiro2016}
+As discussed in Section \ref{ssec:explainability_methods}, much research has been performed into the \textit{cognitive process} (i.e., generation) and the \textit{product} of explanations. However, the \textit{social process} of explanations has been largely neglected in \ac{XAI} research. \cite{Martens2025} proposed narrative explanations as a way to improve the \textit{social process} of explanations by making them more natural and easier to understand for non-experts. \acp{LLM} offer an additional opportunity to improve the explanation process by enabling interactive explanations through natural language conversations. This allows the \ac{LLM} as the explainer to adapt explanations to the specific needs of the explainer and consequently improve the explanation selection.
 
-% \cite{Lundberg2017}
+Since \cite{Miller2019} published these findings \cite{Wachter2017} proposed counterfactual explanations as a way to improve the effectiveness of explanations. Counterfactual explanations align well with the findings of \cite{Lipton1990}, who identified that humans often do not seek a complete causal explanation, but rather focus on contrasting the event $P$ that occurred with an event $Q$ that did not occur. By focusing on the differences between $P$ (called \textbf{fact}) and $Q$ (called \textbf{foil}), humans can more easily understand the causal relationships that led to the event. In absence of a clear \textbf{foil}, it has to be inferred from context, which emphasizes the importance of explanations being tailored to the explainee.
 
-% \subsubsection{Novel Explainability Approaches} \label{sssec:novel_approaches}
+\subsection{AI Anthropomorphism} \label{ssec:ai_anthropomorphism}
 
-% \cite{Martens2025}
-
-% \subsection{Cognitive Psychology} \label{ssec:cognitive_psychology}
-
-% \subsubsection{Dual Process Theory and Heuristics} \label{sssec:dual_process}
-
-% \cite{Kahnemann2011}
-
-% \subsubsection{Cognitive Offloading} \label{sssec:cognitive_offloading}
-
-% \subsubsection{Metacognition} \label{sssec:metacognition}
-
-% \subsubsection{Psychology of Explanations} \label{sssec:psychology_explanations}
-
-% \cite{Miller2019}
-
-% \subsubsection{Cognition and Metacognition of AI Decisions} \label{sssec:cognition_metacognition_ai}
-
-% \cite{Jussupow2021}
-
-% \cite{Shin2021}
+Anthropomorphism refers to different facets of the attribution of human characteristics to non-human agents \parencite{Li2022}. In the context of this thesis, the focus lies on the perception of \ac{AI} systems as human-like. This attribution of human-like characteristics can significantly influence how users perceive and therefore interact with the system \parencite{Li2022}. Primarily, anthropomorphism influences users' trust in the system \parencite{Shin2021}. It also influences users acceptance and intention to use the system \parencite{Li2022}. Given these findings, it can be assumed that anthropomorphism acts as a moderating variable, that could reduce users criticality towards \ac{AI} and hinder effective switching from heuristic to systematic processing when necessary.
