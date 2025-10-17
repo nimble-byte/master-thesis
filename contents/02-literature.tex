@@ -8,7 +8,7 @@ This Section provides an overview of \ac{XAI} by first defining key terminology 
 
 \subsubsection{Terminology} \label{sssec:terminology}
 
-While in the field of \ac{XAI} the terms \textit{interpretability}, \textit{explainability} and \textit{understandability} are often used interchangeably, in cognitive psychology they have distinct meanings. \textit{Interpretability} is a broad concept that encompasses various ways to “provide the meaning in understandable terms to a human” \parencite{Arieta2020}. \textit{Explainability} is one mode of these modes \parencite{Lipton2016}, that uses an explanation to convey that meaning. \textit{Transparency} is another mode of \textit{interpretability} that conveys meaning by making the inner workings of a model visible to a human \parencite{Arieta2020}. Lastly, \textit{understandability} is a term often used as a synonym for \textit{interpretability} in software engineering \parencite{Alonso2018}.
+While in the field of \ac{XAI} the terms \textit{interpretability}, \textit{explainability} and \textit{understandability} are often used interchangeably, in cognitive psychology they have distinct meanings. \textit{Interpretability} is a broad concept that encompasses various ways to “provide the meaning in understandable terms to a human” \parencite{Arrieta2020}. \textit{Explainability} is one of these modes \parencite{Lipton2016}, that uses an explanation to convey that meaning. \textit{Transparency} is another mode of \textit{interpretability} that conveys meaning by making the inner workings of a model visible to a human \parencite{Arrieta2020}. Lastly, \textit{understandability} is a term often used as a synonym for \textit{interpretability} in software engineering \parencite{Alonso2018}.
 
 The most important distinction for this thesis is between generative and discriminative models. Conceptually generative and discriminative \ac{AI} both use machine learning to learn patterns from data. They are however fundamentally different in their application. Discriminative models learn the decision boundary between two or more classes and are used for classifying data points into these existing classes. Common use cases include anomaly detection \parencite{Edozie2025, Hilal2022}, image classification \parencite{Lu2007}, and sentiment analysis \parencite{Wankhade2022}. Generative models on the other hand learn the underlying distribution of a dataset and can be used to generate new data points that are similar to the training data. Generative models are frequently used for text generation \parencite{Brown2020} or image synthesis \parencite{Rombach2021}.
 
@@ -16,7 +16,7 @@ In the context of \ac{XAI} generative and discriminative models differ in one ke
 
 \subsubsection{Explainability Methods} \label{sssec:explainability_methods}
 
-Much research in \ac{XAI} has focused on developing explainability methods for discriminative models. These methods can be broadly categorized into two groups: transparency-based methods and post-hoc explainability methods \parencite{Arieta2020}. Transparency-based methods aim to make the inner workings of a model visible to a human. This can be achieved by using simple models like decision trees or linear regression that are inherently interpretable \parencite{Rudin2019}. Post-hoc explainability methods on the other hand aim to explain the output of a model without making its inner workings visible. This is achieved by highlighting important features in the input data (like LIME \parencite{Ribeiro2016}) or by approximating the model with a simpler interpretable model (like SHAP \parencite{Lundberg2017}). While these methods have proven to be effective in explaining models, both approaches are very technical and are difficult to understand for non-experts \parencite{Martens2025}.
+Much research in \ac{XAI} has focused on developing explainability methods for discriminative models. These methods can be broadly categorized into two groups: transparency-based methods and post-hoc explainability methods \parencite{Arrieta2020}. Transparency-based methods aim to make the inner workings of a model visible to a human. This can be achieved by using simple models like decision trees or linear regression that are inherently interpretable \parencite{Rudin2019}. Post-hoc explainability methods on the other hand aim to explain the output of a model without making its inner workings visible. This is achieved by highlighting important features in the input data (like LIME \parencite{Ribeiro2016}) or by approximating the model with a simpler interpretable model (like SHAP \parencite{Lundberg2017}). While these methods have proven to be effective in explaining models, both approaches are very technical and are difficult to understand for non-experts \parencite{Martens2025}.
 
 Recently, new explainability approaches have been proposed that seek to remedy these shortcomings. Counterfactual explanations \parencite{Wachter2017} provide explanations by explaining why an alternative output was not chosen. For example in a loan application, a counterfactual explanation could state that if the applicant had a higher income, the loan would have been approved. Another approach are narrative explanations which use natural language to construct a short narrative around SHAP or counterfactual explanations \parencite{Martens2025}.
 
@@ -29,10 +29,10 @@ This Section provides an overview of relevant theories and findings from cogniti
 
 \subsubsection{Dual Process Theory} \label{sssec:dual_process}
 
-Dual process theory refers to a group of theories in cognitive psychology that proposes humans have two distinct types of cognitive processing: Type 1 and Type 2 \parencite{Evans2013}. Type 1 processing is intuitive, autonomous processing and often referred to as “System 1” \parencite{Kahnemann2011}. Different theories propose different additional characteristics of Type 1 processing (see Table \ref{tab:dual_process_characteristics}), but common characteristics focus on the autonomous and intuitive nature of Type 1 processing. Type 2 processing (also “System 2”) on the other hand is deliberate, controlled processing that requires cognitive effort \parencite{Evans2013}. Type 2 processing is often associated with higher-order cognitive functions like reasoning, problem-solving, and decision-making \parencite{Kahnemann2011}.
+Dual process theory refers to a group of theories in cognitive psychology that proposes humans have two distinct types of cognitive processing: Type 1 and Type 2 \parencite{Evans2013}. Type 1 processing is intuitive, autonomous processing and often referred to as “System 1” \parencite{Kahneman2011}. Different theories propose different additional characteristics of Type 1 processing (see Table \ref{tab:dual_process_characteristics}), but common characteristics focus on the autonomous and intuitive nature of Type 1 processing. Type 2 processing (also “System 2”) on the other hand is deliberate, controlled processing that requires cognitive effort \parencite{Evans2013}. Type 2 processing is often associated with higher-order cognitive functions like reasoning, problem-solving, and decision-making \parencite{Kahneman2011}.
 
 \begin{ctable}
-    \begin{tabularx}{0.5\textwidth}{l|l}
+    \begin{tabular}{l|l}
         \textbf{Type 1} & \textbf{Type 2} \\
         \hline
         Autonomous & Deliberate \\
@@ -43,7 +43,7 @@ Dual process theory refers to a group of theories in cognitive psychology that p
         Non-conscious & Conscious \\
         Biased responses & Normative responses \\
         Contextualized & Abstract \\
-    \end{tabularx}
+    \end{tabular}
     \caption[Type 1 and Type 2 Characteristics]{Common characteristics of Type 1 and Type 2 processing in dual process theories \parencite{Evans2013}}
     \label{tab:dual_process_characteristics}
 \end{ctable}
