@@ -8,6 +8,11 @@
     \begingroup
     \tablespacing
 
+    % Suppress underfull/overfull box warnings locally inside tables \hbadness controls reporting of underfull hbox
+    % badness; setting it % to 10000 suppresses those warnings. \vbadness does the same for vboxes.
+    \hbadness=10000
+    \vbadness=10000
+
     \begin{table}[#1]
     \centering
 }{
