@@ -9,3 +9,5 @@ CoT
 TLX
 RTLX
 LLM-based
+satisficing
+explainee

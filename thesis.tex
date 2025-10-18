@@ -63,7 +63,7 @@
 
 \begin{document}
 % Include helper commands
-\include{helper/commands.tex}
+\input{helper/commands.tex}
 
 \sloppy
 
@@ -102,9 +102,9 @@
 \pagenumbering{Roman}
     \setcounter{page}{3}
 
-% \addcontentsline{toc}{section}{\listfigurename}
-% \listoffigures
-% \clearpage
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+\clearpage
 
 \addcontentsline{toc}{section}{\listtablename}
 \listoftables
@@ -129,7 +129,7 @@
 
 % Chapters with page breaks
 \include{contents/01-introduction.tex}
-\include{contents/02-literature.tex}
+\include{contents/02-fundamentals.tex}
 \include{contents/03-methods.tex}
 \include{contents/04-results.tex}
 \include{contents/05-discussion.tex}
@@ -154,7 +154,7 @@
 %% Eidesstattliche Erklärung
 %% in affidavit.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{helper/affidavit.tex}
+% \input{helper/affidavit.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% AI Disclaimer
