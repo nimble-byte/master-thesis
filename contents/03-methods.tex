@@ -4,6 +4,7 @@ To investigate the effect of explainable generative \ac{AI} on users' problem-so
 
 \subsection{Research Design} \label{ssec:research_design}
 
+% TODO: Consider adding study desing reference
 The participants were tasked with solving maths problems with the help of a chatbot, that was tuned to assist the users without solving the problems for them. Qualitative data about the problem-solving approach was collected as think-aloud protocols, while additional quantitative data about the perception of the chatbot was recorded using questionnaires. To investigate the effects of explanations, participants were split into two separate groups, that provided different chatbots: Group (E) was using a chatbot, that provided an explanation for its outputs, group (B) did not receive an explanation. Both groups were served tasks from the same pool and answered the same questionnaires after completing the tasks. The goal was to perform a between-subjects comparison of the two groups to identify differences in problem-solving strategies and metacognitive processes.
 
 \subsubsection{Tasks} \label{sssec:tasks}
@@ -14,6 +15,8 @@ The problems given to the participants needed to be of sufficient complexity to 
 Participants were given sets of three random problems selected, with the constraint that only “medium” and “difficult” problems were included during the study. The problems were presented digitally in a custom web application. The participant were shown the task image, text, and answer options at once. The tool recorded participants responses and time taken to solve the tasks. In case a participant was unable to solve a problem, it was replaced by a new problem of the same difficulty.
 
 \subsubsection{Chatbot Design} \label{sssec:chatbot_design}
+
+% TODO: Mention I built the chatbot (... clarify)
 
 The design of the chatbot was driven by several requirements and constraints, derived from the research questions and practical considerations. The main consideration was to ensure that the chatbot would assist the participants, without solving the problems for them. Additionally, the chatbot should support image inputs, as the problems included visual information. Lastly, that chatbot should be able to provide a \ac{CoT} explanations, to allow for comparison between users with and without explanations.
 
