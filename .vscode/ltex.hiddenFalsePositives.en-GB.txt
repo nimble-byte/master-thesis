@@ -5,3 +5,8 @@
 {"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\QWhile in the field of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q the terms interpretability, explainability and understandability are often used interchangeably, in cognitive psychology they have distinct meanings.\\E$"}
 {"rule":"MASS_AGREEMENT","sentence":"^\\QAnother approach are narrative explanations which use natural language to construct a short narrative around SHAP or counterfactual explanations \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QType 1 Type 2 Autonomous Deliberate Intuitive Controlled Fast Slow Parallel Serial Non-conscious Conscious Biased responses Normative responses Contextualized Abstract [Type 1 and Type 2 Characteristics]Common characteristics of Type 1 and Type 2 processing in dual process theories \\E(?:Dummy|Ina|Jimmy-)[0-9]+$"}
+{"rule":"THREE_NN","sentence":"^\\QThe two-step analysis process allows to retain a connection between the data and the theoretical results \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"HYPOTHESIS_TYPOGRAPHY","sentence":"^\\QH1 can thus be accepted.\\E$"}
+{"rule":"HYPOTHESIS_TYPOGRAPHY","sentence":"^\\QThis means that hypothesis H2 can be accepted.\\E$"}
+{"rule":"HYPOTHESIS_TYPOGRAPHY","sentence":"^\\QH4 is partially supported, as effects from the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q questionnaire indicate reduced mental load and effort as well as improved performance when explanations are provided, although these effects are not statistically significant.\\E$"}
+{"rule":"HYPOTHESIS_TYPOGRAPHY","sentence":"^\\QFinally, no significant effects were found for self-efficacy, leading to the rejection of H3.\\E$"}

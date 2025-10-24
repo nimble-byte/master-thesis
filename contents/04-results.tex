@@ -1,10 +1,17 @@
 \section{Results} \label{sec:results}
 
-The following section presents the findings of the study. The results are organized into qualitative results in section \ref{ssec:qual_results} and quantitative results in section \ref{ssec:quant_results}. Before presenting the results, the characteristics of the study participants are shortly described in section \ref{ssec:study_participants}, as well as reasons for participant exclusion.
+The following section presents the findings of the study. The results are organized into qualitative results in section \ref{ssec:qual_results} and quantitative results in section \ref{ssec:quant_results}. Before presenting the results of the qualitative and quantitative analysis, the characteristics of the study participants are shortly described in section \ref{ssec:study_participants}, as well as reasons for participant exclusion.
 
 \subsection{Study Participants} \label{ssec:study_participants}
 
-Study participants were recruited through two channels: (1) students at the TU Dortmund recruited through chair for Enterprise Computing or personal contact and (2) colleagues of the author. A total of 15 participants were recruited throughout July 2025. With 13 of the participants the experiment was conducted in August 2025, while 2 participants dropped out of the study due to time constraints. One participant was excluded from the analysis due to not following the instructions for the think aloud protocols sufficiently, producing unusable data. The final sample thus consists of 12 participants.
+Study participants were recruited through two channels: (1) students at the TU Dortmund recruited through chair for Enterprise Computing or personal contact and (2) colleagues of the author. A total of 20 participants were invited to participate throughout July 2025. The experiment was conducted in August 2025 with 13 of the participants, while 2 participants were dropped from the study due to time constraints. One participant was excluded from the analysis due to not following the instructions for the think aloud protocols sufficiently, producing unusable data. The selection process is summarized in Figure \ref{fig:participant_flow}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/fig-participant_flowchart.png}
+    \caption{Participant Selection Flowchart}
+    \label{fig:participant_flow}
+\end{figure}
 
 The participants were exclusively male, with additional demographic information about age and education presented in Table \ref{tab:age_dist} and Table \ref{tab:edu_bg}. The final sample consisted of 12 participants, with 5 in group (B) without explanations and 7 in group (E) with explanations.
 
@@ -43,7 +50,7 @@ The participants were exclusively male, with additional demographic information 
 
 \subsection{Qualitative Results} \label{ssec:qual_results}
 
-The qualitative data collected from the think-aloud protocols was analysed through two rounds of coding as described in section \ref{sssec:qualitative_analysis}. The codes produced in the first round of coding, were then grouped into categories (axes). The four main conclusions drawn from the qualitative data are presented in the following sections: Usage patterns (\ref{sssec:usage_patterns}), errors and conflicts (\ref{sssec:errors_conflicts}), reflection and learning (\ref{sssec:reflection_learning}) and explanation usage (\ref{sssec:explanation_usage}).
+The qualitative data collected from the think-aloud protocols was analysed as described in section \ref{sssec:qualitative_analysis}. The codes produced in the first round of coding, were then grouped into categories (axes). The four main conclusions drawn from the qualitative data are presented in the following sections: Usage patterns (\ref{sssec:usage_patterns}), errors and conflicts (\ref{sssec:errors_conflicts}), reflection and learning (\ref{sssec:reflection_learning}) and explanation usage (\ref{sssec:explanation_usage}).
 
 \subsubsection{Usage Patterns} \label{sssec:usage_patterns}
 
@@ -55,7 +62,7 @@ Participants in both groups utilized the chatbot for varying purposes, if they d
         \hline
         Non-Use & The participant does not use the chatbot at all & “I did not need the LLM for that.” (P3) \\
         Fact Questions & The participant uses the chatbot to ask for specific facts, formulas, or definitions & “What is the formula for the circumference of a circle if 'r' is given?” (P13) \\
-        Approach Questions & The participant uses the chatbot to ask for a solution or solution approach & “What approach should I take and how should I take the relationship into account.” \\
+        Approach Questions & The participant uses the chatbot to ask for a solution or solution approach & “What approach should I take and how should I take the ratio into account.” (P4) \\
         Validation Questions & The participant uses the chatbot to verify their own solution or solution approach & “I'll send the solution to [\dots] the chatbot to see if it makes sense.” (P5)
     \end{tabularx}
     \caption{Usage Patterns of the Chatbot}
@@ -68,43 +75,41 @@ Overall the usage patterns align with the behaviour for cognitive offloading des
 
 \subsubsection{Errors and Conflicts} \label{sssec:errors_conflicts}
 
-Participants in both groups encountered errors and conflicts during their interactions with the chatbot. It is important to note, that the problems described here, are conflicts and errors perceived by the participants, and not objective conflicts. These perceived issues can be grouped into three categories, which are presented in Table \ref{tab:conflicts_errors}.
-
-% ToDo: Is distinguishing between misundersanding and incorrect information necessary sensible?
-% - since the issues are distinguished by the participants, it is irrelevant whether the information is actually incorrect or not
+Participants in both groups encountered errors and conflicts during their interactions with the chatbot. It is important to note, that the problems described here, are conflicts and errors perceived by the participants. They can be caused by either the chatbot or the participant. These perceived issues can be grouped into two categories, which are presented in Table \ref{tab:conflicts_errors}.
 
 \begin{ctable}
     \begin{tabularx}{\textwidth}{l|X|X}
         \textbf{Category} & \textbf{Definition} & \textbf{Example} \\
         \hline
         Incorrect Information & The chatbot provides factually incorrect information & “But it [the chatbot] says, that I have $\overline{AB}$ given, which is not correct either.” (P4) \\
-        Misunderstanding & The participant misinterprets the chatbot's response & “Okay, 'intersects at two points' is the same as 'touches at two points'. Not for me.” (P11) \\
         Conflicting Information & The chatbot provides information that contradicts previous responses or known facts & “First it [the chatbot] says 'almost correct', then 'correct' [for the same solution]” (P11) \\
     \end{tabularx}
     \caption{Categories of Errors and Conflicts with the Chatbot}
     \label{tab:conflicts_errors}
 \end{ctable}
 
-The most frequently encountered issue was \textit{incorrect information}, where participants perceived the chatbot's responses as factually incorrect (P4, P8, P13, P15). In many cases however, the participants simply misread the response (P8) or forgot information provided in the task or previously calculated (P4, P13, P15). Similarly, \textit{misunderstandings} were often due to participants misreading or misinterpreting the chatbot's response (e.g. P11, P13). Conversely, during task 54 participants frequently received wrong advice from the chatbot, but did not recognize the error immediately. Given that none mentioned the wrong information from the chatbot in their think-aloud protocols, it can be assumed that a form of “satisficing” \parencite{Simon1955} took place, where participants accepted the chatbot's response without further scrutiny.
+The most frequently encountered issue was \textit{incorrect information}, where participants perceived the chatbot's responses as factually incorrect (P4, P8, P13, P15). In many cases however, the participants simply misread the response (P8) or forgot information provided in the task or previously calculated (P4, P13, P15). In a similar fashion participants misunderstood or misinterpreted the chatbot's response (e.g. P11, P13). Conversely, during task 54 participants frequently received wrong advice from the chatbot, but did not recognize the error immediately. Given that none mentioned the wrong information from the chatbot in their think-aloud protocols, it can be assumed that a form of “satisficing” \parencite{Simon1955} took place, where participants accepted the chatbot's response without further scrutiny.
 
-The conflict behaviour observed during the study aligns with the findings from \textcite{Jussupow2021}, where medical practitioners experienced similar conflicts when using a decision support system to diagnose \ac{COPD}. When being confronted with AI decisions that conflicted with their own assessment, the practitioners experience a \textit{belief conflict}, where they had to decide whether to trust their own judgement or the AI's decision. A similar conflict was observed in this study, but participants did rarely verbalize the conflict. Instead, most participants moved to the \textit{validation conflict}, seeking additional information to resolve the conflict. “Aiming to resolve the validation conflict, decision makers continuously evaluate their personal confidence into their own frame against their perception of the system accuracy” \parencite{Jussupow2021}. For these purposes participants employed strategies similar to those described by \textcite{Jussupow2021}, such as seeking additional information to confirm either position (\textit{self-monitoring} or \textit{system monitoring}). Additionally, participants sometimes decided to correct the chatbot with additional prompts, effectively taking on the role of a teacher (\textit{teaching the system}). During the study the validation conflict was often resolved users discovering their own mistakes (P4, P9, P15) and adopting the chatbot's position.
+The conflict behaviour observed during the study aligns with the findings from \textcite{Jussupow2021}, where medical practitioners experienced similar conflicts when using a decision support system to diagnose \ac{COPD}. When being confronted with AI decisions that conflicted with their own assessment, the practitioners experience a belief conflict, where they had to decide whether to trust their own judgement or the AI's decision. A similar conflict was observed in this study, but participants did rarely verbalize the conflict. Instead, most participants moved to the validation conflict, seeking additional information to resolve the conflict. “Aiming to resolve the validation conflict, decision makers continuously evaluate their personal confidence into their own frame against their perception of the system accuracy” \parencite{Jussupow2021}. For these purposes participants employed strategies similar to those described by \textcite{Jussupow2021}, such as seeking additional information to confirm either position (self-monitoring or system monitoring). Additionally, participants sometimes decided to correct the chatbot with additional prompts, effectively taking on the role of a teacher (teaching the system). During the study the validation conflict was often resolved users discovering their own mistakes (P4, P9, P15) and adopting the chatbot's position.
 
-Participants sometimes struggled to resolve conflicts especially if they reached the stage of the \textit{validation conflict}. Participant 5, for example, stated “I do not know where the [problem] is right now.” after struggling to understand a solution approach suggested by the chatbot. This aligns with the findings of \textcite{Jussupow2021}, who observed that users struggle to appropriately switch from type 1 to type 2 cognition when confronted with conflicting AI advice. This is underlined by participant 2 stating, “It is hard sometimes to connect [the chatbot's responses] to what I am thinking” after having completed all tasks.
+Participants sometimes struggled to resolve conflicts especially if they reached the stage of the validation conflict. Participant 5, for example, stated “I do not know where the [problem] is right now.” after struggling to understand a solution approach suggested by the chatbot. This aligns with the findings of \textcite{Jussupow2021}, who observed that users struggle to appropriately switch from type 1 to type 2 cognition when confronted with conflicting AI advice. This is underlined by participant 2 stating, “It is hard sometimes to connect [the chatbot's responses] to what I am thinking” after having completed all tasks.
 
 \subsubsection{Reflection and Learning} \label{sssec:reflection_learning}
 
 The think-aloud protocols also showed, that participants did not actively reflect on every interaction with the chatbot. Reflection primarily occurred after participants resolved a conflict with the chatbot (P8, P11) or when they were positively surprised by the chatbot's assistance (P1, P2). Participant 8 noted that it was “sad, that the chatbot does not detect these logic errors” after realizing he had made a mistake transforming a formula step by step. On the other hand, participant 1 assessed, that “the chatbot helped quite a lot”. It is unclear under which conditions participants actively reflect on interaction with the chatbot, but two general cognitive patterns may play a role:
 
 \begin{itemize}
-    \item \textbf{Abnormality:} The fact, that participants only reflected on interactions that were either very positive or negative, could be explained through the \textit{abnormality} that these scenarios represent. Humans tend to focus on events perceived as abnormal or unexpected, when seeking and constructing explanations \parencite{Miller2019}
-    \item \textbf{Anchoring \& Adjustment:} The heuristic of \textit{anchoring and adjustment} \parencite{Tversky1974} relates to the notion of abnormality as well. Participants could have anchored their expectations of the chatbot's performance based on prior experiences with chatbots or AI systems in general. When the chatbot's performance deviated significantly from these expectations, it could have triggered reflection.
+    \item \textbf{Abnormality:} The fact, that participants only reflected on interactions that were either very positive or negative, could be explained through the abnormality that these scenarios represent. Humans tend to focus on events perceived as abnormal or unexpected, when seeking and constructing explanations \parencite{Miller2019}.
+    \item \textbf{Anchoring \& Adjustment:} The heuristic of anchoring and adjustment \parencite{Tversky1974} relates to the notion of abnormality as well. Participants could have anchored their expectations of the chatbot's performance based on prior experiences with chatbots or AI systems in general. When the chatbot's performance deviated significantly from these expectations, it could have triggered reflection.
 \end{itemize}
 
 Some interactions with the chatbot also led to learning effects, where participants adapted their interaction strategy based on previous experiences. For example participant 8 encountered an issue, where the chatbot was unable to follow multiple changes to a formula in a single message. After this incident, the participant reflected that “the AI could not cope with the fact I calculated the squares” and subsequently adapted his interaction strategy to send smaller, incremental changes to the chatbot. Since questionnaires were only administered after all tasks were completed, no quantitative data about the evolution of the participants' perceptions is available.
 
 \subsubsection{Explanation Usage} \label{sssec:explanation_usage}
 
-Participants rarely actively engaged with the explanations provided by the chatbot in group (E). Only two participants (P8, P9) explicitly mention the \ac{CoT} explanation. In both instances the explanation was treated as additional information, that was used once the user was stuck. Other participants in group (E) did not mention the explanations at all. Similarly, users in group (B) did not comment on the lack of explanations. Therefore, the explanations did not seem to have a significant impact on the participants' behaviour or perception of the chatbot. The instances where the explanations were used, could also be due to the interface design, which initially hid the explanations in a collapsed section.
+Participants rarely actively engaged with the explanations provided by the chatbot in group (E). Only two participants (P8, P9) explicitly mention the \ac{CoT} explanation. In both instances the explanation was treated as additional information, that was used once the user was stuck. Other participants in group (E) did not mention the explanations at all. Similarly, users in group (B) did not comment on the lack of explanations.
+% Clean up this setence to aviod interpreting
+Therefore, the explanations did not seem to have a significant impact on the participants' behaviour or perception of the chatbot. The instances where the explanations were used, could also be due to the interface design, which initially hid the explanations in a collapsed section.
 
 \subsubsection{Anthropomorphism} \label{sssec:anthropomorphism}
 
@@ -118,6 +123,8 @@ For readability results will be rounded to three decimals.
 \subsubsection{Evaluation Procedure} \label{sssec:eval_procedure}
 
 In total seven constructs were evaluated using established questionnaires, as described in section \ref{sssec:quantitative_analysis}. The raw data was prepared by excluding participants that did not follow the instructions sufficiently (see section \ref{ssec:study_participants}) and calculating the mean score for each construct. The mean scores were then compared between the two groups using Mann-Whitney U tests. The results of the quantitative evaluation are presented in Table \ref{tab:quant_results}. The table shows the mean scores for each construct split by Group, as well as the U statistic and p-value for the Mann-Whitney U tests. A significance level of $\alpha = 0.1$ was used for all tests.
+
+% TODO: Create a legend for the table?
 
 \begin{ctable}
     \begin{tabularx}{\textwidth}{l|X|X|X|X|X}
@@ -151,4 +158,4 @@ The difference in response structure could be a factor influencing the perceived
 
 Group (E) experienced significantly less \textit{frustration} ($M=2.571$) compared to group (B) ($M=12.200$), with $p=0.005$ ($U=33.500$). This indicates, that participants in group (E) felt less frustrated when using the chatbot compared to participants in group (B). The reduced frustration could be due to several factors. Similar to the perceived usefulness, the structured response format could have played a role. The shortened responses made it easier for participants to extract relevant information, leading to reduced \textit{cognitive load} and \textit{effort}. This is supported by the lower scores for \textit{mental load} and \textit{effort} in group (E), even though these differences were not statistically significant. Additionally, the presence of explanations could have provided participants with a sense of transparency and understanding of the chatbot's reasoning process. Even though the explanations were rarely used, their mere presence could have reduced uncertainty and increased trust in the chatbot's responses, leading to reduced frustration.
 
-% This is a little thin and I could chekc what additional info I can put in here (later)
+% This is a little thin and I could check what additional info I can put in here (later)
