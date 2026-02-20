@@ -1,0 +1,21 @@
+changelog:
+  exclude:
+    labels:
+      - 'good first issue'
+      - 'help wanted'
+      - wontfix
+  categories:
+    - title: Content
+      labels:
+        - content
+        - correction
+    - title: Completed Research
+      labels:
+        - research
+    - title: Technical Changes
+      labels:
+        - technical
+    - title: Completed Documentation & Admin Tasks
+      labels:
+        - documentation
+        - admin

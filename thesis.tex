@@ -1,0 +1,162 @@
+% LTeX: enabled=false
+\documentclass[12pt,oneside]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   Additional Packages  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{acronym}
+\usepackage{enumitem}
+\usepackage{a4wide}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{palatino}
+\usepackage{blindtext}
+\usepackage{multirow}
+\usepackage[ruled,longend]{algorithm2e}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+% Listings configuration: monospaced style, line numbers, line breaks and UTF-8 input
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  % inputencoding=utf8,
+  % Map common German characters so listings shows them correctly under pdflatex
+  literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1
+}
+
+% Links without borders/highlighting
+\usepackage[bookmarks, pdfborder={0 0 0}]{hyperref}
+
+\usepackage[justification=centering]{caption}
+\usepackage{csquotes}
+
+% APA Style für Bibtex
+\usepackage[style=apa,natbib=true,backend=biber]{biblatex}
+
+\DefineBibliographyStrings{english}{
+  bibliography = {References},
+}
+\bibliography{literature}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definition der Header %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\setlength{\headheight}{16pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Input of Titlepage %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\input{helper/titlepage.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Beginning of Document %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+% Include helper commands
+\input{helper/commands.tex}
+
+\sloppy
+
+  \UDOTitle
+      {Attribution of Theory of Mind to Explainable Generative AI Models}  % Titel der Arbeit
+      {Til Goepfert}                                                       % Vor- und Nachname des Autors
+      {238061}                                                             % Matrikelnummer des Autors
+      {Master Applied Computer Science}                                    % Studiengang
+      {Master Thesis}                                                      % Art der Arbeit
+      {20.02.2026}                                                         % Tag der Anmeldung
+      {19.08.2026}                                                         % Tag der Abgabe
+      {Prof. Dr. Christian Janiesch}                                       % Name des Erstgutachters
+      {Msc. Pauline Speckmann}                                             % Name des Zweitgutachters
+
+  \clearpage
+
+\pagenumbering{Roman}
+    \setcounter{page}{1}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%
+%%  Abstract   %%
+%%%%%%%%%%%%%%%%%
+\markboth{Abstract}{Abstract}
+\include{helper/abstract.tex}
+
+% \clearpage
+
+\lhead{}
+
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+\pagenumbering{Roman}
+    \setcounter{page}{3}
+
+% \addcontentsline{toc}{section}{\listfigurename}
+% \listoffigures
+% \clearpage
+
+% \addcontentsline{toc}{section}{\listtablename}
+% \listoftables
+% \clearpage
+
+\addcontentsline{toc}{section}{Acronyms}
+\input{helper/acronym.tex}
+\clearpage
+
+
+%%%%%%%%%%%%%%%%
+%%  Settings  %%
+%%%%%%%%%%%%%%%%
+\cleardoublepage
+\pagenumbering{arabic}
+    \setcounter{page}{1}
+\lhead{\nouppercase{\leftmark}}
+
+%%%%%%%%%%%%
+%%  Main  %%
+%%%%%%%%%%%%
+
+% Chapters with page breaks
+\include{contents/01-introduction.tex}
+\include{contents/02-fundamentals.tex}
+\include{contents/03-methods.tex}
+\include{contents/04-results.tex}
+\include{contents/05-discussion.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% References are inserted automatically %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+\lhead{}
+\addcontentsline{toc}{section}{\bibname}
+\printbibliography
+
+%%%%%%%%%%%%%%%%
+%%  Appendix  %%
+%%%%%%%%%%%%%%%%
+% \newpage
+\addcontentsline{toc}{section}{Appendix}
+\include{contents/99-appendix.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% AI Disclaimer
+%% in ai-disclaimer.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{helper/ai-disclaimer.tex}
+
+
+\end{document}
+% LTeX: enabled=true
