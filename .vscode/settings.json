@@ -1,0 +1,13 @@
+{
+    "ltex.additionalRules.motherTongue": "de-DE",
+    "ltex.completionEnabled": true,
+    "ltex.language": "en-GB",
+
+    "latex-workshop.latex.outDir": "%DIR%/build",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.bibtex-format.sort.enabled": true,
+    "latex-workshop.bibtex-format.sortby": [
+        "key",
+        "year-asc"
+    ]
+}
