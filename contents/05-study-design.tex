@@ -1,1 +1,113 @@
 \section{Study Design} \label{sec:study-design}
+
+As the study evaluated in this thesis is not published, the design of the study is described in the following sections. It was originally designed as mixed-methods study to investigate the effects of explanations for generative AI models on the cognition and metacognition of users. This thesis will reuse the data collected in the study and re-evaluate it focusing on the research questions of this thesis. This chapter also provides the rationale for the choices made for the study and is structured as follows: Section \ref{ssec:research-design} describes the research design of the study, including the problem selection, experiment procedure, participants, tool implementation and evaluation. Section \ref{ssec:tool-implementation} describes the implementation of the tools used in the study, including the chatbot and task tool. Lastly section \ref{ssec:evaluation} describes the evaluation of the study for the purposes of this thesis.
+
+\subsection{Research Design} \label{ssec:research-design}
+
+The following sources (among others) were referenced for the research design of this study:
+
+\begin{itemize}
+    \item \textcite{Hart2006}
+\end{itemize}
+
+The study was designed as mixed-methods study with a between-subjects comparison. Participants were presented three tasks from a pool of maths problems and were asked to solve them with the help of a chatbot. Participants were split into two groups, that received different chatbots. The chatbot for group (E) provided \ac{CoT} explanations for its outputs, while the chatbot for the control group (C) did not. Quantitative data was collected through the task presentation tool and post-experiment questionnaires. Qualitative data was collected through think-aloud protocols during the task solving. Additional qualitative data was gathered based on unprompted feedback from participants after the experiment concluded.
+
+\subsubsection{Problem Selection} \label{sssec:problem-selection}
+
+Problem selection was guided by the two key criteria of ease of access and complexity. “Ease of access” refers to the availability of problems and the correct solutions, which are required for the study. “Complexity” refers to the level of difficulty of the problems. In general the problems needed to balance being complex enough to warrant the use of a chatbot for assistance and suitable to produce meaningful think-aloud protocols, while being simple enough to be solvable by a wide range of potential participants. Inspired by \textcite{Wang2024}, the problems were selected from an existing dataset of mathematical problems. Specifically the “testmini” split of the MathVista dataset \parencite{MathVista2024} was used, as the correct answers for these problems are publicly available, and the problems are of suitable complexity for the study: The problems are posed in natural language often combined with an image, requiring combination of both linguistic and visual information to solve them. Additionally, the problems require multiple steps to solve, which makes them suitable for the think-aloud protocol. Alternative datasets like the MATH dataset \parencite{Hendrycks2021} were considered, but ultimately not used due to the open answer format and lack of multimodality of the problems.
+
+% ToDo: add examples of problems from MathVista and MATH dataset
+
+The pool of problems for the experiment was pre-selected based on initial testing and classification by the researcher into three levels of difficulty (easy, medium, hard). After pre-testing the experiment procedure with non-participant volunteers, “easy” problem were removed from the pool, as they were found to be too simple to produce meaningful think-aloud protocols. The final pool of problems consisted of nine problems (five “difficult” and four “medium” difficulty problems). To reduce the language barrier for participants, the selected problems were translated from English to German.
+
+\subsubsection{Experiment Procedure} \label{sssec:experiment-procedure}
+
+Experiments were conducted as one-on-one sessions between each participant and the researcher. Each in person session lasted approximately 60 minutes and was conducted in a quiet room, to minimise distractions and improve the quality of the audio recordings for the think-aloud protocols.
+
+The experimental procedure was divided into three phases: the introduction, the task solving phase and the post-experiment questionnaire and inspired by the experiments performed by \textcite{Jussupow2021} and \textit{Kazemitabaar2024}.
+
+During the introduction participants were welcomed and provided an overview of the experimental procedure, think-aloud protocols, and an explanation of the chatbot. To reduce stress felt by participants, a cover story was provided. The overview of the chatbot was given in form of a demonstration by the researcher, pointing out the key features of the chatbot (multi-modal input, explanations for group (E)). Afterwards participants solved a practice task as outlined in \textcite{VanSomeren1994}, to familiarise themselves with the procedure of thinking aloud and the chatbot.
+
+In the task solving phase three randomly selected tasks were given to participants in sequence. Participants were provided the chatbot, a scientific calculator and a pen and paper as assistance, which they could use at their discretion. During the entire task solving phase, participants were encouraged to think aloud, verbalising their thoughts and reasoning processes as they worked through the problems \parencite{VanSomeren1994}. No time limit was set for solving the problems, but participants were allowed to request a new problem if they felt that the current problem was unsolvable. The researcher was present during the task solving phase to observe and take notes, but intervened only to provide technical assistance if needed or to encourage participants to think aloud if they were silent for an extended period of time.
+
+% ToDo: add screenshots of the chatbot demonstration and practice task
+
+The post-experiment questionnaire given to participants after consisted of four parts: a demographic questionnaire, the \ac{TAM} questionnaire \parencite{Davis1989}, the \ac{CSE} questionnaire \parencite{Compeau1995}, and the \acs{NASA}-\ac{TLX} questionnaire \parencite{Hart1988}. The questionnaires were administered in German, and the items were translated from their original English versions by the researcher.
+
+After the experiment the audio recordings of the think-aloud protocols were transcribed using OpenAI Whisper \parencite{Radford2022} using the “medium” model with the language set to German. The transcriptions were then manually checked and corrected by the researcher to ensure accuracy. The final transcriptions were combined with the chat logs from the chatbot and the notes taken by the researcher during the experiment for the subsequent analysis.
+
+\subsubsection{Participants} \label{sssec:participants}
+
+Participants for the study were recruited through convenience sampling from two different sources: (1) students recruited through the chair of Enterprise Computing at the TU Dortmund, and (2) colleagues and acquaintances of the researcher. The channels were chosen to reach participants with a background in \ac{STEM}, to ensure a basic level of mathematical proficiency required for the tasks. Participants were split pseudo-randomly into the two groups (E) and (C), by alternatively assigning participants to the groups as they were recruited.
+
+In total 20 participants were asked to take part in the study, of which 15 responded to the recruitment message. 13 participants were able to schedule an experiment session, with two participants dropping out due to time constraints. The final sample consisted of 12 participants, as one participant was excluded from the analysis, due to unusable think-aloud protocols. The participant selection process is visualised in the flowchart in Figure \ref{fig:part-flow}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/fig-participant_flowchart.png}
+    \caption{Participant Selection Flowchart}
+    \label{fig:part-flow}
+\end{figure}
+
+The final sample consisted only of male participants, with 7 participants in group (E) and 5 participants in group (C). Additional information about the participants can be found in Tables \ref{tab:part-age} and \ref{tab:part-edu}.
+
+\begingroup
+\tablespacing
+
+\begin{table}[ht]
+    \parbox{.45\linewidth}{
+        \centering
+        \begin{tabular}{cc}
+            Age Range & Count \\
+            \hline
+            20--29 & 8 \\
+            30--39 & 2 \\
+            40--49 & 1 \\
+            60--69 & 1
+        \end{tabular}
+        \caption{Age Distribution of Participants}
+        \label{tab:part-age}
+    }
+    \hfill
+    \parbox{.45\linewidth}{
+        \begin{tabular}{cc}
+            Education Level & Count \\
+            \hline
+            University Degree & 8 \\
+            Vocational Training & 2 \\
+            Grammar School & 2
+        \end{tabular}
+        \caption{Educational Background of Participants}
+        \label{tab:part-edu}
+    }
+\end{table}
+
+\endgroup
+
+The participants were almost exclusively recruited through the personal network of the researcher, with only one participant of the final sample recruited through the university chair. They were not compensated for their participation in the study, but were offered a debriefing after the experiment, where they were informed about the purpose of the study.
+
+\subsection{Tool Implementation} \label{ssec:tool-implementation}
+
+\subsubsection{Chatbot} \label{sssec:model-selection}
+
+The following sources and \acp{LLM} were considered for the study:
+
+\begin{itemize}
+    \item \href{https://lmstudio.ai/}{LM Studio}
+    \item \href{https://ollama.com/}{Ollama}
+    \item \href{https://docs.openwebui.com/}{Open WebUI}
+    \item \textcite{GemmaTeam2025}
+    \item \textcite{Mistral2025}
+    \item \textcite{Qwen2025}
+\end{itemize}
+
+\subsubsection{Task Tool} \label{sssec:task-tool}
+
+The following sources (among others) were referenced for the task tool used in the study:
+
+\begin{itemize}
+    \item \textcite{Goepfert2025}
+    \item \href{https://www.limesurvey.org/}{LimeSurvey}
+\end{itemize}
+
+\subsection{Evaluation} \label{ssec:evaluation}
