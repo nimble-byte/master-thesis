@@ -57,7 +57,7 @@ The final sample consisted only of male participants, with 7 participants in gro
 \begin{table}[ht]
     \parbox{.45\linewidth}{
         \centering
-        \begin{tabular}{cc}
+        \begin{tabular}{c|c}
             Age Range & Count \\
             \hline
             20--29 & 8 \\
@@ -70,7 +70,7 @@ The final sample consisted only of male participants, with 7 participants in gro
     }
     \hfill
     \parbox{.45\linewidth}{
-        \begin{tabular}{cc}
+        \begin{tabular}{c|c}
             Education Level & Count \\
             \hline
             University Degree & 8 \\
@@ -88,7 +88,35 @@ The participants were almost exclusively recruited through the personal network 
 
 \subsection{Tool Implementation} \label{ssec:tool-implementation}
 
+The study outlined above required the selection or implementation of two software components essential to the study. Firstly, the chatbots used by the participants for the task solving needed to be implemented. This meant selecting a suitable \ac{LLM} and providing a user interface for participants to interact with. Secondly, a tool for presenting the tasks and recording the participants' responses for the maths problems. The implementation of these tools was guided by the following criteria:
+
+\begin{enumerate}[label=(\textbf{C\arabic*}),leftmargin=2em]
+    \item \textbf{Implementation Effort:} The entire study needed to be performed by a single researcher within one semester, which meant that the implementation of tools needed to be efficient and not require extensive development time.
+    \item \textbf{Cost:} As the study was self-funded, the cost of implementing the tools needed to be minimal, which meant that free or open-source solutions were preferred.
+    \item \textbf{Usability:} The chatbot needed to be user-friendly for participants, especially considering that the cover story claimed the chatbot was the primary artefact evaluated in the study. The task tool needed to be easy to use and allow for quick adjustments in functionality by the researcher during the preparation of the experiment.
+    \item \textbf{Regulation:} The tools needed to comply with data protection regulations in Germany (i.e., GDPR) and additional regulatory burdens for research studies. This meant storing data locally or on university servers was strongly preferred.
+\end{enumerate}
+
+These criteria guided the selection and implementation of all tools used in the study, including the chatbot, the task tool and the tools used for data collection and analysis. The rest of this section describes the rationale for the choices made for the chatbot and task tool, while the tools used for data collection and analysis are described in the evaluation section (Section \ref{ssec:evaluation}). Both sections will follow the same structure. First, the requirements for the respective tool are outlined, followed by a list of potential sources and implementations that were considered for the tool. Lastly, the final choice for the tool is described and justified.
+
 \subsubsection{Chatbot} \label{sssec:model-selection}
+
+% ToDo: get a source for "chatbot"-features that could be implied
+The procedure of developing the above chatbots follows the phases outlined by \textcite{Hyder2026}. It is important to note that the design of the chatbots was primarily guided by the requirements derived from the study design, as the chatbot was not the primary artefact evaluated in the study, but rather a means to investigate the effects of explanations on users. The chatbot needed to be functional and usable for participants, but did not need to be optimised for performance or user experience beyond what was necessary for the study. The key requirements for the chatbot can be summarised as follows, denoted as (\textbf{CR1}) to (\textbf{CR3}):
+
+\begin{enumerate}[label=(\textbf{CR\arabic*}),leftmargin=2em]
+    \item The chatbot must not solve the problems for the participants, but rather provide assistance in the form of hints and explanations. This was necessary to ensure that participants were actively collaborating with the chatbot and to produce meaningful think-aloud protocols.
+    \item The chatbot must be able to provide explanations for its outputs for only one of the two groups. This was necessary to investigate the effects of explanations, by isolating the presence of explanations as the only difference between the two groups.
+    \item If possible, the chatbot should be able to accept multimodal input, as the problems used in the study contained both textual and visual information. This was not a strict requirement, but was desired to improve the usability of the chatbot for participants and to produce more natural interactions.
+\end{enumerate}
+
+With the requirements established, the next stage was to select a suitable \ac{LLM} to power the chatbot as it was the core component of the chatbot and had major implications for the functionality of the chatbot. The decision for the \ac{LLM} was made in two steps: Firstly, a decision needed to be made whether to use an \textit{online} \ac{LLM} (i.e., a \ac{LLM} accessed through an API) or an \textit{offline} \ac{LLM} (i.e., a \ac{LLM} that can be run locally on a computer). Secondly, a specific model needed to be selected considering the decision made in the first step.
+
+% ToDo: add footnotes for the links to the providers and models mentioned in the following paragraphs.
+For the category of \textit{online} \acp{LLM}, models hosted by \href{https://platform.claude.com/docs/en/api/overview}{Anthropic}, \href{https://openai.com/api/}{OpenAI} and \href{https://ai.google.dev/gemini-api/docs}{Google} were considered, as these providers were the most prominent at the time of study design. The \textit{offline} \acp{LLM} were open source models available on \href{https://huggingface.co/}{Hugging Face}. The decision between \textit{online} and \textit{offline} \acp{LLM} was performed by comparing the two classes of models based on the criteria and requirements outlined above.
+
+% ToDo: find a source for the model size being an indicator for the performance of the model
+\textit{Offline} models offered the advantages of being free to use compared to a pay-per-use pricing model of \textit{online} models (\textbf{C2}). While educational credits were available for some providers of \textit{online} models, the application process for these credits was time-consuming and uncertain, which made the cost and implementation time of \textit{online} models unpredictable (\textbf{C1}, \textbf{C2}). Due to hardware limitations it was to be expected, that \textit{offline} models would not perform as well as \textit{online} models, which could potentially impact the usability of the chatbot for participants (\textbf{C3}). European data protection regulations (i.e., GDPR) and additional regulatory burdens for research studies made the use of \textit{online} models more difficult, as privacy policies of providers needed to be reviewed. Functional requirements (\textbf{CR1}) and (\textbf{CR2}), were both achievable equally with \textit{online} and \textit{offline} models, as the behaviour of the chatbot could be controlled through prompt engineering. \textit{Online} models offered more options for mutimodal input (\textbf{CR3}). However, some \textit{offline} models also offered multimodal input, and it was possible to add multimodal capabilities to \textit{offline} models using a \ac{RAG} approach, which made the difference between the two classes of models for this requirement less significant. Overall, the advantages of \textit{offline} models in terms of cost and regulation outweighed the potential disadvantages in terms of performance and multimodal capabilities, which led to the decision to use an \textit{offline} model for the chatbot.
 
 The following sources and \acp{LLM} were considered for the study:
 
@@ -102,6 +130,15 @@ The following sources and \acp{LLM} were considered for the study:
 \end{itemize}
 
 \subsubsection{Task Tool} \label{sssec:task-tool}
+
+The task tool used in the study was a utility for presenting the tasks to participants and recording their responses. The requirements for the task tool can be derived from the study design described in the previous sections, and can be summarised in the following key requirements denoted as (\textbf{CT1}) to (\textbf{CT3}):
+
+\begin{enumerate}[label=(\textbf{CT\arabic*}),leftmargin=2em]
+    \item The tool must be able to display a given task including the image, task text, and answer options to participants.
+    \item The tool must be able to display three random tasks from the pool of pre-selected tasks in sequence. This was necessary to ensure that participants were not interrupted during the task solving phase.
+    \item The tool must offer the option to replace any task with a new random task from the pool, if requested by the participant. This was necessary to ensure that participants were not stuck on an unsolvable problem and to maintain the flow of the experiment.
+    \item The tool must allow to display a test tasks for the introduction and practice phase of the experiment. This was necessary to familiarise participants with the procedure of thinking aloud and the chatbot.
+\end{enumerate}
 
 The following sources (among others) were referenced for the task tool used in the study:
 
