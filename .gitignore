@@ -20,6 +20,3 @@ build/
 
 # Mac Stuff
 .DS_Store
-
-# Temporary ignores
-code/
