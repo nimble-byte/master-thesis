@@ -125,6 +125,25 @@ With the decision for the class of \ac{LLM} and runtime made, the third step foc
 
 The selected models were evaluated through preliminary testing. System prompts were designed to elicit the desired behaviour, with different prompts for the two chatbots; the prompts were identical except for an instruction to use zero-shot chain-of-thought reasoning \parencite{Wei2022, Kojima2022} for the explanation group (E). For Qwen, the built-in reasoning toggle was used instead of prompt engineering. Each chatbot was tested against problems from the problem pool and evaluated based on subjective assessment of response quality, considering requirements (\textbf{CR1}), (\textbf{CR2}), and (\textbf{CR3}). Qwen 30B was eliminated as it frequently failed to provide hints without solving problems, violating requirement (\textbf{CR1}). Both Gemma 3 and Mistral Small 3.2 performed equally well in assisting providing assistance. Finally, Mistral Small 3.2 was selected due to Gemma's more verbose responses, which were expected to be less user-friendly for participants (\textbf{C3}), as reading through long responses from the chatbot and filtering out the relevant information was expected to be more challenging for participants. Additionally, the longer responses increased the risk of the chatbot accidentally solving problems for participants (\textbf{CR1}). The final prompts used for the chatbots can be found in Appendix.
 
+Since the chatbot variants were implemented using LM Studio, the user interface was identical for both groups, which ensured that the presence of explanations was the only difference between the two groups. Through the system prompt, the chain of thought was wrapped into an HTML-style \texttt{<think>} tag, which was rendered as interactive element that participants could click to expand the explanations. Figure \ref{fig:chatbots} shows screenshots of the introductory task demonstration for both chatbots.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/fig-chatbot-explanation.png}
+        \caption{Chatbot with explanations}
+        \label{fig:chatbot_E}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/fig-chatbot-control.png}
+        \caption{Chatbot without explanations}
+        \label{fig:chatbot_C}
+    \end{subfigure}
+    \caption{Screenshots of the introductory task demonstration for both chatbots. The chatbot for group (E) shows the examples of the collapsed and expanded explanations, while the chatbot for group (C) does not show any explanations.}
+    \label{fig:chatbots}
+\end{figure}
+
 \subsubsection{Task Tool} \label{sssec:task-tool}
 
 The task tool used in the study was a utility for presenting the tasks to participants and recording their responses. The requirements for the task tool can be derived from the study design described in the previous sections, and can be summarised in the following key requirements denoted as (\textbf{CT1}) to (\textbf{CT3}):
@@ -147,7 +166,7 @@ Table \ref{tab:task-tool-comp} summarises the comparison of the two options base
 
 \begin{ctable}
     \begin{tabular}{c|c|c}
-        \textbf{Requirement} & \textbf{NextJS Web App} & \textbf{LimeSurvey} \\
+        \textbf{Requirement} & \textbf{Next.js Web App} & \textbf{LimeSurvey} \\
         \hline
         CT1 & Yes & Yes \\
         CT2 & Yes & Yes \\
@@ -164,7 +183,14 @@ Table \ref{tab:task-tool-comp} summarises the comparison of the two options base
     \label{tab:task-tool-comp}
 \end{ctable}
 
-According to the evaluation, the custom web application was selected as the tool for presenting tasks to participants. The web application was built using Next.js with the assistance of GitHub Copilot, with the source code available in a public repository \parencite{Goepfert2025}. Throughout the implementation process, the primary focus was on fulfilling the requirements outlined above, while building a pragmatic and simple solution. Therefore, data is read from and stored in the file system in JSON format, which allowed for quick implementation and easy access to the data for analysis.
+According to the evaluation, the custom web application was selected as the tool for presenting tasks to participants. The web application was built using Next.js with the assistance of GitHub Copilot, with the source code available in a public repository \parencite{Goepfert2025}. Throughout the implementation process, the primary focus was on fulfilling the requirements outlined above, while building a pragmatic and simple solution. Therefore, data is read from and stored in the file system in JSON format, which allowed for quick implementation and easy access to the data for analysis. A screenshot of the task display is shown in figure \ref{fig:task-tool}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/fig-task_viewer.png}
+    \caption[Screenshot of the task tool]{Screenshot of the task tool with simple column layout. At the top a progress bar shows the progress for participants. Below that the task is displayed with the task ID, the image, the translated task text and response options. Below the tasks are buttons to replace the current task and progress to the next task, once a response is given.}
+    \label{fig:task-tool}
+\end{figure}
 
 The application provided participants with a unique participant ID, which was used to link the responses recorded by the task tool with the survey data collected through the post-experiment questionnaire. Additionally, the ID was used to anonymise audio recordings, transcriptions and chat logs for the analysis to eliminate privacy concerns and to avoid bias in the analysis based on participant characteristics.
 
