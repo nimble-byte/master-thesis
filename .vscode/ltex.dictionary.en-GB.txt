@@ -6,3 +6,4 @@ Ollama
 Qwen
 testmini
 WebUI
+prescriptiveness
