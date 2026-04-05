@@ -31,7 +31,7 @@ While the process suggested by \textcite{Moeller2020} provides a number of steps
 
 \subsection{Thesis Methodology} \label{ssec:thesis-methodology}
 
-Literature offers a variety of definitions and different formal characteristics of design principles \parencite{Gregor2020}, but they can be generally defined as fundamental prescriptive statements, that guide the design of artefacts in a specific context \parencite{Moeller2020}. They are usually generated as the result of a \ac{DSR} project, but are often seen as distinct from other artefacts, such as models, methods, or theories \parencite{Moeller2020}. \textcite{Gregor2020} divide design principles into three categories depending on what they guide: design principles \textbf{about user activity}, design principles \textbf{about an artefact}, and design principles \textbf{about user activity and an artefact}.
+Before discussing the specific methodology of this thesis, it is important to establish a definition for "design principles". Literature offers a variety of definitions and different formal characteristics of design principles \parencite{Gregor2020}, but they can be generally defined as fundamental prescriptive statements, that guide the design of artefacts in a specific context \parencite{Moeller2020}. Design principles are abstract in nature usually generalised as the result of a \ac{DSR} project, for re-use in other projects \parencite{Moeller2020}. \textcite{Gregor2020} divide design principles into three categories depending on what they guide: design principles \textbf{about user activity}, design principles \textbf{about an artefact}, and design principles \textbf{about user activity and an artefact}.
 
 \begin{itemize}
     \item The first category of design principles \textbf{about user activity} prescribe what interactions users are able to perform with an artefact \parencite{Gregor2020}. The category focuses on the role of user activity, e.g. \textit{The user should be able to get explanations for the chatbot's responses.}
@@ -39,15 +39,26 @@ Literature offers a variety of definitions and different formal characteristics 
     \item The third category of design principles \textbf{about user activity and an artefact} prescribe both the interactions users are able to perform and how the artefact should support these interactions \parencite{Gregor2020}. These design principles focus on the relationship between user activity and the artefact, e.g. \textit{The chatbot should generate a chain of thought to explain its outputs, so the user can understand the reasoning behind the chatbot's responses.}
 \end{itemize}
 
-Beginning with the problem explication phase, this thesis has already completed the first steps has already been completed. The introduction and fundamentals chapters (\ref{sec:introduction} and \ref{sec:fundamentals} respectively) have established the problem this thesis addresses and \ref{ssec:research-objectives} has defined the research objectives. Inspired by \textcite{Kuehne2019} this thesis utilises the data of a previously conducted study, which is described in detail in chapter \ref{sec:study-design} alongside detailed rationale about the re-use of the data. Consequently, the design principle development follows the reflective approach, by deriving design principles from the analysis of a previously created artefact.
+In addition to the categories of design principles, \textcite{Gregor2020} suggest a structured format to specify design principles consistently. The format consists of seven components: \textbf{Implementers} instantiate the abstract rules into specific artefacts to accomplish \textbf{Aims} for specific \textbf{Users}. The \textbf{Context} limits the scope for the design principle. The design principle employ \textbf{Mechanisms} to achieve the \textbf{Aims}, potentially involving \textbf{Enactors}, which are subsidiary components or artefacts. The \textbf{Rationale} provides a justification for the design principle. For easier comprehension the design principles can be shown in a table, like the example in table \ref{tab:example-dp}.
 
-% utilise Gregor2020 to get more specific about the format and extraction of design principles. Also read into Kuehne2019 to get more insights.
+\begin{ctable}
+    \centering
+    \begin{tabular}{l|l}
+        \textbf{Component} & \textbf{Example} \\
+        \hline
+        \textit{Implementer}, \textit{Aim}, \textit{User} & For \textit{developers} (\textit{Implementer}) to   \\
+        \textit{Context} & \\
+        \textit{Mechanisms}, \textit{Enactors} \\
+        \textit{Rationale}
+    \end{tabular}
+    \caption[Components of design principles]{Components of a design principle \parencite{Gregor2020} including an example.}
+    \label{tab:example-dp}
+\end{ctable}
 
-The following sources (among others) were referenced for the methodology of this thesis:
+This thesis follows the method for design principle development previously introduced in section \ref{ssec:mdpd}. It provides the process framework that will be followed, with the initial phase of problem explication already being covered in the chapters \ref{sec:introduction} through \ref{sec:methodology}. The design principle development will follow the reflective approach inspired by the process described by \textcite{Kuehne2019}, which derives design principles through qualitative analysis of a previously conducted study. The design principle evaluation will be performed through expert interviews. Iteration of the design principle extraction was omitted due to the time constraints imposed by the scope of this thesis.
 
-\begin{itemize}
-    \item \textcite{Gioia2021}
-    \item \textcite{Gioia2013}
-    \item \textcite{Saldana2015}
-    \item \textcite{VanSomeren1994}
-\end{itemize}
+The phase of problem explication is already covered through the previous chapters, with the research questions representing the solution objective. The research context has been established as the extraction of design principles for the attribution of \ac{ToM} to generative \ac{AI}-systems in a problem-solving context. Due to the open-ended nature of the research questions \textcite{Venable2017} suggest selecting an interpretive approach, which aligns with the reflective approach described by \textcite{Moeller2020}.
+
+The design principle development phase was broken down into its three steps. The problem definition step was used to establish meta-requirements for the design principles, based on a literature review, which is described in detail in chapter \ref{sec:problem-awareness}. The artefact design step was omitted, as the design principles were derived from the analysis of a previously conducted study. The study's methodology is described in detail in chapter \ref{sec:study-design}. The design principle extraction step was performed through a qualitative coding process inspired by \textcite{Kuehne2019}, which is described in detail in chapter \ref{ssec:initial-design-principles}.
+
+The evaluation of design principles was performed through expert interviews, of an industry practitioner and academic experts in the field of \ac{HCI} and \ac{XAI}. The evaluation process is described in detail in section \ref{ssec:design-principle-evaluation}. The evaluation was used to assess the rigour and relevance of the design principles and consequently to revise the design principles, which is described in detail in section \ref{ssec:design-principle-revision}.
