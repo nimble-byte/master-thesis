@@ -8,11 +8,11 @@ The study was designed as mixed-methods study with a between-subjects comparison
 
 \subsubsection{Problem Selection} \label{sssec:problem-selection}
 
-Problem selection was guided by the two key criteria of ease of access and complexity. “Ease of access” refers to the availability of problems and the correct solutions, which are required for the study. “Complexity” refers to the level of difficulty of the problems. In general the problems needed to balance being complex enough to warrant the use of a chatbot for assistance and suitable to produce meaningful think-aloud protocols, while being simple enough to be solvable by a wide range of potential participants. Inspired by \textcite{Wang2024}, the problems were selected from an existing dataset of mathematical problems. Specifically the “testmini” split of the MathVista dataset \parencite{MathVista2024} was used, as the correct answers for these problems are publicly available, and the problems are of suitable complexity for the study: The problems are posed in natural language often combined with an image, requiring combination of both linguistic and visual information to solve them. Additionally, the problems require multiple steps to solve, which makes them suitable for the think-aloud protocol. Alternative datasets like the MATH dataset \parencite{Hendrycks2021} were considered, but ultimately not used due to the open answer format and lack of multimodality of the problems.
+Problem selection was guided by the two key criteria of ease of access and complexity. \enquote{Ease of access} refers to the availability of problems and the correct solutions, which are required for the study. \enquote{Complexity} refers to the level of difficulty of the problems. In general the problems needed to balance being complex enough to warrant the use of a chatbot for assistance and suitable to produce meaningful think-aloud protocols, while being simple enough to be solvable by a wide range of potential participants. Inspired by \textcite{Wang2024}, the problems were selected from an existing dataset of mathematical problems. Specifically the \enquote{testmini} split of the MathVista dataset \parencite{MathVista2024} was used, as the correct answers for these problems are publicly available, and the problems are of suitable complexity for the study: The problems are posed in natural language often combined with an image, requiring combination of both linguistic and visual information to solve them. Additionally, the problems require multiple steps to solve, which makes them suitable for the think-aloud protocol. Alternative datasets like the MATH dataset \parencite{Hendrycks2021} were considered, but ultimately not used due to the open answer format and lack of multimodality of the problems.
 
 % ToDo: add examples of problems from MathVista and MATH dataset
 
-The pool of problems for the experiment was pre-selected based on initial testing and classification by the researcher into three levels of difficulty (easy, medium, hard). After pre-testing the experiment procedure with non-participant volunteers, “easy” problem were removed from the pool, as they were found to be too simple to produce meaningful think-aloud protocols. The final pool of problems consisted of nine problems (five “difficult” and four “medium” difficulty problems). To reduce the language barrier for participants, the selected problems were translated from English to German.
+The pool of problems for the experiment was pre-selected based on initial testing and classification by the researcher into three levels of difficulty (easy, medium, hard). After pre-testing the experiment procedure with non-participant volunteers, \enquote{easy} problem were removed from the pool, as they were found to be too simple to produce meaningful think-aloud protocols. The final pool of problems consisted of nine problems (five \enquote{difficult} and four \enquote{medium} difficulty problems). To reduce the language barrier for participants, the selected problems were translated from English to German.
 
 \subsubsection{Experiment Procedure} \label{sssec:experiment-procedure}
 
@@ -28,13 +28,13 @@ In the task solving phase three randomly selected tasks were given to participan
 
 The post-experiment questionnaire given to participants after consisted of four parts: a demographic questionnaire, the \ac{TAM} questionnaire \parencite{Davis1989}, the \ac{CSE} questionnaire \parencite{Compeau1995}, and the \acs{NASA}-\ac{TLX} questionnaire \parencite{Hart1988}. The questionnaires were administered in German, and the items were translated from their original English versions by the researcher.
 
-After the experiment the audio recordings of the think-aloud protocols were transcribed using OpenAI Whisper \parencite{Radford2022} using the “medium” model with the language set to German. The transcriptions were then manually checked and corrected by the researcher to ensure accuracy. The final transcriptions were combined with the chat logs from the chatbot and the notes taken by the researcher during the experiment for the subsequent analysis.
+After the experiment concluded, the audio recordings of the think-aloud protocols were transcribed using OpenAI Whisper \parencite{Radford2022} using the \enquote{medium} model with the language set to German. The transcriptions were then manually checked and corrected by the researcher to ensure accuracy. The final transcriptions were combined with the chat logs from the chatbot and the notes taken by the researcher during the experiment for the subsequent analysis.
 
 \subsubsection{Participants} \label{sssec:participants}
 
 Participants for the study were recruited through convenience sampling from two different sources: (1) students recruited through the chair of Enterprise Computing at the TU Dortmund, and (2) colleagues and acquaintances of the researcher. The channels were chosen to reach participants with a background in \ac{STEM}, to ensure a basic level of mathematical proficiency required for the tasks. Participants were split pseudo-randomly into the two groups (E) and (C), by alternatively assigning participants to the groups as they were recruited.
 
-In total 20 participants were asked to take part in the study, of which 15 responded to the recruitment message. 13 participants were able to schedule an experiment session, with two participants dropping out due to time constraints. The final sample consisted of 12 participants, as one participant was excluded from the analysis, due to unusable think-aloud protocols. The participant selection process is visualised in the flowchart in Figure \ref{fig:part-flow}.
+In total 20 participants were asked to take part in the study, of which 15 responded to the recruitment message. Thirteen participants were able to schedule an experiment session, with two participants dropping out due to time constraints. The final sample consisted of 12 participants, as one participant was excluded from the analysis, due to unusable think-aloud protocols. The participant selection process is visualised in the flowchart in Figure \ref{fig:part-flow}.
 
 \begin{figure}[ht]
     \centering
@@ -140,9 +140,9 @@ Since the chatbot variants were implemented using LM Studio, the user interface 
 
 \subsubsection{Task Tool} \label{sssec:task-tool}
 
-The task tool used in the study was a utility for presenting the tasks to participants and recording their responses. The requirements for the task tool can be derived from the study design described in the previous sections, and can be summarised in the following key requirements denoted as (\textbf{CT1}) to (\textbf{CT3}):
+The task tool used in the study was a utility for presenting the tasks to participants and recording their responses. The requirements for the task tool can be derived from the study design described in the previous sections, and can be summarised in the following key requirements denoted as (\textbf{TR1}) to (\textbf{TR5}):
 
-\begin{enumerate}[label=(\textbf{CT\arabic*}),leftmargin=2em]
+\begin{enumerate}[label=(\textbf{TR\arabic*}),leftmargin=2em]
     \item The tool must be able to display a given task including the image, task text, and answer options to participants.
     \item The tool must allow to display a test task for the introduction and practice phase of the experiment. This was necessary to familiarise participants with the procedure of thinking aloud and the chatbot.
     \item The tool must be able to display three random tasks from the pool of pre-selected tasks in sequence. This was necessary to ensure that participants were not interrupted during the task solving phase.
@@ -152,9 +152,9 @@ The task tool used in the study was a utility for presenting the tasks to partic
 
 Two potential implementation options for the task tool were considered: a custom implementation of a web application (using \href{https://nextjs.org/}{Next.js})\footnote{https://nextjs.org}, and \href{https://www.limesurvey.org/}{LimeSurvey}\footnote{https://www.limesurvey.org} as a survey tool. Preliminary research was conducted to evaluate both options based on the requirements outlined above and the criteria for tool implementation (Section \ref{ssec:tool-implementation}).
 
-The custom web application offered the advantage of being highly customisable and could be tailored specifically to the needs of the study. The fulfilment of requirements (\textbf{CT1}) to (\textbf{CT5}) could be accomplished, as long as the necessary development time was invested. As the researcher would implement the web application, the monetary cost would be zero (\textbf{C2}), while offering a high level of control over the user experience for participants (\textbf{C3}). Regulatory compliance (\textbf{C4}) could be ensured by storing data locally on the researcher's computer. The implementation effort for a custom web application was expected to be manageable within the time constraints of the study, especially considering the researcher's background in software development (\textbf{C1}).
+The custom web application offered the advantage of being highly customisable and could be tailored specifically to the needs of the study. The fulfilment of requirements (\textbf{TR1}) to (\textbf{TR5}) could be accomplished, as long as the necessary development time was invested. As the researcher would implement the web application, the monetary cost would be zero (\textbf{C2}), while offering a high level of control over the user experience for participants (\textbf{C3}). Regulatory compliance (\textbf{C4}) could be ensured by storing data locally on the researcher's computer. The implementation effort for a custom web application was expected to be manageable within the time constraints of the study, especially considering the researcher's background in software development (\textbf{C1}).
 
-LimeSurvey presented a highly customisable survey tool, that was readily available hosted by the TU Dortmund. While LimeSurvey could easily fulfil requirements (\textbf{CT1}), (\textbf{CT2}) and (\textbf{CT5}), the preliminary research suggested that implementing requirements (\textbf{CT3}) would require workarounds. Based on the documentation it was assumed, that LimeSurvey did not offer the capability to replace a task with a new random task without risking the integrity of survey responses. This meant that requirement (\textbf{CT4}) was violated by LimeSurvey. This meant, that the implementation effort for LimeSurvey was expected to be high, due to the uncertainty of being able to implement all requirements and the potential need for workarounds (\textbf{C1}). Consequently, LimeSurvey was eliminated as option, even though it fulfilled the other criteria of cost (\textbf{C2}), usability (\textbf{C3}) and regulation (\textbf{C4}).
+LimeSurvey presented a highly customisable survey tool, that was readily available hosted by the TU Dortmund. While LimeSurvey could easily fulfil requirements (\textbf{TR1}), (\textbf{TR2}) and (\textbf{TR5}), the preliminary research suggested that implementing requirements (\textbf{TR3}) would require workarounds. Based on the documentation it was assumed, that LimeSurvey did not offer the capability to replace a task with a new random task without risking the integrity of survey responses. This meant that requirement (\textbf{TR4}) was violated by LimeSurvey. This meant, that the implementation effort for LimeSurvey was expected to be high, due to the uncertainty of being able to implement all requirements and the potential need for workarounds (\textbf{C1}). Consequently, LimeSurvey was eliminated as option, even though it fulfilled the other criteria of cost (\textbf{C2}), usability (\textbf{C3}) and regulation (\textbf{C4}).
 
 Table \ref{tab:task-tool-comp} summarises the comparison of the two options based on the requirements and criteria outlined above.
 
@@ -162,11 +162,11 @@ Table \ref{tab:task-tool-comp} summarises the comparison of the two options base
     \begin{tabular}{c|c|c}
         \textbf{Requirement} & \textbf{Next.js Web App} & \textbf{LimeSurvey} \\
         \hline
-        CT1 & Yes & Yes \\
-        CT2 & Yes & Yes \\
-        CT3 & Yes & Challenging \\
-        CT4 & Yes & No \\
-        CT5 & Yes & Yes \\
+        TR1 & Yes & Yes \\
+        TR2 & Yes & Yes \\
+        TR3 & Yes & Challenging \\
+        TR4 & Yes & No \\
+        TR5 & Yes & Yes \\
         \hline
         C1 & Manageable & High \\
         C2 & Free & Free \\
@@ -186,7 +186,7 @@ According to the evaluation, the custom web application was selected as the tool
     \label{fig:task-tool}
 \end{figure}
 
-The application provided participants with a unique participant ID, which was used to link the responses recorded by the task tool with the survey data collected through the post-experiment questionnaire. Additionally, the ID was used to anonymise audio recordings, transcriptions and chat logs for the analysis to eliminate privacy concerns and to avoid bias in the analysis based on participant characteristics.
+The application provided participants with a unique participant ID, which was used to link the responses recorded by the task tool with the survey data collected through the post-experiment questionnaire. Additionally, the ID was used to anonymise audio recordings, transcriptions, and chat logs for the analysis to eliminate privacy concerns and to avoid bias in the analysis based on participant characteristics.
 
 \subsection{Evaluation} \label{ssec:evaluation}
 
