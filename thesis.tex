@@ -1,6 +1,5 @@
 % LTeX: enabled=false
 \documentclass[12pt,oneside]{article}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   Additional Packages  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -14,12 +13,15 @@
 \usepackage{multirow}
 \usepackage[ruled,longend]{algorithm2e}
 \usepackage{float}
-\usepackage{parskip}
 \usepackage{tabularx}
 \usepackage{multirow}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+
+\usepackage{parskip}
+\usepackage{setspace}
+\onehalfspacing
 
 \usepackage{listings}
 % Listings configuration: monospaced style, line numbers, line breaks and UTF-8 input
@@ -35,6 +37,7 @@
 \usepackage[bookmarks, pdfborder={0 0 0}]{hyperref}
 
 \usepackage[justification=centering]{caption}
+\usepackage{subcaption}
 \usepackage{csquotes}
 
 % APA Style für Bibtex
@@ -44,6 +47,10 @@
   bibliography = {References},
 }
 \bibliography{literature}
+
+% Numbering of figures and tables per section
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Definition der Header %%
@@ -104,13 +111,13 @@
 \pagenumbering{Roman}
     \setcounter{page}{3}
 
-% \addcontentsline{toc}{section}{\listfigurename}
-% \listoffigures
-% \clearpage
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+\clearpage
 
-% \addcontentsline{toc}{section}{\listtablename}
-% \listoftables
-% \clearpage
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+\clearpage
 
 \addcontentsline{toc}{section}{Acronyms}
 \input{helper/acronym.tex}
@@ -133,8 +140,11 @@
 \include{contents/01-introduction.tex}
 \include{contents/02-fundamentals.tex}
 \include{contents/03-methods.tex}
-\include{contents/04-results.tex}
-\include{contents/05-discussion.tex}
+\include{contents/04-problem-awareness.tex}
+\include{contents/05-study-design.tex}
+\include{contents/06-design-principles.tex}
+\include{contents/07-discussion.tex}
+\include{contents/08-conclusion.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% References are inserted automatically %%

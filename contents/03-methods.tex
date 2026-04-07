@@ -1,23 +1,64 @@
 \section{Methodology} \label{sec:methodology}
 
-The following sources (among others) were referenced for the methodology of this thesis:
+With the goal and research questions of this thesis established, this chapter describes the methods used to answer the research questions. Firstly, section \ref{ssec:research-paradigm} explains the research methodology of \ac{DSR}. Section \ref{ssec:mdpd} introduces the method for design principle development \parencite{Moeller2020}, which will be the methodological foundation for this thesis. Finally, section \ref{ssec:thesis-methodology} defines the term of \enquote{Design Principles} as used in this thesis, elaborates the specific implementation of the method for design principle development for this thesis, and presents the research process.
+
+\subsection{Research Paradigm} \label{ssec:research-paradigm}
+
+\ac{DSR} is a research methodology that focuses on applying design as research method. On an abstract level, \ac{DSR} aims to generate new (design) knowledge through the creation of artefacts \parencite{Hevner2004,Vaishnavi2015}. Practically, the produced artefacts are often computing systems, including hard- or software \parencite[e.g.,][]{Toreini2018}. Theories, models, and design principles are often generated as complementary outcomes of \ac{DSR}, but can also be the primary outcome of a \ac{DSR} project \parencite[e.g.,][]{Bitzer2016, Scheider2023}.
+
+Depending on the research setting, goals and questions researchers can choose from a variety of \ac{DSR} methodologies, which differ in their process and activities. A key distinction between them is the underlying research paradigm, which distinguish \textbf{positivist} and \textbf{interpretive} research methods \parencite{Venable2017}. Positivist methods are, based on the assumption, that there is an objective reality, that can be observed and measured. In contrast, interpretive methods are based on the assumption that reality is socially constructed and subjective, and that understanding it requires interpreting the meanings and experiences of individuals \parencite{Chen2004}. Consequently, \textcite{Venable2017} suggest selecting a positivist method when three conditions for a research project are met:
+
+\begin{enumerate}
+    \item The research topic is governed by a general set of rules or principles.
+    \item An optimal solution to the problem can be found.
+    \item The researcher believes that findings from research are objective.
+\end{enumerate}
+
+If any of these conditions are not met, an interpretive method should be chosen. For this thesis, the second belief is not met, as the open-ended nature of the research questions does not allow for an optimal solution. Additionally, the field of \ac{HCI} often applies qualitative methods, due to the complexity of interactions between humans and computers \parencite{Adams2008}. Therefore, this thesis will follow an interpretive research paradigm and apply an interpretive \ac{DSR} method.
+
+\subsection{Method for Design Principle Development} \label{ssec:mdpd}
+
+\textcite{Moeller2020} developed the method for design principle development as codified steps for generating design principles. The method proposes seven steps, which can be grouped into three phases: problem explication (steps \rom{1} through \rom{3}), design principle development (steps \rom{4} through \rom{6}), and design principle evaluation (step \rom{7}). The first phase focuses on understanding the problem in its context and deciding on a research approach. Depending on the research approach, the second phase prescribes two different processes for generating design principles. With the \textbf{supportive} approach, design principles are generated based on research conducted before the creation of an artefact. In contrast, the \textbf{reflective} approach derives design principles from the analysis of an artefact. The final phase of the methodology focuses on evaluating the generated design principles, which can be done through various methods, such as expert evaluation or empirical testing. The entire process of the method for design principle development is visualised in \ref{fig:mdpd}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/fig-mdpd.png}
+    \caption[Method for design principle development]{Visualisation of the method for design principle development \parencite{Moeller2020}.}
+    \label{fig:mdpd}
+\end{figure}
+
+While the process suggested by \textcite{Moeller2020} provides a number of steps for generating design principles, it does not prescribe specific methods for each step. Instead, it allows researchers to choose methods that are appropriate for their research context and goals \parencite{Moeller2020}. While phases \rom{1} through \rom{3} are generally applicable, the choice of methods for phases \rom{4} through \rom{7} depends on the research approach and the nature of the artefact being developed. Steps \rom{4} through \rom{6} are often realised through \ac{DSR} methods as demonstrated by \parencite{Scheider2023}. Depending on the artefact, the evaluation can be performed on a theoretical level, through expert interviews or through instantiation of the design principles in an artefact and subsequent empirical testing \parencite{Moeller2020}. Independent of the chosen evaluation method, the assessment of design principles should consider two complementary dimensions: their rigour, referring to formal qualities such as prescriptiveness and appropriate abstractedness, and their relevance, referring to their practical value, including aspects such as novelty, usefulness, accessibility, and guidance\parencite{Moeller2020}.
+
+\subsection{Thesis Methodology} \label{ssec:thesis-methodology}
+
+Before discussing the specific methodology of this thesis, it is important to establish a definition for \enquote{design principles}. Literature offers a variety of definitions and different formal characteristics of design principles \parencite{Gregor2020}, but they can be generally defined as fundamental prescriptive statements, that guide the design of artefacts in a specific context \parencite{Moeller2020}. Design principles are abstract in nature usually generalised as the result of a \ac{DSR} project, for re-use in other projects \parencite{Moeller2020}. \textcite{Gregor2020} divide design principles into three categories depending on what they guide: design principles \textbf{about user activity}, design principles \textbf{about an artefact}, and design principles \textbf{about user activity and an artefact}.
 
 \begin{itemize}
-    \item \textcite{Compeau1995}
-    \item \textcite{Davis1989}
-    \item \textcite{ElementLabs2025}
-    \item \textcite{Goepfert2025}
-    \item \textcite{Gioia2021}
-    \item \textcite{Gioia2013}
-    \item \textcite{Hart2006}
-    \item \textcite{Hart1988}
-    \item \textcite{MathVista2024}
-    \item \textcite{Saldana2015}
-    \item \textcite{VanSomeren1994}
-    \item \acp{LLM}
-    \begin{itemize}
-        \item \textcite{GemmaTeam2025}
-        \item \textcite{Mistral2025}
-        \item \textcite{Qwen2025}
-    \end{itemize}
+    \item The first category of design principles \textbf{about user activity} prescribe what interactions users are able to perform with an artefact \parencite{Gregor2020}. The category focuses on the role of user activity, e.g., \textit{The user should be able to get explanations for the chatbot's responses.}
+    \item Design principles \textbf{about an artefact} describe the form and function of an artefact, i.e., properties of the artefact itself \parencite{Gregor2020}. This category focuses on the properties if the artefact, e.g., \textit{The chatbot should generate a chain of thought to explain its outputs.}
+    \item The third category of design principles \textbf{about user activity and an artefact} prescribe both the interactions users are able to perform and how the artefact should support these interactions \parencite{Gregor2020}. These design principles focus on the relationship between user activity and the artefact, e.g., \textit{The chatbot should generate a chain of thought to explain its outputs, so the user can understand the reasoning behind the chatbot's responses.}
 \end{itemize}
+
+In addition to the categories of design principles, \textcite{Gregor2020} suggest a structured format to specify design principles consistently. The format consists of seven components: \textbf{Implementers} instantiate the abstract rules into specific artefacts to accomplish \textbf{Aims} for specific \textbf{Users}. The \textbf{Context} limits the scope for the design principle. The design principle employ \textbf{Mechanisms} to achieve the \textbf{Aims}, potentially involving \textbf{Enactors}, which are subsidiary components or artefacts. The \textbf{Rationale} provides a justification for the design principle. For easier comprehension the design principles can be shown in a table, like the example in table \ref{tab:example-dp}.
+
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{l|X}
+       \textbf{Components} & \textbf{Structure} \\
+        \hline
+        \textbf{Implementer}, \textbf{Aim}, \textbf{User} & For \textbf{Implementer} $I_1$ to achieve (or allow) \textbf{Aim} $A_1$ for \textbf{User} $U_1$ \\
+        \textbf{Context} & in \textbf{Context} $C_1$ \\
+        \textbf{Mechanisms}, \textbf{Enactors} & employ \textbf{Mechanism} $M_1$, $M_2$ involving \textbf{Enactor} $E_1$, $E_2$ \\
+        \textbf{Rationale} & because \textbf{Rationale} $R_1$ \\
+    \end{tabularx}
+    \caption[Components of design principles]{Components of a design principle \parencite{Gregor2020} including an example.}
+    \label{tab:example-dp}
+\end{ctable}
+
+This thesis follows the method for design principle development previously introduced in section \ref{ssec:mdpd}. It provides the process framework that will be followed, with the initial phase of problem explication already being covered in the chapters \ref{sec:introduction} through \ref{sec:methodology}. The design principle development will follow the reflective approach inspired by the process described by \textcite{Kuehne2019}, which derives design principles through qualitative analysis of a previously conducted study. The design principle evaluation will be performed through expert interviews. Iteration of the design principle extraction was omitted due to the time constraints imposed by the scope of this thesis.
+
+The phase of problem explication is already covered through the previous chapters, with the research questions representing the solution objective. The research context has been established as the extraction of design principles for the attribution of \ac{ToM} to generative \ac{AI}-systems in a problem-solving context. Due to the open-ended nature of the research questions \textcite{Venable2017} suggest selecting an interpretive approach, which aligns with the reflective approach described by \textcite{Moeller2020}.
+
+The design principle development phase was broken down into its three steps. The problem definition step was used to establish meta-requirements for the design principles, based on a literature review, which is described in detail in chapter \ref{sec:problem-awareness}. The artefact design step was omitted, as the design principles were derived from the analysis of a previously conducted study. The study's methodology is described in detail in chapter \ref{sec:study-design}. The design principle extraction step was performed through a qualitative coding process inspired by \textcite{Kuehne2019}, which is described in detail in chapter \ref{ssec:initial-design-principles}.
+
+The evaluation of design principles was performed through expert interviews, of an industry practitioner and academic experts in the field of \ac{HCI} and \ac{XAI}. The evaluation process is described in detail in section \ref{ssec:design-principle-evaluation}. The evaluation was used to assess the rigour and relevance of the design principles and consequently to revise the design principles, which is described in detail in section \ref{ssec:design-principle-revision}.
