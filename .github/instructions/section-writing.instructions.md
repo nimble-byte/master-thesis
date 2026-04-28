@@ -49,7 +49,8 @@ issue_id: "#1123"
 2. Agent reads the provided writing notes and the target `.writing-notes/*` context as well as the `contents/*` files and produces:
    - A list of open questions and ambiguities in the notes under a "# Open Questions" header in the writing note file referenced
    - A list of missing citations by checking `literature.bib` for the documents referenced in the notes in APA format
-3. User answers the open questions and provides any missing citation keys (or adds them to `literature.bib`). Open questions have to be resolved before proceeding to drafting.
+   - do not update the "# Writing Notes" section at this stage, as the agent will produce a draft in the next step.
+3. User answers the open questions and provides any missing citation keys (or adds them to `literature.bib`). Open questions have to be resolved before proceeding to drafting. You may utilise the answered questions and added citations to update the "# Writing Notes" section if needed, but this is optional at this stage. The main goal is to ensure all ambiguities are resolved and the agent has the necessary information for drafting.
 4. User prompts the agent to produce the first draft for the subsection (specify tone, length, and which points to prioritise).
 5. Agent generates a draft and annotates places with `TODO` or `MISSING_CITATION{<key>}` markers where human review or bibliography additions are required.
 6. Iterative improvement: the user edits the draft and re-prompts the agent for refinement. Repeat until ready.
@@ -60,10 +61,11 @@ issue_id: "#1123"
 - Header (one line): `docs(section): add draft for <section-label>`
 - Body (optional): `references #<issue>`
 
-## Notes on citations
+## Notes on Citations
 
 - The agent will attempt to detect missing citations by matching author references in the notes against entries in `literature.bib`.
 - If a citation is missing, the agent will list the missing as markdown checklist items (e.g., `- [ ] Millerh2019`) in the "# Missing Citations" section of the notes.
 
 ## Example user prompt
+
 "Write a 300-word subsection for `contents/03-methods.tex`, label `sec:methods-data`, linked to issue `#1123`. Use the writing notes attached to issue `#1123`. Prioritise describing sampling and data preprocessing."
