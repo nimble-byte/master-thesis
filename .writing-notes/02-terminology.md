@@ -3,6 +3,7 @@ file: contents/02-terminology.tex
 section: sssec:terminology
 issue_id: "#32"
 ---
+<!-- LTeX: enabled=false -->
 
 # Writing Notes
 
@@ -59,3 +60,5 @@ issue_id: "#32"
 - [x] `Lombrozo2006` — Lombrozo (2006)
 - [x] `Kelley1972` — Kelley (1972) updated to Kelley (1987)
 - [x] `Kashima1998` — Kashima et al. (1998)
+
+<!-- LTeX: enabled=true -->

@@ -4,30 +4,39 @@ This section provides an overview of the fundamental concepts and the current st
 
 \subsection{Explainable Artificial Intelligence} \label{ssec:xai}
 
-
+This section provides an introduction to the field of \ac{XAI}, beginning with a definition of key terminology and general concepts related to explanations in section \ref{sssec:terminology}. Section \ref{sssec:generative-vs-discriminative} contrasts generative and discriminative models, which is a fundamental distinction relevant for the contribution of this thesis. Lastly, section \ref{sssec:xai-methods} gives an overview of commonly used \ac{XAI} methods, as well as methods that are particularly relevant for the research conducted in this thesis.
 
 \subsubsection{Terminology} \label{sssec:terminology}
 
-In this thesis, \enquote{explainability} is used as the preferred term, while \enquote{interpretability} is treated as the broader umbrella concept. This decision follows recent \ac{XAI} literature, where both terms are sometimes used interchangeably, but are conceptually distinct \parencite{Arrieta2020,Guidotti2018}. Building on \textcite{Arrieta2020}, an \ac{AI} system is explainable if it can provide details or reasons that make its functioning understandable for a specific audience. The audience perspective is essential: what is understandable for an expert user may be insufficient for a lay user \parencite{Arrieta2020,Lipton2018}.
+The term of \ac{XAI} has been used in the literature with varying definitions and overlapping concepts \parencite{Arrieta2020}. This thesis adopts the definition provided by \textcite{Arrieta2020}, which decomposes the definition of the term into a dictionary based definition of \enquote{explanation} and a definition for the field of \ac{AI} to arrive at a definition for an \ac{XAI} system. The Cambridge Dictionary defines an \textit{explanation} as \enquote{the details or reasons that someone gives to make something clear or easy to understand} \parencite{Explanation}. \enquote{\acl{AI}} refers to the field of computer science that focuses on creating systems capable of performing tasks that typically require human intelligence \parencite{PLACEHOLDER}. Combining these definitions, \textcite{Arrieta2020} defines an \ac{XAI} system as one that produces details or reasons to make its functioning understandable for a specific audience.
 
-Interpretability refers to the extent to which a human can assign meaning to a model, its behaviour, or its output \parencite{Arrieta2020}. Explainability, in contrast, focuses on the explicit communication layer between system and user, where reasons are provided in a form that supports human understanding and decision-making \parencite{Guidotti2018,Lipton2018}. Transparency is used here as a complementary concept describing how directly a model can be inspected without additional explanation interfaces. Following \textcite{Lipton2018}, transparency can be discussed at the level of the overall model, individual components, and the training procedure.
+In literature on \ac{XAI}, the terms \enquote{explainability} and \enquote{interpretability} are often used interchangeably, although they are conceptually distinct \parencite{Arrieta2020}. \textit{Interpretability} refers to a passive quality of a machine learning model, describing the extent to which a human can assign meaning to a model, its behaviour, or its output \parencite{Arrieta2020}. \textit{Explainability}, in contrast, focuses on the active process of providing explanations that support human understanding and decision-making \parencite{Guidotti2018}. Explainability therefore represents one mode of interpretability \parencite{Lipton2018}. Lastly, \textit{transparency} represents a specific form of interpretability, describing how directly a model can be inspected without additional explanation interfaces \parencite{Lipton2018}. Transparency is used as contrast to black-box models that require additional explanation methods to be interpretable \parencite{Lipton2018}. The relation of the terms is visualised in Figure~\ref{fig:xai-concept-relations}.
 
-Insights from cognitive psychology sharpen this terminology. Explanations are typically framed as answers to why-questions and are evaluated by whether they satisfy the explainee's information need \parencite{Miller2019,Overton2011}. In practice, people often prefer concise, contrastive explanations over complete causal chains, because full chains are both cognitively and computationally expensive \parencite{Lipton1990,Kelley1987}. This is relevant for \ac{XAI}, where explanation quality is not only technical correctness, but also perceived usefulness for the target audience \parencite{Miller2019,Lombrozo2006,Kashima1998}.
+\begin{figure}
+    \centering
+    % TODO: Insert Venn diagram showing the relation of interpretability, explainability, and transparency.
+    \fbox{\parbox[c][4cm][c]{0.85\linewidth}{\centering Placeholder Venn diagram for the relation of concepts}}
+    \caption{Placeholder Venn diagram for the relation of interpretability, explainability, and transparency.}
+    \label{fig:xai-concept-relations}
+\end{figure}
+
+The terminology used in the \ac{XAI} literature is inconsistent, and related concepts are often used interchangeably. However, explainability is by now the term that appears most frequently in recent publications, as indicated in Figure~\ref{fig:terminology-timeline}. To sharpen the discussion, this thesis also adopts distinctions from cognitive psychology, where explanations are treated as a product, a cognitive process, and a social process of sharing explanations \parencite{Miller2019}.
 
 \begin{figure}[ht]
     \centering
     % TODO: Insert timeline figure showing publication trends for terminology keywords.
     \fbox{\parbox[c][4cm][c]{0.85\linewidth}{\centering Placeholder for terminology timeline figure}}
     \caption{Placeholder timeline for the usage of terminology in \ac{XAI} literature.}
-    \label{fig:terminology-timeline-placeholder}
+    \label{fig:terminology-timeline}
 \end{figure}
 
-Table~\ref{tab:question-types-explanations} summarises three common explanation question types used throughout this thesis.
+Insights from cognitive psychology further sharpen this terminology. Explanations are typically framed as answers to why-questions \parencite{Overton2011} aimed to satisfy the explainee's information need \parencite{Lipton1990}. \textcite{Miller2019} identifies three common types of explanatory questions: \textit{what}, \textit{how}, and \textit{why} questions, which are associated with different types of reasoning to produce the explanation. \textit{What}-questions are based on associative reasoning providing information about which unobserved events may have occurred given the observed outcome. \textit{How}-questions are based on interventionist reasoning, investigating if a change in the situation would alter the outcome. \textit{Why}-questions are based on counterfactual reasoning, comparing alternative causes to explain why one outcome happened instead of another. The types of questions are summarised in Table~\ref{tab:question-types-explanations} illustrating the different types of explanations produced for the same scenario.
+% TODO: Add example in the table and extend the last sentence to describe the scenario
 
 \begin{ctable}
     \centering
-    \begin{tabularx}{\textwidth}{l|X|X}
-        \textbf{Question} & \textbf{Reasoning} & \textbf{Description} \\
+    \begin{tabularx}{\textwidth}{l|X|X|X}
+        \textbf{Question} & \textbf{Reasoning} & \textbf{Description} & \textbf{Example} \\
         \hline
         What & Associative & Reasons about which unobserved events may have occurred given the observed outcome. \\
         How & Interventionist & Simulates a change in the situation to assess whether the outcome would still occur. \\
@@ -37,7 +46,9 @@ Table~\ref{tab:question-types-explanations} summarises three common explanation 
     \label{tab:question-types-explanations}
 \end{ctable}
 
-Compact vignette used in this thesis: a student receives an incorrect recommendation from a learning-support model. A \enquote{what} explanation lists the features associated with that recommendation, a \enquote{how} explanation shows what changes in input would alter the result, and a \enquote{why} explanation contrasts the actual recommendation with the most plausible alternative.
+The different types of explanations are relevant for \ac{XAI}, where explanation quality is not only technical correctness, but also perceived usefulness for the target audience \parencite{Miller2019,Lombrozo2006}. The questions of \textit{what} and \textit{how} are relevant for understanding the overall model behaviour, which is of interest for experts and developers \parencite{Miller2019}. In contrast, users of \ac{XAI} systems are often more interested in answers to \textit{why} questions, that provide sufficient causes for a systems output \parencite{Kelley1987}. The rationale for this is that the computation and comprehension of full causal chains requires significant cognitive effort \parencite{Lipton1990}. The determination of what provides a sufficient cause for an outcome is influenced by the subjective perception of the explainee, which is shaped by their prior knowledge and beliefs \parencite{Kashima1998}, which will be further discussed in section \ref{sssec:theory-of-mind-xai}.
+
+% Compact vignette used in this thesis: a student receives an incorrect recommendation from a learning-support model. A \enquote{what} explanation lists the features associated with that recommendation, a \enquote{how} explanation shows what changes in input would alter the result, and a \enquote{why} explanation contrasts the actual recommendation with the most plausible alternative.
 
 \subsubsection{Generative vs. Discriminative Models} \label{sssec:generative-vs-discriminative}
 
@@ -51,7 +62,7 @@ Compact vignette used in this thesis: a student receives an incorrect recommenda
 
 \subsubsection{Theory of Mind} \label{ssec:theory-of-mind}
 
-\subsubsection{Theory of Mind in \acs{XAI}} \label{ssec:theory-of-mind-xai}
+\subsubsection{Theory of Mind in \acs{XAI}} \label{sssec:theory-of-mind-xai}
 
 \subsection{Related Works} \label{ssec:related-works}
 
