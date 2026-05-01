@@ -1,5 +1,5 @@
 ---
-file: contents/02-terminology.tex
+file: contents/02-fundamentals.tex
 section: sssec:terminology
 issue_id: "#32"
 ---
