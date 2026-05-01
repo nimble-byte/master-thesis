@@ -49,6 +49,19 @@ The different types of explanations are relevant for \ac{XAI}, where explanation
 
 \subsubsection{Generative vs. Discriminative Models} \label{sssec:generative-vs-discriminative}
 
+Discriminative and generative paradigms differ in modelling objective and output structure; these differences have direct implications for what constitutes a useful explanation.
+
+Discriminative models aim to approximate the conditional distribution $p(y\mid x)$ and typically produce compact, often deterministic outputs such as class labels or scores. Examples include logistic regression, support vector machines, and decision trees. Because their outputs are low-dimensional and closely tied to input features, feature-centric explanation methods — such as feature importance scores, local gradients, and counterfactuals — are practical and informative for debugging, auditing, and user-facing explanations \parencite{Lundberg2017,Ribeiro2016}.
+
+Generative models, by contrast, learn high-dimensional data distributions and produce variable-length, stochastic artefacts (text, images, multimodal content). Modern generative architectures encode semantics in distributed latent representations and are sensitive to conditioning and sampling hyperparameters, which reduces the explanatory value of single-feature attributions for particular samples \parencite{Brown2020,Rombach2022,OpenAI2025a}.
+
+Two theoretical consequences are important for XAI. First, non-determinism: generative outputs vary with sampling and conditioning, so explanations must account for variability rather than justify a single output instance. Second, latent-centred semantics: behaviour is organised along abstract latent axes that often do not map cleanly to input features, so explanations should target concept-level or behaviour-level descriptions rather than only feature attributions \parencite{Schneider2024,Kumarage2026}.
+
+Practically, this directs XAI for generative systems toward approaches that expose controllable factors, align latent directions with interpretable concepts, and provide example-driven or narrative summaries of typical model behaviour. Interactive probes that allow users to inspect alternate samples, adjust conditioning, and view provenance or uncertainty information tend to be more informative than static, feature-level explanations. Evaluation of such explanations should prioritise user-centred usefulness, robustness to output variability, and semantic fidelity over strict local fidelity to model internals.
+
+In summary, the generative–discriminative distinction reframes explanatory goals: discriminative settings favour concise, feature-level accounts, whereas generative settings require concept-level, probabilistic, and interactive explanatory constructs \parencite{Schneider2024}.
+
+
 \subsubsection{Explainability Methods} \label{sssec:xai-methods}
 
 \subsection{Cognitive Psychology} \label{ssec:cognitive-psychology}
