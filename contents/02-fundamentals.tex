@@ -61,6 +61,38 @@ Practically, this means \ac{XAI} methods can be applied to \textit{generative} \
 
 \subsubsection{Explainability Methods} \label{sssec:xai-methods}
 
+Explanations play a critical role in building trust, understanding, and accountability in machine learning systems \parencite{Miller2019}. The choice of explanation method depends significantly on the nature of the model being explained. In the literature, a fundamental distinction is made between black-box and glass-box models. The term \enquote{black-box} was popularised in the mid-2010s to describe models that are not inherently interpretable or transparent, appearing first in academic research \parencite{Ribeiro2016} and subsequently in science communication \parencite{Castelvecchi2016}. Black-box models are contrasted with inherently transparent glass-box models \parencite{Rai2020}, which are alternatively termed white-box models \parencite{Molnar2025}.
+
+Explainability methods can be categorised along two primary dimensions: the scope of the explanation and the timing of explanation generation. With regard to scope, explanations are either global or local \parencite{Rai2020,Ali2023}. Local explanations focus on a single decision or output, providing insight into why a specific prediction was made. Global explanations, by contrast, offer observations about the general behaviour and patterns learned by the model. Regarding timing, methods are distinguished as post-hoc or ante-hoc (also called transparency-based) \parencite{Arrieta2020,Retzlaff2024}. Ante-hoc or transparency-based methods produce interpretable models where the decision-making process is inherently understandable, such as decision trees. Post-hoc methods generate explanations through surrogate models or other proxy techniques after the fact, and are the more frequently used approach because black-box models often achieve superior performance \parencite{Ali2023}. This distinction is highly correlated with the black-box versus glass-box distinction, as only glass-box models truly possess the capacity for transparency as an explanation approach.
+
+\paragraph*{LIME (Local Interpretable Model-agnostic Explanations)}
+
+LIME is a model-agnostic, post-hoc method designed to explain individual predictions \parencite{Ribeiro2016}. It works by approximating the behaviour of the target model locally with an interpretable surrogate model, such as linear regression. To generate an explanation, LIME creates a series of perturbed samples around the instance being explained and observes how the target model's predictions change in response to these perturbations \parencite{Ribeiro2016}. By fitting the surrogate model to this perturbed data, LIME produces a local linear approximation that highlights which input features were influential for the specific prediction. A key strength of LIME is its model-agnostic nature, making it applicable to any model type, and its computational efficiency. However, LIME explanations can be unstable, as they depend on the selection of perturbed samples and the choice of surrogate model \parencite{Lundberg2017,Alvarez2018}. Additionally, the surrogate model approach may produce misleading explanations if it does not accurately capture the behaviour of the original model, potentially giving users false confidence in their understanding of the model \parencite{Miller2019}.
+
+\begin{figure}[ht]
+    \centering
+    % TODO: Insert figure showing LIME perturbations and surrogate model fitting process
+    \fbox{\parbox[c][4cm][c]{0.85\linewidth}{\centering Placeholder for LIME perturbation visualization}}
+    \caption{Placeholder: Visualization of LIME perturbations and surrogate model fitting for a local explanation.}
+    \label{fig:lime-perturbations}
+\end{figure}
+
+\paragraph*{SHAP (SHapley Additive exPlanations)}
+
+SHAP provides additive feature attribution by calculating the contribution of each input feature to the model's output \parencite{Lundberg2017}. Unlike LIME, SHAP can generate both local and global explanations. The method is grounded in cooperative game theory, specifically in Shapley values, which provide a principled way to fairly distribute a payout among players \parencite{Shapley1953}. In the context of SHAP, the payout is the model's output, and the players are the input features. SHAP calculates the contribution of each feature across all possible subsets of features, checks how the model's output changes when a feature is included versus excluded, and averages these contributions to determine overall feature importance. This theoretical foundation gives SHAP significant advantages in terms of consistency across different model types \parencite{Lundberg2017}. Force plots provide effective visualisations for understanding individual feature contributions and their cumulative effect on the prediction \parencite{Martens2025}. The primary limitation of SHAP is its computational expense, arising from the exponential number of feature subsets that must be evaluated \parencite{Lundberg2017}. Additionally, SHAP assumes feature independence, which often does not hold in practice, potentially leading to unrealistic explanations \parencite{Aas2021}.
+
+\begin{figure}[ht]
+    \centering
+    % TODO: Insert figure showing SHAP force plot
+    \fbox{\parbox[c][4cm][c]{0.85\linewidth}{\centering Placeholder for SHAP force plot visualization}}
+    \caption{Placeholder: Example SHAP force plot showing feature contributions to a model prediction.}
+    \label{fig:shap-force-plot}
+\end{figure}
+
+\paragraph*{Chain-of-Thought Explanations}
+
+Chain-of-Thought explanations represent a distinct approach to explainability, specific to generative models and particularly large language models. Rather than decomposing model internals, this method prompts the model to generate step-by-step reasoning leading to its final answer \parencite{Wei2022}. Remarkably, chain-of-thought prompting can be effective even in zero-shot settings without explicit examples \parencite{Kojima2022}. The appeal of this approach lies in the potential to gain insight into the model's reasoning process and in its ability to improve performance on complex tasks by encouraging systematic problem decomposition \parencite{Wei2022}. However, significant limitations exist: the explanations generated by the model may not faithfully reflect the model's actual internal reasoning process \parencite{Lyu2023}, and since the model generates its own explanations, these explanations inherit the same biases and limitations as the model's outputs \parencite{Lyu2023}.
+
 \subsection{Cognitive Psychology} \label{ssec:cognitive-psychology}
 
 \subsubsection{Dual Process Theory} \label{sssec:dual-process-theory}
@@ -74,14 +106,3 @@ Practically, this means \ac{XAI} methods can be applied to \textit{generative} \
 \subsection{Related Works} \label{ssec:related-works}
 
 \subsection{Research Objectives} \label{ssec:research-objectives}
-
-\subsection{Filler}
-
-The following sources (among others) will be used for the fundamentals section.
-
-\begin{itemize}
-    \item \textcite{Lundberg2017}
-    \item \textcite{Ribeiro2016}
-    \item \textcite{Schneider2024}
-    \item \textcite{Wachter2017}
-\end{itemize}
