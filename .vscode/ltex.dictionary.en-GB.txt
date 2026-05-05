@@ -6,6 +6,7 @@ MathVista
 Ollama
 prescriptiveness
 Qwen
+satisficing
 testmini
 ToM
 WebUI
