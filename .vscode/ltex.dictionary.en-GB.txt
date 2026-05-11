@@ -1,3 +1,5 @@
+aspectuality
+Aspectuality
 CoT
 explainee
 LimeSurvey

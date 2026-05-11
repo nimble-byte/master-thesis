@@ -97,7 +97,7 @@ SHAP's robust theoretical foundation provides a strong basis for its explanation
 
 \subsection{Cognitive Psychology} \label{ssec:cognitive-psychology}
 
-This section gives an overview of the concepts from cognitive psychology that are relevant for this thesis. The section begins with a discussion of the relevant fundamental concepts in cognitive psychology in section \ref{sssec:cognitive-psychology-concepts}. Section \ref{ssec:theory-of-mind} then provides an introduction to the concept of \ac{ToM}, which is a key concept for this thesis. Finally, section \ref{sssec:theory-of-mind-xai} discusses the intersection of \ac{ToM} and \ac{XAI}.
+This section gives an overview of the concepts from cognitive psychology that are relevant for this thesis. The section begins with a discussion of the relevant fundamental concepts in cognitive psychology in section \ref{sssec:cognitive-psychology-concepts}. Section \ref{sssec:theory-of-mind} then provides an introduction to the concept of \ac{ToM}, which is a key concept for this thesis. Finally, section \ref{sssec:theory-of-mind-xai} discusses the intersection of \ac{ToM} and \ac{XAI}.
 
 \subsubsection{Relevant Concepts from Cognitive Psychology} \label{sssec:cognitive-psychology-concepts}
 
@@ -129,17 +129,54 @@ Within dual-process theory, different relationships between the two types of pro
 
 \subsubsection{Theory of Mind} \label{sssec:theory-of-mind}
 
-\acl{ToM} refers to the cognitive capability to attribute mental states to oneself and others, including beliefs, desires, and intentions \parencite{Wellman2014}. The foundational work on \ac{ToM} originates from primatological research by \textcite{Premack1978}, who investigated whether chimpanzees possess the ability to infer mental states of others. This pioneering study established the basis for understanding how organisms beyond humans may reason about the minds of others, leading to extensive psychological research into this cognitive capacity.
+\ac{ToM} refers to the cognitive capability to attribute mental states to oneself and others and to understand that others have beliefs, desires, and intentions that may differ from one's own \parencite{Wellman2014}. The foundational work on \ac{ToM} originates from research by \textcite{Premack1978}, who investigated whether chimpanzees possess the ability to infer mental states of others. Today's research on \ac{ToM} in humans investigates a large variety of phenomena, such as the development of \ac{ToM} in children \parencite{Wellman2014}, factors affecting \ac{ToM} performance in adults \parencite{Apperly2009}, and the role of \ac{ToM} in psychological disorders such as autism spectrum disorder \parencite{BaronCohen1995}.
 
-The core of \ac{ToM} is the understanding that individuals hold subjective mental representations of the world. \textcite{Wellman2014} identifies three primary components that form the basis of \ac{ToM} reasoning: \textit{beliefs}, \textit{desires}, and \textit{intentions} (BDI). Beliefs represent an individual's subjective view of the world, potentially diverging from objective reality. Desires reflect subjective goals for what an individual wants the world to look like. Intentions represent planned future actions aimed at satisfying desires given the individual's beliefs. These three components are deeply interrelated; \textcite{Rakoczy2022} notes that understanding the relationships between these aspects enables individuals to make rational inferences about others' actions. For instance, knowing another person's beliefs and desires allows one to infer their likely intentions or actions to satisfy those desires.
+The core of \ac{ToM} is the understanding that individuals hold subjective mental representations of the world and act according to these representations. Literature on \ac{ToM} often focuses on three primary components that form the basis of \ac{ToM}: \textit{beliefs}, \textit{desires}, and \textit{intentions} (BDI) \parencite{Wellman2014}. \textit{Beliefs} represent fundamental facts about the world as perceived by an individual. \textit{Desires} reflect subjective goals for what an individual wants the world to look like. \textit{Intentions} represent planned future actions aimed at satisfying \textit{desires} given the individual's \textit{beliefs}. These components are deeply interrelated and form the basis for \textit{belief reasoning} (or \textit{belief-desire reasoning}), which is the ability to make rational inferences about others' actions based on their \textit{beliefs} and \textit{desires} \parencite{Wellman2014, Rakoczy2022}. For instance, knowing another person's \textit{beliefs} and \textit{desires} allows one to infer their likely \textit{intentions} or actions to satisfy those \textit{desires}. A complete example for BDI is shown in Table~\ref{tab:bdi-example}. Some researchers have proposed additional components that act as moderators of the BDI components, such as \textit{emotions} and \textit{thoughts} \parencite{Apperly2009}. To keep the discussion concise, this thesis focuses on the BDI components as the core of \ac{ToM}, while acknowledging that other components may also play a role in \ac{ToM} reasoning.
 
-At its foundation, \ac{ToM} depends on the capacity for \textit{meta-representation}, defined as the knowledge that others perceive and represent the world from their own subjective point of view \parencite{Rakoczy2022}. Four distinct signatures characterize this meta-representational understanding: \textit{difference}, \textit{incompatibility}, \textit{mis-representation}, and \textit{aspectuality}. The signature of \textit{difference} refers to the understanding that others' perceptions may differ from one's own. \textit{Incompatibility} captures the notion that another person's representation of the world may be fundamentally incompatible with one's own. \textit{Mis-representation} acknowledges that others' representations may be inaccurate or incorrect relative to reality. Finally, \textit{aspectuality} reflects that others' representations may only consider certain aspects of reality while ignoring others. Together, these signatures enable a variety of social interactions, including the adoption of a \textit{we-perspective} for coordinating shared goals and a \textit{you-perspective} for exchanging and discussing different viewpoints \parencite{Rakoczy2022}.
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{l|X}
+        \textbf{Component} & \textbf{Example} \\
+        \hline
+        Beliefs & Alice believes that the coffee shop is open until 6PM. \\
+        Desires & Alice wants to get a speciality coffee this afternoon. \\
+        Intentions & (Based on her beliefs and desires) Alice intends to go to the coffee shop at 5PM to get a speciality coffee.
+    \end{tabularx}
+    \caption[Example of BDI components]{Example illustrating the BDI components of Theory of Mind.}
+    \label{tab:bdi-example}
+\end{ctable}
 
-The understanding of \textit{false-beliefs}—the ability to recognize that others may hold beliefs that diverge from reality—has long been considered a key benchmark in \ac{ToM} research. Classic experimental paradigms, such as the Wimmer-Perner task described by \textcite{Wimmer1983}, have been employed to test children's false-belief understanding. In this task, a character (Maxi) places chocolate in a cupboard and leaves the room. While absent, the chocolate is moved to a drawer. When asked where Maxi will look for the chocolate upon returning, three-year-olds typically answer incorrectly (the drawer), while four- and five-year-olds answer correctly approximately 60\% of the time, with accuracy improving to 86\% in older children. \textcite{Wellman2001} argues that false-belief understanding is not the sole determinant of \ac{ToM} competence, but rather reflects a critical capacity to recognize that people act based on their mental states rather than objective reality.
+The general capability enabling \ac{ToM} is called \textit{meta-representation}, which is the understanding that others perceive and represent the world from their own subjective point of view \parencite{Perner1991}. This meta-representational understanding of others is characterised by four distinct signatures, which are summarised in Table~\ref{tab:tom-signatures}. \textit{Difference} refers to the understanding that others' perceptions may differ from one's own opening the possibility for different perspectives. \textit{Incompatibility} describes the notion that these different perspectives may be fundamentally incompatible with each other. \textit{Misrepresentation} captures the understanding that others' representations may be inaccurate or incorrect relative to reality. Finally, \textit{aspectuality} reflects the understanding that others' representations may only consider certain aspects of reality while ignoring others \parencite{Rakoczy2022}.
 
-\ac{ToM} develops progressively during early childhood through identifiable phases \parencite{Wellman2014}. Initially, children understand that people desire different things. They subsequently develop the understanding that people hold different beliefs, even about the same situation. Later, children grasp the concept that people may lack access to certain knowledge. Finally, they develop a mature understanding of false-beliefs—the recognition that beliefs can diverge from reality.
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{l|X|X}
+        \textbf{Signature} & \textbf{Definition} & \textbf{Example} \\
+        \hline
+        Difference & Representing that others' perspectives may differ from one's own. & Alice sees that it is raining outside; Bob, who is inside, does not see the rain. Alice represents that Bob does not perceive the rain. \\
+        \hline
+        Incompatibility & Representing that the content of others' perspectives can be incompatible with one's own. & Alice believes the meeting is scheduled for 15:00, while Bob believes it is scheduled for 16:00; their representations about the meeting time are incompatible. \\
+        \hline
+        Misrepresentation & Representing that others' perspectives can be inaccurate or false. & Alice thinks her keys are on the kitchen table, but the keys were moved to her bag; Alice's representation is false relative to reality. \\
+        \hline
+        Aspectuality & Representing that agents represent objects and situations under specific aspects. & Alice represents an object as a ``toy car'' (focusing on its function), while Bob represents the same object only by its colour (``red object''); Alice represents that Bob attends to a different aspect. \\
+    \end{tabularx}
+    \caption[Meta-representation signatures]{Four signatures of meta-representation adapted from \textcite{Rakoczy2022}, with improved examples.}
+    \label{tab:tom-signatures}
+\end{ctable}
 
-Recent research suggests that \ac{ToM} reasoning operates through two distinct cognitive systems \parencite{Apperly2009}. One system is efficient but inflexible, associated with Type 1 processing, while the other is flexible but cognitively demanding, aligned with Type 2 processing. This dual-system architecture parallels limited cognitive capacities observed in infants and non-human animals across other domains such as numerical perception and general reasoning, supporting broader dual-process theories of cognition.
+The signature of \textit{misrepresentation} is of particular interest for \ac{ToM} research, as it is fundamental to the notion of \textit{false-beliefs}. The ability to understand that others can hold beliefs that are false relative to reality has long been considered a key benchmark for \ac{ToM} competence of children \parencite{Wellman2001}. The understanding of \textit{false-beliefs} is most often tested using scenarios similar to the Wimmer-Perner task \parencite{Wimmer1983}, which is a four-step scenario involving a character (Maxi):
+
+\begin{enumerate}
+    \item Maxi places chocolate in a cupboard and leaves the room.
+    \item While Maxi is absent, the chocolate is moved to a drawer.
+    \item Maxi returns to the room.
+    \item The child is asked where Maxi will look for the chocolate.
+\end{enumerate}
+
+When asked where Maxi will look for the chocolate upon returning, three-year-olds typically answer incorrectly (the drawer), while four- and five-year-olds answer correctly approximately 60\% of the time, with accuracy improving to 86\% in older children \parencite{Wimmer1983}. Despite this, \textcite{Wellman2001} argues that false-belief is a benchmark to be used cautiously for determining \ac{ToM} competence, especially in young children: other factors such as experimental setting and individual differences of participants can influence the performance on \textit{false-belief} tasks. Nonetheless, the understanding of the concept \textit{false-belief} represents a significant milestone in the development of \ac{ToM} in children, as it demonstrates the ability to understand that others can hold beliefs that are not only different from one's own but also incorrect relative to reality \parencite{Wellman2014}.
+
+\textcite{Apperly2009} propose a \enquote{two-systems} account of belief reasoning, which posits the existence of two distinct cognitive systems for belief reasoning. The first system is efficient but inflexible, while the second system is flexible but cognitively demanding. They draw parallels to other areas of cognition like number perception, where adults are capable of quickly comparing two numbers or group sizes with one another without making a conscious effort \parencite{Apperly2009}. This shows a parallel to dual-process theories of cognition, where the first system is associated with Type 1 processing and the second system is associated with Type 2 processing.
 
 \subsubsection{Theory of Mind in \acs{XAI}} \label{sssec:theory-of-mind-xai}
 
