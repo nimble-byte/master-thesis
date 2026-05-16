@@ -1,4 +1,14 @@
 {
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.nextEditSuggestions.eagerness": "low",
+    "github.copilot.enable": {
+      "*": true,
+      "plaintext": false,
+      "markdown": false,
+      "scminput": false,
+      "latex": false
+    },
+
     "ltex.additionalRules.motherTongue": "de-DE",
     "ltex.completionEnabled": true,
     "ltex.language": "en-GB",
