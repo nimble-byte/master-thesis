@@ -1,5 +1,6 @@
 aspectuality
 Aspectuality
+ChatGPT
 CoT
 explainee
 LimeSurvey
