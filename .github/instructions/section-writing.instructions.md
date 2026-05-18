@@ -64,7 +64,7 @@ issue_id: "#1123"
 ## Notes on Citations
 
 - The agent will attempt to detect missing citations by matching author references in the notes against entries in `literature.bib`.
-- If a citation is missing, the agent will list the missing as markdown checklist items (e.g., `- [ ] Millerh2019`) in the "# Missing Citations" section of the notes.
+- If a citation is missing, the agent will list the missing as markdown checklist items (e.g., `- [ ] Miller2019`) in the "# Missing Citations" section of the notes.
 
 ## Example user prompt
 

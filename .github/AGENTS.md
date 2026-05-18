@@ -11,7 +11,7 @@ This repository contains the LaTeX source code for a master's thesis. When makin
 
 # Citation and Referencing
 
-1. **Proper Citation**: Always cite sources appropriately using `\parencite{}` for standard citations and `\textcite{}` for in-text citations. Ensure that all sources cited in the text are included in the bibliography. When writing content, provide a list of sources that are missing from the bibliography in `author-year` format (e.g., `Millerh2019`).
+1. **Proper Citation**: Always cite sources appropriately using `\parencite{}` for standard citations and `\textcite{}` for in-text citations. Ensure that all sources cited in the text are included in the bibliography. When writing content, provide a list of sources that are missing from the bibliography in `author-year` format (e.g., `Miller2019`).
 2. **Bibliography Management**: Ensure that the bibliography is well-organized and formatted using the LaTeX workshop extension.
 
 # Writing Process
