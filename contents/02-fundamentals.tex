@@ -12,21 +12,75 @@ The term of \ac{XAI} has been used in the literature with varying definitions an
 
 In literature on \ac{XAI}, the terms \enquote{explainability} and \enquote{interpretability} are often used interchangeably, although they are conceptually distinct \parencite{Arrieta2020}. \textit{Interpretability} refers to a passive quality of a machine learning model, describing the extent to which a human can assign meaning to a model, its behaviour, or its output \parencite{Arrieta2020}. \textit{Explainability}, in contrast, focuses on the active process of providing explanations that support human understanding and decision-making \parencite{Guidotti2018}. Explainability therefore represents one mode of interpretability \parencite{Lipton2018}. Lastly, \textit{transparency} represents a specific form of interpretability, describing how directly a model can be inspected without additional explanation interfaces \parencite{Lipton2018}. The relation of the terms is visualised in Figure~\ref{fig:xai-concept-relations}.
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
-    % TODO: Insert Venn diagram showing the relation of interpretability, explainability, and transparency.
-    \fbox{\parbox[c][4cm][c]{0.85\linewidth}{\centering Placeholder Venn diagram for the relation of concepts}}
-    \caption{Placeholder Venn diagram for the relation of interpretability, explainability, and transparency.}
+    \begin{tikzpicture}[
+        concept/.style={draw, thick, align=center},
+        primary/.style={font=\bfseries},
+        secondary/.style={font=\footnotesize},
+        passive/.style={concept, fill=gray!10},
+        active/.style={concept, fill=white, dashed}
+    ]
+        \draw[passive, rounded corners=10pt] (-5.5,-2.15) rectangle (5.5,2.15);
+        \node[primary] at (0,1.58) {Interpretability};
+        \node[secondary] at (0,1.15) {passive quality};
+
+        \draw[active] (-2.55,-0.50) ellipse (2.15cm and 1.05cm);
+        \node[primary] at (-2.55,-0.33) {Explainability};
+        \node[secondary] at (-2.55,-0.75) {active process};
+
+        \draw[passive] (2.55,-0.50) ellipse (2.15cm and 1.05cm);
+        \node[primary] at (2.55,-0.33) {Transparency};
+        \node[secondary] at (2.55,-0.75) {passive quality};
+    \end{tikzpicture}
+    \caption[Relation between interpretability, explainability, and transparency]{Illustration of the relation between the concepts of interpretability, explainability, and transparency. Interpretability is the overarching concept, with explainability representing an active process of achieving interpretability, and transparency representing a specific form of interpretability, achieved with through low complexity.}
     \label{fig:xai-concept-relations}
 \end{figure}
 
-The terminology used in the \ac{XAI} literature is inconsistent, and related concepts are often used interchangeably. However, explainability is by now the term that appears most frequently in recent publications, as indicated in Figure~\ref{fig:terminology-timeline}. To sharpen the discussion, this thesis also adopts distinctions from cognitive psychology, where explanations are treated as a product, a cognitive process, and a social process of sharing explanations \parencite{Miller2019}.
+The terminology used in the \ac{XAI} literature is inconsistent, and related concepts are often used interchangeably \parencite{Arrieta2020}. However, explainability is the term predominantly used in recent publications, as shown in Figure~\ref{fig:terminology-timeline}. To sharpen the discussion, this thesis also adopts distinctions from cognitive psychology, where explanations are treated as a product, a cognitive process, and a social process of sharing explanations \parencite{Miller2019}.
 
 \begin{figure}[ht]
     \centering
-    % TODO: Insert timeline figure showing publication trends for terminology keywords.
-    \fbox{\parbox[c][4cm][c]{0.85\linewidth}{\centering Placeholder for terminology timeline figure}}
-    \caption{Placeholder timeline for the usage of terminology in \ac{XAI} literature.}
+    \pgfplotstableread{
+        year interpretable explainable xai
+        2016 0 0 5
+        2017 0 3 10
+        2018 0 32 27
+        2019 3 131 108
+        2020 15 291 243
+        2021 28 702 609
+        2022 35 1248 1110
+        2023 66 1965 1927
+        2024 96 3153 3367
+        2025 168 5504 6321
+    }\terminologydata
+    \begin{tikzpicture}
+        \begin{axis}[
+            % general setup
+            width=0.98\textwidth,
+            height=8cm,
+            ybar,
+            bar width=8pt,
+            % axis setup
+            xlabel={Year},
+            x tick label style={/pgf/number format/1000 sep=},
+            ylabel={Published Works},
+            % spacing
+            enlargelimits=0.08,
+            % legend
+            legend pos=north west,
+        ]
+            \addplot table[x=year,y=interpretable] {\terminologydata};
+            \addlegendentry{Interpretable Artificial Intelligence}
+
+            \addplot table[x=year,y=explainable] {\terminologydata};
+            \addlegendentry{Explainable Artificial Intelligence}
+
+            \addplot table[x=year,y=xai] {\terminologydata};
+            \addlegendentry{XAI}
+        \end{axis}
+    \end{tikzpicture}
+    \caption[Terminology timeline in \ac{XAI} literature]{Timeline of the number of published literature works containing the terms shown in the legend in either title, abstract, or keywords. Data retrieved from \href{https://www.scopus.com}{Scopus} on 2026-05-18. Publication data shows, that while interpretability is of some interest, explainability (and the abbreviation XAI) is the dominant term in recent literature. Figure inspired by Fig. 1 in \textcite{Arrieta2020}.}
     \label{fig:terminology-timeline}
 \end{figure}
 
@@ -125,7 +179,7 @@ Before discussing \ac{ToM} it is important to introduce two general concepts fro
 
 Within dual-process theory, different relationships between the two types of processing are proposed. Default-interventionist accounts propose that \textit{Type 1} processing generates an initial response that \textit{Type 2} may subsequently override \parencite{Evans2013}. Parallel-competitive accounts, on the other hand, assume that both processes can operate in parallel and that conflicts are resolved between them if they arise \parencite{Evans2013}. For the purposes of this thesis, both accounts are acknowledged, but the default-interventionist perspective is used as the primary working assumption, as empirical evidence is more supportive of this account \parencite{Evans2013, Kahneman2011}. Additionally, with the parallel-competitive account would require the fast \textit{Type 1} to wait for the slower \textit{Type 2} processing to resolve conflicts, which would eliminate the speed advantage of \textit{Type 1} processing \parencite{Evans2013}.
 
-\textit{Heuristics} are methods for problem-solving that simplify the problem, to find a solution faster in favour of a non-optimised solution. The core mechanic of these mental shortcuts is to ignore part of the information available for finding an optimal solution \parencite{Gigerenzer2011}. The research on heuristics goes back on the theory of bounded rationality stating that human decision-making is characterised by limited time, mental resources and information \parencite{Simon1956}. Despite these limitations, humans were able to make decisions that yielded satisfactory results, leading \textcite{Simon1956} to coin the term \enquote{satisficing}; a portmanteau of \enquote{satisfy} and \enquote{suffice}. It describes the behavioural pattern of choosing the first acceptable solution instead of searching for an optimal solution \parencite{Hjeij2023}. Heuristics also play an important role in dual-process theory, as they are often associated with \textit{Type 1} processing \parencite{PLACEHOLDER}. In computer science and \ac{IS} research heuristics find frequent application to solve problems, that would otherwise be too complex to solve \parencite{Hjeij2023}. A classic example for this is the travelling salesman problem, to which a good solution can be found quite efficiently, but devising the optimal solution might not even be possible.
+\textit{Heuristics} are methods for problem-solving that simplify the problem, to find a solution faster in favour of a non-optimised solution. The core mechanic of these mental shortcuts is to ignore part of the information available for finding an optimal solution \parencite{Gigerenzer2011}. The research on heuristics goes back on the theory of bounded rationality stating that human decision-making is characterised by limited time, mental resources and information \parencite{Simon1956}. Despite these limitations, humans were able to make decisions that yielded satisfactory results, leading \textcite{Simon1956} to coin the term \enquote{satisficing}; a portmanteau of \enquote{satisfy} and \enquote{suffice}. It describes the behavioural pattern of choosing the first acceptable solution instead of searching for an optimal solution \parencite{Hjeij2023}. Heuristics also play an important role in dual-process theory, as they are often associated with \textit{Type 1} processing \parencite{Kahneman2011}. In computer science and \ac{IS} research heuristics find frequent application to solve problems, that would otherwise be too complex to solve \parencite{Hjeij2023}. A classic example for this is the travelling salesman problem, to which a good solution can be found quite efficiently, but devising the optimal solution might not even be possible.
 
 \subsubsection{Theory of Mind} \label{sssec:theory-of-mind}
 
