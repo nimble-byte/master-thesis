@@ -1,10 +1,15 @@
+aspectuality
+Aspectuality
+ChatGPT
 CoT
+explainee
 LimeSurvey
 MATH
 MathVista
 Ollama
 prescriptiveness
 Qwen
+satisficing
 testmini
 ToM
 WebUI

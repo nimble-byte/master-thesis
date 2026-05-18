@@ -1,4 +1,7 @@
 {
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.nextEditSuggestions.eagerness": "low",
+
     "ltex.additionalRules.motherTongue": "de-DE",
     "ltex.completionEnabled": true,
     "ltex.language": "en-GB",
@@ -9,5 +12,5 @@
     "latex-workshop.bibtex-format.sortby": [
         "key",
         "year-asc"
-    ]
+    ],
 }

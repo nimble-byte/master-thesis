@@ -1,16 +1,278 @@
 \section{Fundamentals and State of Research} \label{sec:fundamentals}
 
-The following sources (among others) will be used for the fundamentals section.
+This section provides an overview of the fundamental concepts and the current state of research relevant to this thesis. It covers key topics in \ac{XAI} in section \ref{ssec:xai} and cognitive psychology in section \ref{ssec:cognitive-psychology}. Related works are discussed in section \ref{ssec:related-works}, and the research objectives of this thesis are outlined in section \ref{ssec:research-objectives}.
 
-\begin{itemize}
-    \item \textcite{Arrieta2020}
-    \item \textcite{Lipton2016}
-    \item \textcite{Lipton1990}
-    \item \textcite{Lundberg2017}
-    \item \textcite{Miller2019}
-    \item \textcite{Ribeiro2016}
-    \item \textcite{Schneider2024}
-    \item \textcite{Wachter2017}
-\end{itemize}
+\subsection{Explainable Artificial Intelligence} \label{ssec:xai}
+
+This section provides an introduction to the field of \ac{XAI}, beginning with a definition of key terminology and general concepts related to explanations in section \ref{sssec:terminology}. Section \ref{sssec:generative-vs-discriminative} contrasts generative and discriminative models, which is a fundamental distinction relevant for the contribution of this thesis. Lastly, section \ref{sssec:xai-methods} gives an overview of commonly used \ac{XAI} methods, as well as methods that are particularly relevant for the research conducted in this thesis.
+
+\subsubsection{Terminology} \label{sssec:terminology}
+
+The term \ac{XAI} has been used in the literature with varying definitions and overlapping concepts \parencite{Arrieta2020}. This thesis adopts the definition provided by \textcite{Arrieta2020}, which decomposes the definition of the term into a dictionary-based definition of \enquote{explanation} and a definition for the field of \ac{AI} to arrive at a definition for an \ac{XAI} system. The Cambridge Dictionary defines an \textit{explanation} as \enquote{the details or reasons that someone gives to make something clear or easy to understand} \parencite{CambridgeDictionaryExplanation}. \enquote{\acl{AI}} refers to the field of computer science that focuses on creating systems capable of performing tasks that typically require human intelligence \parencite{Russell2020}. Combining these definitions, \textcite{Arrieta2020} defines an \ac{XAI} system as one that produces details or reasons to make its functioning understandable for a specific audience.
+
+In literature on \ac{XAI}, the terms \enquote{explainability} and \enquote{interpretability} are often used interchangeably, although they are conceptually distinct \parencite{Arrieta2020}. \textit{Interpretability} refers to a passive quality of a machine learning model, describing the extent to which a human can assign meaning to a model, its behaviour, or its output \parencite{Arrieta2020}. \textit{Explainability}, in contrast, focuses on the active process of providing explanations that support human understanding and decision-making \parencite{Guidotti2018}. Explainability therefore represents one mode of interpretability \parencite{Lipton2018}. Lastly, \textit{transparency} represents a specific form of interpretability, describing how directly a model can be inspected without additional explanation interfaces \parencite{Lipton2018}. The relation of the terms is visualised in Figure~\ref{fig:xai-concept-relations}.
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        concept/.style={draw, thick, align=center},
+        primary/.style={font=\bfseries},
+        secondary/.style={font=\footnotesize},
+        passive/.style={concept, fill=gray!10},
+        active/.style={concept, fill=white, dashed}
+    ]
+        \draw[passive, rounded corners=10pt] (-5.5,-2.15) rectangle (5.5,2.15);
+        \node[primary] at (0,1.58) {Interpretability};
+        \node[secondary] at (0,1.15) {passive quality};
+
+        \draw[active] (-2.55,-0.50) ellipse (2.15cm and 1.05cm);
+        \node[primary] at (-2.55,-0.33) {Explainability};
+        \node[secondary] at (-2.55,-0.75) {active process};
+
+        \draw[passive] (2.55,-0.50) ellipse (2.15cm and 1.05cm);
+        \node[primary] at (2.55,-0.33) {Transparency};
+        \node[secondary] at (2.55,-0.75) {passive quality};
+    \end{tikzpicture}
+    \caption[Relation between interpretability, explainability, and transparency]{Illustration of the relation between the concepts of interpretability, explainability, and transparency. Interpretability is the overarching concept, with explainability representing an active process of achieving interpretability, and transparency representing a specific form of interpretability, achieved through low complexity.}
+    \label{fig:xai-concept-relations}
+\end{figure}
+
+The terminology used in the \ac{XAI} literature is inconsistent, and related concepts are often used interchangeably \parencite{Arrieta2020}. However, explainability is the term predominantly used in recent publications, as shown in Figure~\ref{fig:terminology-timeline}. To sharpen the discussion, this thesis also adopts distinctions from cognitive psychology, where explanations are treated as a product, a cognitive process, and a social process of sharing explanations \parencite{Miller2019}.
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            % general setup
+            width=0.98\textwidth,
+            height=8cm,
+            ybar,
+            bar width=8pt,
+            % axis setup
+            xlabel={Year},
+            x tick label style={/pgf/number format/1000 sep=},
+            ylabel={Published Works},
+            % spacing
+            enlargelimits=0.08,
+            % legend
+            legend pos=north west,
+        ]
+            \addplot coordinates {
+                (2016,0) (2017,0) (2018,0) (2019,3) (2020,15)
+                (2021,28) (2022,35) (2023,66) (2024,96) (2025,168)
+            };
+            \addlegendentry{Interpretable Artificial Intelligence}
+
+            \addplot coordinates {
+                (2016,0) (2017,3) (2018,32) (2019,131) (2020,291)
+                (2021,702) (2022,1248) (2023,1965) (2024,3153) (2025,5504)
+            };
+            \addlegendentry{Explainable Artificial Intelligence}
+
+            \addplot coordinates {
+                (2016,5) (2017,10) (2018,27) (2019,108) (2020,243)
+                (2021,609) (2022,1110) (2023,1927) (2024,3367) (2025,6321)
+            };
+            \addlegendentry{XAI}
+        \end{axis}
+    \end{tikzpicture}
+    \caption[Terminology timeline in \acs{XAI} literature]{Timeline of the number of published literature works containing the terms shown in the legend in either title, abstract, or keywords. Data retrieved from \href{https://www.scopus.com}{Scopus} on 2026-05-18. Publication data show that while interpretability is of some interest, explainability (and the abbreviation XAI) is the dominant term in recent literature. Figure inspired by Fig. 1 in \textcite{Arrieta2020}.}
+    \label{fig:terminology-timeline}
+\end{figure}
+
+Insights from cognitive psychology further sharpen this terminology. Explanations are typically framed as answers to why-questions \parencite{Overton2011} aimed to satisfy the explainee's information need \parencite{Lipton1990}. \textcite{Miller2019} identifies three common types of explanatory questions: \textit{what}, \textit{how}, and \textit{why} questions, which are associated with different types of reasoning to produce the explanation. \textit{What}-questions are based on associative reasoning providing information about which unobserved events may have occurred given the observed outcome. \textit{How}-questions are based on interventionist reasoning, investigating if a change in the situation would alter the outcome. \textit{Why}-questions are based on counterfactual reasoning, comparing alternative causes to explain why one outcome happened instead of another. The types of questions are summarised in Table~\ref{tab:question-types-explanations} illustrating the different types of explanations produced for the same scenario, in which a student receives an incorrect recommendation from a learning-support model.
+
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{l|X|X|X}
+        \textbf{Question} & \textbf{Reasoning} & \textbf{Description} & \textbf{Example} \\
+        \hline
+        What & Associative & Reasons about which unobserved events may have occurred to cause the observed outcome. & Explanation of which features contributed to the recommendation made. \\
+        How & Interventionist & Simulates a change in the situation to assess whether the outcome would still occur. & Explanation of which features would need to change to alter the recommendation. \\
+        Why & Counterfactual & Compares alternative causes to explain why one outcome happened instead of another. & Explanation of which contrasts the actual recommendation with the most plausible alternative.
+    \end{tabularx}
+    \caption[Types of Explanations]{Types of explanations as a product and associated reasoning, adapted from \textcite{Miller2019}.}
+    \label{tab:question-types-explanations}
+\end{ctable}
+
+The different types of explanations are relevant for \ac{XAI}, where explanation quality is not only technical correctness, but also perceived usefulness for the target audience \parencite{Miller2019,Lombrozo2006}. The questions of \textit{what} and \textit{how} are relevant for understanding the overall model behaviour, which is of interest for experts and developers \parencite{Miller2019}. In contrast, users of \ac{XAI} systems are often more interested in answers to \textit{why} questions that provide sufficient causes for a system's output \parencite{Kelley1987}. The rationale for this is that the computation and comprehension of full causal chains requires significant cognitive effort \parencite{Lipton1990}. The determination of what provides a sufficient cause for an outcome is influenced by the subjective perception of the explainee, which is shaped by their prior knowledge and beliefs \parencite{Kashima1998}, which will be further discussed in section \ref{sssec:theory-of-mind-ai}.
+
+\subsubsection{Generative vs. Discriminative Models} \label{sssec:generative-vs-discriminative}
+
+In the context of this thesis, the distinction between \textit{generative} and \textit{discriminative} models is of particular importance, as it has significant implications for model capabilities and interactions \parencite{Schneider2024}. These two classes of models differ fundamentally in their modelling objectives and outputs, which in turn shapes the design of \ac{XAI} methods and the nature of explanations required to understand them \parencite{Kumarage2026}.
+
+\textit{Discriminative} models are trained to distinguish between two or more classes. Conceptually, this class of models learns to approximate the mapping from input features to output labels \parencite{Kumarage2026}. Classic use cases are image classification \parencite[e.g.,][]{Lu2007}, anomaly detection \parencite[e.g.,][]{Edozie2025}, or fraud detection or sentiment analysis \parencite[e.g.,][]{Wankhade2022}. Depending on the specific application this mapping can be implemented using simple linear regression models, decision trees, but also more complex models such as support vector machines or deep neural networks \parencite{Schneider2024}. The output of \textit{discriminative} models is limited in size with at most a few hundred bits of information in an information theoretic sense \parencite{Schneider2024}. The output is also often deterministic, and all possible outputs are known at training time \parencite{Kumarage2026}.
+
+By contrast, \textit{generative} models are trained to learn the underlying data distribution of a given dataset, and to generate new samples that are similar to the training data \parencite{Banh2023}. Applications like text generation \parencite[e.g.,][]{Brown2020} and image synthesis \parencite[e.g.,][]{Rombach2022} are common use cases for generative models. Enabled by advancements in deep learning, such as transformer-based architectures, generative models have become increasingly powerful and versatile in recent years \parencite[e.g.,][]{OpenAI2025a}. Due to their open-ended nature, the outputs of generative models are virtually unlimited in size, but often contain tens of thousands of bits of information \parencite{Schneider2024}. The outputs are also often non-deterministic \parencite{Kumarage2026}.
+
+These differences in task and output characteristics between \textit{generative} and \textit{discriminative} models have significant implications for \ac{XAI}. Explainability approaches for discriminative models are often built on the assumption that model inputs can be mapped to outputs deterministically. This allows for the use of mathematical techniques such as feature attribution, counterfactual explanations, or perturbation-based methods \parencite{Kumarage2026} that attempt to assign causal responsibility to input features. Generative models break this assumption of determinism and their outputs are determined by a series of stochastic sampling steps \parencite{Kumarage2026}. The resulting behaviour of generative models is therefore encoded in abstract latent representations that do not map cleanly to input features, uncoupling it from the inputs \parencite{Schneider2024}.
+
+Practically, this means \ac{XAI} methods can be applied to \textit{generative} \ac{AI} models, but the resulting explanations are often unreliable \parencite{Kumarage2026}. This highlights a paradigm shift in explainability between \textit{generative} and \textit{discriminative} models. This paradigm shift requires new methods for generating explanations. Attempts to adopt existing methods like LIME or SHAP have been made and will be discussed in the following section alongside newer approaches to explainability in section \ref{sssec:xai-methods}. However, the fundamental differences between the two classes of models suggest that a more fruitful approach to \ac{XAI} for generative models is to develop methods that are specifically designed for their unique characteristics \parencite{Schneider2024}.
+
+\subsubsection{Explainability Methods} \label{sssec:xai-methods}
+
+Explainability methods are techniques designed to provide details about the functioning and reasons for the behaviour of machine learning models as defined in section \ref{sssec:terminology}. For less complex models, such as linear regression or decision trees, the model itself can be directly inspected to understand its behaviour (i.e., \textit{transparency}) \parencite{Molnar2025}. In contrast, more complex models, such as deep neural networks, are often considered \textit{black-box} models \parencite{Lipton2018}, which require explanations through surrogate models or other proxy techniques to understand \parencite{Retzlaff2024}. The distinction between \textit{transparent} and \textit{black-box} models correlates with the timing of explanation generation, as methods used to explain black-box models are often categorised as \textit{post-hoc}, as they generate explanations after the fact \parencite{Retzlaff2024}. In addition to the approach for providing reasons for a model's behaviour, explainability methods can also be categorised based on the scope of the explanation and the number of models they can be applied to \parencite{Ali2023}. Models can be explained either on a \textit{local} per-output basis, explaining a specific decision or output or on a \textit{global} level describing the overall behaviour of the model \parencite{Rai2020,Ali2023}. With regard to the number of models, \textit{model-specific} methods are designed for a specific model or model architecture, assuming certain properties of the model to generate explanations, while \textit{model-agnostic} methods can be applied to any model type without assumptions about its internal structure \parencite{Ali2023}.
+
+The rest of this section describes three explainability methods that are particularly relevant for the research conducted in this thesis, LIME, SHAP, and \ac{CoT} explanations. LIME and SHAP are included as they are very widely used and have seen adoption for explaining generative models, with \ac{CoT} explanations included as they are a method unique to \acp{LLM} and can be implemented with minimal technical overhead.
+
+\paragraph*{LIME (Local Interpretable Model-agnostic Explanations)}
+
+LIME is a model-agnostic method designed to explain individual predictions (i.e., explain locally) \parencite{Ribeiro2016}. The core mechanism of LIME is a local approximation of the target model's behaviour around the input instance whose prediction is being explained. Explanations are generated by creating a set of perturbed samples around the instance of interest (e.g., by changing or removing features) and observing the changes in the target model's predictions \parencite{Ribeiro2016}. An interpretable surrogate model, such as linear regression, is then fitted to this perturbed data. The surrogate model provides a local explanation by highlighting which input features could have influenced the specific prediction. An example of LIME's perturbation and surrogate model fitting process is illustrated in Figure~\ref{fig:lime-perturbations}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/fig-lime.png}
+    \caption[Example of LIME]{Example of LIME fitting a linear surrogate model (dotted line) for a specific instance (red cross). The perturbed samples (light red cross and blue dots) are scaled by their proximity to the instance being explained. \textit{Reused from \textcite{Ribeiro2016}}.}
+    \label{fig:lime-perturbations}
+\end{figure}
+
+LIME's free choice of surrogate model and perturbation strategy allows it to be applied to virtually any model \parencite{Ribeiro2016}. The computational requirements of LIME are also relatively low, as it only requires a limited number of perturbations and a simple surrogate model to generate explanations \parencite{Ribeiro2016}. However, the quality of LIME explanations is sensitive to the choice of perturbation strategy \parencite{Ribeiro2016}. Combined with the local nature of the explanations, this can lead to instability in the explanations generated \parencite{Alvarez2018}. Additionally, the surrogate model may not correctly capture the behaviour of the original model, leading to explanations that are not faithful to the model's actual decision-making process \parencite{Miller2019}. An application of LIME to generative models is challenging, as the simplicity of surrogate models does not allow capturing high-level concepts \parencite{Kumarage2026}. Despite this, the general concept of LIME has seen adoption in larger frameworks for \ac{GenAI} explanation \parencite[e.g.,][]{Ahmed2025, Durango2025}.
+
+\paragraph*{SHAP (SHapley Additive exPlanations)}
+
+SHAP is a model-agnostic method that functions through additive feature attributions \parencite{Lundberg2017}. In principle, SHAP calculates how important each input feature is for the model's output. For this purpose the method uses Shapley values from cooperative game theory, which provide a way to \enquote{fairly} distribute a payout (i.e., model output) among players based on their contribution (importance) to the total payout \parencite{Shapley1953}. To accomplish this, SHAP evaluates the contribution of each feature across all possible subsets of features, checking how the model's output changes when a feature is included versus excluded, and averages these contributions to determine overall feature importance \parencite{Lundberg2017,Shapley1953}. The method can be used to produce local or global explanations, depending on whether the feature attributions are calculated for a specific instance or averaged across multiple instances \parencite{Lundberg2017}. Local explanations can be visualised using force plots, such as the example in Figure~\ref{fig:shap-force-plot}, showing a local explanation for the decision to reject a loan application.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/fig-shap_force_plot.jpg}
+    \caption[SHAP force plot]{A force plot visualising the local feature attributions calculated by SHAP for a rejected loan application. Features are split into positively contributing features (in red on the left) and negatively contributing features (in blue on the right). The size of the bars indicates the magnitude of the contribution. \textit{Reused from \textcite{Martens2025}}.}
+    \label{fig:shap-force-plot}
+\end{figure}
+
+SHAP's robust theoretical foundation provides a strong basis for its explanations, yielding consistent and theoretically sound feature attributions \parencite{Alvarez2018}. The utilisation of force plots allows for intuitive visualisations that can be understood by non-experts \parencite{Martens2025}. However, the computational cost of SHAP scales exponentially with the number of features, making it impractical for models with many input features, like \acp{LLM} \parencite{Lundberg2017}. Additionally, SHAP's assumption of feature independence can lead to incorrect explanations in cases where features are correlated, which is often the case in real-world data \parencite{Aas2021}. Similar to LIME, the application of SHAP to generative models is challenging, as the method's reliance on feature attributions does not align well with the abstract latent representations used by generative models \parencite{Kumarage2026}. Still SHAP has seen adoption in combination with partial dependence plots to explain generative models through proxies \parencite{Wang2023}.
+
+\paragraph*{Chain-of-Thought Explanations}
+
+\ac{CoT} is an approach to interpretability that is specific to \acp{LLM}. The foundational idea is to have the model follow a step-by-step reasoning process leading to the final answer \parencite{Wei2022}. These intermediate steps can then be used as explanations for the model's final answer, in the sense of the explanation provided in Section~\ref{sssec:terminology}, as they provide details about the model's reasoning process. The step-by-step reasoning can be elicited through training \parencite{Kim2023} or even zero-shot prompting \parencite{Kojima2022}, making it a method that can be implemented with minimal technical overhead. A central criticism of \ac{CoT} explanations is that they may not faithfully reflect the model's actual internal reasoning process \parencite{Lyu2023}. Since the model generates its own explanations, these explanations inherit the same biases and limitations as the model's outputs \parencite{Lyu2023}. Despite these limitations, \ac{CoT} explanations have shown promise in improving performance on complex tasks by encouraging systematic problem decomposition \parencite{Wei2022}, and they provide a unique avenue for gaining insight into the reasoning processes of \acp{LLM}.
+
+\subsection{Cognitive Psychology} \label{ssec:cognitive-psychology}
+
+This section gives an overview of the concepts from cognitive psychology that are relevant for this thesis. The section begins with a discussion of the relevant fundamental concepts in cognitive psychology in section \ref{sssec:cognitive-psychology-concepts}. Section \ref{sssec:theory-of-mind} then provides an introduction to the concept of \ac{ToM}, which is a key concept for this thesis. Finally, section \ref{sssec:theory-of-mind-ai} discusses the intersection of \ac{ToM} and \ac{XAI}.
+
+\subsubsection{Relevant Concepts from Cognitive Psychology} \label{sssec:cognitive-psychology-concepts}
+
+Before discussing \ac{ToM} it is important to introduce two general concepts from cognitive psychology that are relevant for understanding the role of \ac{ToM} in \ac{XAI}. These concepts are \textit{dual-process theory} and \textit{heuristics}. Both concepts are important for understanding how users interact with \ac{AI} systems and how they reflect on these interactions \parencite{Jussupow2021}. They are also important for understanding the cognitive processes involved with evaluating explanations provided by \ac{XAI} systems \parencite{Miller2019}.
+
+\textit{Dual-process theory} is a group of theories that propose the existence of two distinct types of cognitive processing in humans \parencite{Evans2013}, generically labelled as \textit{Type 1} and \textit{Type 2} processing. Different theories ascribe different characteristics to these two types of processing, but they generally agree on the distinction between an intuitive, automatic \textit{Type 1} processing and a more deliberate, controlled \textit{Type 2} processing \parencite{Kahneman2011}. Beyond these common characteristics, different theories ascribe different additional characteristics to the two types of processing, such as speed, parallelism, consciousness, and response bias \parencite{Evans2013}. Table~\ref{tab:type1-type2-processing} summarises the common characteristics alongside a selection of varying characteristics that are supported by several theories but not universally agreed upon.
+
+\begin{ctable}
+    \centering
+    \begin{tabular}{l|l|l}
+        & \textbf{Type 1} & \textbf{Type 2} \\
+        \hline
+        \multirow{2}{*}{\textbf{Common Characteristics}} & Autonomous & Deliberate \\
+        & Intuitive & Controlled \\
+        \hline
+        \multirow{5}{*}{\textbf{Varying Characteristics}} & Fast & Slow \\
+        & Parallel & Serial \\
+        & Non-conscious & Conscious \\
+        & Biased responses & Normative responses \\
+        & Contextualized & Abstract
+    \end{tabular}
+    \caption[Comparison of Type 1 and Type 2 processing]{Comparison of Type 1 and Type 2 processing in dual-process theory. The table differentiates characteristics commonly agreed upon in literature and ones that only find support in some models. \textit{Adapted from \textcite{Evans2013}}.}
+    \label{tab:type1-type2-processing}
+\end{ctable}
+
+Within dual-process theory, different relationships between the two types of processing are proposed. Default-interventionist accounts propose that \textit{Type 1} processing generates an initial response that \textit{Type 2} may subsequently override \parencite{Evans2013}. Parallel-competitive accounts, on the other hand, assume that both processes can operate in parallel and that conflicts are resolved between them if they arise \parencite{Evans2013}. For the purposes of this thesis, both accounts are acknowledged, but the default-interventionist perspective is used as the primary working assumption, as empirical evidence is more supportive of this account \parencite{Evans2013, Kahneman2011}. Additionally, the parallel-competitive account would require the fast \textit{Type 1} to wait for the slower \textit{Type 2} processing to resolve conflicts, which would eliminate the speed advantage of \textit{Type 1} processing \parencite{Evans2013}.
+
+\textit{Heuristics} are methods for problem-solving that simplify the problem, to find a solution faster in favour of a non-optimised solution. The core mechanic of these mental shortcuts is to ignore part of the information available for finding an optimal solution \parencite{Gigerenzer2011}. The research on heuristics goes back to the theory of bounded rationality stating that human decision-making is characterised by limited time, mental resources and information \parencite{Simon1956}. Despite these limitations, humans were able to make decisions that yielded satisfactory results, leading \textcite{Simon1956} to coin the term \enquote{satisficing}; a portmanteau of \enquote{satisfy} and \enquote{suffice}. It describes the behavioural pattern of choosing the first acceptable solution instead of searching for an optimal solution \parencite{Hjeij2023}. Heuristics also play an important role in dual-process theory, as they are often associated with \textit{Type 1} processing \parencite{Kahneman2011}. In computer science and \ac{IS} research heuristics find frequent application to solve problems, that would otherwise be too complex to solve \parencite{Hjeij2023}. A classic example for this is the travelling salesman problem, to which a good solution can be found quite efficiently. An optimal solution can be found, but the computational requirements would be prohibitive for large instances of the problem \parencite{Hjeij2023}.
+
+\subsubsection{Theory of Mind} \label{sssec:theory-of-mind}
+
+\ac{ToM} refers to the cognitive capability to attribute mental states to oneself and others and to understand that others have beliefs, desires, and intentions that may differ from one's own \parencite{Wellman2014}. The foundational work on \ac{ToM} originates from research by \textcite{Premack1978}, who investigated whether chimpanzees possess the ability to infer mental states of others. Today's research on \ac{ToM} in humans investigates a large variety of phenomena, such as the development of \ac{ToM} in children \parencite{Wellman2014}, factors affecting \ac{ToM} performance in adults \parencite{Apperly2009}, and the role of \ac{ToM} in psychological disorders such as autism spectrum disorder \parencite{BaronCohen1995}.
+
+The core of \ac{ToM} is the understanding that individuals hold subjective mental representations of the world and act according to these representations. Literature on \ac{ToM} often focuses on three primary components that form the basis of \ac{ToM}: \textit{beliefs}, \textit{desires}, and \textit{intentions} (BDI) \parencite{Wellman2014}. \textit{Beliefs} represent fundamental facts about the world as perceived by an individual. \textit{Desires} reflect subjective goals for what an individual wants the world to look like. \textit{Intentions} represent planned future actions aimed at satisfying \textit{desires} given the individual's \textit{beliefs}. These components are deeply interrelated and form the basis for \textit{belief reasoning} (or \textit{belief-desire reasoning}), which is the ability to make rational inferences about others' actions based on their \textit{beliefs} and \textit{desires} \parencite{Wellman2014, Rakoczy2022}. For instance, knowing another person's \textit{beliefs} and \textit{desires} allows one to infer their likely \textit{intentions} or actions to satisfy those \textit{desires}. A complete example of BDI is shown in Table~\ref{tab:bdi-example}. Some researchers have proposed additional components that act as moderators of the BDI components, such as \textit{emotions} and \textit{thoughts} \parencite{Apperly2009}. To keep the discussion concise, this thesis focuses on the BDI components as the core of \ac{ToM}, while acknowledging that other components may also play a role in \ac{ToM} reasoning.
+
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{l|X}
+        \textbf{Component} & \textbf{Example} \\
+        \hline
+        Beliefs & Alice believes that the coffee shop is open until 6PM. \\
+        Desires & Alice wants to get a speciality coffee this afternoon. \\
+        Intentions & (Based on her beliefs and desires) Alice intends to go to the coffee shop at 5PM to get a speciality coffee.
+    \end{tabularx}
+    \caption[Example of the BDI components]{Example illustrating the BDI components of Theory of Mind.}
+    \label{tab:bdi-example}
+\end{ctable}
+
+The general capability enabling \ac{ToM} is called \textit{meta-representation}, which is the understanding that others perceive and represent the world from their own subjective point of view \parencite{Perner1991}. This meta-representational understanding of others is characterised by four distinct signatures, which are summarised in Table~\ref{tab:tom-signatures}. \textit{Difference} refers to the understanding that others' perceptions may differ from one's own, opening the possibility for different perspectives. \textit{Incompatibility} describes the notion that these different perspectives may be fundamentally incompatible with each other. \textit{Misrepresentation} captures the understanding that others' representations may be inaccurate or incorrect relative to reality. Finally, \textit{aspectuality} reflects the understanding that others' representations may only consider certain aspects of reality while ignoring others \parencite{Rakoczy2022}.
+
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{l|X|X}
+        \textbf{Signature} & \textbf{Definition} & \textbf{Example} \\
+        \hline
+        Difference & Representing that others' perspectives may differ from one's own. & Alice sees that it is raining outside; Bob, who is inside, does not see the rain. Alice represents that Bob does not perceive the rain. \\
+        \hline
+        Incompatibility & Representing that the content of others' perspectives can be incompatible with one's own. & Alice believes the meeting is scheduled for 15:00, while Bob believes it is scheduled for 16:00; their representations about the meeting time are incompatible. \\
+        \hline
+        Misrepresentation & Representing that others' perspectives can be inaccurate or false. & Alice thinks her keys are on the kitchen table, but the keys were moved to her bag; Alice's representation is false relative to reality. \\
+        \hline
+        Aspectuality & Representing that agents represent objects and situations under specific aspects. & Alice represents an object as a ``toy car'' (focusing on its function), while Bob represents the same object only by its colour (``red object''); Alice represents that Bob attends to a different aspect. \\
+    \end{tabularx}
+    \caption[Meta-representation signatures]{Four signatures of meta-representation adapted from \textcite{Rakoczy2022}, with illustrative examples.}
+    \label{tab:tom-signatures}
+\end{ctable}
+
+The signature of \textit{misrepresentation} is of particular interest for \ac{ToM} research, as it is fundamental to the notion of \textit{false-beliefs}. The ability to understand that others can hold beliefs that are false relative to reality has long been considered a key benchmark for \ac{ToM} competence in children \parencite{Wellman2001}. The understanding of \textit{false-beliefs} is most often tested using scenarios similar to the Wimmer-Perner task \parencite{Wimmer1983}, which is a four-step scenario involving a character (Maxi):
+
+\begin{enumerate}
+    \item Maxi places chocolate in a cupboard and leaves the room.
+    \item While Maxi is absent, the chocolate is moved to a drawer.
+    \item Maxi returns to the room.
+    \item The child is asked where Maxi will look for the chocolate.
+\end{enumerate}
+
+When asked where Maxi will look for the chocolate upon returning, three-year-olds typically answer incorrectly (the drawer), while four- and five-year-olds answer correctly approximately 60\% of the time, with accuracy improving to 86\% in older children \parencite{Wimmer1983}. Despite this, \textcite{Wellman2001} argues that false-belief is a benchmark to be used cautiously for determining \ac{ToM} competence, especially in young children: other factors such as experimental setting and individual differences of participants can influence the performance on \textit{false-belief} tasks. Nonetheless, the understanding of the concept of \textit{false-belief} represents a significant milestone in the development of \ac{ToM} in children, as it demonstrates the ability to understand that others can hold beliefs that are not only different from one's own but also incorrect relative to reality \parencite{Wellman2014}.
+
+\textcite{Apperly2009} propose a \enquote{two-systems} account of belief reasoning, which posits the existence of two distinct cognitive systems for belief reasoning. The first system is efficient but inflexible, while the second system is flexible but cognitively demanding. They draw parallels to other areas of cognition like number perception, where adults are capable of quickly comparing two numbers or group sizes with one another without making a conscious effort \parencite{Apperly2009}. This shows a parallel to dual-process theories of cognition, where the first system is associated with Type 1 processing and the second system is associated with Type 2 processing.
+
+\subsubsection{Theory of Mind in \acs{AI}} \label{sssec:theory-of-mind-ai}
+
+The intersection of \ac{ToM} and \ac{AI} can be categorised into two research directions. The first direction focuses on equipping \ac{AI} systems with \ac{ToM}-like capabilities. \textcite{Baker2017} introduced the \ac{BToM} framework, which helps \ac{AI} systems to infer mental states (beliefs, desires) based on an agent's behaviour. The primary challenge of this approach is the computational complexity of inferring mental states through Bayesian inference. More recently, the idea of spontaneous \ac{ToM} emergence in large language models has gained attention as a result of training on human-generated text. GPT-4 was able to solve 75\% of false-belief tasks, suggesting some level of \ac{ToM} capability \parencite{Kosinski2024}. However, subsequent studies have shown that this performance drastically decreases even with minor perturbations to the task \parencite{Chen2024, Ullman2023}. This suggests that the model's performance may be driven by surface-level heuristics rather than genuine mentalising capabilities \parencite[\textit{cf.}][]{Aru2023}.
+
+The second research direction focuses on human attribution of \ac{ToM} to \ac{AI} systems regardless of whether \ac{AI} systems actually possess \ac{ToM} capabilities. Users of \ac{AI} systems ascribe knowledge and intent to these systems, which shapes their engagement with them \parencite{Wang2021}. Inaccurate mental models of \ac{AI} systems can lead to overreliance on or underutilisation of these systems, which can degrade task performance \parencite{Jussupow2021}. Additionally, the attribution of mental states to \ac{LLM} predicts users' willingness to rely on their recommendations in decision-making independent of the actual reliability of the model \parencite{Colombatto2025}.
+
+\ac{MToM} is an emerging framework that integrates both research directions, highlighting their complementary nature. In \ac{MToM}, both humans and \ac{AI} construct and revise models of each other through interaction \parencite{Wang2021, Wang2024a}. The bidirectional nature of \ac{MToM} provides an approach for closing the mental model gap between humans (particularly lay users) and even \ac{XAI} systems \parencite{Bienefeld2023}. As explanation is a social process \parencite{Miller2019}, the design and selection of explanations in \ac{XAI} has to be tailored to the explainee. This tailoring requires understanding the explainee's prior knowledge and beliefs \parencite{Halpern2005}. Conversely, providing useful explanations can support users in forming accurate mental models of \ac{AI} systems and increasing trust in these systems \parencite{Shin2021}. This positions \ac{XAI} as a key mechanism for supporting accurate \ac{ToM} attribution in users, while simultaneously highlighting the importance of understanding human attribution of \ac{ToM} for designing effective explanations in \ac{XAI} \parencite{Hoffman2023}.
+
+\subsection{Related Works} \label{ssec:related-works}
+
+The rising interest in \ac{XAI} for generative models and the intersection of \ac{ToM} and \ac{AI} has led to a growing body of research in these areas. This section provides an overview of the works most relevant to the research conducted in this thesis. \textcite{Weisz2025} developed six design principles for \ac{GenAI} and four strategies for more effective design. As generative \ac{AI} fundamentally shifts the user's role in the interaction from \textit{command} (specifying exact actions) to \textit{specification} (specifying desired outcomes), existing design principles and \ac{HCI} frameworks are not suited to guide the design of \ac{GenAI} systems \parencite{Weisz2025}. New design vocabulary was also developed alongside the design principles, as the existing vocabulary developed for discriminative \ac{AI} is not sufficient to discuss the unique characteristics of generative \ac{AI} \parencite{Weisz2025}. The chapter was developed and validated through an iterative process that combined literature review, practitioner workshops, and the examination of live generative AI products \parencite{Weisz2025}.
+
+Two design principles are of particular relevance for this thesis, as they are focused on the mental models of users and their trust and reliance on the system. \textit{Principle 2: Design for Mental Models} states the importance of designing generative \ac{AI} systems in a way that supports users in forming a \enquote{useful} mental model of the system, which is defined as a mental model that allows users to predict the system's behaviour and understand its limitations \parencite{Weisz2025}. Specific strategies include clarifying generative variability to the user and providing the model with knowledge about the user and their context \parencite{Weisz2025}. \textit{Principle 3: Design for Appropriate Trust and Reliance} suggests the utilisation of strategies such as providing users with clear information about the system's capabilities and limitations, as well as providing users \enquote{rationales for outputs}. Additionally, the user should be discouraged from overreliance on the system by introducing friction during key decision-making points \parencite{Weisz2025}. As the design principles are developed for generative \ac{AI} in general, they are very abstract in their nature, their application to specific use cases requires further research.
+
+\textcite{Jussupow2021} performed an experiment to investigate how doctors evaluate and follow or reject diagnoses from a \ac{CAID} system. The experiment was conducted in a simulated environment and with a \ac{CAID} system which provided both correct and incorrect diagnoses. The results showed that doctors were only capable of consistently rejecting incorrect diagnoses and accepting correct ones, when they correctly estimated the system's capabilities \parencite{Jussupow2021}. Novice doctors were more likely to overestimate the system's capabilities, leading to more type I errors, while experienced doctors were more likely to underestimate the system's capabilities, leading to more type II errors \parencite{Jussupow2021}.
+
+The authors identify that the doctors' mental models of the system had significant influence on their evaluation and use of the system's diagnoses \parencite{Jussupow2021}. Critically, doctors underwent two key cognitive conflicts when working with conflicting \ac{AI} advice compared to their own assessment:
+
+\begin{enumerate}
+    \item \textit{Belief Conflict:} The doctor compares their own belief about the system's capabilities to their belief in their own capabilities to make the right diagnosis. If one belief is stronger, doctors often immediately accept or reject the system's diagnosis without further reflection.
+    \item \textit{Validation Conflict:} In case no belief is stronger, doctors move to validate their own diagnosis and the system's diagnosis. They search for evidence that supports either diagnosis in a conscious effort steered by metacognitions about the reliability of the system and their own capabilities.
+\end{enumerate}
+
+This has significant implications for the performance of \ac{AI} supported decision-making, as useful mental models are not only helpful for improving performance \parencite{Weisz2025}, but a precondition for effective human-AI collaboration \parencite{Jussupow2021}. The study also highlights the importance of metacognitions and constant reflection of \ac{AI} systems' capabilities and limitations for successful human-AI collaboration \parencite{Jussupow2021}.
+
+Focusing on the importance of goal communication, \textcite{Ying2024} investigated the effects of communicating the \ac{AI}'s belief state to users on their acceptance of the \ac{AI}'s suggestions. In an online experiment with 210 participants, an \ac{AI} observed users' ingredient selection during shopping to infer their intended recipe and provide suggestions based on this inference. They tested three conditions in a within-subject design:
+
+\begin{enumerate}[label=(\arabic*)]
+    \item \textit{Baseline:} The \ac{AI} withheld the inferred recipe from the user, only providing suggestions based on its inference.
+    \item \textit{Tell:} The \ac{AI} communicated a confidence score for its inferred recipe.
+    \item \textit{Show:} The \ac{AI} communicated the inferred recipe itself to the user using modal language according to the certainty.
+\end{enumerate}
+
+Their results showed that users were more likely to accept suggestions from the \ac{AI} when it communicated its belief state (i.e., in the \textit{Tell} and \textit{Show} conditions) compared to the \textit{baseline}. Additionally, the two conditions communicating the belief state received higher subjective ratings for the willingness to use and trust as well as perceived helpfulness \parencite{Ying2024}. While the quantitative results showed no significant differences between the two modes, qualitative data suggest that users preferred \textit{Tell} to \textit{Show}, although the latter yielded higher trust calibration.
+
+In a similar vein, \textcite{Colombatto2025} investigated the influence of mental state attributions on user trust in \ac{LLM}. In an online experiment with 410 participants, they tested the correlation of mental state attributions to ChatGPT with the willingness to rely on its recommendations in decision-making. For the experiment, participants answered general knowledge questions with two response options and were offered the option to change their answer after receiving a recommendation from an \ac{LLM}. Participants also completed a questionnaire measuring their mental state attributions to \acp{LLM} in two key dimensions: \textit{intelligence} (e.g., memory, planning) and \textit{experience} (e.g., happiness, resentment). The results showed differentiated effects of the two dimensions of mental state attributions on the willingness to rely on the \ac{LLM}'s recommendations. Higher attributions of intelligence were associated with a higher willingness to rely on the \ac{LLM}'s recommendations. Conversely, higher attributions of experience were associated with a lower willingness to rely on the \ac{LLM}'s recommendations \parencite{Colombatto2025}. The authors also point out a notable difference between self-reported trust and actual reliance on the \ac{LLM}'s recommendations, with the latter being more strongly correlated with advice accuracy than with perceived anthropomorphism \parencite{Colombatto2025}.
 
 \subsection{Research Objectives} \label{ssec:research-objectives}
+
+The state of research presented in the previous sections highlights that \ac{ToM} attribution to \ac{AI} systems is a key factor for effective human-AI collaboration. Despite this, research on \ac{ToM} attribution to \ac{GenAI} systems remains in its early stages, and significant gaps persist in our understanding of how users form mental models of these systems. \textcite{Jussupow2021} explicitly identify the role of explanations as a topic of future research, establishing a direct link between \ac{XAI} and the formation of accurate mental models. Additionally, while design principles for \ac{GenAI} have been developed, their application to specific use cases requires further investigation, particularly in the context of \ac{XAI} for \ac{GenAI} systems \parencite{Weisz2025}. This thesis aims to address these gaps by investigating the role of explanations in the attribution of \ac{ToM} to \ac{GenAI} systems. To this end, the thesis is guided by the following research questions:
+
+\begin{enumerate}[label=(\textbf{RQ\arabic*}),leftmargin=4em]
+    \item How do \ac{LLM}-users attribute \ac{ToM} to \acp{LLM} in collaborative problem-solving scenarios?
+    \item Does providing explanations for \ac{LLM} outputs influence users' attribution of \ac{ToM}, and if so, in what direction and on which dimensions of attribution?
+    \item What design principles can be derived for \ac{XAI} in \ac{GenAI} systems to support accurate \ac{ToM} attribution?
+\end{enumerate}
+
+The central objective of this thesis is to develop a set of empirically grounded design principles for \ac{XAI} in \ac{GenAI} systems that support the formation of accurate mental models. This objective is pursued through the evaluation of a pre-existing user study, re-examined under the theoretical lens of \ac{ToM} attribution, to investigate the effects of explanations on users' attribution of \ac{ToM} to an \ac{LLM} in a collaborative problem-solving scenario. The findings of this evaluation are used to derive design principles for \ac{XAI} in \ac{GenAI} systems, which are subsequently evaluated and refined through expert interviews.
