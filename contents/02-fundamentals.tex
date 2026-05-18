@@ -1,6 +1,6 @@
 \section{Fundamentals and State of Research} \label{sec:fundamentals}
 
-This section provides an overview of the fundamental concepts and the current state of research relevant to this thesis. It covers key topics in \ac{XAI} in section \ref{ssec:xai} and cognitive psychology in section \ref{ssec:cognitive-psychology}. Related works are discussed in section \ref{ssec:related-works}, and the research objectives of this thesis are outlined in section \ref{ssec:research-objectives}.
+This chapter establishes the theoretical foundation for this thesis by reviewing the key concepts and state of research relevant to the intersection of \ac{XAI} and cognitive psychology. Section~\ref{ssec:xai} introduces \ac{XAI}, covering core terminology, the distinction between generative and discriminative models, and the explanation methods most relevant to this thesis. Section~\ref{ssec:cognitive-psychology} presents the cognitive psychology concepts underpinning the research, with particular focus on \ac{ToM} and its intersection with \ac{AI}. Related works are discussed in section~\ref{ssec:related-works}, and the research objectives and questions guiding this thesis are derived in section~\ref{ssec:research-objectives}.
 
 \subsection{Explainable Artificial Intelligence} \label{ssec:xai}
 
@@ -196,9 +196,10 @@ The core of \ac{ToM} is the understanding that individuals hold subjective menta
     \label{tab:bdi-example}
 \end{ctable}
 
-The general capability enabling \ac{ToM} is called \textit{meta-representation}, which is the understanding that others perceive and represent the world from their own subjective point of view \parencite{Perner1991}. This meta-representational understanding of others is characterised by four distinct signatures, which are summarised in Table~\ref{tab:tom-signatures}. \textit{Difference} refers to the understanding that others' perceptions may differ from one's own, opening the possibility for different perspectives. \textit{Incompatibility} describes the notion that these different perspectives may be fundamentally incompatible with each other. \textit{Misrepresentation} captures the understanding that others' representations may be inaccurate or incorrect relative to reality. Finally, \textit{aspectuality} reflects the understanding that others' representations may only consider certain aspects of reality while ignoring others \parencite{Rakoczy2022}.
+The general capability enabling \ac{ToM} is called \textit{meta-representation}, which is the understanding that others perceive and represent the world from their own subjective point of view \parencite{Perner1991}. This meta-representational understanding of others is characterised by four distinct signatures, which are summarised in Table~\ref{tab:tom-signatures}. \textit{Difference} refers to the understanding that others' perceptions may differ from one's own, opening the possibility for different perspectives. \textit{Incompatibility} describes the notion that these different perspectives may be fundamentally incompatible with each other. \textit{Misrepresentation} captures the understanding that others' representations may be inaccurate or incorrect relative to reality. Finally, \textit{aspectuality} reflects the understanding that
+others' representations may only consider certain aspects of reality while ignoring others \parencite{Rakoczy2022}.
 
-\begin{ctable}
+\begin{ctable}[!ht]
     \centering
     \begin{tabularx}{\textwidth}{l|X|X}
         \textbf{Signature} & \textbf{Definition} & \textbf{Example} \\
@@ -209,7 +210,7 @@ The general capability enabling \ac{ToM} is called \textit{meta-representation},
         \hline
         Misrepresentation & Representing that others' perspectives can be inaccurate or false. & Alice thinks her keys are on the kitchen table, but the keys were moved to her bag; Alice's representation is false relative to reality. \\
         \hline
-        Aspectuality & Representing that agents represent objects and situations under specific aspects. & Alice represents an object as a ``toy car'' (focusing on its function), while Bob represents the same object only by its colour (``red object''); Alice represents that Bob attends to a different aspect. \\
+        Aspectuality & Representing that agents represent objects and situations under specific aspects. & Alice represents an object as a \enquote{toy car} (focusing on its function), while Bob represents the same object only by its colour (\enquote{red object}); Alice and Bob represent different aspects \\
     \end{tabularx}
     \caption[Meta-representation signatures]{Four signatures of meta-representation adapted from \textcite{Rakoczy2022}, with illustrative examples.}
     \label{tab:tom-signatures}
@@ -272,7 +273,8 @@ The state of research presented in the previous sections highlights that \ac{ToM
 \begin{enumerate}[label=(\textbf{RQ\arabic*}),leftmargin=4em]
     \item How do \ac{LLM}-users attribute \ac{ToM} to \acp{LLM} in collaborative problem-solving scenarios?
     \item Does providing explanations for \ac{LLM} outputs influence users' attribution of \ac{ToM}, and if so, in what direction and on which dimensions of attribution?
-    \item What design principles can be derived for \ac{XAI} in \ac{GenAI} systems to support accurate \ac{ToM} attribution?
+    \item Based on the findings of \textbf{RQ1} and \textbf{RQ2}, what design principles can be derived for \ac{XAI} in \ac{GenAI} systems to support accurate \ac{ToM} attribution?
+    % \item What design principles for \ac{XAI} in \ac{GenAI} systems to support accurate \ac{ToM} attribution can be derived from the empirical findings of \textbf{RQ1} and \textbf{RQ2}?
 \end{enumerate}
 
 The central objective of this thesis is to develop a set of empirically grounded design principles for \ac{XAI} in \ac{GenAI} systems that support the formation of accurate mental models. This objective is pursued through the evaluation of a pre-existing user study, re-examined under the theoretical lens of \ac{ToM} attribution, to investigate the effects of explanations on users' attribution of \ac{ToM} to an \ac{LLM} in a collaborative problem-solving scenario. The findings of this evaluation are used to derive design principles for \ac{XAI} in \ac{GenAI} systems, which are subsequently evaluated and refined through expert interviews.
