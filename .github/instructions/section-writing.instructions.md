@@ -52,7 +52,7 @@ issue_id: "#1123"
    - do not update the "# Writing Notes" section at this stage, as the agent will produce a draft in the next step.
 3. User answers the open questions and provides any missing citation keys (or adds them to `literature.bib`). Open questions have to be resolved before proceeding to drafting. You may utilise the answered questions and added citations to update the "# Writing Notes" section if needed, but this is optional at this stage. The main goal is to ensure all ambiguities are resolved and the agent has the necessary information for drafting.
 4. User prompts the agent to produce the first draft for the subsection (specify tone, length, and which points to prioritise).
-5. Agent generates a draft and annotates places with `TODO` or `MISSING_CITATION{<key>}` markers where human review or bibliography additions are required.
+5. Agent generates a draft and uses the `PLACEHOLDER` citation key where human review or bibliography additions are required.
 6. Iterative improvement: the user edits the draft and re-prompts the agent for refinement. Repeat until ready.
 7. When the draft is acceptable, the user creates a commit with a single-line header and a body referencing the issue (e.g., header `docs(section): add draft for sec:methods-data` and body `references #1123`).
 
