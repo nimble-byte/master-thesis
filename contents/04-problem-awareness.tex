@@ -1,17 +1,26 @@
 \section{Problem Awareness} \label{sec:problem-awareness}
 
-% \href{https://scholar.google.com}{Google Scholar}\footnote{https://scholar.google.com} and the \href{https://dl.acm.org}{ACM Digital Library}\footnote{https://dl.acm.org} were used as primary search engines, with the following search string: \texttt{("theory of mind" OR "ToM") AND ("generative AI" OR "large language model" OR "LLM")}. As the search yielded a large number of results, the search was limited to publications from the last five years and the first 100 results of each search engine were screened for relevance. The relevant literature was then analysed to identify relevant insights to define meta-requirements for the design principles. The meta-requirements were then used to guide the analysis of the data from a previously conducted study, which is described in detail in chapter \ref{sec:study-design}. The analysis of the data was performed through a qualitative coding process inspired by \textcite{Jussupow2021}.
-
 % consider \parencite{Halpern2005,Kashima1998} for the role of user beliefs in shaping perception and interaction with AI systems, and how this relates to ToM attribution
+This chapter establishes the meta-requirements that constrain the design principle space developed in Chapter~\ref{sec:design-principles}, corresponding to step~\rom{4} of the method for design principle development \parencite{Moeller2020}. It is conducted as a hermeneutic literature review \parencite{Boell2014}, organised around three thematic directions central to the research questions: the challenges of human-\ac{AI} interaction specific to \ac{GenAI} systems (Section~\ref{ssec:hai-genai}), the attribution of \ac{ToM} to \ac{AI} systems (Section~\ref{ssec:tom-attributions}), and explanations and mental model formation (Section~\ref{ssec:explanations-mental-model-formation}). The meta-requirements derived from these sections are synthesised in Section~\ref{ssec:meta-requirements}.
 
-\subsection{Challenges in Human-AI Interaction for Generative AI} \label{ssec:challenges-human-ai-interaction}
+\subsection{Review Methodology and Corpus} \label{ssec:review-methodology}
+
+% TODO: consider limiting the starting corpus to the four works discussed in the related works section; additional seminal works need to be justified separately
+% - starting corpus drawn from works introduced in fundamentals chapter
+% - include all works discussed in the related works section
+% - additional seminal works (with own justification)
+The starting corpus was drawn from the works introduced and discussed in Section~\ref{ssec:related-works}, which established their relevance to the three thematic directions as part of the theoretical foundation of this thesis \parencite{Boell2014}. These works were grouped into their respective directions as follows: \textcite{Weisz2025} and \textcite{Schneider2024} anchor the \ac{GenAI} interaction direction; \textcite{Jussupow2021}, \textcite{Colombatto2025}, and \textcite{Ying2024} form the basis of the \ac{ToM} attribution direction; and \textcite{Miller2019}, \textcite{Shin2021}, and \textcite{Hoffman2023} anchor the explanations and mental model direction. Foundational works such as \textcite{Arrieta2020} and \textcite{Lipton2018} were consulted as theoretical reference points but excluded as expansion anchors, as their focus on discriminative models renders much of their content superseded by the paradigm shift to \ac{GenAI} that is central to this thesis \parencite{Schneider2024}; where \ac{GenAI}-specific treatments of the same concepts exist, such as \textcite{Hoffman2023}, these are preferred.
+
+The corpus was expanded through reverse citation search, tracing the references of the starting corpus iteratively \parencite{Boell2014}. Saturation was considered reached when new sources were found to either duplicate positions already represented in the corpus, address a scope narrower than the thematic directions, or concern implementation details rather than conceptual or empirical contributions relevant to the meta-requirements. The review is bounded thematically to the three directions identified above. The temporal boundary is set to 2017 onward, marking the introduction of the transformer architecture \parencite{Vaswani2017} as the technical inflection point that enabled modern \ac{GenAI} systems \parencite{Schneider2024}. Seminal works predating this boundary are included where they provide theoretical foundations that have not been superseded.
+
+\subsection{Human-AI Interaction with GenAI} \label{ssec:hai-genai}
 
 \begin{itemize}
     \item \textcite{Weisz2025}
     \item \textcite{Amershi2019}
 \end{itemize}
 
-\subsection{Theory of Mind Attributions to AI Systems} \label{ssec:theory-of-mind-attributions}
+\subsection{Theory of Mind Attributions to AI Systems} \label{ssec:tom-attributions}
 
 \begin{itemize}
     \item \textcite{Jussupow2021}
@@ -20,7 +29,7 @@
     \item \textcite{Lyu2023}
 \end{itemize}
 
-\subsection{Role of Explanations in Shaping User Mental Models} \label{ssec:role-of-explanations-mental-models}
+\subsection{Explanations and Mental Model Formation} \label{ssec:explanations-mental-model-formation}
 
 \begin{itemize}
     \item \textcite{Miller2019}
