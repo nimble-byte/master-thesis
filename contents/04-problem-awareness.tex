@@ -1,41 +1,33 @@
 \section{Problem Awareness} \label{sec:problem-awareness}
 
-% consider \parencite{Halpern2005,Kashima1998} for the role of user beliefs in shaping perception and interaction with AI systems, and how this relates to ToM attribution
-This chapter establishes the meta-requirements that constrain the design principle space developed in Chapter~\ref{sec:design-principles}, corresponding to step~\rom{4} of the method for design principle development \parencite{Moeller2020}. It is conducted as a hermeneutic literature review \parencite{Boell2014}, organised around three thematic directions central to the research questions: the challenges of human-\ac{AI} interaction specific to \ac{GenAI} systems (Section~\ref{ssec:hai-genai}), the attribution of \ac{ToM} to \ac{AI} systems (Section~\ref{ssec:tom-attributions}), and explanations and mental model formation (Section~\ref{ssec:explanations-mental-model-formation}). The meta-requirements derived from these sections are synthesised in Section~\ref{ssec:meta-requirements}.
+This chapter establishes the meta-requirements that motivate the design principle space developed in Chapter~\ref{sec:design-principles}, through a hermeneutic literature review. Section~\ref{ssec:review-methodology} presents the review methodology and initial literature corpus. The subsequent sections present the review findings along the three research directions identified from the initial corpus: human-\ac{AI} interaction with \ac{GenAI} systems (Section~\ref{ssec:hai-genai}), the attribution of \ac{ToM} to \ac{AI} systems (Section~\ref{ssec:tom-attributions}), and explanations and mental model formation (Section~\ref{ssec:explanations-mental-model-formation}). The meta-requirements derived from these sections are synthesised in Section~\ref{ssec:meta-requirements}.
 
 \subsection{Review Methodology and Corpus} \label{ssec:review-methodology}
 
-% TODO: consider limiting the starting corpus to the four works discussed in the related works section; additional seminal works need to be justified separately
-% - starting corpus drawn from works introduced in fundamentals chapter
-% - include all works discussed in the related works section
-% - additional seminal works (with own justification)
-The starting corpus was drawn from the works introduced and discussed in Section~\ref{ssec:related-works}, which established their relevance to the three thematic directions as part of the theoretical foundation of this thesis \parencite{Boell2014}. These works were grouped into their respective directions as follows: \textcite{Weisz2025} and \textcite{Schneider2024} anchor the \ac{GenAI} interaction direction; \textcite{Jussupow2021}, \textcite{Colombatto2025}, and \textcite{Ying2024} form the basis of the \ac{ToM} attribution direction; and \textcite{Miller2019}, \textcite{Shin2021}, and \textcite{Hoffman2023} anchor the explanations and mental model direction. Foundational works such as \textcite{Arrieta2020} and \textcite{Lipton2018} were consulted as theoretical reference points but excluded as expansion anchors, as their focus on discriminative models renders much of their content superseded by the paradigm shift to \ac{GenAI} that is central to this thesis \parencite{Schneider2024}; where \ac{GenAI}-specific treatments of the same concepts exist, such as \textcite{Hoffman2023}, these are preferred.
+The hermeneutic literature review is an interpretive, iterative approach to reviewing literature \parencite{Boell2014}. Rather than exhaustively searching a predefined corpus, the process begins with an initial set of works which is iteratively expanded through search and acquisition cycles \parencite{Boell2014}. During the search new works are discovered (e.g. by tracking citations) and then acquired if they contribute relevant additions to the corpus. The iterative movement between individual works and the evolving whole is the defining characteristic of the hermeneutic circle \parencite{Boell2014}. The process terminates when saturation is reached, i.e., when new sources cease to produce interpretively relevant additions to the corpus.
 
-The corpus was expanded through reverse citation search, tracing the references of the starting corpus iteratively \parencite{Boell2014}. Saturation was considered reached when new sources were found to either duplicate positions already represented in the corpus, address a scope narrower than the thematic directions, or concern implementation details rather than conceptual or empirical contributions relevant to the meta-requirements. The review is bounded thematically to the three directions identified above. The temporal boundary is set to 2017 onward, marking the introduction of the transformer architecture \parencite{Vaswani2017} as the technical inflection point that enabled modern \ac{GenAI} systems \parencite{Schneider2024}. Seminal works predating this boundary are included where they provide theoretical foundations that have not been superseded.
+Due to the nascent state of the field the hermeneutic approach was uniquely suited for the review. This was reinforced by the interdisciplinary nature of the research topic, as well as practical constraints of a master's thesis scope. The starting corpus was drawn from the works introduced and discussed in Section~\ref{ssec:related-works}, which established their relevance to the three thematic directions as part of the theoretical foundation of this thesis. Additional seminal works were included based on their relevance to the thematic directions, demonstrated by their frequent citation across the starting corpus. These works were grouped into three thematic directions used as anchors for the expansion of the literature corpus:
+
+\begin{itemize}
+    \item \enquote{Human-\ac{AI} interaction with \ac{GenAI}} anchored by \textcite{Weisz2025}.
+    \item \enquote{Theory of Mind attributions to \ac{AI} systems} anchored by \textcite{Jussupow2021}, \textcite{Colombatto2025}, and \textcite{Ying2024}.
+    \item \enquote{Explanations and mental model formation} anchored by \textcite{Miller2019}, \textcite{Shin2021}, and \textcite{Hoffman2023}.
+\end{itemize}
+
+Foundational works such as \textcite{Arrieta2020} and \textcite{Amershi2019} were consulted as theoretical reference points but excluded as expansion anchors, as their focus on discriminative \ac{AI} renders their core contributions superseded by the paradigm shift to \ac{GenAI} that is central to this thesis \parencite{Schneider2024}.
+
+The initial corpus was expanded primarily by tracing the citations of the starting corpus forward and backward \parencite[cf.][]{Boell2014}. Forward citation search was conducted using \href{https://scholar.google.com/}{Google Scholar}\footnote{https://scholar.google.com}, but yielded limited results due to the recency of the starting corpus, which is itself a reflection of the nascent state of the field. Backward citation search helped to identify seminal works of relevance to the thematic directions. Search was bounded thematically to the three directions identified above. Additionally, a temporal boundary was set to 2017 onward, marking the introduction of the transformer architecture \parencite{Vaswani2017} as the technical inflection point that enabled modern \ac{GenAI} systems \parencite{Schneider2024}. Seminal works predating this boundary were included where they provide theoretical foundations that have not been superseded. Saturation was considered reached when new sources were found to either duplicate positions already represented in the corpus or focus on implementation details rather than conceptual or empirical contributions relevant to the meta-requirements.
 
 \subsection{Human-AI Interaction with GenAI} \label{ssec:hai-genai}
 
-\begin{itemize}
-    \item \textcite{Weisz2025}
-    \item \textcite{Amershi2019}
-\end{itemize}
+
 
 \subsection{Theory of Mind Attributions to AI Systems} \label{ssec:tom-attributions}
 
-\begin{itemize}
-    \item \textcite{Jussupow2021}
-    \item \textcite{Colombatto2025}
-    \item \textcite{Ying2024}
-    \item \textcite{Lyu2023}
-\end{itemize}
+
 
 \subsection{Explanations and Mental Model Formation} \label{ssec:explanations-mental-model-formation}
 
-\begin{itemize}
-    \item \textcite{Miller2019}
-    \item \textcite{Shin2021}
-    \item \textcite{Hoffman2023}
-    \item \textcite{Lyu2023}
-\end{itemize}
+% consider \parencite{Halpern2005,Kashima1998} for the role of user beliefs in shaping perception and interaction with AI systems, and how this relates to ToM attribution
 
 \subsection{Meta-Requirements} \label{ssec:meta-requirements}
