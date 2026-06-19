@@ -21,10 +21,74 @@ The resulting corpus of nine works is organised into three thematic directions, 
 \end{itemize}
 
 % TODO: If there is time, consider finding a second source that was excluded. The goal would be a "standard work" that is widely cited in the field but was excluded
-Saturation was reached with the inclusion of \textcite{Hoffman2023}, which provided new insights into the measurement of mental models and their relationship to explanations. Additional works \parencite[e.g.,][]{Baker2017} concerned themselves with the design of \ac{AI} systems with \ac{ToM} capabilities which is a related but distinct topic that was not included in the corpus as it did not contribute to the meta-requirements of this thesis.
+Saturation was reached with the inclusion of \textcite{Hoffman2023}, which provided new insights into the measurement of mental models and their relationship to explanations. Additional works \parencite[e.g.,][]{Baker2017} concerned themselves with the design of \ac{AI} systems with \ac{ToM} capabilities which is a related but distinct topic that was not included in the corpus as it did not contribute to the meta-requirements of this thesis. Beyond the corpus, additional sources are occasionally cited directly where they provide a concept relevant for understanding the corpus's arguments; such citations do not indicate inclusion in the hermeneutic corpus described above.
 
 \subsection{Human-AI Interaction with GenAI} \label{ssec:hai-genai}
 
+Section~\ref{ssec:related-works} already established that \ac{GenAI} systems shift the user's role from \textit{command} to \textit{specification} \parencite{Weisz2025}, and that this shift renders existing \ac{HCI} frameworks insufficient for designing \ac{GenAI} interactions. This insufficiency is not merely asserted by \textcite{Weisz2025}; it can be illustrated concretely through \textcite{Amershi2019}, whose 18 guidelines for human-\ac{AI} interaction were distilled from over 150 design recommendations and validated through a multiphase evaluation, including a study with 49 \ac{HCI} practitioners testing the guidelines against 20 AI-infused products. Guidelines such as \enquote{make clear what the system can do} (G1), \enquote{make clear how well the system can do what it can do} (G2), and \enquote{make clear why the system did what it did} (G11) remain intuitively relevant to \ac{GenAI} systems. However, the guidelines and their underlying validation were developed against products that predate the rise of modern \ac{GenAI} systems, and consequently rest on an assumption of bounded, reproducible system behaviour that \ac{GenAI} systems violate by design \parencite{Schneider2024}. This is precisely the gap that motivates a separate set of design principles for \ac{GenAI} interaction rather than a direct extension of the existing guidelines \parencite{Weisz2025}.
+
+Two of the resulting design principles are of particular relevance for the meta-requirements of this thesis: \textit{Design for Mental Models} and \textit{Design for Appropriate Trust and Reliance} \parencite{Weisz2025}. The remainder of this section examines the interaction challenges that motivate these two principles in more depth, focusing on aspects not already covered in Section~\ref{ssec:related-works}: the consequences of generative variability for mental model formation, and the conditions under which natural language interfaces invite anthropomorphism.
+
+\subsubsection*{Non-Determinism and Mental Model Breakdown}
+
+A defining property of \ac{GenAI} systems is \textit{generative variability}: the same input can produce different outputs across repeated invocations, and the quality of these outputs can vary considerably \parencite{Weisz2025}. Users accustomed to deterministic tools tend to interpret this variability as an error rather than as inherent system behaviour \parencite{Weisz2025}. This poses a particular challenge for mental model formation, as a model formed during an early interaction can break down once the system produces a different output for what the user perceives as an unchanged input.
+
+\textcite{Gero2020} propose three categories of mental model content relevant to \ac{AI} systems: \textit{knowledge distribution}, describing the factual knowledge a system possesses; \textit{global behaviour}, describing general behavioural patterns of the system; and \textit{local behaviour}, describing the reasons for a specific output. Of these three categories, generative variability most directly undermines local behaviour, as users cannot reliably predict or reproduce why a system produced a specific output on a given occasion. This is also the category that explanations are best positioned to support, as an explanation of a specific output is, by definition, an account of local behaviour. The relationship between explanations and mental model formation is taken up in more depth in Section~\ref{ssec:explanations-mental-model-formation}.
+
+The dependency between mental model accuracy and effective human-\ac{AI} collaboration is not specific to \ac{GenAI}. \textcite{Jussupow2021} show, in the context of a discriminative \ac{CAID} system, that physicians were only able to consistently accept correct and reject incorrect system advice when they held an accurate model of the system's capabilities (cf. Section~\ref{ssec:related-works}). This dependency plausibly extends to \ac{GenAI} systems as well, and arguably more urgently so: \ac{GenAI} outputs are harder to verify against an objective ground truth and less stable across repeated interactions than the outputs of the discriminative system studied by \textcite{Jussupow2021}.
+
+\subsubsection*{Natural Language Interfaces and Anthropomorphism}
+
+Natural language is a defining interface property of many \ac{GenAI} systems, lowering the barrier to entry and enabling the shift to specification-based interaction described above \parencite{Weisz2025}. The same property creates favourable conditions for spontaneous anthropomorphism: users attribute human-like qualities to a system without deliberate intent, simply as a consequence of interacting with it through natural language \parencite{Weisz2025}. \textcite{Weisz2025} situate this discussion under their principle of \textit{Design for Appropriate Trust and Reliance}, reflecting the close relationship between anthropomorphism and trust calibration.
+
+The appropriate response to this tendency is contested. \textcite{Shneiderman2023} argue that anthropomorphic design should be avoided entirely, citing Microsoft's Clippy as a widely recognised example of anthropomorphic design that was not matched by corresponding system capability, resulting in user frustration rather than engagement. Despite disagreement on whether anthropomorphic design is desirable in principle, \textcite{Weisz2025} note a shared consensus that systems should not actively deceive users about their nature: \ac{AI} tools should be clearly identifiable as such, a concern that becomes more rather than less pressing as model capabilities improve.
+
+Anthropomorphism is also relevant beyond interface design choices. Users do not only attribute human-like qualities to \ac{GenAI} systems incidentally; they apply the same folk-psychological concepts and reasoning processes used to explain human behaviour, including beliefs, desires, and intentions, to interpret \ac{AI} behaviour \parencite{Miller2019}. This connects the interaction-design concerns discussed in this section directly to the attribution of \ac{ToM} to \ac{AI} systems, which is discussed in Section~\ref{ssec:tom-attributions}.
+
+\subsubsection*{Towards the Design Space}
+
+The interaction challenges outlined above, the mismatch between existing \ac{HCI} guidelines and \ac{GenAI} properties, the breakdown of mental models under generative variability, and the conditions for anthropomorphism created by natural language interfaces, motivate the need for principled explanation design in \ac{GenAI} systems. They are also the reason \textcite{Weisz2025} treat \textit{Design for Mental Models} and \textit{Design for Appropriate Trust and Reliance} as two of six distinct design principles for \ac{GenAI}, rather than as a single undifferentiated concern. Sections~\ref{ssec:tom-attributions} and~\ref{ssec:explanations-mental-model-formation} take up these two threads in turn: who attributes what to \ac{GenAI} systems, and how explanations shape those attributions. Figure~\ref{fig:hai-genai-roadmap} summarises this progression.
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        challenge/.style={draw=challengegray, thick, align=left, fill=challengegray!8, font=\footnotesize, text width=3.6cm, minimum height=1.0cm, inner sep=7pt},
+        dp/.style={draw=dpaccent, line width=1pt, align=center, fill=dpaccent!6, font=\bfseries\small, text=dpaccent, text width=4.9cm, minimum height=1.0cm, inner sep=8pt},
+        sec/.style={draw=challengegray, densely dashed, align=left, fill=white, font=\footnotesize, text width=3.5cm, minimum height=1.0cm, inner sep=7pt},
+        feedarr/.style={-{Latex[length=2mm, width=1.6mm]}, challengegray, thick},
+        mainarr/.style={-{Latex[length=2.4mm, width=2mm]}, dpaccent, line width=1.1pt},
+        crossarr/.style={-{Latex[length=2mm, width=1.6mm]}, dpaccent!55, thick, densely dotted}
+    ]
+        % Challenge column - left, the unstructured interaction problems
+        \node[challenge] (c1) at (0,2.5) {\textbf{Paradigm mismatch}\\[1pt]\footnotesize\textit{existing HCI guidelines}};
+        \node[challenge] (c2) at (0,0) {\textbf{Generative variability}\\[1pt]\footnotesize\textit{mental model breakdown}};
+        \node[challenge] (c3) at (0,-2.5) {\textbf{Natural language}\\\textbf{interfaces}\\[1pt]\footnotesize\textit{anthropomorphism}};
+
+        % DP column - center, the resolution / pivot
+        \node[dp] (dp2) at (6.0,1.25) {DP2\\Design for Mental Models};
+        \node[dp] (dp3) at (6.0,-1.25) {DP3\\Design for Appropriate\\Trust \& Reliance};
+
+        % Section column - right, forward references
+        \node[sec] (s43) at (11.5,1.25) {Section~\ref{ssec:tom-attributions}\\[1pt]ToM Attributions to AI Systems};
+        \node[sec] (s44) at (11.5,-1.25) {Section~\ref{ssec:explanations-mental-model-formation}\\[1pt]Explanations \& Mental Model Formation};
+
+        % Feed arrows: challenges into DPs
+        \draw[feedarr] (c1) -- (dp2);
+        \draw[feedarr] (c1) to[bend right=8] (dp3);
+        \draw[feedarr] (c2) -- (dp2);
+        \draw[feedarr] (c3) to[bend left=8] (dp3);
+
+        % Main arrows: DPs into their primary section
+        \draw[mainarr] (dp2) -- (s43);
+        \draw[mainarr] (dp3) -- (s44);
+
+        % Cross arrows: secondary connections, visually subordinate
+        \draw[crossarr] (dp2) to[bend left=10] (s44);
+        \draw[crossarr] (dp3) to[bend right=10] (s43);
+    \end{tikzpicture}
+    \caption[Roadmap from interaction challenges to design principles to thematic sections]{The three interaction challenges discussed in this section motivate two of \textcite{Weisz2025}'s design principles, which in turn motivate the remaining thematic directions of this chapter.}
+    \label{fig:hai-genai-roadmap}
+\end{figure}
 
 
 \subsection{Theory of Mind Attributions to AI Systems} \label{ssec:tom-attributions}
