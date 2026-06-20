@@ -47,7 +47,7 @@ Anthropomorphism is also relevant beyond interface design choices. Users also us
 
 \subsubsection*{Towards the Design Space}
 
-Together, these three challenges motivate \textcite{Weisz2025}'s \textit{Design for Mental Models} (DP2) and \textit{Design for Appropriate Trust and Reliance} (DP3). The elevated importance of explainability under generative variability (G11) bears on both principles, since explaining a system's behaviour supports both an accurate mental model and well-calibrated trust. Generative variability itself is the more specific driver of DP2's concern with mental model formation, just as anthropomorphism is the more specific driver of DP3's concern with trust calibration. Sections~\ref{ssec:tom-attributions} and~\ref{ssec:explanations-mental-model-formation} take up these two threads in turn: who attributes what to \ac{GenAI} systems, and how explanations shape those attributions. Figure~\ref{fig:hai-genai-roadmap} summarises this progression.
+Together, these three challenges motivate \textcite{Weisz2025}'s \textit{Design for Mental Models} (DP2) and \textit{Design for Appropriate Trust and Reliance} (DP3). Explainability gains importance as generative variability undermines reproducible behaviour (G11). This benefits both principles, as explaining a system's behaviour supports both an accurate mental model and well-calibrated trust. Generative variability itself is the more specific driver of DP2, while anthropomorphism is the more specific driver of DP3. Sections~\ref{ssec:tom-attributions} and~\ref{ssec:explanations-mental-model-formation} take up these two threads in turn: who attributes what to \ac{GenAI} systems, and how explanations shape those attributions. Figure~\ref{fig:hai-genai-roadmap} summarises this progression.
 
 \begin{figure}[ht]
     \centering
@@ -60,8 +60,8 @@ Together, these three challenges motivate \textcite{Weisz2025}'s \textit{Design 
         crossarr/.style={-{Latex[length=2mm, width=1.6mm]}, dpaccent!55, thick, densely dotted}
     ]
         % Challenge column - left, the unstructured interaction problems
-        \node[challenge] (c2) at (0,2.5) {\textbf{Generative variability}\\[1pt]\footnotesize\textit{mental model breakdown}};
-        \node[challenge] (c1) at (0,0) {\textbf{Paradigm mismatch}\\[1pt]\footnotesize\textit{existing HCI guidelines}};
+        \node[challenge] (c2) at (0,2.5) {\textbf{Generative variability}\\[1pt]\footnotesize\textit{mental model formation}};
+        \node[challenge] (c1) at (0,0) {\textbf{Explainability gap}\\[1pt]\footnotesize\textit{G11 under non-determinism}};
         \node[challenge] (c3) at (0,-2.5) {\textbf{Natural language}\\\textbf{interfaces}\\[1pt]\footnotesize\textit{anthropomorphism}};
 
         % DP column - center, the resolution / pivot
