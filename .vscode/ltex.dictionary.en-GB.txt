@@ -1,5 +1,7 @@
 aspectuality
 Aspectuality
+causability
+Causability
 ChatGPT
 CoT
 explainee

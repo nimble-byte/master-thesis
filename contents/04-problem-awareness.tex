@@ -143,6 +143,95 @@ This last point raises a question that Section~\ref{ssec:explanations-mental-mod
 
 \subsection{Explanations and Mental Model Formation} \label{ssec:explanations-mental-model-formation}
 
-% consider \parencite{Halpern2005,Kashima1998} for the role of user beliefs in shaping perception and interaction with AI systems, and how this relates to ToM attribution
+An explanation is the most direct instrument available for shaping a user's mental model of a system. The preceding sections established that this model governs whether reliance on a system is appropriate and that it can be actively shaped through communication (Section~\ref{ssec:tom-attributions}). This section turns to the instrument itself. It examines what an explanation is as a cognitive and social object, how users evaluate the explanations they receive, how the quality of an explanation can be assessed, and the conditions under which explanations calibrate rather than distort a user's attribution of \ac{ToM} to a \ac{GenAI} system.
+
+\subsubsection*{The Cognitive and Social Nature of Explanation}
+
+This thesis adopts \textcite{Arrieta2020}'s definition of an \ac{XAI} system as one that produces details or reasons to make its functioning understandable for a specific audience (cf. Section~\ref{sssec:terminology}). The reference to a specific audience is not incidental. It places the quality of an explanation in relation to its recipient rather than treating it as an absolute property of the explanation itself. The same account can be a good explanation for one user and a poor one for another.
+
+\textcite{Miller2019} grounds this audience-relativity in social science research. The same work treats explanation as a cognitive process, a product, and a social process, a framing already introduced in Section~\ref{sssec:terminology}. From this body of research \textcite{Miller2019} draws four findings that constrain how explanations function. First, explanations are contrastive. People do not ask why an event occurred in absolute terms, but why it occurred rather than some alternative. The contrast case is usually left unstated and must be inferred from context \parencite{Lipton1990}. Second, explanations are selected rather than exhaustive. People choose a small subset of causes from a larger causal structure, guided by abnormality, intentionality, and relevance to their goals, because processing a complete causal chain is too costly \parencite{Hilton2017}. Third, causal accounts satisfy explanatory needs more effectively than probabilities, even in situations where statistical information is technically relevant \parencite{Lombrozo2007}. Fourth, explanation is social. The causes an explainer selects and the way they are presented depend on assumptions about what the explainee already knows. These four findings are summarised in Table~\ref{tab:miller-findings}.
+
+% \begin{ctable}
+%     \centering
+%     \begin{tabularx}{\textwidth}{l|X|X}
+%         \textbf{Finding} & \textbf{Description} & \textbf{Consequence for explanation} \\
+%         \hline
+%         Contrastive & People ask why an event occurred rather than some implicit alternative, which is usually left unstated. & An explanation that ignores the user's implicit contrast case fails to answer the question actually asked. \\
+%         \hline
+%         Selected & A small subset of causes is chosen by abnormality, intentionality, and relevance to the user's goals. & An exhaustive causal account is less useful than a small, relevant selection. \\
+%         \hline
+%         Causal over probabilistic & Causal accounts satisfy explanatory needs more than probabilities, even where statistics are relevant. & A statistical confidence value alone is a weak explanation. \\
+%         \hline
+%         Social & Cause selection and presentation depend on the explainer's assumptions about the explainee's knowledge. & The same explanation serves users of differing knowledge unequally. \\
+%     \end{tabularx}
+%     \caption[Social-science findings constraining explanation]{Four findings from social science research that constrain how explanations function, adapted from \textcite{Miller2019}. The consequences listed are descriptive entailments of the findings and are taken up as meta-requirements in Section~\ref{ssec:meta-requirements}.}
+%     \label{tab:miller-findings}
+% \end{ctable}
+
+These findings acquire additional weight when the explainee is reasoning about an \ac{AI} system. As established in Section~\ref{ssec:tom-attributions}, users apply the same folk-psychological concepts to \ac{AI} systems that they apply to other people. Seeking an explanation for an \ac{AI} output is therefore not a purely informational act. It is also an attempt to make sense of the system's perceived intentions and goals \parencite{Miller2019}.
+
+The trigger for seeking an explanation is the abnormal or the unexpected. People request explanations when they encounter something that does not fit their current mental model, with the goal of updating that model \parencite{Lombrozo2006, Hilton1986}. \textcite{Hoffman2023} identify curiosity, prompted by novelty, surprise, or a violated expectation, as the primary driver of explanation-seeking in the \ac{XAI} context, and note that an explanation can suppress or redirect this curiosity once it is provided. This has a direct consequence for \ac{GenAI}. The non-deterministic outputs discussed in Section~\ref{ssec:hai-genai} are a recurring source of unexpected behaviour, which makes explanation-seeking a structural feature of \ac{GenAI} interaction rather than an occasional event. The same mechanism also bounds the usefulness of explanations. Providing an explanation when the user is not curious, outside a context of surprise or unmet expectation, adds cognitive load without serving a corresponding need \parencite{Miller2019}.
+
+\subsubsection*{Dual-Process Evaluation and Causability}
+
+\textcite{Shin2021} examines how users evaluate the explanations they receive, framing the process through the heuristic-systematic model \parencite{Chaiken1980}. A heuristic path relies on surface cues such as fairness, accountability, and transparency. A systematic path involves deliberate evaluation of the explanation's content. The two paths map onto the Type 1 and Type 2 processing introduced in Section~\ref{sssec:cognitive-psychology-concepts}. The heuristic path shares the intuitive, cue-driven character of Type 1 processing, and the systematic path corresponds to the deliberate, controlled evaluation characteristic of Type 2. This mapping is consistent with the default-interventionist account adopted in this thesis. Users default to heuristic evaluation and shift to systematic evaluation when a conflict or a salient cue makes the deliberate effort worthwhile.
+
+The central concept in \textcite{Shin2021}'s account is causability, defined as the extent to which an explanation achieves causal understanding for a given user in a given context. Causability is a property of the user's resulting understanding, not of the explanation as an artefact. The same explanation can achieve high causability for an expert and near-zero causability for a novice. This operationalises the audience-specificity in \textcite{Arrieta2020}'s definition and the social process described by \textcite{Miller2019}. An explanation functions as intended only when its content matches the explainee's cognitive state. \textcite{Shin2021} shows that causability positively influences trust, which in turn shapes perceived performance and reliance, establishing a chain that runs from the explanation through causability and trust to the user's reliance on the system.
+
+This chain connects to the reliance mechanism discussed in Section~\ref{ssec:tom-attributions}. The trust a user has formed through earlier explanations is plausibly what determines whether disconfirming advice is resolved at the belief conflict or escalates to the validation conflict described by \textcite{Jussupow2021}. The structure of that resolution is itself informative. Only active consideration, in which a physician engages both self-monitoring and system-monitoring, reliably produces correct decisions regardless of whether the advice is correct. The single-channel patterns are not failures in themselves. Their outcome depends on whether the factor the physician did not check happens to be right. A physician who validates only their own reasoning succeeds when their initial frame is correct, and a physician who defers to the system succeeds when the system is accurate. Active consideration discriminates between correct and incorrect advice. Single-channel monitoring does not \parencite{Jussupow2021}. Figure~\ref{fig:explanation-causability-chain} brings the two accounts together.
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        chain/.style={draw=dpaccent, line width=1pt, align=center, fill=dpaccent!6, font=\small\bfseries, text=dpaccent, text width=2.5cm, minimum height=1.0cm, inner sep=6pt},
+        conflict/.style={draw=challengegray, thick, align=center, fill=challengegray!8, font=\footnotesize, text width=3.0cm, minimum height=0.9cm, inner sep=6pt},
+        mainarr/.style={-{Latex[length=2.4mm, width=2mm]}, dpaccent, line width=1.1pt},
+        brancharr/.style={-{Latex[length=2mm, width=1.6mm]}, challengegray, thick},
+        flowarr/.style={-{Latex[length=2mm, width=1.6mm]}, challengegray, thick, densely dashed}
+    ]
+        % main chain (Shin)
+        \node[chain] (exp)   at (0,0)    {Explanation};
+        \node[chain] (caus)  at (3.4,0)  {Causability};
+        \node[chain] (trust) at (6.8,0)  {Trust};
+        \node[chain] (perf)  at (10.2,0) {Perceived\\Performance};
+
+        \draw[mainarr] (exp)   -- (caus);
+        \draw[mainarr] (caus)  -- (trust);
+        \draw[mainarr] (trust) -- (perf);
+
+        % conflict branch (Jussupow)
+        \node[conflict] (belief) at (6.8,-2.3) {Belief conflict\\\textit{(Type 1)}};
+        \node[conflict] (valid)  at (6.8,-4.2) {Validation conflict\\\textit{(Type 2)}};
+
+        \draw[brancharr] (trust) -- (belief)
+            node[midway, right=2pt, font=\footnotesize, text=challengegray, align=left] {disconfirming\\advice};
+        \draw[flowarr] (belief) -- (valid)
+            node[midway, right=2pt, font=\footnotesize, text=challengegray] {if unresolved};
+    \end{tikzpicture}
+    \caption[Explanation, causability, and trust calibration]{A synthesis of the chain from explanation to trust reported by \textcite{Shin2021} with the conflict-resolution structure reported by \textcite{Jussupow2021}. The horizontal chain follows \textcite{Shin2021}: causability mediates the effect of an explanation on trust, which in turn shapes perceived performance and reliance. The branch from trust connects to the two-conflict model of \textcite{Jussupow2021} (cf. Section~\ref{ssec:tom-attributions}). The level of trust a user holds shapes whether disconfirming advice is resolved at the belief conflict or escalates to the validation conflict. The combination of the two accounts is this thesis's own organising synthesis and is not presented as a single model by either source.}
+    \label{fig:explanation-causability-chain}
+\end{figure}
+
+\subsubsection*{Explanation Quality and Trust Calibration}
+
+\textcite{Hoffman2023} draw a distinction between two perspectives on explanation quality. Explanation goodness is a designer's assessment, made a priori and without reference to context, of whether an explanation is detailed, complete, actionable, and communicates the system's reliability. Explanation satisfaction is a user's judgement, made a posteriori, of whether they feel they understand the system after receiving the explanation. The two can diverge. An explanation that scores well on goodness can still fail to satisfy a user if it is not calibrated to that user's knowledge or goals. This restates, from the measurement side, the causability point established above.
+
+\textcite{Hoffman2023} also frame trust as a process that requires calibration rather than a fixed quantity. Distrust is not simply the absence of trust. It can be functional, supporting the detection of system error. Miscalibration in either direction degrades human-\ac{AI} performance, whether through overtrust that accepts incorrect output or undertrust that rejects correct output. This is consistent with the goal of \textcite{Weisz2025}'s DP3 and with the empirical findings from \textcite{Jussupow2021} and \textcite{Colombatto2025} discussed in Section~\ref{ssec:tom-attributions}, where the cost of an inaccurate mental model appeared as both over- and underreliance.
+
+\subsubsection*{Explanations as a Mechanism for ToM Calibration}
+
+Taken together, \textcite{Miller2019}, \textcite{Shin2021}, and \textcite{Hoffman2023} describe explanations as the primary mechanism through which users update and calibrate their mental models, and with them their attribution of \ac{ToM} to a system. \textcite{Miller2019} establishes the cognitive and social preconditions an explanation must meet. \textcite{Shin2021} shows that meeting them, through causability, drives trust. \textcite{Hoffman2023} supplies the conceptual distinction needed to assess whether an explanation has achieved its intended effect.
+
+\textcite{Weisz2025} translate this into design guidance through DP3, recommending \ac{CoT} explanations and the provision of rationales as strategies for trust calibration in \ac{GenAI}. The friction-based strategy in DP3 connects to the concept of cognitive forcing functions, interventions that interrupt the interaction at key decision points to prompt deliberate processing \parencite{Buinca2021}. Such functions are a complementary intervention for cases where an explanation alone would not prompt the Type 2 processing required to avoid overreliance. The underlying need is not new. \textcite{Amershi2019}'s guideline G11, \enquote{make clear why the system did what it did}, already treated the provision of reasons as a core design requirement for discriminative \ac{AI} (cf. Section~\ref{ssec:hai-genai}). The user need persists for \ac{GenAI} even though the specific mechanism differs.
+
+Explanations are not unconditionally beneficial for calibration. The process model of \textcite{Jussupow2021} contains a pattern in which physicians build their initial frame directly from the system's advice rather than from independent analysis. This sits in the confirmation branch of their model and never reaches the belief or validation conflict, because no independent judgement exists for the advice to conflict with. The advice is anchored in before an independent frame can form. A second pattern is more cautionary still. Physicians who dismissed disconfirming advice by inventing a reason for the system's apparent error, frequently a reason without any basis, reported the highest confidence and satisfaction of any group, despite the dismissal resting on no actual validation \parencite{Jussupow2021}. An explanation can supply exactly this kind of post-hoc justification. It offers material from which a user can construct a confident but unwarranted dismissal as readily as a well-founded one. This is a counterweight to the otherwise positive framing of explanations in \textcite{Weisz2025} and \textcite{Shin2021}. On the same point, \textcite{Jussupow2021} suggest that explanations support mental-model learning only when a user reaches active consideration. A disconfirmation resolved at the belief conflict produces no learning, whether an explanation was available. This is a forward-looking inference rather than a result of their own study, since the system they evaluated provided no explanations.
+
+This leaves an open question that motivates the empirical work of this thesis. The belief state communicated in \textcite{Ying2024}'s study was always correct. \ac{CoT} explanations offer no comparable guarantee. They are not assured to faithfully reflect the model's internal reasoning process \parencite{Lyu2023} (cf. Section~\ref{sssec:xai-methods}). Whether \ac{CoT} explanations achieve high causability, and whether they do so consistently across users of differing expertise, therefore remains unresolved.
+
+\subsubsection*{Synopsis}
+
+Across this chapter, explanations are not a concern separate from mental model formation (Section~\ref{ssec:hai-genai}) and \ac{ToM} attribution (Section~\ref{ssec:tom-attributions}). They are the mechanism that connects the two. An explanation is the instrument through which a user updates the mental model that, in turn, governs their reliance on the system.
+
+Three constraints carry forward into the meta-requirements. Explanations must be selected and calibrated to their audience rather than made exhaustive. Their effectiveness depends on the user's existing cognitive state and not on their content alone. They are not unconditionally beneficial, and can entrench miscalibrated confidence as readily as they can correct it. These three constraints, together with the interaction challenges identified in Section~\ref{ssec:hai-genai} and the attribution patterns identified in Section~\ref{ssec:tom-attributions}, form the basis for the meta-requirements derived in Section~\ref{ssec:meta-requirements}.
 
 \subsection{Meta-Requirements} \label{ssec:meta-requirements}
