@@ -238,3 +238,58 @@ The meta-requirements presented above can be broken down into more specific mech
     \item \textbf{Constrain post-hoc dismissal.} An explanation can provide users with material to argue for the dismissal of system outputs, even when that dismissal is unwarranted, like the \enquote{explaining away} pattern in \textcite{Jussupow2021}. As the user is already deliberately processing the system's outputs (unlike DR3), inducing engagement does not address this risk. To address the violations of MR2 and MR3, explanations should be embedded in an interaction design that discourages unfounded dismissal of system outputs.
 \end{enumerate}
 
+Figure~\ref{fig:mr-dr-mapping} summarises the design theory developed in this section, relating each design requirement to the meta-requirement or combination of meta-requirements from which it derives.
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        node distance=0pt,
+        mrbox/.style={draw=challengegray, thick, rounded corners, align=left,
+                      fill=challengegray!10, font=\footnotesize, text=black,
+                      text width=5.1cm, minimum height=0.8cm, inner sep=5pt},
+        drbox/.style={draw=challengegray, thick, rounded corners, align=left,
+                      fill=challengegray!6, font=\footnotesize, text=black,
+                      text width=7cm, minimum height=0.8cm, inner sep=5pt},
+        mr1line/.style={dpaccent, line width=1pt},
+        mr2line/.style={mrred, line width=1pt},
+        mr3line/.style={mryellow, line width=1pt},
+    ]
+        % ---- Meta-requirements (left column) ----
+        \node[mrbox] (mr1) at (0,2.25)  {\textbf{MR1:}~Support accurate ToM attribution};
+        \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable calibrated reliance};
+        \node[mrbox] (mr3) at (0,-2.25) {\textbf{MR3:}~Support appropriate cognitive engagement};
+
+        % ---- Design requirements (right column) ----
+        \node[drbox] (dr1) at (9.5,3.3)  {\textbf{DR1:}~Calibrate explanations to users};
+        \node[drbox] (dr2) at (9.5,2.2)   {\textbf{DR2:}~Select explanation content};
+        \node[drbox] (dr3) at (9.5,1.1)  {\textbf{DR3:}~Guard against passive acceptance};
+        \node[drbox] (dr4) at (9.5,0.0)   {\textbf{DR4:}~Account for unfaithful explanations};
+        \node[drbox] (dr5) at (9.5,-1.1) {\textbf{DR5:}~Explain local behaviour};
+        \node[drbox] (dr6) at (9.5,-2.2)  {\textbf{DR6:}~Time explanation delivery};
+        \node[drbox] (dr7) at (9.5,-3.3) {\textbf{DR7:}~Constrain post-hoc dismissal};
+
+        % ---- Column headings ----
+        \node[font=\bfseries, text=challengegray] at (0,4.2) {Meta-Requirements};
+        \node[font=\bfseries, text=challengegray] at (9.5,4.2) {Design Requirements};
+
+        % ---- Connections, coloured by source MR ----
+        % MR1 (blue): DR1, DR5
+        \draw[mr1line] (mr1.east) -- (dr1.west);
+        \draw[mr1line] (mr1.east) -- (dr5.west);
+        % MR3 (yellow): DR2
+        \draw[mr3line] (mr3.east) -- (dr2.west);
+        % MR1+MR2: DR4  (blue + red)
+        \draw[mr1line] (mr1.east) -- (dr4.west);
+        \draw[mr2line] (mr2.east) -- (dr4.west);
+        % MR1+MR3: DR6  (blue + yellow)
+        \draw[mr1line] (mr1.east) -- (dr6.west);
+        \draw[mr3line] (mr3.east) -- (dr6.west);
+        % MR2+MR3: DR3, DR7  (red + yellow)
+        \draw[mr2line] (mr2.east) -- (dr3.west);
+        \draw[mr3line] (mr3.east) -- (dr3.west);
+        \draw[mr2line] (mr2.east) -- (dr7.west);
+        \draw[mr3line] (mr3.east) -- (dr7.west);
+    \end{tikzpicture}
+    \caption{Overview of the meta-requirements and design requirements}
+    \label{fig:mr-dr-mapping}
+\end{figure}
