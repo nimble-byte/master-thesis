@@ -49,19 +49,16 @@ The appropriate response to this tendency is contested. \textcite{Weisz2025} rep
 
 Anthropomorphism is also relevant beyond interface design choices. Users also use the same folk-psychological concepts and reasoning processes used to explain human behaviour (including BDI), to interpret \ac{AI} behaviour \parencite{Miller2019}. This connects the interaction-design concerns discussed in this section directly to the attribution of \ac{ToM} to \ac{AI} systems, which is discussed in Section~\ref{ssec:tom-attributions}.
 
-\subsubsection*{Towards the Design Space}
-
 Together, these three challenges motivate \textcite{Weisz2025}'s \textit{Design for Mental Models} (DP2) and \textit{Design for Appropriate Trust and Reliance} (DP3). Explainability gains importance as generative variability undermines reproducible behaviour (G11). This benefits both principles, as explaining a system's behaviour supports both a useful mental model and well-calibrated trust. Generative variability itself is the more specific driver of DP2, while anthropomorphism is the more specific driver of DP3. Sections~\ref{ssec:tom-attributions} and~\ref{ssec:explanations-mental-model-formation} take up these two threads in turn: who attributes what to \ac{GenAI} systems, and how explanations shape those attributions. Figure~\ref{fig:hai-genai-roadmap} summarises this progression.
 
 \begin{figure}[ht]
     \centering
     \begin{tikzpicture}[
-        challenge/.style={draw=challengegray, thick, align=left, fill=challengegray!8, font=\footnotesize, text width=3.6cm, minimum height=1.0cm, inner sep=7pt},
-        dp/.style={draw=dpaccent, line width=1pt, align=center, fill=dpaccent!6, font=\bfseries\small, text=dpaccent, text width=4.9cm, minimum height=1.0cm, inner sep=8pt},
-        sec/.style={draw=challengegray, densely dashed, align=left, fill=white, font=\footnotesize, text width=3.5cm, minimum height=1.0cm, inner sep=7pt},
-        feedarr/.style={-{Latex[length=2mm, width=1.6mm]}, challengegray, thick},
-        mainarr/.style={-{Latex[length=2.4mm, width=2mm]}, dpaccent, line width=1.1pt},
-        crossarr/.style={-{Latex[length=2mm, width=1.6mm]}, dpaccent!55, thick, densely dotted}
+        challenge/.style={neutralnode, align=left, text width=3.6cm},
+        dp/.style={accentnode, text width=4.9cm},
+        sec/.style={neutralnode, densely dashed, fill=white, align=left, text width=3.5cm},
+        feedarr/.style={normarr},
+        crossarr/.style={-{Latex[length=2mm, width=1.6mm]}, paletteblue!55, thick, densely dotted}
     ]
         % Challenge column - left, the unstructured interaction problems
         \node[challenge] (c2) at (0,2.5) {\textbf{Generative variability}\\[1pt]\footnotesize\textit{mental model formation}};
@@ -77,10 +74,10 @@ Together, these three challenges motivate \textcite{Weisz2025}'s \textit{Design 
         \node[sec] (s44) at (11.5,-1.25) {Section~\ref{ssec:explanations-mental-model-formation}\\[1pt]Explanations \& Mental Model Formation};
 
         % Feed arrows: challenges into DPs
-        \draw[feedarr] (c1) -- (dp2);
-        \draw[feedarr] (c1) -- (dp3);
-        \draw[feedarr] (c2) -- (dp2);
-        \draw[feedarr] (c3) -- (dp3);
+        \draw[feedarr] (c1.east) -- (dp2.west);
+        \draw[feedarr] (c1.east) -- (dp3.west);
+        \draw[feedarr] (c2.east) -- (dp2.west);
+        \draw[feedarr] (c3.east) -- (dp3.west);
 
         % Main arrows: DPs into their primary section
         \draw[mainarr] (dp2) -- (s43);
@@ -135,8 +132,6 @@ The three compared conditions differ in how much of the \ac{AI}'s inferred goal 
 
 One of the key limitations of the study is that the communicated belief state was always correct. \textcite{Ying2024} note that communicating an incorrect belief state could potentially affect trust calibration differently. They also mention that the \textit{show} condition's communication of the inferred goal might help users validate the assistant's recommendations.
 
-\subsubsection*{Towards Explanations and Mental Model Formation}
-
 The three studies discussed in this section converge on a common claim: an \ac{AI} system's behaviour is filtered through a user's mental model of that system, and the accuracy of this model determines whether reliance on the system is appropriate. The mental states discussed throughout this section are attributions of \ac{ToM}, in the sense established in Section~\ref{sssec:theory-of-mind-ai}. Users ascribe knowledge, capacities, and intent to an \ac{AI} system, regardless of whether the system actually possesses them. \textcite{Jussupow2021} demonstrate the cost of an inaccurate mental model directly, in the form of overreliance and underreliance. \textcite{Colombatto2025} show that the content of this model is not unidimensional, and that different attributed capacities can pull trust in opposite directions. \textcite{Ying2024} demonstrate that the model's accuracy is not fixed at the outset of an interaction but can be actively shaped through communication.
 
 This last point raises a question that Section~\ref{ssec:explanations-mental-model-formation} takes up directly. \textcite{Ying2024} only test communication of a belief state that is correct. \ac{CoT} explanations are a similar communication of the model's internal state, but offer no comparable guarantee of accuracy: they are not guaranteed to faithfully reflect a model's actual internal reasoning process \parencite{Lyu2023} (cf. Section~\ref{sssec:xai-methods}). It is therefore unclear whether the benefits of communicating a belief state still hold once that belief state may itself be inaccurate. Section~\ref{ssec:explanations-mental-model-formation} examines this question, asking whether and how explanations shape the accuracy of users' mental models of \ac{GenAI} systems.
@@ -167,32 +162,30 @@ The central concept in \textcite{Shin2021}'s account is causability, defined as 
 \begin{figure}[ht]
     \centering
     \begin{tikzpicture}[
-        fatbox/.style={draw=challengegray, thick, align=center, fill=white, font=\footnotesize, text width=2.3cm, minimum height=0.6cm, inner sep=4pt},
-        fatframe/.style={draw=challengegray, thick, densely dotted, rounded corners, inner sep=6pt},
-        chain/.style={draw=dpaccent, line width=1pt, align=center, fill=dpaccent!6, font=\small\bfseries, text=dpaccent, text width=2.4cm, minimum height=1.0cm, inner sep=6pt},
-        ext/.style={draw=dpaccent, densely dashed, line width=1pt, align=center, fill=white, font=\small\bfseries, text=dpaccent, text width=2.4cm, minimum height=1.0cm, inner sep=6pt},
-        mainarr/.style={-{Latex[length=2.4mm, width=2mm]}, dpaccent, line width=1.1pt},
-        normarr/.style={-{Latex[length=2mm, width=1.6mm]}, challengegray, thick},
-        extarr/.style={-{Latex[length=2mm, width=1.6mm]}, dpaccent, densely dashed, thick}
+        fatbox/.style={neutralnode, fill=white, minimum height=0.6cm, text width=2.3cm},
+        fatframe/.style={draw=palettegrey, thick, densely dotted, rounded corners, inner sep=6pt},
+        chain/.style={accentnode, text width=2.4cm},
+        ext/.style={accentnode, densely dashed, fill=white, text width=2.4cm},
+        extarr/.style={-{Latex[length=2mm, width=1.6mm]}, paletteblue, densely dashed, thick}
     ]
+        \node[ext] (exp) at (-4.5,0) {Explanation};
+
         \node[fatbox] (fair) at (0,0.9) {Fairness};
         \node[fatbox] (acc) at (0,0)  {Accountability};
         \node[fatbox] (tran) at (0,-0.9) {Transparency};
         \node[fatframe, fit=(fair)(acc)(tran), inner sep=8pt,
-              label={[font=\footnotesize\itshape, text=challengegray]above:Algorithmic Norm (FAT)}] (fatframe) {};
+              label={[font=\footnotesize\itshape, text=palettegrey]above:Algorithmic Norm (FAT)}] (fatframe) {};
 
         \node[chain] (caus)  at (4.5,1.0)  {Causability};
         \node[chain] (trust) at (4.5,-1.0) {Trust};
         \node[chain] (perf)  at (8.7,0)    {Algorithmic\\Performance};
 
+        \draw[extarr] (exp.east) -- (fatframe.west);
         \draw[normarr] (fatframe.east) -- (caus.west);
         \draw[normarr] (fatframe.east) -- (trust.west);
         \draw[mainarr] (caus) -- (trust);
-        \draw[mainarr] (caus) -- (perf);
-        \draw[mainarr] (trust) -- (perf);
-
-        \node[ext] (exp) at (-4.5,0) {Explanation};
-        \draw[extarr] (exp.east) -- (fatframe.west);
+        \draw[mainarr] (caus.east) -- (perf.west);
+        \draw[mainarr] (trust.east) -- (perf.west);
     \end{tikzpicture}
     \caption[Causability, FAT cues, and trust in algorithmic evaluation]{Causability, FAT cues, and trust, reproducing the path model of \textcite{Shin2021} with the addition of \enquote{Explanation} as an antecedent to the FAT cues \parencite{Shin2021}.}
     \label{fig:shin-fat-causability}
@@ -212,7 +205,7 @@ Taken together, \textcite{Miller2019}, \textcite{Shin2021}, and \textcite{Hoffma
 
 \textcite{Weisz2025} translate this into design guidance through DP3, recommending \ac{CoT} explanations and the provision of rationales as strategies for trust calibration in \ac{GenAI}. The friction-based strategy in DP3 connects to the concept of cognitive forcing functions, interventions that interrupt the interaction at key decision points to prompt deliberate processing \parencite{Buinca2021}. Such functions are a complementary intervention for cases where an explanation alone would not prompt the Type 2 processing required to avoid overreliance. The underlying need is not new. \textcite{Amershi2019}'s guideline G11, \enquote{make clear why the system did what it did}, already treated the provision of reasons as a core design requirement for discriminative \ac{AI} (cf. Section~\ref{ssec:hai-genai}). The user need persists for \ac{GenAI} even though the specific mechanism differs.
 
-Explanations are not unconditionally beneficial for calibration. The process model of \textcite{Jussupow2021} contains a pattern they term \textit{AI-based confirmation}, in which physicians build their initial frame, their independent interpretive judgement of the case formed prior to consulting the system, directly from the system's advice rather than from independent analysis. This sits in the confirmation branch of their model and never reaches the belief or validation conflict, because no independent judgement exists for the advice to conflict with. The advice is anchored in before an independent frame can form. A second pattern, which \textcite{Jussupow2021} term \textit{explaining away}, is more cautionary still. Physicians who dismissed disconfirming advice by inventing a reason for the system's apparent error, frequently a reason without any basis, reported the highest confidence and satisfaction of any group, despite the dismissal resting on no actual validation \parencite{Jussupow2021}. An explanation can supply exactly this kind of post-hoc justification. It offers material from which a user can construct a confident but unwarranted dismissal as readily as a well-founded one. This is a counterweight to the otherwise positive framing of explanations in \textcite{Weisz2025} and \textcite{Shin2021}. On the same point, \textcite{Jussupow2021} suggest that explanations support mental-model learning only when a user reaches active consideration. A disconfirmation resolved at the belief conflict produces no learning, whether an explanation was available. This is a forward-looking inference rather than a result of their own study, since the system they evaluated provided no explanations.
+Explanations are not unconditionally beneficial for calibration. The process model of \textcite{Jussupow2021} contains a pattern they term \textit{AI-based confirmation}, in which physicians build their initial frame, their independent interpretive judgement of the case formed prior to consulting the system, directly from the system's advice rather than from independent analysis. This sits in the confirmation branch of their model and never reaches the belief or validation conflict, because no independent judgement exists for the advice to conflict with. The advice is anchored in before an independent frame can form. A second pattern, which \textcite{Jussupow2021} term \textit{explaining away}, is more cautionary still. Physicians who dismissed disconfirming advice by inventing a reason for the system's apparent error, frequently a reason without any basis, reported the highest confidence and satisfaction of any group, despite the dismissal resting on no actual validation \parencite{Jussupow2021}. An explanation can supply exactly this kind of post-hoc justification. It offers material from which a user can construct a confident but unwarranted dismissal as readily as a well-founded one. This is a counterweight to the otherwise positive framing of explanations in \textcite{Weisz2025} and \textcite{Shin2021}. On the same point, \textcite{Jussupow2021} suggest that explanations support mental-model learning only when a user reaches active consideration. A disconfirmation resolved at the belief conflict produces no learning, whether an explanation was available or not. This is a forward-looking inference rather than a result of their own study, since the system they evaluated provided no explanations.
 
 Across this chapter, explanations are a key mechanism connecting mental model formation (Section~\ref{ssec:hai-genai}) and \ac{ToM} attribution (Section~\ref{ssec:tom-attributions}), though not necessarily the only one. Three constraints carry forward into the meta-requirements derived in Section~\ref{ssec:meta-requirements}: explanations must be selected and calibrated to their audience rather than made exhaustive; their effectiveness depends on the user's existing cognitive state and not on their content alone; and they are not unconditionally beneficial, capable of entrenching miscalibrated confidence as readily as correcting it.
 
@@ -229,13 +222,13 @@ To operationalise the challenges discussed above, this section compiles them int
 The meta-requirements presented above can be broken down into more specific mechanisms for which specific design recommendations in the form of design principles can be derived. Additionally, the derivation of design requirements serves to limit the design knowledge to mechanisms concerned with explanations.
 
 \begin{enumerate}[label=\textbf{DR\arabic*}, leftmargin=*]
-    \item \textbf{Calibrate explanations to users.} The same explanation can achieve different levels of causability for different users \parencite{Shin2021}. How well an explanation achieves understanding for a given user can be measured through explanation satisfaction and is distinct from the goodness (or faithfulness) of the explanation itself \parencite{Hoffman2023}. This aligns with DP2 by \textcite{Weisz2025}, which calls for tailoring outputs to the user's knowledge and capabilities. While DR1 affects the cognitive load of the user, relating it to MR3, it primarily affects the user's attribution of \ac{ToM} to the system (MR1).
-    \item \textbf{Select explanation content.} The content of an explanation should present a subset of sufficient causes rather than a complete causal chain \parencite{Miller2019}. An exhaustive causal account increases the mental load of the user without necessarily improving their understanding. Measures of abnormality and intentionality can guide the selection of causes \parencite{Hilton2017}. This directly addresses MR3, by avoiding unnecessary cognitive load.
-    \item \textbf{Guard against passive acceptance.} Addressing MR2 and MR3, by supporting appropriate cognitive engagement, explanations should be designed to avoid heuristic acceptance of the system's outputs. Because mere presentation of an explanation does not guarantee appropriate processing, as demonstrated by \textcite{Jussupow2021}. Explanations, combined with additional interventions such as friction, should be designed to support deliberate processing where appropriate \parencite{Buinca2021,Weisz2025}.
-    \item \textbf{Account for unfaithful explanations.} Explanations such as \ac{CoT} are not guaranteed to reflect the system's underlying reasoning \parencite{Lyu2023}, corrupting the user's mental model and leading to miscalibrated reliance. This violates MR1 and MR2, and is therefore a critical design consideration. A related concern appears in DP3 by \textcite{Weisz2025}, though their faithfulness is grounding in source material rather than correspondence to the system's reasoning. The goal is to design for the possibility of unfaithful explanations, not to guarantee faithfulness.
-    \item \textbf{Explain local behaviour.} Building on G11 by \textcite{Amershi2019} to the level of individual outputs, explanations should explain the system's local behaviour. \textcite{Weisz2025} emphasise the impact of generative variability and how this particularly affects the understanding of local behaviour. Explaining local behaviour derives from MR1, by reducing the risk of misattribution of \ac{ToM} to the system.
+    \item \textbf{Calibrate explanations to users.} The same explanation can achieve different levels of causability for different users \parencite{Shin2021}. How well an explanation achieves understanding for a given user can be measured through explanation satisfaction and is distinct from the goodness of the explanation itself \parencite{Hoffman2023}. This aligns with DP2 by \textcite{Weisz2025}, which calls for tailoring outputs to the user's knowledge and capabilities. While DR1 affects the cognitive load of the user, relating it to MR3, it primarily addresses the user's attribution of \ac{ToM} to the system (MR1).
+    \item \textbf{Explain local behaviour.} Extending G11 by \textcite{Amershi2019} to individual outputs, explanations should explain the system's local behaviour. \textcite{Weisz2025} emphasise the impact of generative variability and how this particularly affects the understanding of local behaviour. Explaining local behaviour derives from MR1, by reducing the risk of misattribution of \ac{ToM} to the system.
+    \item \textbf{Account for unfaithful explanations.} Explanations such as \ac{CoT} are not guaranteed to reflect the system's underlying reasoning \parencite{Lyu2023}, corrupting the user's mental model and leading to miscalibrated reliance. This violates MR1 and MR2, and is therefore a critical design consideration. A related concern appears in DP3 by \textcite{Weisz2025}, though their notion of faithfulness is grounded in source material rather than correspondence to the system's reasoning. The goal is to design for the possibility of unfaithful explanations, not to guarantee faithfulness.
     \item \textbf{Time explanation delivery.} The timing of explanation delivery should be oriented towards the user's curiosity and need for explanation \parencite[cf. G3,][]{Amershi2019}. Explanations should be provided when the user encounters unexpected behaviour or when their mental model is challenged, rather than preemptively or indiscriminately \parencite{Miller2019,Hoffman2023}. Supplying explanations too early may anchor the user's considerations \parencite{Jussupow2021}. This DR addresses MR3 by supporting appropriate cognitive engagement, but also MR1, because an explanation delivered too early undermines the user's ability to form an independent assessment of the system's behaviour.
-    \item \textbf{Constrain post-hoc dismissal.} An explanation can provide users with material to argue for the dismissal of system outputs, even when that dismissal is unwarranted, like the \enquote{explaining away} pattern in \textcite{Jussupow2021}. As the user is already deliberately processing the system's outputs (unlike DR3), inducing engagement does not address this risk. To address the violations of MR2 and MR3, explanations should be embedded in an interaction design that discourages unfounded dismissal of system outputs.
+    \item \textbf{Guard against passive acceptance.} Addressing MR2 and MR3, by supporting appropriate cognitive engagement, explanations should be designed to avoid heuristic acceptance of the system's outputs, because mere presentation of an explanation does not guarantee appropriate processing, as demonstrated by \textcite{Jussupow2021}. Explanations, combined with additional interventions such as friction, should be designed to support deliberate processing where appropriate \parencite{Buinca2021,Weisz2025}.
+    \item \textbf{Constrain post-hoc dismissal.} An explanation can provide users with material to argue for the dismissal of system outputs, even when that dismissal is unwarranted, like the \enquote{explaining away} pattern in \textcite{Jussupow2021}. As the user is already deliberately processing the system's outputs (unlike DR5), inducing engagement does not address this risk. To address the violations of MR2 and MR3, explanations should be embedded in an interaction design that discourages unfounded dismissal of system outputs.
+    \item \textbf{Select explanation content.} The content of an explanation should present a subset of sufficient causes rather than a complete causal chain \parencite{Miller2019}. An exhaustive causal account increases the mental load of the user without necessarily improving their understanding. Measures of abnormality and intentionality can guide the selection of causes \parencite{Hilton2017}. This directly addresses MR3, by avoiding unnecessary cognitive load.
 \end{enumerate}
 
 Figure~\ref{fig:mr-dr-mapping} summarises the design theory developed in this section, relating each design requirement to the meta-requirement or combination of meta-requirements from which it derives.
@@ -244,50 +237,46 @@ Figure~\ref{fig:mr-dr-mapping} summarises the design theory developed in this se
     \centering
     \begin{tikzpicture}[
         node distance=0pt,
-        mrbox/.style={draw=challengegray, thick, rounded corners, align=left,
-                      fill=challengegray!10, font=\footnotesize, text=black,
-                      text width=5.1cm, minimum height=0.8cm, inner sep=5pt},
-        drbox/.style={draw=challengegray, thick, rounded corners, align=left,
-                      fill=challengegray!6, font=\footnotesize, text=black,
-                      text width=7cm, minimum height=0.8cm, inner sep=5pt},
-        mr1line/.style={dpaccent, line width=1pt},
-        mr2line/.style={mrred, line width=1pt},
-        mr3line/.style={mryellow, line width=1pt},
+        mrbox/.style={neutralnode, align=left, text width=5.1cm},
+        drbox/.style={neutralnode, align=left, text width=7cm},
+        mr1line/.style={paletteblue, line width=1pt},
+        mr2line/.style={palettered, line width=1pt},
+        mr3line/.style={paletteochre, line width=1pt},
     ]
         % ---- Meta-requirements (left column) ----
         \node[mrbox] (mr1) at (0,2.25)  {\textbf{MR1:}~Support accurate ToM attribution};
         \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable calibrated reliance};
         \node[mrbox] (mr3) at (0,-2.25) {\textbf{MR3:}~Support appropriate cognitive engagement};
 
-        % ---- Design requirements (right column) ----
+        % ---- Design requirements (right column), ordered to minimise crossings ----
         \node[drbox] (dr1) at (9.5,3.3)  {\textbf{DR1:}~Calibrate explanations to users};
-        \node[drbox] (dr2) at (9.5,2.2)   {\textbf{DR2:}~Select explanation content};
-        \node[drbox] (dr3) at (9.5,1.1)  {\textbf{DR3:}~Guard against passive acceptance};
-        \node[drbox] (dr4) at (9.5,0.0)   {\textbf{DR4:}~Account for unfaithful explanations};
-        \node[drbox] (dr5) at (9.5,-1.1) {\textbf{DR5:}~Explain local behaviour};
-        \node[drbox] (dr6) at (9.5,-2.2)  {\textbf{DR6:}~Time explanation delivery};
-        \node[drbox] (dr7) at (9.5,-3.3) {\textbf{DR7:}~Constrain post-hoc dismissal};
+        \node[drbox] (dr2) at (9.5,2.2)  {\textbf{DR2:}~Explain local behaviour};
+        \node[drbox] (dr3) at (9.5,1.1)  {\textbf{DR3:}~Account for unfaithful explanations};
+        \node[drbox] (dr4) at (9.5,0.0)  {\textbf{DR4:}~Time explanation delivery};
+        \node[drbox] (dr5) at (9.5,-1.1) {\textbf{DR5:}~Guard against passive acceptance};
+        \node[drbox] (dr6) at (9.5,-2.2) {\textbf{DR6:}~Constrain post-hoc dismissal};
+        \node[drbox] (dr7) at (9.5,-3.3) {\textbf{DR7:}~Select explanation content};
 
         % ---- Column headings ----
-        \node[font=\bfseries, text=challengegray] at (0,4.2) {Meta-Requirements};
-        \node[font=\bfseries, text=challengegray] at (9.5,4.2) {Design Requirements};
+        \node[font=\bfseries] at (0,4.2) {Meta-Requirements};
+        \node[font=\bfseries] at (9.5,4.2) {Design Requirements};
 
         % ---- Connections, coloured by source MR ----
-        % MR1 (blue): DR1, DR5
+        % MR1 (blue): DR1, DR2
         \draw[mr1line] (mr1.east) -- (dr1.west);
-        \draw[mr1line] (mr1.east) -- (dr5.west);
-        % MR3 (yellow): DR2
-        \draw[mr3line] (mr3.east) -- (dr2.west);
-        % MR1+MR2: DR4  (blue + red)
-        \draw[mr1line] (mr1.east) -- (dr4.west);
-        \draw[mr2line] (mr2.east) -- (dr4.west);
-        % MR1+MR3: DR6  (blue + yellow)
-        \draw[mr1line] (mr1.east) -- (dr6.west);
-        \draw[mr3line] (mr3.east) -- (dr6.west);
-        % MR2+MR3: DR3, DR7  (red + yellow)
+        \draw[mr1line] (mr1.east) -- (dr2.west);
+        % MR1+MR2 (blue + red): DR3
+        \draw[mr1line] (mr1.east) -- (dr3.west);
         \draw[mr2line] (mr2.east) -- (dr3.west);
-        \draw[mr3line] (mr3.east) -- (dr3.west);
-        \draw[mr2line] (mr2.east) -- (dr7.west);
+        % MR1+MR3 (blue + ochre): DR4
+        \draw[mr1line] (mr1.east) -- (dr4.west);
+        \draw[mr3line] (mr3.east) -- (dr4.west);
+        % MR2+MR3 (red + ochre): DR5, DR6
+        \draw[mr2line] (mr2.east) -- (dr5.west);
+        \draw[mr3line] (mr3.east) -- (dr5.west);
+        \draw[mr2line] (mr2.east) -- (dr6.west);
+        \draw[mr3line] (mr3.east) -- (dr6.west);
+        % MR3 (ochre): DR7
         \draw[mr3line] (mr3.east) -- (dr7.west);
     \end{tikzpicture}
     \caption{Overview of the meta-requirements and design requirements}
