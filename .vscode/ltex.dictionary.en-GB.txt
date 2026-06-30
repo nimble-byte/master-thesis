@@ -8,11 +8,16 @@ explainee
 LimeSurvey
 MATH
 MathVista
+miscalibrated
+Miscalibration
 Ollama
 prescriptiveness
 Qwen
 satisficing
 testmini
 ToM
+Underreliance
+underreliance
+undertrust
 WebUI
 XAI
