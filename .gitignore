@@ -15,6 +15,7 @@
 
 # Build Dir & Output
 build/
+notes/
 *.pdf
 !images/*.pdf
 

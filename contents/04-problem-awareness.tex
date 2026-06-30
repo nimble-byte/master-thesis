@@ -1,5 +1,284 @@
 \section{Problem Awareness} \label{sec:problem-awareness}
 
-% \href{https://scholar.google.com}{Google Scholar}\footnote{https://scholar.google.com} and the \href{https://dl.acm.org}{ACM Digital Library}\footnote{https://dl.acm.org} were used as primary search engines, with the following search string: \texttt{("theory of mind" OR "ToM") AND ("generative AI" OR "large language model" OR "LLM")}. As the search yielded a large number of results, the search was limited to publications from the last five years and the first 100 results of each search engine were screened for relevance. The relevant literature was then analysed to identify relevant insights to define meta-requirements for the design principles. The meta-requirements were then used to guide the analysis of the data from a previously conducted study, which is described in detail in chapter \ref{sec:study-design}. The analysis of the data was performed through a qualitative coding process inspired by \textcite{Jussupow2021}.
+This chapter establishes the meta-requirements that motivate the design principle space developed in Chapter~\ref{sec:design-principles}, through a hermeneutic literature review. Section~\ref{ssec:review-methodology} presents the review methodology, the resulting literature corpus, and the three thematic directions into which the corpus is organised. The subsequent sections discuss the corpus along these three directions: human-\ac{AI} interaction with \ac{GenAI} systems (Section~\ref{ssec:hai-genai}), the attribution of \ac{ToM} to \ac{AI} systems (Section~\ref{ssec:tom-attributions}), and explanations and mental model formation (Section~\ref{ssec:explanations-mental-model-formation}). The meta-requirements derived from these sections are synthesised in Section~\ref{ssec:meta-requirements}.
 
-% consider \parencite{Halpern2005,Kashima1998} for the role of user beliefs in shaping perception and interaction with AI systems, and how this relates to ToM attribution
+\subsection{Review Methodology and Corpus} \label{ssec:review-methodology}
+
+The hermeneutic literature review is an interpretive, iterative approach to reviewing literature \parencite{Boell2014}. Rather than exhaustively searching a predefined corpus, the process begins with an initial set of works which is iteratively expanded through search and acquisition cycles \parencite{Boell2014}. During the search new works are discovered (e.g. by tracking citations) and then acquired if they contribute relevant additions to the corpus. The iterative movement between individual works and the evolving whole is the defining characteristic of the hermeneutic circle \parencite{Boell2014}. The process terminates when saturation is reached, i.e., when new sources cease to produce interpretively relevant additions to the corpus.
+
+Due to the nascent state of the field the hermeneutic approach was uniquely suited for the review. This was reinforced by the interdisciplinary nature of the research topic, as well as practical constraints of a master's thesis scope. The starting corpus consisted of the four works introduced and discussed in Section~\ref{ssec:related-works}: \textcite{Weisz2025}, \textcite{Jussupow2021}, \textcite{Colombatto2025}, and \textcite{Ying2024}. Their relevance to this thesis had already been established, making them a natural starting point for the iterative expansion of the corpus.
+
+The corpus was expanded primarily by tracing the citations of the starting corpus forward and backward \parencite[cf.][]{Boell2014}. Forward citation search was conducted using \href{https://scholar.google.com/}{Google Scholar}\footnote{https://scholar.google.com}, but yielded limited results due to the recency of the starting corpus, which is itself a reflection of the nascent state of the field. Backward citation search proved more productive: tracing the references of \textcite{Ying2024} led to \textcite{Shin2021}, whose references in turn led to \textcite{Arrieta2020} and \textcite{Miller2019}. \textcite{Amershi2019} was identified through \textcite{Weisz2025}'s related conference publication on the same design principle framework \parencite{Weisz2024}, which references it directly. \textcite{Hoffman2023} was identified through topical search rather than citation tracking.
+
+Search was bounded thematically to topics relevant to the meta-requirements of this thesis, as established in the previous chapters. Additionally, a temporal boundary was set to 2017 onward, marking the introduction of the transformer architecture \parencite{Vaswani2017} as the technical inflection point that enabled modern \ac{GenAI} systems \parencite{Schneider2024}. Seminal works predating this boundary were included where they provide theoretical foundations that have not been superseded. Saturation was considered reached when new sources were found to either duplicate positions already represented in the corpus or focus on implementation details rather than conceptual or empirical contributions relevant to the meta-requirements.
+
+The resulting corpus of nine works is organised into three thematic directions, which structure the remainder of this chapter:
+
+\begin{itemize}
+    \item \enquote{Human-\ac{AI} interaction with \ac{GenAI}}, covered in Section~\ref{ssec:hai-genai} and centred on \textcite{Weisz2025} and \textcite{Amershi2019}.
+    \item \enquote{Theory of Mind attributions to \ac{AI} systems}, covered in Section~\ref{ssec:tom-attributions} and centred on \textcite{Jussupow2021}, \textcite{Colombatto2025}, and \textcite{Ying2024}.
+    \item \enquote{Explanations and mental model formation}, covered in Section~\ref{ssec:explanations-mental-model-formation} and centred on \textcite{Miller2019}, \textcite{Shin2021}, \textcite{Hoffman2023}, and \textcite{Arrieta2020}.
+\end{itemize}
+
+% TODO: If there is time, consider finding a second source that was excluded. The goal would be a "standard work" that is widely cited in the field but was excluded
+Saturation was reached with the inclusion of \textcite{Hoffman2023}, which provided new insights into the measurement of mental models and their relationship to explanations. Additional works \parencite[e.g.,][]{Baker2017} concerned themselves with the design of \ac{AI} systems with \ac{ToM} capabilities which is a related but distinct topic that was not included in the corpus as it did not contribute to the meta-requirements of this thesis.
+
+Beyond the corpus, additional sources are occasionally cited directly where they provide a concept relevant for understanding the corpus's arguments; such citations do not indicate inclusion in the hermeneutic corpus described above.
+
+\subsection{Human-AI Interaction with GenAI} \label{ssec:hai-genai}
+
+\textcite{Amershi2019} provide a set of 18 guidelines for human-\ac{AI} interaction grouped into four categories: guidelines relevant when a system is initially encountered, during regular interaction, when the system is wrong, and over time as the system is used repeatedly. The guidelines were developed through a review of over 150 design recommendations from the literature, and experimentally validated through a study with 49 \ac{HCI} practitioners who applied the guidelines to 20 AI-infused products. Guidelines such as \enquote{make clear what the system can do} (G1) and \enquote{make clear how well the system can do what it can do} (G2) \parencite{Amershi2019} remain intuitively relevant to \ac{GenAI} systems, as do most of the remaining 16. The breadth and empirical grounding of the guidelines means they retain considerable relevance for \ac{GenAI} systems, despite predating their widespread adoption.
+
+However, some guidelines take on heightened importance in the context of \ac{GenAI}, as the differences between discriminative and generative models (cf. Section~\ref{sssec:generative-vs-discriminative}) and the shift in user role (cf. Section~\ref{ssec:related-works}) introduce interaction challenges that existing guidelines did not originally anticipate. \enquote{Make clear why the system did what it did} (G11) \parencite{Amershi2019} becomes more important in this context, as the non-deterministic nature of \ac{GenAI} (cf. Section~\ref{sssec:generative-vs-discriminative}) violates the assumption of reproducible system behaviour \parencite{Weisz2025}. Similarly, \enquote{match relevant social norms} (G5) \parencite{Amershi2019} gains weight as natural language interfaces invite a kind of social interpretation that earlier, more narrowly scoped \ac{AI} products did not. To close this gap, \textcite{Weisz2025} propose a set of six design principles for \ac{GenAI} interaction, which incorporate and complement the existing guidelines while addressing the new challenges posed by \ac{GenAI} systems.
+
+Two of the developed design principles are of particular relevance for establishing this thesis's meta-requirements: \enquote{Design for Mental Models} (DP2) and \enquote{Design for Appropriate Trust and Reliance} (DP3) \parencite{Weisz2025}. The remainder of this section explores the challenges that motivate these two principles in more depth: the consequences of generative variability and anthropomorphism induced by natural language interfaces.
+
+\subsubsection*{Generative Variability and Mental Model Formation Challenges}
+
+A defining property of \ac{GenAI} systems is generative variability: the same input can produce different outputs across repeated interactions, as a result of the probabilistic nature of \ac{GenAI} \parencite{Weisz2025}. This behaviour could be considered erroneous for users accustomed to deterministic tools. It therefore poses a challenge for the formation of a useful mental model of the system \parencite{Weisz2025}.
+
+When users attribute mental models to \ac{AI} systems, the content of these mental models can be divided into three categories \parencite{Gero2020}: \textit{knowledge distribution}, describing the factual knowledge a system possesses; \textit{global behaviour}, describing general behavioural patterns of the system; and \textit{local behaviour}, describing the reasons for a specific output. Generative variability directly interferes with the formation of useful mental models of local behaviour, as users cannot reliably predict or reproduce a specific output. This is also the category that explanations are best positioned to support, as an explanation of a specific output is an account of local behaviour. The relationship between explanations and mental model formation is taken up in more depth in Section~\ref{ssec:explanations-mental-model-formation}.
+
+The dependency between mental model accuracy and effective human-\ac{AI} collaboration is not specific to \ac{GenAI}. \textcite{Jussupow2021} show, in the context of a discriminative \ac{CAID} system, that physicians were only able to consistently accept correct and reject incorrect system advice when they held an accurate model of the system's capabilities (cf. Section~\ref{ssec:related-works}). This dependency plausibly extends to \ac{GenAI} systems as well, and arguably more urgently so: \ac{GenAI} outputs are harder to verify against an objective ground truth and less stable across repeated interactions than the outputs of the discriminative system studied by \textcite{Jussupow2021}.
+
+\subsubsection*{Natural Language Interfaces and Anthropomorphism}
+
+Natural language is a defining property of many \ac{GenAI} systems, lowering the barrier to entry and enabling the shift to specification-based interaction (cf. Section~\ref{ssec:related-works}). The use of natural language creates favourable conditions for spontaneous anthropomorphism: users attribute human-like qualities to a system, as a consequence of interacting with it through natural language \parencite{Weisz2025}. This attribution happens subconsciously and without deliberate intent, while having a significant impact on the user's performance expectations and trust calibration \parencite{Weisz2025}.
+
+The appropriate response to this tendency is contested. \textcite{Weisz2025} report that \textcite{Shneiderman2023} argue anthropomorphic design should be avoided entirely, citing Microsoft's Clippy as a widely recognised example of anthropomorphic design that was not matched by corresponding system capability, resulting in user frustration rather than engagement. Against this, \textcite{Weisz2025} note the human tendency to anthropomorphise interactive and responsive objects more generally \parencite{Muller2004}. They argue that avoiding anthropomorphic design might therefore not resolve the underlying issue. Instead, they focus on a shared consensus that \ac{AI}-based systems should be clearly identifiable as such, and that users should not be actively deceived.
+
+Anthropomorphism is also relevant beyond interface design choices. Users also use the same folk-psychological concepts and reasoning processes used to explain human behaviour (including BDI), to interpret \ac{AI} behaviour \parencite{Miller2019}. This connects the interaction-design concerns discussed in this section directly to the attribution of \ac{ToM} to \ac{AI} systems, which is discussed in Section~\ref{ssec:tom-attributions}.
+
+Together, these three challenges motivate \textcite{Weisz2025}'s \textit{Design for Mental Models} (DP2) and \textit{Design for Appropriate Trust and Reliance} (DP3). Explainability gains importance as generative variability undermines reproducible behaviour (G11). This benefits both principles, as explaining a system's behaviour supports both a useful mental model and well-calibrated trust. Generative variability itself is the more specific driver of DP2, while anthropomorphism is the more specific driver of DP3. Sections~\ref{ssec:tom-attributions} and~\ref{ssec:explanations-mental-model-formation} take up these two threads in turn: who attributes what to \ac{GenAI} systems, and how explanations shape those attributions. Figure~\ref{fig:hai-genai-roadmap} summarises this progression.
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        challenge/.style={neutralnode, align=left, text width=3.6cm},
+        dp/.style={accentnode, text width=4.9cm},
+        sec/.style={neutralnode, densely dashed, fill=white, align=left, text width=3.5cm},
+        feedarr/.style={normarr},
+        crossarr/.style={-{Latex[length=2mm, width=1.6mm]}, paletteblue!55, thick, densely dotted}
+    ]
+        % Challenge column - left, the unstructured interaction problems
+        \node[challenge] (c2) at (0,2.5) {\textbf{Generative variability}\\[1pt]\footnotesize\textit{mental model formation}};
+        \node[challenge] (c1) at (0,0) {\textbf{Explainability gap}\\[1pt]\footnotesize\textit{G11 under non-determinism}};
+        \node[challenge] (c3) at (0,-2.5) {\textbf{Natural language}\\\textbf{interfaces}\\[1pt]\footnotesize\textit{anthropomorphism}};
+
+        % DP column - center, the resolution / pivot
+        \node[dp] (dp2) at (6.0,1.25) {DP2\\Design for Mental Models};
+        \node[dp] (dp3) at (6.0,-1.25) {DP3\\Design for Appropriate\\Trust \& Reliance};
+
+        % Section column - right, forward references
+        \node[sec] (s43) at (11.5,1.25) {Section~\ref{ssec:tom-attributions}\\[1pt]ToM Attributions to AI Systems};
+        \node[sec] (s44) at (11.5,-1.25) {Section~\ref{ssec:explanations-mental-model-formation}\\[1pt]Explanations \& Mental Model Formation};
+
+        % Feed arrows: challenges into DPs
+        \draw[feedarr] (c1.east) -- (dp2.west);
+        \draw[feedarr] (c1.east) -- (dp3.west);
+        \draw[feedarr] (c2.east) -- (dp2.west);
+        \draw[feedarr] (c3.east) -- (dp3.west);
+
+        % Main arrows: DPs into their primary section
+        \draw[mainarr] (dp2) -- (s43);
+        \draw[mainarr] (dp3) -- (s44);
+
+        % Cross arrows: secondary connections, visually subordinate
+        \draw[crossarr] (dp2) to[bend left=10] (s44);
+        \draw[crossarr] (dp3) to[bend right=10] (s43);
+    \end{tikzpicture}
+    \caption[Roadmap from interaction challenges to design principles to thematic sections]{The three interaction challenges discussed in this section motivate two of \textcite{Weisz2025}'s design principles, which in turn motivate the remaining thematic directions of this chapter.}
+    \label{fig:hai-genai-roadmap}
+\end{figure}
+
+\subsection{Theory of Mind Attributions to AI Systems} \label{ssec:tom-attributions}
+
+\textcite{Heider1944} showed that the attribution of mental states requires neither language nor embodiment: when shown a short film of two triangles and a circle moving around a rectangle, observers spontaneously attributed mental states and even personality traits to simple patterns of movement. This disposition can be extended to autonomous and intelligent systems \parencite{deGraaf2017}: People apply the same conceptual framework they use to explain human behaviour to artificial agents. Consequently, such systems should explain their own behaviour considering the social component of human understanding, rather than relying solely on a technical explanation \parencite{deGraaf2017, Miller2019}. The findings of \textcite{Heider1944} and \textcite{deGraaf2017} suggest that anthropomorphism is an inevitable occurrence in human-\ac{AI} interaction, giving additional weight to \textcite{Weisz2025}'s argument that avoiding anthropomorphic design is not a viable solution to the challenges it poses.
+
+Because attribution is automatic rather than deliberate, designers need to support users in forming accurate mental models. The remainder of this section examines this goal from three angles: the consequences of an inaccurate mental model for reliance on system advice \parencite{Jussupow2021}, the structure of what gets attributed to an \ac{AI} system and how it shapes trust in its advice \parencite{Colombatto2025}, and a concrete mechanism for actively improving mental model accuracy through communication \parencite{Ying2024}.
+
+\subsubsection*{Mental Model Accuracy as a Precondition for Appropriate Reliance}
+
+The experiment by \textcite{Jussupow2021} (cf. Section~\ref{ssec:related-works}) illustrates the consequences of an inaccurate mental model of an \ac{AI} system for reliance on its advice. The physicians' reliance on a system's advice was determined by their belief about the system's capability. The belief conflict and validation conflict that structure this process map onto dual-process theory (cf. Section~\ref{sssec:cognitive-psychology-concepts}). The belief conflict is resolved through Type 1 processing, as physicians act immediately on whichever belief is dominant, without consulting further data. If the conflict cannot be resolved, physicians move into the validation conflict, utilising Type 2 processing to deliberately weigh the available data to come to a decision. \textcite{Jussupow2021} draw this parallel themselves, framing their two-conflict model as evidence against a strict separation of heuristic and systematic reasoning, since physicians shift between the two dynamically within a single decision rather than committing to one mode throughout.
+
+When physicians resolve the belief conflict through Type 1 processing, both over- and underreliance can result, depending on which belief dominates. The two are symmetric failure modes that are rooted in an inaccurate belief about the system's capability. Overreliance occurs when physicians overestimate the system's capability, leading them to accept incorrect advice without further validation. Underreliance occurs when physicians underestimate the system's capability, leading them to reject correct advice without further validation. An accurate belief about system competence is consequently a precondition for appropriate reliance on \ac{AI} advice, independent of whether that advice happens to be correct in any given instance.
+
+\subsubsection*{Dimensions of Mental State Attribution and Their Effect on Trust}
+
+Not all attributed mental states affect trust in the same way. \textcite{Gray2007} distinguish two independent dimensions along which people attribute mental capacities to an entity: \textit{agency}, the capacity for high-level reasoning and planning, and \textit{experience}, the capacity for sensations and emotions. \textcite{Colombatto2025} adopt this distinction for \acp{LLM} under the label \textit{intelligence} rather than \textit{agency}, testing both dimensions against reliance on an \ac{LLM}'s advice (cf. Section~\ref{ssec:related-works} for the measured traits and task design).
+
+Higher intelligence attributions were positively correlated with advice acceptance, while higher experience attributions were weakly negatively correlated with it. \textcite{Colombatto2025} interpret this asymmetry functionally: intelligence-related attributes such as memory and knowledge are perceived as relevant to a fact-based task and therefore support reliability. In contrast, experience-related attributes are associated with volatility and unpredictability, qualities that are not useful for this kind of task. They explicitly note that the balance between the two dimensions may shift for tasks with a stronger emotional or social component. Because the two dimensions can pull advice acceptance in opposite directions, they can also partially cancel out, which offers an explanation for why studies that treat anthropomorphism as a single, undifferentiated construct often report weak or null effects on trust (cf. Table~\ref{tab:intelligence-experience}).
+
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{X|p{3.7cm}|X}
+        \textbf{Dimension} & \textbf{Correlation with Advice Acceptance} & \textbf{Interpretation} \\
+        \hline
+        Intelligence (e.g., memory, planning) & Positive & Perceived as functionally relevant to fact-based tasks; supports reliability \\
+        \hline
+        Experience (e.g., happiness, fear) & Weakly negative & Associated with volatility and unpredictability; not useful for fact-based tasks \\
+    \end{tabularx}
+    \caption[Dimensions of mental state attribution and their effect on advice acceptance]{The two dimensions of mental state attribution identified by \textcite{Colombatto2025}, adapted from \textcite{Gray2007}, and their differentiated relationship to advice acceptance. The balance between the two dimensions is task-dependent and may shift for tasks with a stronger emotional or social component.}
+    \label{tab:intelligence-experience}
+\end{ctable}
+
+This general gap between self-reported trust and behavioural reliance (cf. Section~\ref{ssec:related-works}) extends to attributions of consciousness specifically: \textcite{Colombatto2025} find that consciousness attributions, which are measured as a separate construct from the experience dimension, correlate positively with self-reported trust but not with actual reliance on the \ac{LLM}'s advice, reinforcing that mental state attribution and trust are not related by a simple causal link.
+
+\subsubsection*{Communicating the AI's Belief State as a Trust-Calibration Mechanism}
+
+If accurate beliefs about a system's capability are a precondition for appropriate reliance, a natural design question follows: can a system actively support users in forming such beliefs? \textcite{Ying2024} investigate this question in a collaborative shopping task (cf. Section~\ref{ssec:related-works}) using the concept of \textit{common goal knowledge}: a state in which both the user and the assistant know the user's goal, and both know that the other knows it. Establishing common knowledge of this kind has been shown to support accurate mental models of other agents in human social interaction more broadly \parencite{Thomas2014}.
+
+The three compared conditions differ in how much of the \ac{AI}'s inferred goal it communicates: a \textit{baseline} that withholds it, \textit{tell} that gives a numerical confidence score, and \textit{show} that verbally describes the inference using modal language proportional to its certainty. Both \textit{tell} and \textit{show} improved trust calibration over the baseline; \textit{show} achieved better calibration, but \textit{tell} was subjectively preferred for its lower cognitive cost. This points to a trade-off between communicative efficiency and calibration accuracy that a system designer has to tune to the specific use case and user preferences.
+
+One of the key limitations of the study is that the communicated belief state was always correct. \textcite{Ying2024} note that communicating an incorrect belief state could potentially affect trust calibration differently. They also mention that the \textit{show} condition's communication of the inferred goal might help users validate the assistant's recommendations.
+
+The three studies discussed in this section converge on a common claim: an \ac{AI} system's behaviour is filtered through a user's mental model of that system, and the accuracy of this model determines whether reliance on the system is appropriate. The mental states discussed throughout this section are attributions of \ac{ToM}, in the sense established in Section~\ref{sssec:theory-of-mind-ai}. Users ascribe knowledge, capacities, and intent to an \ac{AI} system, regardless of whether the system actually possesses them. \textcite{Jussupow2021} demonstrate the cost of an inaccurate mental model directly, in the form of overreliance and underreliance. \textcite{Colombatto2025} show that the content of this model is not unidimensional, and that different attributed capacities can pull trust in opposite directions. \textcite{Ying2024} demonstrate that the model's accuracy is not fixed at the outset of an interaction but can be actively shaped through communication.
+
+This last point raises a question that Section~\ref{ssec:explanations-mental-model-formation} takes up directly. \textcite{Ying2024} only test communication of a belief state that is correct. \ac{CoT} explanations are a similar communication of the model's internal state, but offer no comparable guarantee of accuracy: they are not guaranteed to faithfully reflect a model's actual internal reasoning process \parencite{Lyu2023} (cf. Section~\ref{sssec:xai-methods}). It is therefore unclear whether the benefits of communicating a belief state still hold once that belief state may itself be inaccurate. Section~\ref{ssec:explanations-mental-model-formation} examines this question, asking whether and how explanations shape the accuracy of users' mental models of \ac{GenAI} systems.
+
+\subsection{Explanations and Mental Model Formation} \label{ssec:explanations-mental-model-formation}
+
+In Section~\ref{sssec:terminology} this thesis adopted a definition of \ac{XAI} as a system that produces details or reasons to make its functioning understandable to a specific audience \parencite{Arrieta2020}. The reference to a specific audience emphasises that successful explanation is not only a result of the faithfulness of the explanation, but also of the recipient's ability to understand it (cf. Section~\ref{sssec:theory-of-mind-ai}). The same account can be a good explanation for one user and a poor one for another.
+
+\textcite{Miller2019} grounds this audience-relativity in social science research, breaking explanations down into a cognitive process, a product, and a social process of sharing explanations (cf. Section~\ref{sssec:terminology}). From this body of research \textcite{Miller2019} draws four key findings that constrain how explanations function:
+
+\begin{enumerate}
+    \item \textbf{Explanations are contrastive.} People do not ask why an event occurred in absolute terms, but why it occurred rather than some alternative. The contrast case is frequently left unstated and must be inferred from context \parencite{Lipton1990}. An explanation that ignores a user's implicit contrast case answers a different question than the one actually being asked.
+    \item \textbf{Explanations are selected, not exhaustive.} People choose a small subset of causes from a larger causal structure, guided by abnormality, intentionality, and relevance to their goals, because processing a complete causal chain is too costly \parencite{Hilton2017}. A complete causal account is consequently not necessarily a good explanation.
+    \item \textbf{Causal accounts are preferred over probabilistic ones.} Causal explanations satisfy explanatory needs more effectively than probabilities, even in situations where statistical information is technically relevant \parencite{Lombrozo2007}. A confidence score alone is therefore a weak substitute for an account of why an outcome occurred.
+    \item \textbf{Explanation is social.} The causes an explainer selects and the way they are presented are based on assumptions about what the explainee already knows. The same explanation can serve users of differing prior knowledge unequally.
+\end{enumerate}
+
+These findings acquire additional weight when the explainee is reasoning about a \ac{GenAI} system. As established in Section~\ref{ssec:tom-attributions}, users apply the same folk-psychological concepts to \ac{AI} systems that they apply to other people, with anthropomorphism further reinforcing this tendency. Seeking an explanation for an \ac{AI} output is therefore not a purely informational act. It is also an attempt to make sense of the system's perceived intentions and goals \parencite{Miller2019}.
+
+The trigger for seeking an explanation is the abnormal or the unexpected. People request explanations when they encounter something that does not fit their current mental model, with the goal of updating that model \parencite{Lombrozo2006, Hilton1986}. Complementing this, \textcite{Hoffman2023} identify curiosity, prompted by novelty, surprise, or a violated expectation, as a further driver of explanation-seeking in the \ac{XAI} context. They also note that an explanation can suppress or redirect this curiosity once it is provided. This has a direct consequence for \ac{GenAI}. The non-deterministic outputs discussed in Section~\ref{ssec:hai-genai} are a recurring source of unexpected behaviour, which makes explanation-seeking a structural feature of \ac{GenAI} interaction rather than an occasional event. The same mechanism also bounds the usefulness of explanations. Providing an explanation when the user is not curious, outside a context of surprise or unmet expectation, adds cognitive load without serving a corresponding need \parencite{Miller2019}.
+
+\subsubsection*{Dual-Process Evaluation and Causability}
+
+\textcite{Shin2021} examines how users evaluate the explanations they receive, framing the process through the \ac{HSM} \parencite{Chaiken1980}. A heuristic path relies on surface cues such as \ac{FAT}. A systematic path involves deliberate evaluation of the explanation's content. The two paths share the defining characteristics of Type 1 and Type 2 processing established in Section~\ref{sssec:cognitive-psychology-concepts}: the heuristic path is intuitive and cue-driven, the systematic path deliberate and controlled. Contrary to this thesis's working assumption, the \ac{HSM} is typically categorised as a parallel-competitive model, as both paths can operate concurrently \parencite{Chaiken1980}. Resolving the tension between the parallel-competitive and default-interventionist accounts of dual-process theory is beyond the scope of this thesis. For \textcite{Shin2021}'s model, what matters is the characteristics of the two paths, not their relationship, which is of limited relevance here.
+
+The central concept in \textcite{Shin2021}'s account is causability, defined as the extent to which an explanation achieves causal understanding for a given user in a given context. Causability is a property of the user's resulting understanding, not of the explanation as an artefact. The same explanation can achieve high causability for an expert and near-zero causability for a novice. This operationalises the audience-specificity in \textcite{Arrieta2020}'s definition and the social process described by \textcite{Miller2019}. An explanation functions as intended only when its content matches the explainee's cognitive state. \textcite{Shin2021} models \ac{FAT} cues as feeding into both causability and trust, with causability additionally shaping trust directly. The explanation therefore enters this structure through \ac{FAT} cues, with causability and trust acting as two related but distinct downstream effects that both feed into performance. This terminates in the same conceptual territory as the trust-reliance distinction established in Section~\ref{ssec:tom-attributions}: \textcite{Colombatto2025} show that self-reported trust and behavioural reliance are not interchangeable, and Shin's model offers one account of how the former is formed in the first place. Figure~\ref{fig:shin-fat-causability} depicts the structure reported by \textcite{Shin2021} together with the antecedent role of explanation discussed above, adding the \enquote{Explanation} node not part of \textcite{Shin2021}'s own published model.
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        fatbox/.style={neutralnode, fill=white, minimum height=0.6cm, text width=2.3cm},
+        fatframe/.style={draw=palettegrey, thick, densely dotted, rounded corners, inner sep=6pt},
+        chain/.style={accentnode, text width=2.4cm},
+        ext/.style={accentnode, densely dashed, fill=white, text width=2.4cm},
+        extarr/.style={-{Latex[length=2mm, width=1.6mm]}, paletteblue, densely dashed, thick}
+    ]
+        \node[ext] (exp) at (-4.5,0) {Explanation};
+
+        \node[fatbox] (fair) at (0,0.9) {Fairness};
+        \node[fatbox] (acc) at (0,0)  {Accountability};
+        \node[fatbox] (tran) at (0,-0.9) {Transparency};
+        \node[fatframe, fit=(fair)(acc)(tran), inner sep=8pt,
+              label={[font=\footnotesize\itshape, text=palettegrey]above:Algorithmic Norm (FAT)}] (fatframe) {};
+
+        \node[chain] (caus)  at (4.5,1.0)  {Causability};
+        \node[chain] (trust) at (4.5,-1.0) {Trust};
+        \node[chain] (perf)  at (8.7,0)    {Algorithmic\\Performance};
+
+        \draw[extarr] (exp.east) -- (fatframe.west);
+        \draw[normarr] (fatframe.east) -- (caus.west);
+        \draw[normarr] (fatframe.east) -- (trust.west);
+        \draw[mainarr] (caus) -- (trust);
+        \draw[mainarr] (caus.east) -- (perf.west);
+        \draw[mainarr] (trust.east) -- (perf.west);
+    \end{tikzpicture}
+    \caption[Causability, FAT cues, and trust in algorithmic evaluation]{Causability, FAT cues, and trust, reproducing the path model of \textcite{Shin2021} with the addition of \enquote{Explanation} as an antecedent to the FAT cues \parencite{Shin2021}.}
+    \label{fig:shin-fat-causability}
+\end{figure}
+
+Moderated through \ac{FAT} cues and causability, explanations can therefore shape trust in a system and, through that trust, influence reliance on its advice. The trust formed through this process partially determines how the belief conflict in \textcite{Jussupow2021}'s model is resolved.
+
+\subsubsection*{Explanation Quality and Trust Calibration}
+
+\textcite{Hoffman2023} draw a distinction between two perspectives on explanation quality. Explanation goodness is a designer's assessment, made without reference to context, of whether an explanation is detailed, complete, actionable, and communicates the system's reliability. Explanation satisfaction is a user's judgement of whether they feel they understand the system after receiving the explanation. The two can diverge. An explanation that scores well on goodness can still fail to satisfy a user if it is not calibrated to that user's knowledge or goals. This distinction restates, from the measurement side, the same audience-specificity that motivates \textcite{Arrieta2020}'s definition of \ac{XAI} and \textcite{Shin2021}'s concept of causability: an explanation cannot be judged good or bad independently of the user who receives it.
+
+\textcite{Hoffman2023} also frame trust as a process that requires calibration rather than a fixed quantity. Distrust is not simply the absence of trust. It can be functional, supporting the detection of system error. Miscalibration in either direction degrades human-\ac{AI} performance, whether through overtrust that accepts incorrect output or undertrust that rejects correct output. This is consistent with the goal of \textcite{Weisz2025}'s DP3 and with the empirical findings from \textcite{Jussupow2021} and \textcite{Colombatto2025} discussed in Section~\ref{ssec:tom-attributions}, where the cost of an inaccurate mental model appeared as both over- and underreliance.
+
+\subsubsection*{Explanations as a Mechanism for ToM Calibration}
+
+Taken together, \textcite{Miller2019}, \textcite{Shin2021}, and \textcite{Hoffman2023} describe explanations as the primary mechanism through which users update and calibrate their mental models, and with them their attribution of \ac{ToM} to a system. \textcite{Miller2019} establishes the cognitive and social preconditions an explanation must meet. \textcite{Shin2021} shows that meeting them, through causability, drives trust. \textcite{Hoffman2023} supplies the conceptual distinction needed to assess whether an explanation has achieved its intended effect.
+
+\textcite{Weisz2025} translate this into design guidance through DP3, recommending \ac{CoT} explanations and the provision of rationales as strategies for trust calibration in \ac{GenAI}. The friction-based strategy in DP3 connects to the concept of cognitive forcing functions, interventions that interrupt the interaction at key decision points to prompt deliberate processing \parencite{Buinca2021}. Such functions are a complementary intervention for cases where an explanation alone would not prompt the Type 2 processing required to avoid overreliance. The underlying need is not new. \textcite{Amershi2019}'s guideline G11, \enquote{make clear why the system did what it did}, already treated the provision of reasons as a core design requirement for discriminative \ac{AI} (cf. Section~\ref{ssec:hai-genai}). The user need persists for \ac{GenAI} even though the specific mechanism differs.
+
+Explanations are not unconditionally beneficial for calibration. The process model of \textcite{Jussupow2021} contains a pattern they term \textit{AI-based confirmation}, in which physicians build their initial frame, their independent interpretive judgement of the case formed prior to consulting the system, directly from the system's advice rather than from independent analysis. This sits in the confirmation branch of their model and never reaches the belief or validation conflict, because no independent judgement exists for the advice to conflict with. The advice is anchored in before an independent frame can form. A second pattern, which \textcite{Jussupow2021} term \textit{explaining away}, is more cautionary still. Physicians who dismissed disconfirming advice by inventing a reason for the system's apparent error, frequently a reason without any basis, reported the highest confidence and satisfaction of any group, despite the dismissal resting on no actual validation \parencite{Jussupow2021}. An explanation can supply exactly this kind of post-hoc justification. It offers material from which a user can construct a confident but unwarranted dismissal as readily as a well-founded one. This is a counterweight to the otherwise positive framing of explanations in \textcite{Weisz2025} and \textcite{Shin2021}. On the same point, \textcite{Jussupow2021} suggest that explanations support mental-model learning only when a user reaches active consideration. A disconfirmation resolved at the belief conflict produces no learning, whether an explanation was available or not. This is a forward-looking inference rather than a result of their own study, since the system they evaluated provided no explanations.
+
+Across this chapter, explanations are a key mechanism connecting mental model formation (Section~\ref{ssec:hai-genai}) and \ac{ToM} attribution (Section~\ref{ssec:tom-attributions}), though not necessarily the only one. Three constraints carry forward into the meta-requirements derived in Section~\ref{ssec:meta-requirements}: explanations must be selected and calibrated to their audience rather than made exhaustive; their effectiveness depends on the user's existing cognitive state and not on their content alone; and they are not unconditionally beneficial, capable of entrenching miscalibrated confidence as readily as correcting it.
+
+\subsection{Meta-Requirements} \label{ssec:meta-requirements}
+
+To operationalise the challenges discussed above, this section compiles them into meta-requirements and design requirements as outlined in Section~\ref{ssec:thesis-methodology}. Meta-requirements are goals that a class of artefacts must satisfy; they describe the class of problems to which a design theory applies \parencite{Walls1992}. The three meta-requirements below consolidate the findings of Sections~\ref{ssec:hai-genai}–\ref{ssec:explanations-mental-model-formation} into the goals any \ac{XAI} mechanism must meet to support accurate \ac{ToM} attribution, and form the basis from which the design requirements are derived.
+
+\begin{enumerate}[label=\textbf{MR\arabic*}, leftmargin=*]
+    \item \textbf{Support accurate ToM attribution.} Because users attribute mental states to \ac{AI} systems spontaneously, accurate attribution must be supported (cf. Section~\ref{ssec:tom-attributions}). Generative variability \parencite{Weisz2025} and the multidimensionality of what is attributed \parencite{Colombatto2025} complicate this goal. An accurate model of the system's capability is a precondition for relying on its outputs appropriately \parencite{Jussupow2021}, which makes accurate attribution foundational for effective use of \ac{GenAI} systems.
+    \item \textbf{Enable calibrated reliance.} Trust and reliance are frequently treated as interchangeable, yet \textcite{Colombatto2025} show that self-reported trust and actual reliance diverge. \textcite{Shin2021} shows that trust is formed based on \ac{FAT} cues and causability. Miscalibration of reliance in either direction, over- or underreliance, leads to suboptimal outcomes \parencite{Jussupow2021}. At the same time, distrust can be functional, supporting the detection of system error \parencite{Hoffman2023}. Building on DP3 by \textcite{Weisz2025}, this meta-requirement separates trust and reliance, treating the former as a mediator rather than a synonym for the latter.
+    \item \textbf{Support appropriate cognitive engagement.} Users process a system's advice and its explanations through a dual-process structure of reasoning (cf. Sections~\ref{ssec:tom-attributions},~\ref{ssec:explanations-mental-model-formation}). The key challenge is to support the right mode of processing at the right time: users prefer low-cost formats for communicating an \ac{AI} system's mental state \parencite{Ying2024}. Conversely, where heuristic acceptance would risk overreliance, deliberate processing must be induced, for example through friction at key decision points \parencite{Buinca2021,Weisz2025}.
+\end{enumerate}
+
+The meta-requirements presented above can be broken down into more specific mechanisms for which specific design recommendations in the form of design principles can be derived. Additionally, the derivation of design requirements serves to limit the design knowledge to mechanisms concerned with explanations.
+
+\begin{enumerate}[label=\textbf{DR\arabic*}, leftmargin=*]
+    \item \textbf{Calibrate explanations to users.} The same explanation can achieve different levels of causability for different users \parencite{Shin2021}. How well an explanation achieves understanding for a given user can be measured through explanation satisfaction and is distinct from the goodness of the explanation itself \parencite{Hoffman2023}. This aligns with DP2 by \textcite{Weisz2025}, which calls for tailoring outputs to the user's knowledge and capabilities. While DR1 affects the cognitive load of the user, relating it to MR3, it primarily addresses the user's attribution of \ac{ToM} to the system (MR1).
+    \item \textbf{Explain local behaviour.} Extending G11 by \textcite{Amershi2019} to individual outputs, explanations should explain the system's local behaviour. \textcite{Weisz2025} emphasise the impact of generative variability and how this particularly affects the understanding of local behaviour. Explaining local behaviour derives from MR1, by reducing the risk of misattribution of \ac{ToM} to the system.
+    \item \textbf{Account for unfaithful explanations.} Explanations such as \ac{CoT} are not guaranteed to reflect the system's underlying reasoning \parencite{Lyu2023}, corrupting the user's mental model and leading to miscalibrated reliance. This violates MR1 and MR2, and is therefore a critical design consideration. A related concern appears in DP3 by \textcite{Weisz2025}, though their notion of faithfulness is grounded in source material rather than correspondence to the system's reasoning. The goal is to design for the possibility of unfaithful explanations, not to guarantee faithfulness.
+    \item \textbf{Time explanation delivery.} The timing of explanation delivery should be oriented towards the user's curiosity and need for explanation \parencite[cf. G3,][]{Amershi2019}. Explanations should be provided when the user encounters unexpected behaviour or when their mental model is challenged, rather than preemptively or indiscriminately \parencite{Miller2019,Hoffman2023}. Supplying explanations too early may anchor the user's considerations \parencite{Jussupow2021}. This DR addresses MR3 by supporting appropriate cognitive engagement, but also MR1, because an explanation delivered too early undermines the user's ability to form an independent assessment of the system's behaviour.
+    \item \textbf{Guard against passive acceptance.} Addressing MR2 and MR3, by supporting appropriate cognitive engagement, explanations should be designed to avoid heuristic acceptance of the system's outputs, because mere presentation of an explanation does not guarantee appropriate processing, as demonstrated by \textcite{Jussupow2021}. Explanations, combined with additional interventions such as friction, should be designed to support deliberate processing where appropriate \parencite{Buinca2021,Weisz2025}.
+    \item \textbf{Constrain post-hoc dismissal.} An explanation can provide users with material to argue for the dismissal of system outputs, even when that dismissal is unwarranted, like the \enquote{explaining away} pattern in \textcite{Jussupow2021}. As the user is already deliberately processing the system's outputs (unlike DR5), inducing engagement does not address this risk. To address the violations of MR2 and MR3, explanations should be embedded in an interaction design that discourages unfounded dismissal of system outputs.
+    \item \textbf{Select explanation content.} The content of an explanation should present a subset of sufficient causes rather than a complete causal chain \parencite{Miller2019}. An exhaustive causal account increases the mental load of the user without necessarily improving their understanding. Measures of abnormality and intentionality can guide the selection of causes \parencite{Hilton2017}. This directly addresses MR3, by avoiding unnecessary cognitive load.
+\end{enumerate}
+
+Figure~\ref{fig:mr-dr-mapping} summarises the design theory developed in this section, relating each design requirement to the meta-requirement or combination of meta-requirements from which it derives.
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        node distance=0pt,
+        mrbox/.style={neutralnode, align=left, text width=5.1cm},
+        drbox/.style={neutralnode, align=left, text width=7cm},
+        mr1line/.style={paletteblue, line width=1pt},
+        mr2line/.style={palettered, line width=1pt},
+        mr3line/.style={paletteochre, line width=1pt},
+    ]
+        % ---- Meta-requirements (left column) ----
+        \node[mrbox] (mr1) at (0,2.25)  {\textbf{MR1:}~Support accurate ToM attribution};
+        \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable calibrated reliance};
+        \node[mrbox] (mr3) at (0,-2.25) {\textbf{MR3:}~Support appropriate cognitive engagement};
+
+        % ---- Design requirements (right column), ordered to minimise crossings ----
+        \node[drbox] (dr1) at (9.5,3.3)  {\textbf{DR1:}~Calibrate explanations to users};
+        \node[drbox] (dr2) at (9.5,2.2)  {\textbf{DR2:}~Explain local behaviour};
+        \node[drbox] (dr3) at (9.5,1.1)  {\textbf{DR3:}~Account for unfaithful explanations};
+        \node[drbox] (dr4) at (9.5,0.0)  {\textbf{DR4:}~Time explanation delivery};
+        \node[drbox] (dr5) at (9.5,-1.1) {\textbf{DR5:}~Guard against passive acceptance};
+        \node[drbox] (dr6) at (9.5,-2.2) {\textbf{DR6:}~Constrain post-hoc dismissal};
+        \node[drbox] (dr7) at (9.5,-3.3) {\textbf{DR7:}~Select explanation content};
+
+        % ---- Column headings ----
+        \node[font=\bfseries] at (0,4.2) {Meta-Requirements};
+        \node[font=\bfseries] at (9.5,4.2) {Design Requirements};
+
+        % ---- Connections, coloured by source MR ----
+        % MR1 (blue): DR1, DR2
+        \draw[mr1line] (mr1.east) -- (dr1.west);
+        \draw[mr1line] (mr1.east) -- (dr2.west);
+        % MR1+MR2 (blue + red): DR3
+        \draw[mr1line] (mr1.east) -- (dr3.west);
+        \draw[mr2line] (mr2.east) -- (dr3.west);
+        % MR1+MR3 (blue + ochre): DR4
+        \draw[mr1line] (mr1.east) -- (dr4.west);
+        \draw[mr3line] (mr3.east) -- (dr4.west);
+        % MR2+MR3 (red + ochre): DR5, DR6
+        \draw[mr2line] (mr2.east) -- (dr5.west);
+        \draw[mr3line] (mr3.east) -- (dr5.west);
+        \draw[mr2line] (mr2.east) -- (dr6.west);
+        \draw[mr3line] (mr3.east) -- (dr6.west);
+        % MR3 (ochre): DR7
+        \draw[mr3line] (mr3.east) -- (dr7.west);
+    \end{tikzpicture}
+    \caption{Overview of the meta-requirements and design requirements}
+    \label{fig:mr-dr-mapping}
+\end{figure}

@@ -17,6 +17,23 @@
 \usepackage{multirow}
 
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta, fit}
+\definecolor{paletteblue}{HTML}{3B5A77}
+\definecolor{palettegrey}{HTML}{6B6B6B}
+\definecolor{palettered}{HTML}{8C3541}
+\definecolor{paletteochre}{HTML}{C19F38}
+
+% ---- Shared TikZ styles for thesis figures ----
+\tikzset{
+  thesisnode/.style  = {thick, align=center, rounded corners, font=\footnotesize,
+                        minimum height=0.8cm, inner sep=6pt},
+  neutralnode/.style = {thesisnode, draw=palettegrey, fill=palettegrey!6},
+  accentnode/.style  = {thesisnode, draw=paletteblue, line width=1pt,
+                        fill=paletteblue!6, text=paletteblue, font=\bfseries\small},
+  mainarr/.style     = {-{Latex[length=2.4mm, width=2mm]}, paletteblue, line width=1.1pt},
+  normarr/.style     = {-{Latex[length=2mm, width=1.6mm]}, palettegrey, thick},
+}
+
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 
