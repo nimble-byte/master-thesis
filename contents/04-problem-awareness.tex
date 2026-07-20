@@ -231,30 +231,27 @@ The meta-requirements above can be broken down into design requirements that des
 
 Figure~\ref{fig:mr-dr-mapping} summarises the design theory developed in this section, relating each design requirement to the meta-requirement or combination of meta-requirements from which it derives.
 
-% TODO: Fix this figure once the new DR are finalised.
 \begin{figure}[ht]
     \centering
     \begin{tikzpicture}[
         node distance=0pt,
         mrbox/.style={neutralnode, align=left, text width=5.1cm},
-        drbox/.style={neutralnode, align=left, text width=7cm},
+        drbox/.style={neutralnode, align=left, text width=6cm},
         mr1line/.style={paletteblue, line width=1pt},
         mr2line/.style={palettered, line width=1pt},
         mr3line/.style={paletteochre, line width=1pt},
     ]
         % ---- Meta-requirements (left column) ----
-        \node[mrbox] (mr1) at (0,2.25)  {\textbf{MR1:}~Support accurate ToM attribution};
+        \node[mrbox] (mr1) at (0,2.3)  {\textbf{MR1:}~Support accurate ToM attribution};
         \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable calibrated reliance};
-        \node[mrbox] (mr3) at (0,-2.25) {\textbf{MR3:}~Support appropriate cognitive engagement};
+        \node[mrbox] (mr3) at (0,-2.3) {\textbf{MR3:}~Support appropriate cognitive engagement};
 
-        % ---- Design requirements (right column), ordered to minimise crossings ----
-        \node[drbox] (dr1) at (9.5,3.3)  {\textbf{DR1:}~Calibrate explanations to users};
-        \node[drbox] (dr2) at (9.5,2.2)  {\textbf{DR2:}~Explain local behaviour};
-        \node[drbox] (dr3) at (9.5,1.1)  {\textbf{DR3:}~Account for unfaithful explanations};
-        \node[drbox] (dr4) at (9.5,0.0)  {\textbf{DR4:}~Time explanation delivery};
-        \node[drbox] (dr5) at (9.5,-1.1) {\textbf{DR5:}~Guard against passive acceptance};
-        \node[drbox] (dr6) at (9.5,-2.2) {\textbf{DR6:}~Constrain post-hoc dismissal};
-        \node[drbox] (dr7) at (9.5,-3.3) {\textbf{DR7:}~Select explanation content};
+        % ---- Design requirements (right column), staircase order: no crossings ----
+        \node[drbox] (dr1) at (8.5,3.0)  {\textbf{DR1:}~Increase intelligibility of system behaviour};
+        \node[drbox] (dr2) at (8.5,1.5)  {\textbf{DR2:}~Decrease misleading cues about system capabilities};
+        \node[drbox] (dr3) at (8.5,0.0)  {\textbf{DR3:}~Increase verifiability of system outputs};
+        \node[drbox] (dr4) at (8.5,-1.5) {\textbf{DR4:}~Increase deliberate engagement at consequential decision points};
+        \node[drbox] (dr5) at (8.5,-3.0) {\textbf{DR5:}~Decrease cognitive effort of interpreting system outputs};
 
         % ---- Column headings ----
         \node[font=\bfseries] at (0,4.2) {Meta-Requirements};
@@ -264,20 +261,14 @@ Figure~\ref{fig:mr-dr-mapping} summarises the design theory developed in this se
         % MR1 (blue): DR1, DR2
         \draw[mr1line] (mr1.east) -- (dr1.west);
         \draw[mr1line] (mr1.east) -- (dr2.west);
-        % MR1+MR2 (blue + red): DR3
-        \draw[mr1line] (mr1.east) -- (dr3.west);
+        % MR2 (red): DR2, DR3, DR4
+        \draw[mr2line] (mr2.east) -- (dr2.west);
         \draw[mr2line] (mr2.east) -- (dr3.west);
-        % MR1+MR3 (blue + ochre): DR4
-        \draw[mr1line] (mr1.east) -- (dr4.west);
+        \draw[mr2line] (mr2.east) -- (dr4.west);
+        % MR3 (ochre): DR4, DR5
         \draw[mr3line] (mr3.east) -- (dr4.west);
-        % MR2+MR3 (red + ochre): DR5, DR6
-        \draw[mr2line] (mr2.east) -- (dr5.west);
         \draw[mr3line] (mr3.east) -- (dr5.west);
-        \draw[mr2line] (mr2.east) -- (dr6.west);
-        \draw[mr3line] (mr3.east) -- (dr6.west);
-        % MR3 (ochre): DR7
-        \draw[mr3line] (mr3.east) -- (dr7.west);
     \end{tikzpicture}
-    \caption{Overview of the meta-requirements and design requirements}
+    \caption{Overview of the initial meta-requirements and design requirements}
     \label{fig:mr-dr-mapping}
 \end{figure}
