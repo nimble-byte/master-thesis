@@ -5,6 +5,7 @@ Causability
 ChatGPT
 CoT
 explainee
+Gioia
 LimeSurvey
 MATH
 MathVista
@@ -21,3 +22,4 @@ underreliance
 undertrust
 WebUI
 XAI
+actability
