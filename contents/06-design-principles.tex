@@ -1,12 +1,10 @@
 \section{Design Principles} \label{sec:design-principles}
 
-This chapter presents the derivation and evaluation of the design principles that constitute the primary contribution of this thesis. Section~\ref{ssec:derivation-methods} details the methodology used to derive the design principles from the results of the empirical study described in Chapter~\ref{sec:study-design}, and the evaluation and revision of the resulting principles through expert interviews. The coding results and first iteration of the design principles are presented in Section~\ref{ssec:initial-design-principles}. The results of the expert interviews and the resulting revisions to the design principles are reported in Section~\ref{ssec:design-principle-revision}. Finally, Section~\ref{ssec:uncovered-design-space} addresses the portion of the design space that could not be covered empirically, discuss potential reasons for this gap, and suggest theory-based design principles to address this portion of the design space.
+This chapter presents the derivation and evaluation of the design principles that constitute the primary contribution of this thesis. Section~\ref{ssec:derivation-methods} details the methodology used to derive the design principles from the results of the empirical study described in Chapter~\ref{sec:study-design}, and the evaluation and revision of the resulting principles through expert interviews. The coding results and first iteration of the design principles are presented in Section~\ref{ssec:initial-design-principles}. The results of the expert interviews and the resulting revisions to the design principles are reported in Section~\ref{ssec:design-principle-revision}. Finally, Section~\ref{ssec:uncovered-design-space} addresses a portion of the design space that could not be covered empirically, discuss potential reasons for this gap, and suggest theory-based design principles to address the gap in the design space.
 
 \subsection{Derivation Methodology and Expert Interviews} \label{ssec:derivation-methods}
 
 The design principles presented in this chapter are constructed following the grounded-theory approach \parencite{Gioia2013}. The grounded theory approach was chosen because its progressive abstraction from first-order concepts to second-order themes and aggregate dimensions is uniquely suited to the derivation of design principles from empirical data. Design principles are suited to provide the final abductive step in the grounded theory process \parencite{Gioia2013}, by connecting the inductively derived data structure to the pre-existing theoretical framework of \ac{MR} and \ac{DR} established in Section~\ref{ssec:meta-requirements}.
-
-Prior to coding, the raw transcripts of the study were pre-processed to better support the coding process and the construction of the grounded theory data structure. The specific pre-processing steps are described in Section~\ref{ssec:initial-design-principles}.
 
 Coding was performed in two cycles based on the guidance presented in \textcite{Saldana2015}. The first cycle applied process codes \parencite{Corbin2014}, as the analysis focused on the interaction between participants and the \ac{AI} system. Decomposing this interaction into a sequence of discrete actions allowed for the identification of patterns in the participants' behaviour and their engagement with the system. In addition, each process code was matched with an in vivo code \parencite{Corbin2014} from the transcripts to preserve a direct connection to the underlying data for the subsequent abstraction levels. Following the first cycle coding, the raw codes were cleaned and consolidated by correcting typographical and minor wording variations without altering the underlying coding decisions. The second cycle coding applied pattern coding \parencite{Miles2013}, combining first-cycle codes of similar or related meaning into smaller sets of pattern codes to reduce the overall code space to a size suitable for further thematic analysis.
 
@@ -16,129 +14,224 @@ The resulting design theory was then evaluated through expert interviews with \a
 
 \subsection{Initial Design Principles} \label{ssec:initial-design-principles}
 
-Building on the coding procedure and expert interview process established in Section~\ref{ssec:derivation-methods}, this section reports the results of that procedure: the resulting code funnel, the second-order themes and aggregate dimensions derived from it, a group comparison at the dimension level, and the six design principles derived from the aggregate dimensions.
-
-Coding proceeded through four stages, summarised below.
+% TODO: add citation for evaluation repo
+The original transcripts from the study only contained speaker annotations and stage directions, to better support the construction of the grounded theory data structure. The transcripts reformatted into a semi-structured format, that allowed each statement to be assigned a unique identifier, that can be used to reference the statement throughout the coding process. These identifiers have the format \texttt{[participant ID].[turn ID].[statement ID]} and will be used throughout this section to reference specific statements in the transcripts. Details about the format including the additional metadata are documented in the supplementary materials \parencite{PLACEHOLDER}.
+The reformatted transcripts were then used to construct the Gioia data with the following steps: % This is terrible wording
 
 \begin{enumerate}
-    \item \textbf{First-cycle coding} (1250 codes). Applied in a single pass across the 1466 coded statements, first-cycle coding combined process coding with in vivo coding (cf. Section~\ref{ssec:derivation-methods}). Every statement received one or more process codes, with the accompanying in vivo code serving as its empirical grounding.
+    \item \textbf{First-cycle Coding:} Transcripts were coded in sequence in a single pass of process coding and in vivo coding, resulting in 1250 first-cycle codes across 1466 coded statements. Each statement received one or more process codes, with the accompanying in vivo code serving as its empirical grounding.
 
-    \item \textbf{Code mapping} (1163 codes). First-cycle codes were deduplicated based on spelling differences, with capitalisation unified and codes standing in a direct sub- or supercode relationship merged.
+    \item \textbf{Code Cleaning:} The first-cycle codes were deduplicated by unifying spelling and capitalisation differences. Additionally, codes that were in a direct sub- or supercode relationship were merged, resulting in 1163 remaining canonical codes.
 
-    % TODO(Til): add \ref to appendix section once it exists, in place of the parenthetical below.
-    \item \textbf{Second-cycle coding} (113 codes). Second-cycle coding applied pattern coding, combining codes that were semantically equivalent. Codes were grouped by their primary verb into 37 verb groups and merged within each group; this terminated once a group's remaining code count fell to eight or fewer, below which intra-group merging was no longer considered meaningful. The codes left over from these under-threshold verb groups were merged within semantic blocks instead: groupings by shared topical content rather than by a single shared verb, allowing codes expressing the same underlying activity through different low-frequency verbs -- for instance \textit{labeling}, \textit{sketching}, and \textit{annotating} -- to still be merged (the complete set of semantic blocks is documented in the appendix). All resulting patterns were then reviewed for semantically identical codes, which were merged across pattern boundaries where found, with every merge validated immediately after each verb group and each semantic block.
+    \item \textbf{Second-cycle Coding:} The pattern coding combined codes based on the primary verbs of the process codes. Initially, codes were grouped by their primary verbs and merged within each group. For example, codes like \enquote{Restating task goal} and \enquote{Restating problem goal} were merged on a code-by-code basis, because they describe the same action in the context of the experiment. When the verb groups reached a size of eight codes or fewer, the remaining codes were merged by grouping in semantic blocks\footnote{A semantic block describes a group of codes based on topical content. For example \textit{labelling}, \textit{sketching}, and \textit{annotating} were placed in the same semantic block.}. The full list of semantic blocks can be found in the Appendix. The resulting patterns were then reviewed manually for semantically similar codes that were not merged in the previous steps, producing a final set of 113 first order concepts.
 
-    \item \textbf{Construction of second-order themes} (17 themes, 7 dimensions). The resulting 113 pattern codes were organised into 17 second-order themes, grouped by subject rather than by activity, and consolidated into 7 aggregate dimensions reflecting each theme's place in the problem-solving process. Codes concerned with experiment organisation and technical or tooling questions were isolated into their own dimension rather than absorbed into a process-related one.
+    \item \textbf{Construction Gioia Data Structure:} The first order concepts were then grouped into second-order themes grouped by their subject, resulting in 17 second-order themes. The second-order themes were then organised into seven aggregate dimensions, reflecting each theme's place in the problem-solving process.
 \end{enumerate}
 
-\textit{Problem Cognition} (537 rows) is the largest dimension by row count, comprising \textit{Problem Comprehension} (293; restating, extracting, and confirming given information), \textit{Solution Execution} (208; performing calculations, setting up and rearranging equations), and \textit{Non-LLM Offloading Channels} (36; taking and reviewing notes outside the chatbot interaction). [\ldots continues as before]
+The resulting seven aggregate dimensions are shortly described below, listing the contained second-order themes and highlighting representative verbs from the underlying pattern codes. The mapping is then visualised in Figure~\ref{fig:theme-dimension-mapping}. The complete pattern-code-to-theme mapping is provided in the appendix.
 
-% TODO (Til): add \ref to the appendix section once it exists, in place of the parenthetical below.
-The 113 pattern codes were grouped into 17 second-order themes across seven aggregate dimensions; the complete pattern-code-to-theme mapping is provided in the appendix. \textit{Problem Cognition} (537 rows) is the largest dimension by row count, comprising \textit{Problem Comprehension} (293; restating, extracting, and confirming given information), \textit{Solution Execution} (208; performing calculations, setting up and rearranging equations), and \textit{Non-LLM Offloading Channels} (36; taking and reviewing notes outside the chatbot interaction). \textit{Metacognition} (325 rows) comprises \textit{Self-monitoring \& Evaluation} (137; verifying progress, reflecting on capability, expressing confidence or doubt), \textit{Strategy Formulation} (119; planning, deciding, and reaffirming a solving strategy), and \textit{Errors \& Correction (Self)} (69; recognising and correcting one's own errors). \textit{LLM Reliance Decisions} (121 rows) comprises \textit{Requests to LLM} (66; requesting guidance, information, verification, or a solution) and \textit{Offloading Decisions} (55; deciding whether, and for what purpose, to query the system). \textit{Information Exchange} (248 rows) comprises \textit{LLM Response Processing} (140; reading and restating the system's guidance, questions, or \ac{CoT}), \textit{Query Formulation} (61; formulating and planning messages to the system), and \textit{Information Disclosure to LLM} (47; stating and submitting information to the system). \textit{Mental Model \& Updates} (115 rows) comprises \textit{LLM Guidance Uptake} (47; confirming, building on, following, or rejecting guidance), \textit{LLM Output Evaluation} (42; scrutinising responses and judging them helpful or unhelpful), \textit{LLM Attributions} (19; attributing capability to the system or anticipating its behaviour), and \textit{Identifying \& Correcting LLM Errors} (7; recognising and correcting the system's errors). \textit{Emotional Expression} (54 rows) and \textit{Organisation} (66 rows) are each single-theme dimensions, the former covering expressions of frustration, surprise, satisfaction, and uncertainty, the latter covering experiment logistics, tool handling, and clarification requests directed at the researcher rather than the system. Figure~\ref{fig:theme-dimension-mapping} summarises this structure.
-
-\pgfdeclarelayer{dimlayer}
-\pgfdeclarelayer{rowlayer}
-\pgfsetlayers{dimlayer,rowlayer,main}
-
-\tikzset{
-  verbbox/.style={draw=palettegrey, fill=white, rounded corners, font=\scriptsize,
-                   minimum height=0.5cm, inner sep=2pt, text width=5cm, align=left},
-  themelblrow/.style={font=\footnotesize, align=left, text width=6.6cm, anchor=west},
-  dimlblcol/.style={font=\bfseries\small, align=left, text width=4.6cm, anchor=west},
-  dimframe/.style={draw=paletteblue, thick, rounded corners, inner sep=4pt, fill=paletteblue!5},
-  colheader/.style={font=\bfseries\small},
-}
-
-% #1 id  #2 vanchor (previous theme's "-row" id, or the column coordinate)
-% #3 colref (column coordinate, fixed for every theme in the table)
-% #4 gap  #5 theme label  #6 verb list (plain text, "e.g." is added automatically)
-\newcommand{\gioiatheme}[6]{%
-  \node[verbbox, anchor=north west] (#1-vb) at ($(#3 |- #2.south) + (0,-#4)$) {e.g.\ #6};
-  \node[themelblrow] (#1-lbl) at ([xshift=1mm] #1-vb.east) {#5};
-  \begin{pgfonlayer}{rowlayer}
-    \node[fit=(#1-vb)(#1-lbl), inner sep=1pt] (#1-row) {}; % invisible; captures true row height for chaining
-  \end{pgfonlayer}
-}
-% #1 id  #2 dimension label  #3 first theme id  #4 last theme id
-\newcommand{\gioiadim}[4]{%
-  \coordinate (#1-mid) at ($(#3-vb.center)!0.5!(#4-vb.center)$);
-  \node[dimlblcol] (#1-lbl) at ([xshift=1mm] #4-lbl.east |- #1-mid) {#2};
-  % sentinels: label's right edge (x) at the theme column's actual top/bottom (y) --
-  % keeps the label's own height out of the frame's bounding-box calculation
-  \coordinate (#1-tr) at (#3-vb.north -| #1-lbl.east);
-  \coordinate (#1-br) at (#4-vb.south -| #1-lbl.east);
-  \begin{pgfonlayer}{dimlayer}
-    \node[dimframe, fit=(#3-vb)(#4-vb)(#1-tr)(#1-br)] (#1) {};
-  \end{pgfonlayer}
-}
+\begin{itemize}
+    \item \textbf{Problem Cognition} is the largest dimension by statement count (537 statements), covering actions centred around performing maths and solving the problems. It comprises \textit{Problem Comprehension} (reading, restating, identifying), \textit{Solution Execution} (performing calculation, rearranging equation), and \textit{Non-LLM Offloading Channels} (taking notes, reviewing notes).
+    \item \textbf{Metacognition} focuses on participants planning, evaluation, and correction of their own actions. The themes are \textit{Self-monitoring \& Evaluation} (verifying, evaluating, reflecting), \textit{Strategy Formulation} (planning, deciding, considering), and \textit{Errors \& Correction (Self)} (recognising, correcting).
+    \item \textbf{LLM Reliance Decisions} covers decision-making about whether and how to rely on the \ac{LLM}. The themes \textit{Offloading Decisions} (deciding, considering) and \textit{Requests to LLM} (requesting information, requesting guidance) cover the two main aspects of this dimension.
+    \item \textbf{Information Exchange} is centred around the communication between the participant and the \ac{LLM}. Its themes \textit{Query Formulation} (formulating), \textit{Information Disclosure to LLM} (submitting, stating), and \textit{LLM Response Processing} (reading, restating) cover the key steps of the interaction.
+    \item \textbf{Mental Model \& Updates} groups themes that are concerned with the participant's understanding of the \ac{LLM} and its capabilities. The themes are \textit{LLM Output Evaluation} (evaluating, scrutinising), \textit{LLM Guidance Uptake} (accepting, rejecting), \textit{Identifying \& Correcting LLM Errors} (correcting, criticizing), and \textit{LLM Attributions} (attributing).
+    \item \textbf{Emotional Expression} is a single-theme dimension, covering pure emotional expression, such as frustration, surprise, satisfaction, and uncertainty.
+    \item \textbf{Organisation} is constructed from a single theme, covering experiment logistics, tool handling, and clarification requests directed at the researcher rather than the system.
+\end{itemize}
 
 \begin{figure}[ht]
     \centering
     \resizebox{\textwidth}{!}{%
-    \begin{tikzpicture}[execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}]
-        \coordinate (col) at (0,0);
-        \node[colheader] at ($(col)+(2.5,0.5)$) {Representative codes};
-        \node[colheader] at ($(col)+(9,0.5)$) {Second-order theme};
-        \node[colheader] at ($(col)+(14.5,0.5)$) {Dimension};
+    \begin{tikzpicture}[
+        verbbox/.style   = {neutralnode, align=left, text width=4.6cm, anchor=west,
+                             font=\scriptsize, minimum height=0.5cm, inner sep=3pt},
+        themelbl/.style  = {font=\footnotesize, align=left, text width=6.6cm, anchor=west},
+        dimlbl/.style    = {font=\bfseries\small, text=paletteblue, align=left, text width=4.6cm, anchor=west},
+        dimbox/.style    = {accentnode, inner sep=3pt},
+        colheader/.style = {font=\bfseries\small, align=left, anchor=west},
+    ]
 
-        \gioiatheme{pc1}{col}{col}{0.75mm}{Problem Comprehension}{restating, extracting, identifying}
-        \gioiatheme{pc2}{pc1-row}{col}{0.75mm}{Non-LLM Offloading Channels}{taking notes, reviewing notes}
-        \gioiatheme{pc3}{pc2-row}{col}{0.75mm}{Solution Execution}{performing, restating, setting up}
-        \gioiadim{dimPC}{Problem Cognition}{pc1}{pc3}
+        \pgfdeclarelayer{background}
+        \pgfsetlayers{background,main}
 
-        \gioiatheme{mc1}{dimPC}{col}{3mm}{Self-monitoring \& Evaluation}{verifying, evaluating, reflecting}
-        \gioiatheme{mc2}{mc1-row}{col}{0.75mm}{Strategy Formulation}{planning, deciding, considering}
-        \gioiatheme{mc3}{mc2-row}{col}{0.75mm}{Errors \& Correction (Self)}{recognizing, correcting}
-        \gioiadim{dimMC}{Metacognition}{mc1}{mc3}
+        % fixed columns -- every node in a column uses this literal x, always. No exceptions.
+        \def\colA{0}      % verb_box left edge
+        \def\colB{5}      % theme label left edge
+        \def\colC{12.3}   % dimension label left edge (frame width follows automatically via fit)
 
-        \gioiatheme{rd1}{dimMC}{col}{3mm}{Requests to LLM}{requesting guidance, verification}
-        \gioiatheme{rd2}{rd1-row}{col}{0.75mm}{Offloading Decisions}{deciding, considering}
-        \gioiadim{dimRD}{LLM Reliance Decisions}{rd1}{rd2}
+        % fixed rows -- y is the VERTICAL CENTER of each row (anchor=west), so group
+        % pitch within a group: 0.6 | extra gap at a group boundary: 0.4
 
-        \gioiatheme{ie1}{dimRD}{col}{3mm}{LLM Response Processing}{reading, restating}
-        \gioiatheme{ie2}{ie1-row}{col}{0.75mm}{Query Formulation}{formulating, planning}
-        \gioiatheme{ie3}{ie2-row}{col}{0.75mm}{Information Disclosure to LLM}{submitting, stating}
-        \gioiadim{dimIE}{Information Exchange}{ie1}{ie3}
+        % ============ Problem Cognition ============
+        \node[verbbox]  (pc1-vb)  at (\colA,  0.0) {restating, extracting, identifying};
+        \node[themelbl] (pc1-lbl) at (\colB,  0.0) {Problem Comprehension};
+        \node[fit=(pc1-vb)(pc1-lbl), inner sep=0pt] (pc1) {};
 
-        \gioiatheme{mm1}{dimIE}{col}{3mm}{LLM Guidance Uptake}{building, confirming, accepting}
-        \gioiatheme{mm2}{mm1-row}{col}{0.75mm}{LLM Output Evaluation}{scrutinizing, evaluating}
-        \gioiatheme{mm3}{mm2-row}{col}{0.75mm}{Identifying \& Correcting LLM Errors}{correcting, criticizing}
-        \gioiatheme{mm4}{mm3-row}{col}{0.75mm}{LLM Attributions}{anticipating, attributing}
-        \gioiadim{dimMM}{Mental Model \& Updates}{mm1}{mm4}
+        \node[verbbox]  (pc2-vb)  at (\colA, -0.6) {taking notes, reviewing notes};
+        \node[themelbl] (pc2-lbl) at (\colB, -0.6) {Non-LLM Offloading Channels};
+        \node[fit=(pc2-vb)(pc2-lbl), inner sep=0pt] (pc2) {};
 
-        \gioiatheme{ee1}{dimMM}{col}{3mm}{Emotional Expression}{expressing uncertainty, frustration}
-        \gioiadim{dimEE}{Emotional Expression}{ee1}{ee1}
+        \node[verbbox]  (pc3-vb)  at (\colA, -1.2) {performing, restating, setting up};
+        \node[themelbl] (pc3-lbl) at (\colB, -1.2) {Solution Execution};
+        \node[fit=(pc3-vb)(pc3-lbl), inner sep=0pt] (pc3) {};
 
-        \gioiatheme{org1}{dimEE}{col}{3mm}{Organisation}{managing logistics}
-        \gioiadim{dimORG}{Organisation}{org1}{org1}
-    \end{tikzpicture}%
+        \node[dimlbl] (dimPC-lbl) at (\colC, -0.6) {Problem Cognition}; % avg(0.00,-1.2)
+        \begin{pgfonlayer}{background}
+            \node[dimbox, fit=(pc1)(pc2)(pc3)(dimPC-lbl)] (dimPC) {};
+        \end{pgfonlayer}
+
+        % ============ Metacognition ============ (+0.4 group gap after pc3: -1.2-0.6-0.4)
+        \node[verbbox]  (mc1-vb)  at (\colA, -2.2) {verifying, evaluating, reflecting};
+        \node[themelbl] (mc1-lbl) at (\colB, -2.2) {Self-monitoring \& Evaluation};
+        \node[fit=(mc1-vb)(mc1-lbl), inner sep=0pt] (mc1) {};
+
+        \node[verbbox]  (mc2-vb)  at (\colA, -2.8) {planning, deciding, considering};
+        \node[themelbl] (mc2-lbl) at (\colB, -2.8) {Strategy Formulation};
+        \node[fit=(mc2-vb)(mc2-lbl), inner sep=0pt] (mc2) {};
+
+        \node[verbbox]  (mc3-vb)  at (\colA, -3.4) {recognizing, correcting};
+        \node[themelbl] (mc3-lbl) at (\colB, -3.4) {Errors \& Correction (Self)};
+        \node[fit=(mc3-vb)(mc3-lbl), inner sep=0pt] (mc3) {};
+
+        \node[dimlbl] (dimMC-lbl) at (\colC, -2.8) {Metacognition}; % avg(-2.2,-3.4)
+        \begin{pgfonlayer}{background}
+            \node[dimbox, fit=(mc1)(mc2)(mc3)(dimMC-lbl)] (dimMC) {};
+        \end{pgfonlayer}
+
+        % ============ LLM Reliance Decisions ============ (-3.4-0.6-0.4)
+        \node[verbbox]  (rd1-vb)  at (\colA, -4.4) {requesting guidance, verification};
+        \node[themelbl] (rd1-lbl) at (\colB, -4.4) {Requests to LLM};
+        \node[fit=(rd1-vb)(rd1-lbl), inner sep=0pt] (rd1) {};
+
+        \node[verbbox]  (rd2-vb)  at (\colA, -5.0) {deciding, considering};
+        \node[themelbl] (rd2-lbl) at (\colB, -5.0) {Offloading Decisions};
+        \node[fit=(rd2-vb)(rd2-lbl), inner sep=0pt] (rd2) {};
+
+        \node[dimlbl] (dimRD-lbl) at (\colC, -4.7) {LLM Reliance Decisions}; % avg(-4.4,-5.0)
+        \begin{pgfonlayer}{background}
+            \node[dimbox, fit=(rd1)(rd2)(dimRD-lbl)] (dimRD) {};
+        \end{pgfonlayer}
+
+        % ============ Information Exchange ============ (-5.0-0.6-0.4)
+        \node[verbbox]  (ie1-vb)  at (\colA, -6.0) {reading, restating};
+        \node[themelbl] (ie1-lbl) at (\colB, -6.0) {LLM Response Processing};
+        \node[fit=(ie1-vb)(ie1-lbl), inner sep=0pt] (ie1) {};
+
+        \node[verbbox]  (ie2-vb)  at (\colA, -6.6) {formulating, planning};
+        \node[themelbl] (ie2-lbl) at (\colB, -6.6) {Query Formulation};
+        \node[fit=(ie2-vb)(ie2-lbl), inner sep=0pt] (ie2) {};
+
+        \node[verbbox]  (ie3-vb)  at (\colA, -7.2) {submitting, stating};
+        \node[themelbl] (ie3-lbl) at (\colB, -7.2) {Information Disclosure to LLM};
+        \node[fit=(ie3-vb)(ie3-lbl), inner sep=0pt] (ie3) {};
+
+        \node[dimlbl] (dimIE-lbl) at (\colC, -6.6) {Information Exchange}; % avg(-6.0,-6.6)
+        \begin{pgfonlayer}{background}
+            \node[dimbox, fit=(ie1)(ie2)(ie3)(dimIE-lbl)] (dimIE) {};
+        \end{pgfonlayer}
+
+        % ============ Mental Model & Updates ============ (-7.2-0.6-0.4)
+        \node[verbbox]  (mm1-vb)  at (\colA, -8.2) {building, confirming, accepting};
+        \node[themelbl] (mm1-lbl) at (\colB, -8.2) {LLM Guidance Uptake};
+        \node[fit=(mm1-vb)(mm1-lbl), inner sep=0pt] (mm1) {};
+
+        \node[verbbox]  (mm2-vb)  at (\colA, -8.8) {scrutinizing, evaluating};
+        \node[themelbl] (mm2-lbl) at (\colB, -8.8) {LLM Output Evaluation};
+        \node[fit=(mm2-vb)(mm2-lbl), inner sep=0pt] (mm2) {};
+
+        \node[verbbox]  (mm3-vb)  at (\colA, -9.4) {correcting, criticizing};
+        \node[themelbl] (mm3-lbl) at (\colB, -9.4) {Identifying \& Correcting LLM Errors};
+        \node[fit=(mm3-vb)(mm3-lbl), inner sep=0pt] (mm3) {};
+
+        \node[verbbox]  (mm4-vb)  at (\colA, -10.0) {anticipating, attributing};
+        \node[themelbl] (mm4-lbl) at (\colB, -10.0) {LLM Attributions};
+        \node[fit=(mm4-vb)(mm4-lbl), inner sep=0pt] (mm4) {};
+
+        \node[dimlbl] (dimMM-lbl) at (\colC, -9.1) {Mental Model \& Updates}; % avg(-8.2,-10.0)
+        \begin{pgfonlayer}{background}
+            \node[dimbox, fit=(mm1)(mm2)(mm3)(mm4)(dimMM-lbl)] (dimMM) {};
+        \end{pgfonlayer}
+
+        % ============ Emotional Expression ============ (-10.0-0.6-0.4)
+        \node[verbbox]  (ee1-vb)  at (\colA, -11.0) {expressing};
+        \node[themelbl] (ee1-lbl) at (\colB, -11.0) {Emotional Expression};
+        \node[fit=(ee1-vb)(ee1-lbl), inner sep=0pt] (ee1) {};
+
+        \node[dimlbl] (dimEE-lbl) at (\colC, -11.0) {Emotional Expression};
+        \begin{pgfonlayer}{background}
+          \node[dimbox, fit=(ee1)(dimEE-lbl)] (dimEE) {};
+        \end{pgfonlayer}
+
+        % ============ Organisation ============ (-11.0-0.6-0.4)
+        \node[verbbox]  (org1-vb)  at (\colA, -12.0) {managing logistics};
+        \node[themelbl] (org1-lbl) at (\colB, -12.0) {Organisation};
+        \node[fit=(org1-vb)(org1-lbl), inner sep=0pt] (org1) {};
+
+        \node[dimlbl] (dimORG-lbl) at (\colC, -12.0) {Organisation};
+        \begin{pgfonlayer}{background}
+            \node[dimbox, fit=(org1)(dimORG-lbl)] (dimORG) {};
+        \end{pgfonlayer}
+
+        % ============ column headers ============
+        \node[colheader] at (\colA, 0.8) {Representative Verbs};
+        \node[colheader] at (\colB, 0.8) {Second-order Theme};
+        \node[colheader] at (\colC, 0.8) {Aggregate Dimension};
+
+        \end{tikzpicture}%
     }
-    \caption[Second-order themes grouped into aggregate dimensions]{Second-order themes grouped into the seven aggregate dimensions, with representative verbs shown per theme (drawn from its highest-frequency pattern codes). The complete pattern-code-to-theme mapping is provided in the appendix.}
+    \caption[Second-order themes grouped into aggregate dimensions]{Second-order themes grouped into the seven aggregate dimensions, with representative verbs shown per theme. The complete grouping of pattern codes to aggregate dimensions can be found in the Appendix.}
     \label{fig:theme-dimension-mapping}
 \end{figure}
 
-Two caveats apply to this structure. First, \textit{Problem Cognition}'s row count should not be read as an indicator of analytical importance: its size follows directly from the experiment's cover story, which foregrounded the mathematics problem rather than the chatbot interaction, and its constituent codes concern participants' engagement with the mathematics itself rather than with the \ac{AI} system, limiting their analytical value for the design principles derived below. Second, three themes are comparatively thin in participant coverage: \textit{Information Disclosure to LLM} (7 of 12 participants), \textit{Non-LLM Offloading Channels} (7 of 12 participants), and \textit{Identifying \& Correcting LLM Errors} (7 rows across only 3 of 12 participants).
+It is important to note that dimensions have greatly varying sizes (with regard to the number of statements contained), and the size of a dimension is not a reliable indicator of its analytical importance. \textit{Problem Cognition} for example is the largest dimension, but its size is a result of the experimental setup that foregrounded the mathematics problem and allowed users to freely engage with the \ac{LLM}. The transcripts contained 1466 coded statements, with 888 statements from Group E, and 578 statements from group B, yielding global split of 60.6\% of statements from Group E. This split was used as a baseline to compare between-group differences in the aggregate dimensions, to determine whether the \ac{CoT} manipulation had an effect on the participants' behaviour. The statement counts per aggregate dimension are shown in Table~\ref{tab:statement-counts}.
 
-The corpus comprises 1466 coded rows, 888 from Group E (7 participants) and 578 from Group B (5 participants), giving a corpus-wide E-share of 60.6\%, the baseline against which dimension-level shares are compared below. \textit{Organisation} serves as a control for this comparison: it covers experiment logistics, tool handling, and clarification requests to the researcher, none of which is plausibly sensitive to the \ac{CoT} manipulation, so any deviation from baseline within \textit{Organisation} reflects factors unrelated to condition. Ranked by deviation from the 60.6\% baseline, dimension-level E-shares are: \textit{Organisation} 42.4\% ($-$18.1 percentage points), \textit{Emotional Expression} 42.6\% ($-$18.0pp), \textit{Mental Model \& Updates} 48.7\% ($-$11.9pp), \textit{Metacognition} 59.4\% ($-$1.2pp), \textit{Problem Cognition} 63.5\% ($+$2.9pp), \textit{LLM Reliance Decisions} 66.1\% ($+$5.5pp), and \textit{Information Exchange} 67.3\% ($+$6.8pp). No substantive dimension deviates from baseline by more than the control does. This is not a threshold or cutoff test; dimensions differ in size, and comparisons of this kind carry sampling noise proportional to that size. Read qualitatively, the pattern indicates that dimension-level volume shares vary at this magnitude for reasons unrelated to the experimental manipulation, so that between-group comparisons of relative row volume carry no interpretive weight at the dimension level. This conclusion is scoped to volume comparisons; it does not extend to the composition-level finding reported next.
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{X|l|l|l}
+        \textbf{Aggregate Dimension} & \textbf{Statements} & \textbf{Count (E)} & \textbf{Count (B)} \\
+        \hline
+        Problem Cognition & 537 & 341 (63.5\%) & 196 (36.5\%)\\
+        Metacognition & 325 & 193 (59.4\%) & 132 (40.6\%)\\
+        Information Exchange & 248 & 167 (67.3\%) & 81 (32.7\%)\\
+        LLM Reliance Decisions & 121 & 80 (66.1\%) & 41 (33.9\%)\\
+        Mental Model \& Updates & 115 & 56 (48.7\%) & 59 (51.3\%)\\
+        Organisation & 66 & 28 (42.4\%) & 38 (57.6\%)\\
+        Emotional Expression & 54 & 23 (42.6\%) & 31 (57.4\%) \\
+        \hline
+        \textbf{Total} & \textbf{1466} & \textbf{888 (60.6\%)} & \textbf{578 (39.4\%)}
+    \end{tabularx}
+    \caption[Statement counts per aggregate dimension]{Statement counts per aggregate dimension, with the number of statements from each group and the corresponding share in parentheses.}
+    \label{tab:statement-counts}
+\end{ctable}
 
-A composition-level comparison, by contrast, survives this control. Restricting to the appraisal subset -- the union of \textit{LLM Guidance Uptake}, \textit{LLM Output Evaluation}, and \textit{Identifying \& Correcting LLM Errors} -- yields 96 rows (Group E: 46; Group B: 50). Within this subset, four pattern codes were classed as heuristic uptake: \textit{confirming LLM's guidance}, \textit{accepting LLM's assertions}, \textit{deciding to follow LLM guidance}, and \textit{following LLM guidance}; the remainder was classed as deliberate confirmation or extension. The heuristic share is 17.4\% for Group E (8/46) against 36.0\% for Group B (18/50). Unlike the volume comparisons above, this finding is not undermined by the \textit{Organisation} control, because the argument rests on the construction of the ratio rather than its magnitude: the denominator is computed within each group, so differential verbosity between groups cancels; and because numerator and denominator are drawn from the same behavioural family, a group that appraises more shifts both quantities together, leaving the ratio itself unaffected. The control invalidates relative row volume as a between-group quantity; it does not invalidate a within-group ratio computed from a single behavioural family. The finding should nonetheless be hedged: its direction is stable under leave-one-out re-examination, but its magnitude on the Group B side is sensitive to individual participants, ranging from 28\% to 48\% depending on which participant is excluded. As a validation step, the pool of \textit{reading LLM's guidance} and \textit{restating LLM's guidance} segments for Group E -- 48 rows in the current codebook -- was re-examined for heuristic acceptances absorbed into those two response-processing codes; three rows were reassigned during this process, one of them into the heuristic-uptake count reported above, and the finding was unchanged. Because this composition-level contrast is the only defensible quantitative result bearing on \textbf{RQ2}, the design principles below are derived primarily from the qualitative structure of the aggregate dimensions rather than from a further quantitative between-group contrast; the resulting absence of a principle addressing the \ac{CoT} explanation mechanism itself is treated as a substantive gap in Section~\ref{ssec:uncovered-design-space}.
+\textit{Organisation} serves as a control for the between-group comparison. Since it is composed of questions surrounding the experiment and material supplied to the participants, it is not plausibly sensitive to the \ac{CoT} manipulation. Consequently, any deviation from the baseline smaller than the deviation of \textit{Organisation} should not be used as sole evidence for a between-group difference. Since \textit{Organisation} shows the largest deviation (-18.2\%) from the baseline, dimension-level between-group comparisons cannot be used to sensibly derive design principles. Conversely, \textit{Organisation} is among the smallest dimensions. Notably, the only dimension with a similar deviation from the baseline is \textit{Emotional Expression} (-18.0\%), indicating that the small dimension size could play a role in this observation. For this reason, the between-group comparisons are not used to derive design principles, but rather as supporting evidence for the qualitative findings. As a result, the empirically derived \ac{DP} do not address the explanations as a mechanism. Section~\ref{ssec:uncovered-design-space} discusses this gap in the design space and proposes theory-based design principles to address it.
 
-Six design principles were derived abductively from the aggregate dimensions above, using the meta-requirements and design requirements established in Section~\ref{ssec:meta-requirements} as the connecting framework. The principles presented here are the initial, pre-revision set; Section~\ref{ssec:design-principle-revision} reports their evaluation and revision through expert interviews.
+Comparisons of behaviroural patterns across the two groups is however still possible. This applies to the finding that Group B participants are more likely to heuristically accept the \ac{LLM}'s guidance than Group E participants. This was established by examining the \textit{Mental Model \& Updates} dimension, which contains three second-order themes that are directly relevant to the appraisal of the \ac{LLM}'s output: \textit{LLM Guidance Uptake}, \textit{LLM Output Evaluation}, and \textit{Identifying \& Correcting LLM Errors}. \textit{LLM Attributions} is excluded because it is not directly relevant to the appraisal of the \ac{LLM}'s output, but rather to the participant's understanding of the chatbot's capabilities. The three appraisal themes contain 96 rows (46 E, 50 B). Within this subset, four pattern codes were classed as heuristic uptake: \textit{confirming LLM's guidance}, \textit{accepting LLM's assertions}, \textit{deciding to follow LLM guidance}, and \textit{following LLM guidance}; the remainder was classified as deliberation. Calculating the share of heuristic uptake within each group yields 17.4\% for Group E (8/46) against 36.0\% for Group B (18/50). This finding is not undermined by the \textit{Organisation} control, because the ratios are constructed purely within-group, so that any difference in verbosity between groups cancels out. To further validate the finding, the pool of \textit{reading LLM's guidance} and \textit{restating LLM's guidance} statements was re-examined for heuristic acceptances absorbed into those to codes. As a result of this re-examination, one row was reassigned into the heuristic-uptake count reported above. To check the stability of the finding, results were validated using \ac{LOO} validation, which showed that that Group B's heuristic share is sensitive to individual participants (specifically P11), but the direction of the finding is stable.
 
-\textbf{DP-A, Establish request purpose before querying}, proposes a role taxonomy offering distinct levels of system support -- guidance, verification, or knowledge provision -- established before a query is issued. Two behavioural patterns motivate this principle. The first is an absence: deliberate consideration of what is being asked for, before asking, is rare. \textit{Considering querying LLM} occurs in only 5 rows across 4 of 12 participants, against 40 rows in which participants committed directly to querying the system (\textit{deciding to ask LLM for guidance/information/verification/solution}) with no antecedent deliberation step. Of these 40 commitments, 17 (42.5\%) are bare, with no role recoverable except from the request that follows, e.g. \enquote{Rechnet der das jetzt selber für mich aus?} [11.030.2]; this is a substantial rather than a majority share, and is treated as secondary support. The primary anchor is a pair of concrete failure patterns in which the absence of an established purpose surfaces as a problem. In the first, no request is ever articulated, and dissatisfaction with the system's response surfaces only in retrospect, e.g. \enquote{hat es mir jetzt nicht so viel weiter geholfen} [10.007.1] -- the system had nothing to match, because no concrete need had been stated. In the second, a request is explicitly stated but contradicts the chatbot's fixed role, which, per \textbf{CR1} (Section~\ref{sssec:model-selection}), did not permit it to solve problems on the participant's behalf, e.g. \enquote{löse es mir auf und berechne die lösungen} [03.024.1]. Establishing purpose before querying addresses both patterns: it gives the system a target to match in the first, and surfaces the mismatch before the query is sent in the second. DP-A serves DR2, since assigning a role sets a corresponding expectation of behaviour and capability; DR4, by introducing friction at a consequential decision point that currently has none; and, to a limited extent, DR5, since a scoped request enables a correspondingly scoped response. Implemented as a mandatory prompt, the principle would itself violate DR5 by imposing effort at every query rather than only where needed; this DR4/DR5 tension is internal to the principle rather than resolved by it.
+From the data structure presented above, a total of six \ac{DP} were derived using the \ac{MR} and \ac{DR} as lens. The \ac{DP} are presented below, including a rationale, and evidence used to derive and validate the principle. Select quotes from the transcripts are used where appropriate and when they are representative of the underlying behavioural pattern. Each quote is referenced by its unique identifier, as described above after the translation of the original German quote into English.
 
-\textbf{DP-C, Make system assumptions inspectable and correctable}, proposes that assumptions held by the system be exposed to the user and directly correctable. Its anchor, \textit{deciding to update the LLM information}, comprises 5 rows across 2 participants, both in Group E, e.g. \enquote{seine Annahme ... ist falsch} [08.015.17]. This is too thin to support a between-group condition claim; it is read instead as evidence that the underlying repair behaviour occurs spontaneously, without any affordance in the system supporting it -- participants detect an incorrect assumption held by the system and act unprompted to correct it. The principle's rationale draws on the composition finding reported above: the lower heuristic share within Group E's appraisal behaviour (17.4\% against 36.0\%) is read as a class-level claim -- that making system-internal state visible shifts uptake toward deliberate processing, of which \ac{CoT} explanation and assumption-surfacing are two specific instances -- rather than as direct evidence for assumption-surfacing itself, since assumption exposure was not manipulated in this study. DP-C serves DR1, since visible assumptions make the system's actions more comprehensible, and DR5, since seeing the assumption reduces the effort otherwise required to infer why the system behaved as it did.
+\begin{enumerate}[label=\textbf{DP-\Alph*}, leftmargin=*]
+    \item \textbf{Establish request purpose before querying}, aims to force users to deliberately consider what kind of support they are expecting from the system before issuing a request. This \ac{DP} is primarily motivated by two related failure patterns, in which a lack of established expectations or purpose leads to dissatisfaction with the system's response. In the first pattern, participants did not articulate a role at all, to then express their dissatisfaction with the system's response in retrospect, e.g. \enquote{hat es mir jetzt nicht so viel weiter geholfen} [It didn't help me much] (ID: \texttt{10.007.1}). In a related pattern, participants explicitly articulated a query that was incompatible with the system's instructions, which instructed it explicitly not to solve the maths problems (cf. \textbf{CR1}, Section~\ref{sssec:model-selection}), e.g. \enquote{löse es [Gleichungssystem] mir auf und berechne die lösungen} [solve it for me and calculate the solutions] (ID: \texttt{03.024.1}). Both failure patterns can be explained by a lack of consideration (and communication), what is expected from the system. This is also supported by quantitative data: Of the 40 total codes in which participants committed to querying the system (\textit{deciding to ask LLM for guidance/information/verification/solution}), in 17 (42.5\%) the role was inferred from the statements' context rather than explicitly articulated. The principle is intended to address this failure by forcing users to consider and articulate the purpose/goal of their request before issuing it. This \ac{DP} serves fulfils \textbf{DR4}, by introducing friction at a consequential decision \parencite[cf. DP3,][]{Weisz2025}. It also fulfils \textbf{DR2}, as establishing a role sets a corresponding expectation of behaviour and capability. When applied correctly, the \ac{DP} also helps to reduce cognitive load (\textbf{DR5}), as the improved alignment between request and response reduces the need for further deliberation.
 
-\textbf{DP-E, Provide persistent, user-owned working surfaces}, proposes surfaces alongside the conversation on which users externalise and manipulate intermediate work. \textit{Taking notes} occurs in 32 rows across 7 of 12 participants, e.g. \enquote{weil ich kann besser denken, wenn ich die Sachen tatsächlich daran schreibe} [05.025.2]. The cost of the absence of a system-readable surface is visible in 37 rows of manual re-conveyance of information already externalised elsewhere (\textit{stating information to LLM} and \textit{submitting information to LLM}). DP-E serves DR5, by reducing the cognitive load of holding and re-entering intermediate work. Its scope is limited to the surrounding application rather than to the \ac{XAI} mechanism itself.
+    \stepcounter{enumi} % temporary increment to keep the existing labels; can be dropped once the DP are relabelled
+    \item \textbf{Make system assumptions inspectable and correctable}, is founded on the observation that participants frequently detected (perceived) errors in the system's assumptions. The data for \textit{Mental Model \& Updates} shows that participants validate the system's outputs by seeking and validating assumptions in the response. The most prominent example is a participant stating \enquote{Deine Annahme \ldots ist falsch} [Your assumption \ldots is wrong] (ID: \texttt{08.016.1}) in a message to the \ac{LLM}, followed by a correction. This \ac{DP} also leans on the finding that Group E participants are more likely to deliberate on the system's outputs than Group B participants, as evidenced by the lower heuristic uptake share (17.4\% against 36.0\%). Similar to \ac{CoT} explanations, surfacing assumptions exposes the system's internal state, which is then deliberated on by the user. This \ac{DP} serves \textbf{DR1}, by making the system's actions more comprehensible, and \textbf{DR5}, by reducing the effort otherwise required to infer why the system behaved as it did.
 
-\textbf{DP-F, Re-use the user's own task vocabulary}, proposes that the system adopt terminology the user has introduced when restating its understanding, mapping any unavoidable system-specific terms explicitly onto the user's own. Its anchor, \textit{reading LLM's restated known information}, comprises 29 rows across 6 of 12 participants, distributed across both groups (E: 11; B: 18) with no single-participant concentration, e.g. \enquote{Die Radius ist die Entfernung von 0 zu jedem Punkt auf Kreisumfang} [11.006.3]. This is the best-distributed anchor in the set. DP-F serves DR1, connecting to \textcite{Shin2021}'s account of user-relative intelligibility (cf. Section~\ref{ssec:explanations-mental-model-formation}).
+    \stepcounter{enumi} % temporary increment to keep the existing labels; can be dropped once the DP are relabelled
+    \item \textbf{Provide additional, user-owned working surfaces}, seeks to add additional interaction surfaces alongside the conversational interface, on which users can externalise and manipulate intermediate work. This \ac{DP} is motivated by the observation that participants frequently took notes. Depending on the specific use case, the conversational interface could even be provided as a secondary feature in a larger application, similar to how coding assistants like Github Copilot \parencite{GitHubInc2026} or Claude Code \parencite{AnthropicInc2026} are integrated into IDEs. This also aligns with a well documented behaviour called cognitive offloading \parencite{Risko2016}, which describes the tendency to manipulate the environment to support cognitive processes. Participants explicitly stated, they took notes to support their cognitive processes: \enquote{weil ich kann besser denken, wenn ich die Sachen tatsächlich daran schreibe} [because I can think better when I actually write things down] (ID: \texttt{05.025.2}). An \ac{LLM}-readable surface allows the system to access and incorporate the user's intermediate work, reducing the need for manual tracking and re-statement of the information, helping to fulfil \textbf{DR5}.
 
-\textbf{DP-G, Signal only capabilities the system possesses}, proposes suppressing interaction cues that imply capabilities the system does not have: first-person mental-state language, unhedged assertion of claims the system cannot verify, and persona framing beyond what the system actually possesses. Its anchor, \textit{attributing capability to LLM}, comprises 3 rows across 3 of 12 participants -- the thinnest anchor among the six principles, and is graded as theory-carried rather than empirically established. DP-G serves DR2, connecting to \textcite{Colombatto2025}'s finding that human-like interaction style invites unjustified attribution of experience to a system.
+    \item \textbf{Re-use the user's own task vocabulary}, proposes to adopt task-relevant terminology that the user has introduced. It is based on the observation, that users mapped repeated information from the \ac{LLM} onto their own vocabulary. The relevant pattern code \textit{reading LLM's restated known information} contains 29 instances well distributed across both groups. This behaviour also aligns with \textcite{Shin2021}'s account of user-relative intelligibility (cf. Section~\ref{ssec:explanations-mental-model-formation}). The \ac{DP} therefore serves \textbf{DR1}, by making the system's actions more comprehensible to each individual user.
 
-\textbf{DP-H, Support error detection and localisation}, combines two behavioural patterns under a single principle -- a combination flagged here as a potential overload, taken up in Section~\ref{ssec:design-principle-revision}. Both patterns are anchored within the same pattern code, \textit{attributing LLM's confusion to own action} (3 rows total, all Group E), and are accordingly graded as a single thin, theory-carried anchor pool rather than as two independent instances. The first pattern, provenance tagging, proposes that each element of the shared working state carry a tag for its origin -- user-supplied, system-derived, or system-assumed. In one instance, the system's failure to carry forward a previously computed value was attributed by the participant to their own input rather than to the system [08.031.1]; a visible provenance tag on the dropped step would have made its system-derived origin, and therefore the locus of the failure, visible to the participant. This connects to \textcite{Bansal2019}'s finding that a user's model of \textit{when} a system errs governs whether its output is accepted or overridden: provenance tagging makes that judgement available per instance rather than requiring it to be learned over the course of an interaction. The second pattern, conflict surfacing, proposes that where user-provided information conflicts with what the system has derived or previously established, the system name the discrepancy rather than adopt it silently. In a second instance, the participant attributed the system's confusion to their own earlier typo [08.046.4], rather than the system flagging the inconsistency at the point it arose. \textcite{Sharma2024} show that silent adoption of a user's stated claims is not an incidental gap but a trained-in default across current \acp{LLM}, driven by preference data that favours agreement with the user's view over correction of it; conflict surfacing is proposed as a counter to this systematic tendency rather than as a patch for an isolated oversight. Provenance tagging serves DR1 and DR3; conflict surfacing serves DR3 and DR4.
+    \item \textbf{Clearly state system capabilities and limitations}, clarify the system's capabilities and particularly its limitations to the user during the conversation. This \ac{DP} is motivated by the observation that participants attributed capabilities to the system, without factual basis (pattern code \textit{attributing capability to LLM}). A good example is the expectation, that the \ac{LLM} draws the same conclusion from the provided image: \enquote{aber eigentlich hat er ja das Bild} [but he does have the image] (ID: 08.14.1). The attempts to get the \ac{LLM} to solve the maths problems are a prominent example, where the system should clearly state its limitations. By clearly communicating capabilities and limitations, the user expectations about system capabilities are managed fulfilling \textbf{DR2}.
 
-DP-C, DP-E, and the provenance-tagging pattern of DP-H converge on a single implementation surface, distinguished only by the authorship of the content it carries: DP-C exposes system-authored assumptions and makes them user-correctable; DP-E preserves user-authored work and makes it system-readable; and DP-H's provenance tag is what makes the resulting three-way distinction -- system-authored, user-authored, system-derived -- legible on that shared surface, which is why it cannot be folded into either of the other two. Three independently derived principles converging on a single implementation is treated here as evidence that the design theory is internally coherent, rather than as redundancy to be resolved.
+    % This DP has been significantly shortened; the plan is to present it as it was conceived and to split it with 6.3, which is more accurate anyways.
+    \item \textbf{Support error detection}, focuses on supporting the user in detecting and attributing errors. This \ac{DP} is anchored in the observation, that users accepted system advice heuristically (cf. \textbf{DP-A} rationale). Highlighting the source (e.g. task given, user-provided, externally-retrieved, etc.) of a piece of information in the system response could invite more scrutiny by the users. Additionally, the \ac{LLM} also accepted user input, even if it conflicted with previous inputs. The most prominent example of this behaviour is, when the system adopted a sign error by P08 signalling endorsement \parencite[cf.][]{Sharma2024} of the change. The participant later explicitly commented \enquote{Schade, dass er solche Logikfehler nicht erkennt.} [Shame he doesn't recognise such logical errors.] (ID: \texttt{08.048.6}). This design principle serves to fulfil \textbf{DR1} and \textbf{DR3} by providing sources for information, and \textbf{DR4} by surfacing conflicting information to the user.
+\end{enumerate}
 
+% TODO: This observation needs to go or at least be re-written as it is concerned by implementation details. It likely can be combined with the last paragraph and have the figure close the section.
+% DP-C, DP-E, and the provenance-tagging pattern of DP-H converge on a single implementation surface, distinguished only by the authorship of the content it carries: DP-C exposes system-authored assumptions and makes them user-correctable; DP-E preserves user-authored work and makes it system-readable; and DP-H's provenance tag is what makes the resulting three-way distinction -- system-authored, user-authored, system-derived -- legible on that shared surface, which is why it cannot be folded into either of the other two. Three independently derived principles converging on a single implementation is treated here as evidence that the design theory is internally coherent, rather than as redundancy to be resolved.
+
+% TODO: The arrows from DR to DP need to be replaced by coloured lines. That means we need to introduce two additional colours that are distinct enough compared to the existing ones.
 \begin{figure}[ht]
     \centering
     \resizebox{\textwidth}{!}{%
@@ -166,10 +259,10 @@ DP-C, DP-E, and the provenance-tagging pattern of DP-H converge on a single impl
         % ---- Design principles ----
         \node[dpbox] (dpa) at (17,3.6)  {\textbf{DP-A:}~Establish request purpose before querying};
         \node[dpbox] (dpc) at (17,1.9)  {\textbf{DP-C:}~Make system assumptions inspectable and correctable};
-        \node[dpbox] (dpe) at (17,0.3)  {\textbf{DP-E:}~Provide persistent, user-owned working surfaces};
+        \node[dpbox] (dpe) at (17,0.3)  {\textbf{DP-E:}~Provide additional, user-owned working surfaces};
         \node[dpbox] (dpf) at (17,-1.3) {\textbf{DP-F:}~Re-use the user's own task vocabulary};
-        \node[dpbox] (dpg) at (17,-2.7) {\textbf{DP-G:}~Signal only capabilities the system possesses};
-        \node[dpbox] (dph) at (17,-4.2) {\textbf{DP-H:}~Support error detection and localisation};
+        \node[dpbox] (dpg) at (17,-2.7) {\textbf{DP-G:}~Clearly state system capabilities and limitations};
+        \node[dpbox] (dph) at (17,-4.2) {\textbf{DP-H:}~Support error detection};
 
         % ---- Column headings ----
         \node[font=\bfseries] at (0,4.2) {Meta-Requirements};
@@ -203,6 +296,7 @@ DP-C, DP-E, and the provenance-tagging pattern of DP-H converge on a single impl
     \label{fig:mr-dr-dp-mapping}
 \end{figure}
 
+% TODO: Combine with summary paragraph before the figure; close that with reference to the figure
 Across the six principles, DR3 is served only by DP-H, making it the sole design requirement addressed by a single principle. This is treated as a gap distinct from, but adjacent to, the \ac{CoT} explanation mechanism gap taken up in Section~\ref{ssec:uncovered-design-space}, where both are discussed.
 
 \subsection{Design Principle Revision} \label{ssec:design-principle-revision}

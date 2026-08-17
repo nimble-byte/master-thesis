@@ -108,3 +108,236 @@
 \end{ctable}
 
 % LTeX: enabled=true
+
+\clearpage
+\subsection*{Coding Tables}
+
+The below tables provide additional information about the coding process, the resulting codes, and the constructed data structure.
+
+\subsubsection*{Semantic Blocks}
+
+\begin{ctable}
+    \footnotesize
+    \begin{tabularx}{\textwidth}{p{3.8cm}|X}
+        \textbf{Block} & \textbf{Verbs} \\
+        \hline
+        Equation setup \&\linebreak algebraic manipulation & setting, completing, rearranging, assigning, substituting, mapping, writing, adding, canceling, formalizing, introducing, reusing, simplifying \\
+        Numeric computation \& results & solving, applying, computing, converting, determining, estimating, predicting, summing, working, arriving, executing, miscalculating, obtaining, recalculating, redoing, reformatting, resuming, rounding, taking, vocalizing \\
+        Diagram, sketch \&\linebreak paper work & labelling, placing, sketching, annotating, copying, marking, transcribing, visualizing, accepting, constructing, counting, examining, redrawing \\
+        LLM message\linebreak production & composing, reporting, querying, verbalizing, providing, repeating, clarifying, answering, confirming, deliberating, framing, hesitating, referencing, rehearsing, relaying, returning, sharing \\
+        LLM response handling \& reading & locating, realizing, extracting, misreading, recounting, decoding, paraphrasing, understanding \\
+        Problem comprehension \& representation & reviewing, describing, seeking, specifying, orienting, reformulating, reiterating, summarizing, categorizing, commenting, consolidating, enumerating, interpreting, reframing, relating \\
+        Verification \& error\linebreak detection & verifying, recomputing, comparing, searching, flagging, noticing, testing, detecting, judging, pausing, recognizing, reconfirming \\
+        Hypothesis, strategy \& appraisal & attempting, anticipating, extending, reassessing, assessing, beginning, elaborating, rejecting, adopting, asserting, claiming, concluding, connecting, declaring, forming, initiating, justifying, reasoning, restarting, skipping, speculating, strategizing, suspecting, trying, weighing \\
+        Answer selection \& task transition & selecting, eliminating, matching, transitioning \\
+        Stance, affect \&\linebreak self-monitoring & signaling, adjusting, abandoning, making, reacting, struggling, trailing, voicing \\
+        Tool \& interface logistics & using, naming, agreeing, entering, improvising, navigating, retrieving, switching \\
+    \end{tabularx}
+\end{ctable}
+
+\clearpage
+\subsubsection*{Gioia Data Structure}
+
+Below the full mapping of first order constructs (pattern codes) to second order themes and aggregate dimensions is provided. The numbers in parentheses indicate how often each theme or dimension was observed in the data.
+
+\begin{multicols}{2}
+    \raggedcolumns
+    \footnotesize
+    \begin{itemize}[leftmargin=*, itemsep=2pt, topsep=0pt]
+        \item \textbf{Problem Cognition} (537)
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \textit{Problem Comprehension} (293)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item reading problem statement
+                \item restating problem goal
+                \item extracting given value
+                \item identifying given information
+                \item restating given information
+                \item reading given information
+                \item noting given information
+                \item confirming given information
+                \item identifying unknown information
+                \item deriving from non-given values
+                \item questioning problem language
+                \item identifying problem solvability
+                \item assessing task difficulty
+            \end{itemize}
+            \item \textit{Solution Execution} (208)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item performing calculation
+                \item setting up equation
+                \item rearranging equation
+                \item recalling math knowledge
+                \item assuming mathematical property
+                \item reasoning by analogy
+                \item restating solution step
+                \item identifying solution step
+                \item recognizing solution step
+            \end{itemize}
+            \item \textit{Non-LLM Offloading Channels} (36)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item taking notes
+                \item reviewing own notes
+                \item restating calculator result
+            \end{itemize}
+        \end{itemize}
+
+        \item \textbf{Organisation} (66)
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \textit{Organisation} (66)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item managing experiment logistics
+                \item requesting clarification from researcher
+                \item reusing previous message content
+            \end{itemize}
+        \end{itemize}
+
+        \columnbreak
+        \item \textbf{Metacognition} (325)
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \textit{Self-monitoring \& Evaluation} (137)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item verifying solution
+                \item verifying own progress
+                \item evaluating own solving progress
+                \item reflecting on own performance
+                \item reflecting on own capability
+                \item committing to answer
+                \item encountering impasse
+                \item questioning oneself
+                \item expressing doubt
+                \item expressing confidence
+                \item explaining value of externalizing work
+                \item reflecting on offloading choice
+            \end{itemize}
+            \item \textit{Errors \& Correction (Self)} (69)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item recognizing own error
+                \item correcting own understanding
+                \item correcting own solution step
+                \item correcting own terminology
+                \item recognizing error (no fault)
+                \item recognizing handwriting-induced transcription error
+            \end{itemize}
+            \item \textit{Strategy Formulation} (119)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item planning next solution step
+                \item deciding next solution step
+                \item considering solving strategy
+                \item forming own hypothesis
+                \item reaffirming own hypothesis
+                \item rejecting own strategy
+                \item recalling own prior work
+            \end{itemize}
+        \end{itemize}
+
+        \columnbreak
+        \item \textbf{Information Exchange} (248)
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \textit{Query Formulation} (61)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item formulating LLM message
+                \item planning LLM message
+            \end{itemize}
+            \item \textit{LLM Response Processing} (140)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item reading LLM's guidance
+                \item reading LLM's questions
+                \item reading LLM's restated known information
+                \item reading LLM's CoT
+                \item reading LLM's feedback
+                \item reading LLM response aloud
+                \item restating LLM's guidance
+                \item recounting LLM's earlier response
+                \item recalling earlier LLM feedback
+                \item referencing LLM's CoT
+            \end{itemize}
+            \item \textit{Information Disclosure to LLM} (47)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item stating information to LLM
+                \item submitting information to LLM
+                \item disclosing own limitations to LLM
+                \item explaining rationale to LLM
+            \end{itemize}
+        \end{itemize}
+
+        \item \textbf{LLM Reliance Decisions} (121)
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \textit{Requests to LLM} (66)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item requesting guidance from LLM
+                \item requesting information from LLM
+                \item requesting verification by LLM
+                \item requesting solution from LLM
+                \item requesting clarification from LLM
+            \end{itemize}
+            \item \textit{Offloading Decisions} (55)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item deciding to ask LLM for guidance
+                \item deciding to ask LLM for information
+                \item deciding to ask LLM for verification
+                \item deciding to ask LLM for solution
+                \item considering querying LLM
+                \item deciding to solve without LLM
+                \item deciding to use calculator
+                \item deciding to share image with LLM
+            \end{itemize}
+        \end{itemize}
+
+        \columnbreak
+        \item \textbf{Mental Model \& Updates} (115)
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \textit{LLM Output Evaluation} (42)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item scrutinizing LLM response
+                \item evaluating LLM response as unhelpful
+                \item evaluating LLM as helpful
+                \item questioning LLM output
+                \item deciding to verify LLM output
+            \end{itemize}
+            \item \textit{LLM Guidance Uptake} (47)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item confirming LLM's guidance
+                \item building on LLM's guidance
+                \item rejecting LLM's guidance
+                \item following LLM guidance
+                \item accepting LLM's assertions
+                \item deciding to update the LLM information
+                \item deciding to follow LLM guidance
+            \end{itemize}
+            \item \textit{Identifying \& Correcting LLM Errors} (7)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item judging LLM's statement as incorrect
+                \item recognizing LLM error
+                \item observing LLM as stuck
+                \item correcting the LLM
+                \item criticizing the LLM
+            \end{itemize}
+            \item \textit{LLM Attributions} (19)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item attributing LLM's confusion to own action
+                \item anticipating LLM behaviour
+                \item attributing capability to LLM
+                \item reflecting on own capability relative to LLM
+                \item comparing LLM to ChatGPT
+                \item identifying LLM as information source
+            \end{itemize}
+        \end{itemize}
+
+        \item \textbf{Emotional Expression} (54)
+        \begin{itemize}[leftmargin=*, nosep]
+            \item \textit{Emotional Expression} (54)
+            \begin{itemize}[leftmargin=*, nosep]
+                \item expressing frustration
+                \item expressing surprise
+                \item expressing satisfaction
+                \item expressing insight
+                \item self-justifying
+                \item expressing uncertainty
+                \item identifying own knowledge gap
+                \item hedging previous statement
+            \end{itemize}
+        \end{itemize}
+
+    \end{itemize}
+\end{multicols}
