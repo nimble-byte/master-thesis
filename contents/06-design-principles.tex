@@ -303,8 +303,81 @@ The six design principles are not fully independent. Instead, several \acp{DP} a
 \end{figure}
 
 \subsection{Design Principle Revision} \label{ssec:design-principle-revision}
-% Which specific DPs were used as stimulus and why (concrete instantiation
-% of the §6.1 criterion) + interview findings + resulting final design theory.
+
+\subsubsection{Interview Procedure and Participants} \label{sssec:interview-procedure}
+
+The six design principles derived in Section~\ref{ssec:initial-design-principles} were evaluated and revised through semi-structured expert interviews, following the procedure and evaluation criteria established in Section~\ref{ssec:derivation-methods}. Four individual interviews were conducted with \ac{HCI} and \ac{HAII} researchers and one industry practitioner, summarised in Table~\ref{tab:expert-participants}.
+
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{l|X|X|l}
+        \textbf{ID} & \textbf{Education} & \textbf{Current Role} & \textbf{Rel. Experience} \\
+        \hline
+        E01 & M.Sc. Human-Computer Interaction & PhD candidate (effects of \ac{AI} on people) & 8 months \\
+        E02 & M.Sc. Computer Science & PhD candidate (human-robot interaction \& user behaviour analysis) & 8 months \\
+        E03 & B.Sc. Applied Computer Science & Software Engineer \& Designer (\ac{AI} applications) & 5 years \\
+        E04 & M.Sc. Human-Computer Interaction & PhD candidate (Human-\ac{AI} Interaction) & 6 months \\
+    \end{tabularx}
+    \caption[Expert interview participants]{Overview of the four experts, including highest degree of education, current professional role, and years of experience directly relevant to \ac{HCI}, \ac{HAII}, or applied \ac{AI} systems.}
+    \label{tab:expert-participants}
+\end{ctable}
+
+Each interview followed the same five-step procedure:
+
+\begin{enumerate}
+    \item \textbf{Consent and Demographics:} Informed consent was obtained, followed by collection of the demographic data summarised in Table~\ref{tab:expert-participants}.
+    \item \textbf{Introduction:} The thesis topic and relevant concepts (\ac{ToM}, the \ac{DSR} context of \acp{DP}) were introduced as needed for the individual expert's background.
+    \item \textbf{Comprehension Check:} The design theory (\acp{MR} and \acp{DR}) was presented, followed by a comprehension check using a fictional example of the same \ac{DR}-mapping exercise used later for the \acp{DP}. This validated the expert's understanding of the \ac{MR}/\ac{DR}/\ac{DP} concepts and familiarised them with the exercise format ahead of the main discussion. All four experts passed the check.
+    \item \textbf{Per-Principle Discussion:} Each \ac{DP} was discussed in turn, opening with a \ac{DR}-mapping question, followed by a recurring set of three questions.
+    \item \textbf{Closing Discussion:} A closing set of questions addressed the design theory as a whole.
+\end{enumerate}
+
+Within Step 4, each \ac{DP} was probed on its \ac{DR}-mapping — forming the basis of the quantitative accessibility measure introduced below — followed by a fixed set of three questions targeting \textbf{actability and guidance}, \textbf{importance}, and \textbf{novelty and insightfulness}. Step 5 closed with a further set of questions addressing the design theory as a whole, targeting \textbf{redundancy}, \textbf{excess}, \textbf{effectiveness}, and \textbf{deficit}, together with two additional open questions. The complete wording of both question sets is provided in Appendix~\ref{sec:appendix-interview-questions}.
+% TODO: Appendix~\ref{sec:appendix-interview-questions} does not exist yet.
+% Add a section with the full wording of both question sets (and per-expert
+% interview notes) and point the ref above at it.
+
+None of the questions target \textbf{overload} directly. At best, the actability question offers an indirect and implicit signal for it, depending on the variance in experts' suggested implementations across the whole set, and is not treated as reliable evidence for this criterion below. This constitutes a limitation of the interview instrument relative to the four design-theory-level criteria established in Section~\ref{ssec:derivation-methods}.
+
+\textbf{Accessibility} was not assessed through a dedicated question but throughout the detailed per-principle discussion, operationalised in two complementary ways: qualitatively, through unprompted clarification-seeking questions raised by an expert during the discussion (e.g.\ requesting the meaning of a term or an example); and quantitatively, through the agreement between an expert's stated \ac{DR}-mapping and the mapping intended by the derivation in Section~\ref{ssec:initial-design-principles}. Both measures are reported alongside the mapping results below.
+
+\subsubsection{Result Summary} \label{sssec:interview-results}
+
+Table~\ref{tab:dr-mapping-experts} reports each expert's stated \ac{DR}-mapping for the six \acp{DP} against the mapping intended in Section~\ref{ssec:initial-design-principles}. A plain-text entry indicates full agreement with the intended mapping. An entry in \textcolor{paletteochre}{ochre} marks a \ac{DR} named in addition to the intended mapping, rather than instead of it. An entry in \textcolor{palettered}{red} marks a response sharing no \ac{DR} with the intended mapping. An asterisk marks a response voiced only after a clarifying question from the interviewer, independent of whether the response matched, extended, or deviated from the intended mapping.
+
+DP3 requires a separate note. It was presented to all four experts as a single, undivided principle, mapped in Section~\ref{ssec:initial-design-principles} onto \textbf{DR1}, \textbf{DR3}, and \textbf{DR4} jointly. The two-part intended mapping shown below reflects a retrospective decomposition into DP3's two underlying mechanisms — provenance tagging and conflict surfacing — identified only once interviews were already underway. It was not presented to any expert in this form; the corresponding finding below concerns whether experts' answers anticipated this distinction on their own, without being prompted to make it.
+
+\begin{ctable}
+    \centering
+    \begin{tabularx}{\textwidth}{l|X|l|l|l|l}
+        \textbf{DP} & \textbf{Intended} & \textbf{E01} & \textbf{E02} & \textbf{E03} & \textbf{E04} \\
+        \hline
+        \textbf{DP1} & DR1 & DR1, \textcolor{paletteochre}{DR5} & DR1, \textcolor{paletteochre}{DR5} & DR1 & \textcolor{palettered}{DR2} \\
+        \textbf{DP2} & DR2 & DR2 & \textcolor{paletteochre}{DR1}, DR2 & DR2* & DR2 \\
+        \textbf{DP3} & DR1, DR3 (mechanism~1) / DR3, DR4 (mechanism~2) & DR3, DR4 & DR3 & DR3 & DR3 \\
+        \textbf{DP4} & DR1, DR5 & \textcolor{palettered}{DR3} & \textcolor{palettered}{DR3} & \textcolor{palettered}{DR3} & \textcolor{palettered}{DR3} \\
+        \textbf{DP5} & DR2, DR4, DR5 (ltd.) & DR2 & DR2 & \textcolor{palettered}{DR1} & \textcolor{paletteochre}{DR1}*, DR2 \\
+        \textbf{DP6} & DR5 & DR4 or DR5 & \textcolor{palettered}{DR4} & DR5* & DR5* \\
+    \end{tabularx}
+    \caption[Expert \ac{DR}-mapping of the initial design principles]{Expert-stated \ac{DR}-mapping for each initial \ac{DP}, against the mapping intended in Section~\ref{ssec:initial-design-principles}. Ochre marks an added \ac{DR}, red marks full deviation, and an asterisk marks a mapping voiced only after clarification.}
+    \label{tab:dr-mapping-experts}
+\end{ctable}
+
+One further, more tentative observation concerns \ac{DR}5. It appears in three separate places across the mapping results: added, independently and with matching rationale (\enquote{understanding reduces cognitive effort}), by two experts discussing DP1; added in a more limited, asterisked form for DP5; and as one of the two \acp{DR} that already make up DP4's intended mapping. Three occurrences across four interviews do not support a strong claim on their own, but they are enough to flag \ac{DR}5's boundary as worth a closer look when the design requirements themselves are revisited: it remains open whether experts reach for \ac{DR}5 because it genuinely applies in each case, or because its current scope invites broader use than intended.
+
+\textbf{DP1} was mapped to its intended \ac{DR}1 by three of four experts, two of whom (E01, E02) independently added \ac{DR}5 alongside it. The fourth (E04) shared no \ac{DR} with the intended mapping, mapping the principle entirely onto \ac{DR}2 instead. All four experts gave a low-novelty read of DP1: three call it existing or standard practice, and the fourth is uncertain. Combined with the recurring \ac{DR}5 addition, DP1 reads as the principle experts find least distinctive as a \textit{prescription}, as opposed to behaviour a well-designed system would exhibit by default — a candidate for either removal or expansion, taken up in Section~\ref{ssec:uncovered-design-space}. Two notable remarks surfaced during this discussion: E01 raised sycophancy as an implementation risk, echoing a concern that recurs for DP3 below \parencite{Sharma2024}; and E04 flagged an anthropomorphism risk arising from terminology mirroring, connecting to the mental-state attribution literature already discussed in this thesis \parencite{Colombatto2025}.
+
+\textbf{DP2} was mapped cleanly to \ac{DR}2 by three of four experts, with one (E02) adding \ac{DR}1. Two experts (E01, E03) required explicit clarification of the wording before they were able to map the principle at all; both understood and mapped it correctly once clarified, which the interview data registers as an accessibility issue rather than a deviation. While discussing DP2, E03 raised the \enquote{thinking}/\enquote{reasoning} framing of \ac{LLM} output as an analogy — an unprompted remark bearing on how this thesis's research questions frame \ac{ToM}-relevant language use, noted here for later reference.
+
+\textbf{DP3} was mapped by all four experts entirely onto \ac{DR}3, with none separately surfacing the \ac{DR}1 angle of the provenance-tagging mechanism, and without any expert otherwise distinguishing the principle's two mechanisms. All four also gave a high-novelty read, calling both mechanisms new — a direct contrast to DP1. Experts additionally engaged with only one of DP3's two application areas at a time in the actability discussion, routinely overlooking the other. Together with the unanimous, undifferentiated \ac{DR}3 mapping, this is a strong indication that DP3 packages two mechanisms that should be treated as separate principles. Sycophancy was again raised, independently, by E01 (constructively) and E03, as an implementation obstacle specifically for the conflict-surfacing mechanism — corroborating, rather than challenging, this mechanism's existing theoretical grounding \parencite{Sharma2024}.
+
+\textbf{DP4} shows the most striking mapping result of the six: all four experts converge on \ac{DR}3, sharing no \ac{DR} with the intended mapping of \ac{DR}1 and \ac{DR}5. The deviation is convergent rather than scattered. On importance, two experts (E03, E04) independently gave an \enquote{always worth it} framing, unable to name a scenario in which the implementation effort would not be justified — set against DP4's thinnest positive empirical anchor among the six principles (5 rows across 2 participants). Three further remarks emerged while discussing DP4. E02 flagged self-report and uncertainty-based implementations as unreliable from a research standpoint; this concern is at least partially contradicted by \textcite{Kazemitabaar2024}, who implemented a comparable feature and reported positive user feedback as a key result. E02 separately raised a need for user-adaptive engagement, offering more support to novice users, but immediately noted that this consideration belonged to a different principle rather than DP4 itself. E03 volunteered, unprompted, that they personally avoid reasoning traces due to low information density — direct expert commentary on the quality of \ac{CoT}-style explanations, relevant to \textbf{RQ2}.
+
+\textbf{DP5} was mapped in agreement with (part of) its intended mapping by three of four experts: E01 and E02 map cleanly to \ac{DR}2, and E04 adds \ac{DR}1 alongside \ac{DR}2. The fourth (E03) shares no \ac{DR} with the intended mapping, giving an intelligibility reading via \ac{DR}1 alone. A habituation and friction concern was raised independently by two experts with an \ac{HCI} background (E01, E04), both concerning the same mechanism property: mandatory role-selection degrading through repeated exposure. This corroborates the \ac{DR}4/\ac{DR}5 tension already identified for DP5 in Section~\ref{ssec:initial-design-principles}.
+
+\textbf{DP6} produced the clearest comprehension failure of the six: every expert required correction or misunderstood the mechanism outright. Three of four eventually land on the intended \ac{DR}5, but only after correction or clarification (E03, E04 asterisked; E01 remains uncertain between \ac{DR}4 and \ac{DR}5). The fourth (E02) settles on \ac{DR}4 without correction, sharing no \ac{DR} with the intended mapping.
+
+Read together, the asterisked and fully deviating responses in Table~\ref{tab:dr-mapping-experts} concentrate in DP2 and DP6 — the same two principles for which experts required explicit clarification during the discussion, corroborating the quantitative and qualitative accessibility measures against each other.
 
 \subsection{Uncovered Design Space} \label{ssec:uncovered-design-space}
 
