@@ -22,4 +22,35 @@
     \endgroup
 }
 
+\mdfdefinestyle{dpstyle}{
+    linecolor=paletteblue,
+    linewidth=1pt,
+    roundcorner=6pt,
+    innertopmargin=8pt,
+    innerbottommargin=8pt,
+    innerleftmargin=8pt,
+    innerrightmargin=8pt,
+    splittopskip=10pt,
+}
+\newmdenv[style=dpstyle]{dpbox}
+
+% Parameter order:
+% 1. Design Principle ID: DP1, DP2, ...
+% 2. Design Principle Title
+% 3. Implementer, Aim, User
+% 4. Mechanism
+% 5. Rationale
+\newcommand{\designprinciple}[5]{%
+    \begin{dpbox}
+        \textbf{\textcolor{paletteblue}{#1: #2}}\\[8pt]
+        \setlength{\tabcolsep}{8pt}
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabularx}{\linewidth}{@{}l|X}
+            \textbf{Implementer, Aim, User} & #3 \\[4pt]
+            \textbf{Mechanism} & #4 \\[4pt]
+            \textbf{Rationale} & #5 \\
+        \end{tabularx}
+    \end{dpbox}
+}
+
 % LTex: enabled=true
