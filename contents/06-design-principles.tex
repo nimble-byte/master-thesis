@@ -285,17 +285,17 @@ The six design principles are not fully independent. Instead, several \acp{DP} a
         \draw[mr3line] (mr3.east) -- (dr5.west);
 
         % ---- DR -> DP edges, coloured by source DR; dotted where DP prose marks the service as partial ----
-        \draw[dr2line]          (dr2.east) -- (dp5.west);
-        \draw[dr4line]          (dr4.east) -- (dp5.west);
-        \draw[dr5line, partial] (dr5.east) -- (dp5.west);
-        \draw[dr1line]          (dr1.east) -- (dp4.west);
-        \draw[dr5line]          (dr5.east) -- (dp4.west);
-        \draw[dr5line]          (dr5.east) -- (dp6.west);
         \draw[dr1line]          (dr1.east) -- (dp1.west);
         \draw[dr2line]          (dr2.east) -- (dp2.west);
         \draw[dr1line]          (dr1.east) -- (dp3.west);
         \draw[dr3line]          (dr3.east) -- (dp3.west);
         \draw[dr4line]          (dr4.east) -- (dp3.west);
+        \draw[dr1line]          (dr1.east) -- (dp4.west);
+        \draw[dr5line]          (dr5.east) -- (dp4.west);
+        \draw[dr2line]          (dr2.east) -- (dp5.west);
+        \draw[dr4line]          (dr4.east) -- (dp5.west);
+        \draw[dr5line, partial] (dr5.east) -- (dp5.west);
+        \draw[dr5line]          (dr5.east) -- (dp6.west);
     \end{tikzpicture}%
     }
     \caption[Meta-requirements, design requirements, and initial design principles]{The initial design principles (pre-revision) mapped onto the design requirements which they fulfil, extending Figure~\ref{fig:mr-dr-mapping}.}
@@ -393,65 +393,64 @@ In the following the results for each \ac{DP} are discussed in detail, including
         \textbf{DP-F} showed the lowest \textit{accessibility} of all \acp{DP}, with three of four experts requiring clarification before they could map the \ac{DP}. The biggest challenge was the vague wording of the \ac{DP}, leading to uncertainty about the intended mechanism. After clarification, experts rated the \textit{novelty} of the \ac{DP} as low, despite E01 noting, that the notion that system readable working surfaces reduce cognitive load was new to them. This indicates a need to reword the \ac{DP} using simpler language.
 \end{enumerate}
 
-The complete set of \acp{DP} was evaluated in the categories of \textit{effectiveness} \parencite{Iivari2021} and \textit{deficit} \parencite{Janiesch2020}. As the question for \textit{redundancy} and \textit{excess} was omitted and experts did not voice any unprompted comments, no evaluation could be performed in these categories. The experts agreed, that the set of \acp{DP} would help to \textit{effectively} address the \acp{DR}, helping to improve the quality of systems built with the \acp{DP}. Experts also agreed, that the language of the \acp{DP} and doubts about full technical feasibility of the mechanisms were the main challenges to overcome when using the \acp{DP}. When asked about \textit{deficits}, E01 noted that the \ac{DP} could be complemented addressing known cognitive biases (e.g., automation bias). This gap, should be addressed in the discussion, when the design theory is contextualised in the existing research context. E02 was the only expert to ask why none of the \acp{DP} addressed the \ac{ToM} explanations directly, which will be addressed in Section~\ref{ssec:uncovered-design-space}.
+During the mapping exercise, E01, E03, and E04 all asked about the term \enquote{intelligability} and noted that it could be replaced with \enquote{understandability}. The complete set of \acp{DP} was evaluated in the categories of \textit{effectiveness} \parencite{Iivari2021} and \textit{deficit} \parencite{Janiesch2020}. As the question for \textit{redundancy} and \textit{excess} was omitted and experts did not voice any unprompted comments, no evaluation could be performed in these categories. The experts agreed, that the set of \acp{DP} would help to \textit{effectively} address the \acp{DR}, helping to improve the quality of systems built with the \acp{DP}. Experts also agreed, that the language of the \acp{DP} and doubts about full technical feasibility of the mechanisms were the main challenges to overcome when using the \acp{DP}. When asked about \textit{deficits}, E01 noted that the \ac{DP} could be complemented addressing known cognitive biases (e.g., automation bias). This gap, should be addressed in the discussion, when the design theory is contextualised in the existing research context. E02 was the only expert to ask why none of the \acp{DP} addressed the \ac{ToM} explanations directly, which will be addressed in Section~\ref{ssec:uncovered-design-space}.
 
 \subsubsection{Revised Design Principles} \label{sssec:revised-dp}
 
-The findings from Section~\ref{sssec:interview-results} are incorporated into a revised set of design principles below. \textbf{DP3} is split into \textbf{DP3a} and \textbf{DP3b} following the two mechanisms uncovered during the interviews; the two resulting principles remain provisionally labelled ahead of a final renumbering pass. Each principle is presented in the reduced Gregor format established in Section~\ref{ssec:thesis-methodology} (Implementer, Aim, and User combined; Mechanism; Rationale, with Context and Enactors omitted throughout), followed by a discussion of the change made and the evidence motivating it.
+The findings from Section~\ref{sssec:interview-results} were used to revise the existing \ac{DP}. The final DP are presented in this section using the reduced Gregor format described in Section~\ref{ssec:thesis-methodology}. Specifying the \textbf{context} of the DP, is omitted because the context is identically scoped to a collaborative problem-solving setting, where a user is assisted by an \ac{LLM}. Each final DP is presented below in the same format, with the title at the top followed \textbf{implementer}, \textbf{aim}, \textbf{user}, \textbf{mechanism}, and \textbf{rationale} in tabular form.
 
-% revise: broaden from vocabulary-matching to expertise-adaptive response behaviour
-\designprinciple{DP1}{Adapt response complexity to the user's expertise}
-    {For the \textit{system} to adapt its \textit{response complexity and terminology} to the \textit{user's demonstrated expertise level}}
-    {Use the user's own vocabulary as an initial signal of relevant terminology, and adjust the complexity, technicality, and level of explanation in subsequent responses to match the user's demonstrated expertise, rather than mirroring vocabulary alone}
-    {Because matching the user's own terminology increases the intelligibility of system behaviour \parencite{Shin2021}, but mirroring language verbatim risks conflating comprehension support with sycophantic or anthropomorphising cues \parencite{Sharma2024, Colombatto2025}; adapting to the user's demonstrated expertise, rather than their specific word choice, preserves the intelligibility benefit while reducing this risk}
+\textbf{DP-A} required substantial revision, to address experts concerns about anthropomorphic tendencies, when mirroring user vocabulary. The revised \textbf{DP1} broadens the scope from vocabulary-matching to adjusting the system's response behaviour to the user's demonstrated (or stated) expertise level. Broadening the mechanism allows the mechanism to still address user-specific comprehension \parencite{Shin2021}, while avoiding prescribing potentially sycophantic behaviour \parencite{Sharma2024}. The experiment transcripts provide an example of the challenges introduced, when the system's responses are not aligned with the user's expertise level (cf. ID \texttt{11.009.1} and \texttt{11.017.1}ff). The rationale for the revised \textbf{DP1} can be retained. The revised \textbf{DP1} continues to serve \textbf{DR1} and now also addresses \textbf{DR5}, as matching the user's expertise level reduces the effort required especially for users with lower expertise, who would otherwise need to infer the meaning of technical terms and concepts.
 
-\textbf{DP1} is broadened rather than removed. The original mechanism, re-using the user's own vocabulary, is retained as a starting signal, but the principle now targets the user's expertise level more generally, addressing the sycophancy (E01) and anthropomorphism (E04) risks raised against plain vocabulary mirroring at their source rather than accepting them as a side effect. This broader framing is anchored in P11, who explicitly identified a terminology gap before starting a task (\enquote{muss ich mir mal eine Liste aufstellen, was hier Begriffe sind} [I need to make a list of what the terms mean here], ID: \texttt{11.009.1}), and later disputed the system's use of two terms as equivalent (ID: \texttt{11.017.1}ff) — a mismatch in the underlying concept, not merely the choice of word for it. \textbf{DP1} continues to serve \textbf{DR1}. Whether the broadened scope now legitimately extends to \textbf{DR5} as well, or whether the two experts who added \textbf{DR5} were reacting to the narrower, vocabulary-only framing specifically, remains open.
+\designprinciple{DP1}{Adapt responses to user expertise}
+    {For the \textit{developer} to adapt the \textit{system's responses} to the \textit{user's demonstrated expertise level}}
+    {use the \textit{user's vocabulary and wording} as an initial signal of expertise, and \textit{adapt the complexity, technicality, and level of depth in subsequent responses} to match the user's demonstrated expertise}
+    {Because matching the user's expertise increases the intelligibility of the system's responses.}
 
-% reword: focus on the system's own disclosure; exact phrasing pending
+\textbf{DP-B} is functionally unchanged, but the mechanism is reworded, to improve the \textit{accessibility} of the \ac{DP}. The revised mechanism shifts the emphasis from the user's inference of system capabilities to the system's own disclosure of its capabilities and limitations. The rationale is unchanged, as managing user expectations about system capabilities reduces the likelihood of over- or under-reliance \parencite[cf.][]{Jussupow2021}. With the revised mechanism, the \ac{DP} continues to serve \textbf{DR2}.
+
 \designprinciple{DP2}{Disclose system capabilities and limitations}
-    {For the \textit{system} to disclose its \textit{capabilities and limitations} to (lay) \textit{users}}
-    {State capabilities and limitations directly and unprompted, from the system's own perspective, at the point where a capability or limitation becomes relevant to the current task}
-    {Because managing user expectations about system capabilities \parencite[cf.][]{Amershi2019} reduces the likelihood of over- or under-reliance, and stating this from the system's own perspective reduces the burden on users to infer it themselves}
+    {For the \textit{developer} to tune the system to \textit{disclose its capabilities and limitations} to \textit{users} during the interaction}
+    {\textit{communicate the system's limitations} clearly when they become relevant to the current task}
+    {Because not disclosing system limitations can lead to incorrect capabilities being inferred by the user.}
 
-\textbf{DP2} keeps its mechanism and its service of \textbf{DR2} unchanged; only the wording is revised. Two experts required clarification before they could map the principle at all, pointing to a wording-level rather than a conceptual problem. The mechanism above shifts the emphasis toward the system's own disclosure, consistent with what drove correct mappings once explained, but the precise replacement for the current phrasing's \enquote{first-person mental-state language} and \enquote{unhedged} framing — identified against alternative wording used in the original study material — is still pending review and not yet reflected in the wording above.
+\textbf{DP-C} is split into two separate principles to address the two distinct mechanisms identified through the interviews. The new \textbf{DP3} focuses on the information provenance mechanism, that provides sources for information, while the new \textbf{DP4} describes the surfacing of conflicts between established context and new user input. The \ac{DR}-mapping of the new principles still covers the same \acp{DR} as the original \textbf{DP-C}, but now with a more focused mechanism for each principle. \textbf{DP3} now helps fulfil \textbf{DR1} and \textbf{DR3}, as providing sources for information, allows users to better understand the system's use of information. \textbf{DP4} serves \textbf{DR4}, as surfacing conflicts between established context and new user input increases deliberate engagement.
 
-% split into DP3a (provenance tagging) and DP3b (conflict surfacing)
-\designprinciple{DP3a}{Indicate information provenance}
-    {For the \textit{system} to indicate the \textit{provenance of information} in its responses, for \textit{users}}
-    {Tag each piece of information in a response according to its source — task-given, user-provided, or externally retrieved — and make this tagging visible alongside the corresponding content}
-    {Because indicating the source of information invites scrutiny of system-attributed claims rather than heuristic acceptance, increasing both the intelligibility of the system's use of information (\textbf{DR1}) and the verifiability of individual claims (\textbf{DR3}) \parencite[cf.][]{Steyvers2025}}
+\designprinciple{DP3}{Indicate information provenance}
+    {For the \textit{system} to \textit{increase the transparency of its information use} for \textit{users}}
+    {provide the \textit{source of each piece of information} in the system's response (e.g., user-provided, system-assumed, or externally retrieved).}
+    {Because indicating the source of information invites scrutiny of system-attributed claims rather than heuristic acceptance, increasing both the intelligibility of the system's use of information and the verifiability of individual claims}
 
-\designprinciple{DP3b}{Surface conflicting information}
-    {For the \textit{system} to surface \textit{conflicts} between established context and new user input, for \textit{users}}
-    {Detect when new user input contradicts previously established context or system-verified information, and explicitly flag the conflict rather than silently adopting the new input}
-    {Because silently adopting contradicting input signals endorsement \parencite[cf.][]{Sharma2024} and forgoes deliberate engagement at a consequential decision point (\textbf{DR4}); surfacing the conflict instead increases the verifiability of the resulting output (\textbf{DR3})}
+\designprinciple{DP4}{Surface conflicting information}
+    {For the \textit{system} to \textit{support the detection of errors} for \textit{users}}
+    {\textit{surface conflicts} between established information from the context and new user input.}
+    {Because silently adopting contradicting input signals endorsement instead of inviting deliberation. Surfacing the conflict instead invites the user to deliberate whether the change is intended and warranted.}
 
-\textbf{DP3} is split into two principles along the boundary the interviews revealed: all four experts' actability answers independently separated the same two mechanisms, routinely discussing only one at a time, and the unanimous, undifferentiated \textbf{DR3}-only mapping obtained for the combined principle is consistent with this. \textbf{DP3a} isolates the provenance-tagging mechanism, retaining \textbf{DP3}'s original \textbf{DR1}/\textbf{DR3} service. \textbf{DP3b} isolates conflict surfacing and keeps \textbf{DR3}/\textbf{DR4}; its sycophancy grounding is now doubly supported, as E01 and E03 independently described this mechanism as a plausible counter to the sycophancy risk raised for \textbf{DP1}.
+\textbf{DP-D} is kept as initially proposed, but the \ac{DR}-mapping is revised to reflect the experts' unanimous mapping to \textbf{DR3}. Because the mechanism and rationale remain unchanged, \textbf{DR3} is added to the mapping alongside the original \textbf{DR1} and \textbf{DR5}. The mechanism and rationale are unchanged, as they elicited very high \textit{importance} ratings from all experts.
 
-% remap: unanimous 4/4 convergence on DR3; caution re self-report
-\designprinciple{DP4}{Make system assumptions inspectable and correctable}
-    {For the \textit{system} to make the \textit{assumptions} underlying its response \textit{inspectable and correctable}, for \textit{users}}
-    {Surface assumptions underlying the system's response explicitly, optionally combined with hedging language or an uncertainty indicator, and allow the user to correct them}
-    {Because surfacing assumptions supports conscious deliberation and helps prevent the \textit{\ac{AI}-based confirmation} failure mode \parencite{Jussupow2021}, increasing the verifiability of the system's output (\textbf{DR3}); self-reported confidence indicators alone are not a reliable verifiability signal \parencite{Kapoor2024}, so this mechanism should not rely on the system's own confidence estimate as its sole safeguard}
+\designprinciple{DP5}{Make system assumptions inspectable and correctable}
+    {For the \textit{developer} to make the \textit{assumptions inspectable and correctable} for \textit{users}}
+    {provide an editable overview of the \textit{assumptions underlying the system's response}.}
+    {Because surfacing assumptions enables users to validate the system's intermediate steps, increasing the verifiability and therefore also increasing the understandability of system behaviour. Making the assumptions editable allows users to easily correct them, reducing cognitive effort.}
 
-\textbf{DP4}'s mechanism and title are unchanged; what changes is the \ac{DR} it is understood to serve. All four experts converged, uncorrected, on \textbf{DR3} rather than the originally intended \textbf{DR1}/\textbf{DR5} — a uniform, non-accessibility-driven deviation treated here as a mapping correction. The rationale above folds in the caveat raised against the experts' own converged-upon implementation (hedging language and confidence scores): self-reported uncertainty is contested as a reliability signal in the literature, which the mechanism should not obscure. The \enquote{always worth it} importance rating from two experts is noted against the thinnest empirical anchor of the six original principles and is not overstated here.
+\textbf{DP-E} is kept intact as initially proposed. The concern about habituation raised by two experts are acknowledged, but the mechanism is kept unchanged, as the goal of the \ac{DP} is to increase friction to generate deliberate engagement. Possible habituation risks, have to be assessed on a case-by-case basis, as they depend on the specific implementation of the mechanism.
 
 % keep: refine mechanism against habituation risk
-\designprinciple{DP5}{Establish request purpose before querying}
-    {For the \textit{system} to require the \textit{user} to articulate the \textit{purpose or role} of a request before it is processed}
-    {Prompt the user to select or state the intended purpose of their request before the system responds, introducing friction at this decision point; vary the prompting so repeated, routine requests do not always require the same mandatory step}
-    {Because a lack of articulated purpose was associated with dissatisfaction and requests incompatible with the system's own instructions, introducing friction at this point increases deliberate engagement (\textbf{DR4}) \parencite[cf.][]{Buinca2021, Weisz2025} and sets a corresponding expectation of system behaviour and capability (\textbf{DR2}) \parencite[cf.][]{Bansal2019}; varying the mechanism guards against the habituation and friction fatigue raised independently by two experts}
+\designprinciple{DP6}{Establish request purpose before querying}
+    {For the \textit{developer} to \textit{tune model behaviour} to for a \textit{user}'s needs}
+    {use a \textit{role taxonomy} to establish the collaboration mode with the user before the model responds.}
+    {Because users often have clear expectations about the system's role and responses, that are not always clearly communicated to the system. Forcing users to implicitly (or explicitly) communicate their expectations before the system responds, improves the alignment of expectations.}
 
-\textbf{DP5} is kept. The added clause on varying the prompting is a first, tentative response to the habituation concern corroborated by E01 and E04 — the exact form this variation should take is open for discussion, not a settled mechanism. Separately, no expert mapped the principle to \textbf{DR4} despite raising a concern that sits squarely within its scope; the friction/habituation framing above is written to make that connection more legible than the original wording did, rather than only dampening the friction itself.
+\textbf{DP-F} is reworded completely to overcome the \textit{accessibility} issues identified during the interviews. The revised \textbf{DP7} uses plainer language omitting the concept of cognitive offloading in the mechanism and instead describing the offloading process.
 
 % reword completely: plainer language, same mechanism and DR
-\designprinciple{DP6}{Provide a shared notes space}
-    {For the \textit{system} to provide a \textit{persistent notes area}, alongside the conversation, that both the \textit{user} and the \textit{system} can read and write to}
-    {Offer a separate space next to the chat where users can jot down and keep notes, and let the system read this space so users do not have to repeat information they already wrote down}
-    {Because users take notes to think and to keep track of information \parencite{Risko2016}, giving the system access to those notes avoids asking the user to restate what they already wrote, reducing cognitive effort (\textbf{DR5})}
+\designprinciple{DP7}{Provide a shared notes space}
+    {For the \textit{developer} to provide \textit{shared working surfaces} for the \textit{user}}
+    {offer (task specific) \textit{inputs and outputs} separate from the main conversation.}
+    {Because users will use externalisation / cognitive offloading, offering a system readable working surface reduces the cognitive effort by the users to track and communicate problem information to the system.}
 
-\textbf{DP6} keeps its mechanism and its service of \textbf{DR5}; only the language changes. This was the least accessible of the six original principles, with three of four experts requiring correction before they understood the mechanism at all. The rewording above replaces \enquote{user-owned working surfaces} with plainer terms throughout, aiming to keep the principle short while removing the vague, abstract phrasing identified as the source of the comprehension failure.
+% \textbf{DP6} keeps its mechanism and its service of \textbf{DR5}; only the language changes. This was the least accessible of the six original principles, with three of four experts requiring correction before they understood the mechanism at all. The rewording above replaces \enquote{user-owned working surfaces} with plainer terms throughout, aiming to keep the principle short while removing the vague, abstract phrasing identified as the source of the comprehension failure.
 
+% TODO: This section needs some form of summary or anything to close out this section.
 Figure~\ref{fig:mr-dr-dp-mapping-revised} updates Figure~\ref{fig:mr-dr-dp-mapping} with the revised set of seven principles.
 
 \begin{figure}[ht]
@@ -461,7 +460,7 @@ Figure~\ref{fig:mr-dr-dp-mapping-revised} updates Figure~\ref{fig:mr-dr-dp-mappi
         node distance=0pt,
         mrbox/.style={neutralnode, align=left, text width=5.1cm},
         drbox/.style={neutralnode, align=left, text width=6cm},
-        dpbox/.style={neutralnode, align=left, text width=5.5cm},
+        dpbox/.style={neutralnode, align=left, text width=6cm},
         mr1line/.style={paletteblue, line width=1pt},
         mr2line/.style={palettered, line width=1pt},
         mr3line/.style={paletteochre, line width=1pt},
@@ -478,25 +477,25 @@ Figure~\ref{fig:mr-dr-dp-mapping-revised} updates Figure~\ref{fig:mr-dr-dp-mappi
         \node[mrbox] (mr3) at (0,-2.3) {\textbf{MR3:}~Support appropriate cognitive engagement};
 
         % ---- Design requirements ----
-        \node[drbox] (dr1) at (8.5,3.0)  {\textbf{DR1:}~Increase intelligibility of system behaviour};
-        \node[drbox] (dr2) at (8.5,1.5)  {\textbf{DR2:}~Align capability expectations with actual system capability};
-        \node[drbox] (dr3) at (8.5,0.0)  {\textbf{DR3:}~Increase verifiability of system outputs};
-        \node[drbox] (dr4) at (8.5,-1.5) {\textbf{DR4:}~Increase deliberate engagement at consequential decision points};
-        \node[drbox] (dr5) at (8.5,-3.0) {\textbf{DR5:}~Decrease cognitive effort of interpreting system outputs};
+        \node[drbox] (dr1) at (8,3.0)  {\textbf{DR1:}~Increase understandability of system behaviour};
+        \node[drbox] (dr2) at (8,1.5)  {\textbf{DR2:}~Align capability expectations with actual system capability};
+        \node[drbox] (dr3) at (8,0.0)  {\textbf{DR3:}~Increase verifiability of system outputs};
+        \node[drbox] (dr4) at (8,-1.5) {\textbf{DR4:}~Increase deliberate engagement at consequential decision points};
+        \node[drbox] (dr5) at (8,-3.0) {\textbf{DR5:}~Decrease cognitive effort of interpreting system outputs};
 
         % ---- Design principles (revised, seven total) ----
-        \node[dpbox] (dp1)  at (17,4.0)  {\textbf{DP1:}~Adapt response complexity to the user's expertise};
-        \node[dpbox] (dp2)  at (17,2.7)  {\textbf{DP2:}~Disclose system capabilities and limitations};
-        \node[dpbox] (dp3a) at (17,1.6)  {\textbf{DP3a:}~Indicate information provenance};
-        \node[dpbox] (dp3b) at (17,0.5)  {\textbf{DP3b:}~Surface conflicting information};
-        \node[dpbox] (dp4)  at (17,-0.7) {\textbf{DP4:}~Make system assumptions inspectable and correctable};
-        \node[dpbox] (dp5)  at (17,-1.9) {\textbf{DP5:}~Establish request purpose before querying};
-        \node[dpbox] (dp6)  at (17,-3.1) {\textbf{DP6:}~Provide a shared notes space};
+        \node[dpbox] (dp1)  at (17,4.0)  {\textbf{DP1:}~Adapt responses to user expertise};
+        \node[dpbox] (dp2)  at (17,2.6)  {\textbf{DP2:}~Disclose system capabilities and limitations};
+        \node[dpbox] (dp3) at (17,1.2)  {\textbf{DP3:}~Indicate information provenance};
+        \node[dpbox] (dp4) at (17,-0.05)  {\textbf{DP4:}~Surface conflicting information};
+        \node[dpbox] (dp5)  at (17,-1.4) {\textbf{DP5:}~Make system assumptions inspectable and correctable};
+        \node[dpbox] (dp6)  at (17,-2.8) {\textbf{DP6:}~Establish request purpose before querying};
+        \node[dpbox] (dp7)  at (17,-4.05) {\textbf{DP7:}~Provide a shared notes space};
 
         % ---- Column headings ----
-        \node[font=\bfseries] at (0,4.7) {Meta-Requirements};
-        \node[font=\bfseries] at (8.5,4.7) {Design Requirements};
-        \node[font=\bfseries] at (17,4.7) {Design Principles};
+        \node[font=\bfseries] at (0.0,5.0) {Meta-Requirements};
+        \node[font=\bfseries] at (8.5,5.0) {Design Requirements};
+        \node[font=\bfseries] at (17.0,5.0) {Design Principles};
 
         % ---- MR -> DR edges, unchanged from Figure~\ref{fig:mr-dr-dp-mapping} ----
         \draw[mr1line] (mr1.east) -- (dr1.west);
@@ -509,20 +508,22 @@ Figure~\ref{fig:mr-dr-dp-mapping-revised} updates Figure~\ref{fig:mr-dr-dp-mappi
 
         % ---- DR -> DP edges, revised ----
         \draw[dr1line]          (dr1.east) -- (dp1.west);
-        \draw[dr5line, partial] (dr5.east) -- (dp1.west);  % open question, see prose
+        \draw[dr5line]          (dr5.east) -- (dp1.west);
         \draw[dr2line]          (dr2.east) -- (dp2.west);
-        \draw[dr1line]          (dr1.east) -- (dp3a.west);
-        \draw[dr3line]          (dr3.east) -- (dp3a.west);
-        \draw[dr3line]          (dr3.east) -- (dp3b.west);
-        \draw[dr4line]          (dr4.east) -- (dp3b.west);
-        \draw[dr3line]          (dr3.east) -- (dp4.west);   % remapped from DR1/DR5
-        \draw[dr2line]          (dr2.east) -- (dp5.west);
-        \draw[dr4line]          (dr4.east) -- (dp5.west);
-        \draw[dr5line, partial] (dr5.east) -- (dp5.west);
-        \draw[dr5line]          (dr5.east) -- (dp6.west);
+        \draw[dr1line]          (dr1.east) -- (dp3.west);
+        \draw[dr3line]          (dr3.east) -- (dp3.west);
+        \draw[dr4line]          (dr4.east) -- (dp4.west);
+        \draw[dr1line]          (dr1.east) -- (dp5.west);
+        \draw[dr3line]          (dr3.east) -- (dp5.west);   % remapped from DR1/DR5
+        \draw[dr5line]          (dr5.east) -- (dp5.west);
+        \draw[dr2line]          (dr2.east) -- (dp6.west);
+        \draw[dr4line]          (dr4.east) -- (dp6.west);
+        \draw[dr5line, partial] (dr5.east) -- (dp6.west);
+        \draw[dr5line]          (dr5.east) -- (dp7.west);
     \end{tikzpicture}%
     }
-    \caption[Meta-requirements, design requirements, and revised design principles]{The revised design principles mapped onto the design requirements which they fulfil. \textbf{DP3} is split into \textbf{DP3a} and \textbf{DP3b}; \textbf{DP4} is remapped from \textbf{DR1}/\textbf{DR5} to \textbf{DR3}. Dotted lines mark open or limited-scope connections, as in Figure~\ref{fig:mr-dr-dp-mapping}.}
+    % TODO: implement highlighting for revised DPs in blue (border + background)
+    \caption[Revised design principles]{The revised design principles mapped onto the design requirements which they fulfil. Adjusted \ac{DP} are highlighted in blue.}
     \label{fig:mr-dr-dp-mapping-revised}
 \end{figure}
 
