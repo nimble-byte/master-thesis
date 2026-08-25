@@ -206,16 +206,16 @@ It is important to note that dimensions have greatly varying sizes (with regard 
 
 \textit{Organisation} serves as a control for the between-group comparison. Since it is composed of questions surrounding the experiment and material supplied to the participants, it is not plausibly sensitive to the \ac{CoT} manipulation. Consequently, any deviation from the baseline smaller than the deviation of \textit{Organisation} should not be used as sole evidence for a between-group difference. Since \textit{Organisation} shows the largest deviation (-18.2\%) from the baseline, dimension-level between-group comparisons cannot be used to sensibly derive design principles. Conversely, \textit{Organisation} is among the smallest dimensions. Notably, the only dimension with a similar deviation from the baseline is \textit{Emotional Expression} (-18.0\%), indicating that the small dimension size could play a role in this observation. For this reason, the between-group comparisons are not used to derive design principles, but rather as supporting evidence for the qualitative findings. As a result, the empirically derived \acp{DP} do not address the explanations as a mechanism. Section~\ref{ssec:uncovered-design-space} discusses this gap in the design space and proposes theory-based design principles to address it.
 
-Comparisons of behavioural patterns across the two groups are however still possible. This applies to the finding that Group B participants are more likely to heuristically accept the \ac{LLM}'s guidance than Group E participants. This was established by examining the \textit{Mental Model \& Updates} dimension, which contains three second-order themes that are directly relevant to the appraisal of the \ac{LLM}'s output: \textit{LLM Guidance Uptake}, \textit{LLM Output Evaluation}, and \textit{Identifying \& Correcting LLM Errors}. \textit{LLM Attributions} is excluded because it is not directly relevant to the appraisal of the \ac{LLM}'s output, but rather to the participant's understanding of the chatbot's capabilities. The three appraisal themes contain 96 rows (46 E, 50 B). Within this subset, four pattern codes were classed as heuristic uptake: \textit{confirming LLM's guidance}, \textit{accepting LLM's assertions}, \textit{deciding to follow LLM guidance}, and \textit{following LLM guidance}; the remainder was classified as deliberation. Calculating the share of heuristic uptake within each group yields 17.4\% for Group E (8/46) against 36.0\% for Group B (18/50). This finding is not undermined by the \textit{Organisation} control, because the ratios are constructed purely within-group, so that any difference in verbosity between groups cancels out. To further validate the finding, the pool of \textit{reading LLM's guidance} and \textit{restating LLM's guidance} statements was re-examined for heuristic acceptances absorbed into those two codes. As a result of this re-examination, one row was reassigned into the heuristic-uptake count reported above. To check the stability of the finding, results were validated using \ac{LOO} validation, which showed that that Group B's heuristic share is sensitive to individual participants (specifically P11), but the direction of the finding is stable.
+Comparisons of behavioural patterns across the two groups are however still possible. This applies to the finding that Group B participants are more likely to heuristically accept the \ac{LLM}'s guidance than Group E participants. This was established by examining the \textit{Mental Model \& Updates} dimension, which contains three second-order themes that are directly relevant to the appraisal of the \ac{LLM}'s output: \textit{LLM Guidance Uptake}, \textit{LLM Output Evaluation}, and \textit{Identifying \& Correcting LLM Errors}. \textit{LLM Attributions} is excluded because it is not directly relevant to the appraisal of the \ac{LLM}'s output, but rather to the participant's understanding of the chatbot's capabilities. The three appraisal themes contain 96 rows (46 E, 50 B). Within this subset, four pattern codes were classed as heuristic uptake: \textit{confirming LLM's guidance}, \textit{accepting LLM's assertions}, \textit{deciding to follow LLM guidance}, and \textit{following LLM guidance}; the remainder was classified as deliberation. Calculating the share of heuristic uptake within each group yields 17.4\% for Group E (8/46) against 36.0\% for Group B (18/50). This finding is not undermined by the \textit{Organisation} control, because the ratios are constructed purely within-group, so that any difference in verbosity between groups cancels out. To further validate the finding, the pool of \textit{reading LLM's guidance} and \textit{restating LLM's guidance} statements was re-examined for heuristic acceptances absorbed into those two codes. As a result of this re-examination, one row was reassigned into the heuristic-uptake count reported above. To check the stability of the finding, results were validated using \ac{LOO} validation, which showed that Group B's heuristic share is sensitive to individual participants (specifically P11), but the direction of the finding is stable.
 
-From the data structure presented above, a total of six \acp{DP} were derived using the \acp{MR} and \acp{DR} as lens. The \acp{DP} are presented below, including a rationale, and evidence used to derive and validate the principle. Select quotes from the transcripts are used where appropriate and when they are representative of the underlying behavioural pattern. Each quote is referenced by its unique identifier, as described above after the translation of the original German quote into English. The initial \acp{DP} are denoted by the letters A-F, to avoid confusion with final \acp{DP} numbering presented in Section~\ref{ssec:dp-revision}.
+From the data structure presented above, a total of six \acp{DP} were derived using the \acp{MR} and \acp{DR} as lens. The \acp{DP} are presented below, including a rationale, and evidence used to derive and validate the principle. Select quotes from the transcripts are used where appropriate and when they are representative of the underlying behavioural pattern. Each quote is referenced by its unique identifier, as described above after the translation of the original German quote into English. The initial \acp{DP} are denoted by the letters A-F, to avoid confusion with final \acp{DP} numbering presented in Section~\ref{sssec:revised-dp}.
 
 \begin{enumerate}[label=\textbf{DP-\Alph*}, leftmargin=*]
     % former DP-F
     \item \textbf{Re-use the user's own task vocabulary}, proposes to adopt task-relevant terminology that the user has introduced. It is based on the observation, that users mapped repeated information from the \ac{LLM} onto their own vocabulary. The relevant pattern code \textit{reading LLM's restated known information} contains 29 instances well distributed across both groups. This behaviour also aligns with \textcite{Shin2021}'s account of user-relative intelligibility (cf. Section~\ref{ssec:explanations-mental-model-formation}). The \ac{DP} therefore serves \textbf{DR1}, by making the system's actions more comprehensible to each individual user.
 
     % former DP-G
-    \item \textbf{Clearly state system capabilities and limitations}, clarify the system's capabilities and particularly its limitations to the user during the conversation. This \ac{DP} is motivated by the observation that participants attributed capabilities to the system, without factual basis (pattern code \textit{attributing capability to LLM}). A good example is the expectation, that the \ac{LLM} draws the same conclusion from the provided image: \enquote{aber eigentlich hat er ja das Bild} [but he does have the image] (ID: \texttt{11.014.1}). The attempts to get the \ac{LLM} to solve the maths problems are a prominent example, where the system should clearly state its limitations. By clearly communicating capabilities and limitations, the user expectations about system capabilities are managed fulfilling \textbf{DR2} \parencite[cf.][]{Amershi2019}.
+    \item \textbf{Clearly state system limitations}, to the user during the conversation. This \ac{DP} is motivated by the observation that participants attributed capabilities to the system, without factual basis (pattern code \textit{attributing capability to LLM}). A good example is the expectation, that the \ac{LLM} draws the same conclusion from the provided image: \enquote{aber eigentlich hat er ja das Bild} [but he does have the image] (ID: \texttt{11.014.1}). The attempts to get the \ac{LLM} to solve the maths problems are a prominent example, where the system should clearly state its limitations. By clearly communicating limitations, the user expectations about system capabilities are managed fulfilling \textbf{DR2} \parencite[cf.][]{Amershi2019}.
 
     % former DP-H
     \item \textbf{Support error detection}, focuses on supporting the user in detecting and attributing errors. This \ac{DP} is anchored in the observation, that users accepted system advice heuristically (as evidenced by the share of heuristic uptake described above). Highlighting the source (e.g. task given, user-provided, externally-retrieved, etc.) of a piece of information in the system response could invite more scrutiny by the users. Additionally, the \ac{LLM} also accepted user input, even if it conflicted with previous inputs. The most prominent example of this behaviour is, when the system adopted a sign error by P08 signalling endorsement \parencite[cf.][]{Sharma2024} of the change. The participant later explicitly commented \enquote{Schade, dass er solche Logikfehler nicht erkennt.} [Shame he doesn't recognise such logical errors.] (ID: \texttt{08.048.6}). This design principle serves to fulfil \textbf{DR1} and \textbf{DR3} by providing sources for information \parencite[cf.][]{Steyvers2025}, and \textbf{DR4} by surfacing conflicting information to the user.
@@ -264,7 +264,7 @@ The six design principles are not fully independent. Instead, several \acp{DP} a
 
         % ---- Design principles ----
         \node[dpbox] (dp1) at (17,3.5)  {\textbf{DP-A:}~Re-use the user's own task vocabulary};
-        \node[dpbox] (dp2) at (17,2.0)  {\textbf{DP-B:}~Clearly state system capabilities and limitations};
+        \node[dpbox] (dp2) at (17,2.0)  {\textbf{DP-B:}~Clearly state system limitations};
         \node[dpbox] (dp3) at (17,0.75)  {\textbf{DP-C:}~Support error detection};
         \node[dpbox] (dp4) at (17,-0.5) {\textbf{DP-D:}~Make system assumptions inspectable and correctable};
         \node[dpbox] (dp5) at (17,-2) {\textbf{DP-E:}~Establish request purpose before querying};
@@ -368,8 +368,8 @@ In the following the results for each \ac{DP} are discussed in detail, including
         Three of the four experts mapped the \ac{DP} to \textbf{DR1}, with two adding \textbf{DR5} alongside it. E04 was the outlier, mapping the \ac{DP} to \textbf{DR2}, arguing that assigning a role creates user expectations regarding the system's capabilities. This shows the \ac{DP} is very \textit{accessible}. The \ac{DP}-specific discussion questions showed, experts found the \ac{DP} to be \textit{actable} and \textit{important}, but not particularly \textit{novel}, calling it existing behaviour. During the discussion, E01 and E04 raised the risks of sycophancy and anthropomorphism, respectively. They warned that mirroring the user's vocabulary could lead to reduced scrutiny and an increased tendency to anthropomorphise the system. These risks are also raised in the literature \parencite{Sharma2024, Colombatto2025}, leading to the conclusion that the \ac{DP} should be revised to mitigate these risks.
 
     % former DP-G
-    \item \textbf{Clearly state system capabilities and limitations} \\
-        All four experts agreed, that \textbf{DP-B} addresses \textbf{DR2}, with the caveat that two required clarifications, before being able to map the \ac{DP}. This speaks to a good \textit{accessibility}, with improvement potential in the mechanism, which caused both clarification questions. Experts agreed, that the \textit{novelty} of the \ac{DP} was limited. Experts suggestions for implementation almost all shared the idea of tweaking the vocabulary the model uses in its responses, indicating clear \textit{actability}. It will be revised by rewording the mechanism of the \ac{DP} to focus on the system's own disclosure of its capabilities and limitations.
+    \item \textbf{Clearly state system limitations} \\
+        All four experts agreed, that \textbf{DP-B} addresses \textbf{DR2}, with the caveat that two required clarifications, before being able to map the \ac{DP}. This speaks to a good \textit{accessibility}, with improvement potential in the mechanism, which caused both clarification questions. Experts agreed, that the \textit{novelty} of the \ac{DP} was limited. Experts suggestions for implementation almost all shared the idea of tweaking the vocabulary the model uses in its responses, indicating clear \textit{actability}. It will be revised by rewording the mechanism of the \ac{DP} to focus on the system's own disclosure of its limitations.
         % This sentence belongs in the discussion; contrast deliberate choice for analogy with anthropophormism risk
         % During the open discussion, E03 raised that while the use of certain verbs (e.g., \enquote{thinking} or \enquote{reasoning}) invite anthropomorphism, they can be also understood as analogies.
 
@@ -379,7 +379,7 @@ In the following the results for each \ac{DP} are discussed in detail, including
 
     % former DP-C
     \item \textbf{Make system assumptions inspectable and correctable} \\
-        All experts mapped \textbf{DP-D} to \textbf{DR3}, showing uniform disagreement with the proposed mapping. This can be interpreted as an \textit{accessibility} problem, but due to the uniformity of the mapping and an absence of any clarifying questions asked by experts, a reevaluation of the proposed mapping is warranted. Implementation concepts converged on the idea of highlighting assumptions in the system's response using uncertainty as a determinant, e.g. by using hedging language or confidence scores. This indicates that the \ac{DP} is \textit{actable}. It is however noteworthy, that the idea of self-reporting confidence is currently contested in literature \parencite{Kapoor2024}.
+        All experts mapped \textbf{DP-D} to \textbf{DR3}, showing uniform disagreement with the proposed mapping. The uniformity of the mapping and the lack of clarifying questions, suggest that this is not an \textit{accessibility} problem. Instead, the \ac{DR}-mapping of this \ac{DP} will be reevaluated. Implementation concepts converged on the idea of highlighting assumptions in the system's response using uncertainty as a determinant, e.g. by using hedging language or confidence scores. This indicates that the \ac{DP} is \textit{actable}. It is however noteworthy, that the idea of self-reporting confidence is currently contested in literature \parencite{Kapoor2024}.
         % \textcite{Kazemitabaar2024} implemented a comparable feature that extracted problem relevant information and provided them in an editable manner, reporting positive user feedback as a key result.
         % The E03 remark again is something for the discussion. It was voiced during the same excahnge about the verb choices
         % E03 reported that they personally avoid reasoning traces due to low information density and accuracy, providing anecdotal evidence to the findings of \textcite{Lyu2023}. More importantly this remark is direct commentary on the value of \ac{CoT} explanations.
@@ -399,29 +399,29 @@ During the mapping exercise, E01, E03, and E04 all asked about the term \enquote
 
 The findings from Section~\ref{sssec:interview-results} were used to revise the existing \ac{DP}. The final DP are presented in this section using the reduced Gregor format described in Section~\ref{ssec:thesis-methodology}. Specifying the \textbf{context} of the DP, is omitted because the context is identically scoped to a collaborative problem-solving setting, where a user is assisted by an \ac{LLM}. Each final DP is presented below in the same format, with the title at the top followed \textbf{implementer}, \textbf{aim}, \textbf{user}, \textbf{mechanism}, and \textbf{rationale} in tabular form.
 
-\textbf{DP-A} required substantial revision, to address experts concerns about anthropomorphic tendencies, when mirroring user vocabulary. The revised \textbf{DP1} broadens the scope from vocabulary-matching to adjusting the system's response behaviour to the user's demonstrated (or stated) expertise level. Broadening the mechanism allows the mechanism to still address user-specific comprehension \parencite{Shin2021}, while avoiding prescribing potentially sycophantic behaviour \parencite{Sharma2024}. The experiment transcripts provide an example of the challenges introduced, when the system's responses are not aligned with the user's expertise level (cf. ID \texttt{11.009.1} and \texttt{11.017.1}ff). The rationale for the revised \textbf{DP1} can be retained. The revised \textbf{DP1} continues to serve \textbf{DR1} and now also addresses \textbf{DR5}, as matching the user's expertise level reduces the effort required especially for users with lower expertise, who would otherwise need to infer the meaning of technical terms and concepts.
+\textbf{DP-A} required substantial revision, to address experts concerns about anthropomorphic tendencies, when mirroring user vocabulary. The revised \textbf{DP1} broadens the scope from vocabulary-matching to adjusting the system's response behaviour to the user's demonstrated (or stated) expertise level. Broadening the mechanism allows the mechanism to still address user-specific comprehension \parencite{Shin2021}, while avoiding prescribing potentially sycophantic behaviour \parencite{Sharma2024} and anthropomorphic tendencies \parencite[cf.][]{Weisz2025} raised by the experts. The experiment transcripts provide an example of the challenges introduced, when the system's responses are not aligned with the user's expertise level (cf. ID \texttt{11.009.1} and \texttt{11.017.1}ff). The rationale for the revised \textbf{DP1} can be retained. The revised \textbf{DP1} continues to serve \textbf{DR1} and now also addresses \textbf{DR5}, as matching the user's expertise level reduces the effort required especially for users with lower expertise, who would otherwise need to infer the meaning of technical terms and concepts.
 
 \designprinciple{DP1}{Adapt responses to user expertise}
     {For the \textit{developer} to adapt the \textit{system's responses} to the \textit{user's demonstrated expertise level}}
     {use the \textit{user's vocabulary and wording} as an initial signal of expertise, and \textit{adapt the complexity, technicality, and level of depth in subsequent responses} to match the user's demonstrated expertise}
-    {Because matching the user's expertise increases the intelligibility of the system's responses.}
+    {Because matching the user's expertise increases the understandability of the system's responses.}
 
-\textbf{DP-B} is functionally unchanged, but the mechanism is reworded, to improve the \textit{accessibility} of the \ac{DP}. The revised mechanism shifts the emphasis from the user's inference of system capabilities to the system's own disclosure of its capabilities and limitations. The rationale is unchanged, as managing user expectations about system capabilities reduces the likelihood of over- or under-reliance \parencite[cf.][]{Jussupow2021}. With the revised mechanism, the \ac{DP} continues to serve \textbf{DR2}.
+\textbf{DP-B} is functionally unchanged, but the mechanism is reworded, to improve the \textit{accessibility} of the \ac{DP}. The revised mechanism shifts the emphasis from the user's inference of system capabilities to the system's own disclosure of its limitations. The rationale is unchanged, as managing user expectations about system capabilities reduces the likelihood of over- or under-reliance \parencite[cf.][]{Jussupow2021}.
 
-\designprinciple{DP2}{Disclose system capabilities and limitations}
-    {For the \textit{developer} to tune the system to \textit{disclose its capabilities and limitations} to \textit{users} during the interaction}
+\designprinciple{DP2}{Disclose system limitations}
+    {For the \textit{developer} to tune the system to \textit{disclose its limitations} to \textit{users} during the interaction}
     {\textit{communicate the system's limitations} clearly when they become relevant to the current task}
     {Because not disclosing system limitations can lead to incorrect capabilities being inferred by the user.}
 
-\textbf{DP-C} is split into two separate principles to address the two distinct mechanisms identified through the interviews. The new \textbf{DP3} focuses on the information provenance mechanism, that provides sources for information, while the new \textbf{DP4} describes the surfacing of conflicts between established context and new user input. The \ac{DR}-mapping of the new principles still covers the same \acp{DR} as the original \textbf{DP-C}, but now with a more focused mechanism for each principle. \textbf{DP3} now helps fulfil \textbf{DR1} and \textbf{DR3}, as providing sources for information, allows users to better understand the system's use of information. \textbf{DP4} serves \textbf{DR4}, as surfacing conflicts between established context and new user input increases deliberate engagement.
+\textbf{DP-C} is split into two separate principles to address the two distinct mechanisms identified through the interviews. The new \textbf{DP3} focuses on the information provenance mechanism, that provides sources for information, to help the user estimate information accuracy and support validation \parencite[cf.][]{Steyvers2025}. \textbf{DP4} prescribes the surfacing of conflicts between established context and new user input, to prevent silent endorsement by the \ac{LLM} \parencite{Sharma2024}. \textbf{DP4} still carries the benefits of reducing the sycophancy risk noted by the experts. The \ac{DR}-mapping of the new principles still covers the same \acp{DR} as the original \textbf{DP-C}, but now with a more focused mechanism for each principle. \textbf{DP3} now helps fulfil \textbf{DR1} and \textbf{DR3}, as providing sources for information, allows users to better understand the system's use of information. \textbf{DP4} serves \textbf{DR4}, as surfacing conflicts between established context and new user input increases deliberate engagement.
 
 \designprinciple{DP3}{Indicate information provenance}
-    {For the \textit{system} to \textit{increase the transparency of its information use} for \textit{users}}
-    {provide the \textit{source of each piece of information} in the system's response (e.g., user-provided, system-assumed, or externally retrieved).}
-    {Because indicating the source of information invites scrutiny of system-attributed claims rather than heuristic acceptance, increasing both the intelligibility of the system's use of information and the verifiability of individual claims}
+    {For the \textit{developer} to \textit{increase the understandability of the system} for \textit{users}}
+    {provide the \textit{sources of information} in the system's response (e.g., user-provided, system-assumed, or externally retrieved).}
+    {Because indicating the source of information invites scrutiny of system-attributed claims rather than heuristic acceptance, increasing both the understandability of the system's use of information and the verifiability of individual claims}
 
 \designprinciple{DP4}{Surface conflicting information}
-    {For the \textit{system} to \textit{support the detection of errors} for \textit{users}}
+    {For the \textit{developer} to \textit{support the detection of user errors} for \textit{users}}
     {\textit{surface conflicts} between established information from the context and new user input.}
     {Because silently adopting contradicting input signals endorsement instead of inviting deliberation. Surfacing the conflict instead invites the user to deliberate whether the change is intended and warranted.}
 
@@ -432,26 +432,21 @@ The findings from Section~\ref{sssec:interview-results} were used to revise the 
     {provide an editable overview of the \textit{assumptions underlying the system's response}.}
     {Because surfacing assumptions enables users to validate the system's intermediate steps, increasing the verifiability and therefore also increasing the understandability of system behaviour. Making the assumptions editable allows users to easily correct them, reducing cognitive effort.}
 
-\textbf{DP-E} is kept intact as initially proposed. The concern about habituation raised by two experts are acknowledged, but the mechanism is kept unchanged, as the goal of the \ac{DP} is to increase friction to generate deliberate engagement. Possible habituation risks, have to be assessed on a case-by-case basis, as they depend on the specific implementation of the mechanism.
+Conceptually, \textbf{DP-E} remains unchanged, but the mechanism is reworded to improve the \textit{accessibility} of the \ac{DP}. The revised mechanism focuses on establishing the collaboration mode and the revised rationale addresses the intentionality of the friction introduced by the \ac{DP}, which was raised by the experts.
 
-% keep: refine mechanism against habituation risk
 \designprinciple{DP6}{Establish request purpose before querying}
-    {For the \textit{developer} to \textit{tune model behaviour} to for a \textit{user}'s needs}
+    {For the \textit{developer} to \textit{tune model behaviour} to a \textit{user}'s needs}
     {use a \textit{role taxonomy} to establish the collaboration mode with the user before the model responds.}
     {Because users often have clear expectations about the system's role and responses, that are not always clearly communicated to the system. Forcing users to implicitly (or explicitly) communicate their expectations before the system responds, improves the alignment of expectations.}
 
 \textbf{DP-F} is reworded completely to overcome the \textit{accessibility} issues identified during the interviews. The revised \textbf{DP7} uses plainer language omitting the concept of cognitive offloading in the mechanism and instead describing the offloading process.
 
-% reword completely: plainer language, same mechanism and DR
 \designprinciple{DP7}{Provide a shared notes space}
     {For the \textit{developer} to provide \textit{shared working surfaces} for the \textit{user}}
     {offer (task specific) \textit{inputs and outputs} separate from the main conversation.}
     {Because users will use externalisation / cognitive offloading, offering a system readable working surface reduces the cognitive effort by the users to track and communicate problem information to the system.}
 
-% \textbf{DP6} keeps its mechanism and its service of \textbf{DR5}; only the language changes. This was the least accessible of the six original principles, with three of four experts requiring correction before they understood the mechanism at all. The rewording above replaces \enquote{user-owned working surfaces} with plainer terms throughout, aiming to keep the principle short while removing the vague, abstract phrasing identified as the source of the comprehension failure.
-
-% TODO: This section needs some form of summary or anything to close out this section.
-Figure~\ref{fig:mr-dr-dp-mapping-revised} updates Figure~\ref{fig:mr-dr-dp-mapping} with the revised set of seven principles.
+Three \acp{DP} (\textbf{DP-B}, \textbf{DP-E}, \textbf{DP-F}) were reworded to improve \textit{accessibility}, without changing their mechanism, rationale, or \ac{DR}-mapping. The other three (\textbf{DP-A}, \textbf{DP-C}, \textbf{DP-D}) were revised, including an update to the \ac{DR}-mapping. Additionally, the sycophancy risk raised by the experts for \textbf{DP-A} is addressed in the revised set. Furthermore, due to unprompted expert feedback, the wording of \textbf{DR1} was also revised replacing \enquote{intelligibility} with \enquote{understandability}. The revised set of \acp{DP} is shown in Figure~\ref{fig:mr-dr-dp-mapping-revised}, which highlights rewording changes in blue and revised \ac{DP} in purple.
 
 \begin{figure}[ht]
     \centering
@@ -460,7 +455,10 @@ Figure~\ref{fig:mr-dr-dp-mapping-revised} updates Figure~\ref{fig:mr-dr-dp-mappi
         node distance=0pt,
         mrbox/.style={neutralnode, align=left, text width=5.1cm},
         drbox/.style={neutralnode, align=left, text width=6cm},
+        drboxword/.style={bluenode, align=left, text width=6cm},
         dpbox/.style={neutralnode, align=left, text width=6cm},
+        dpboxword/.style={bluenode, align=left, text width=6cm},
+        dpboxrev/.style={violetnode, align=left, text width=6cm},
         mr1line/.style={paletteblue, line width=1pt},
         mr2line/.style={palettered, line width=1pt},
         mr3line/.style={paletteochre, line width=1pt},
@@ -477,24 +475,24 @@ Figure~\ref{fig:mr-dr-dp-mapping-revised} updates Figure~\ref{fig:mr-dr-dp-mappi
         \node[mrbox] (mr3) at (0,-2.3) {\textbf{MR3:}~Support appropriate cognitive engagement};
 
         % ---- Design requirements ----
-        \node[drbox] (dr1) at (8,3.0)  {\textbf{DR1:}~Increase understandability of system behaviour};
+        \node[drboxword] (dr1) at (8,3.0)  {\textbf{DR1:}~Increase understandability of system behaviour};
         \node[drbox] (dr2) at (8,1.5)  {\textbf{DR2:}~Align capability expectations with actual system capability};
         \node[drbox] (dr3) at (8,0.0)  {\textbf{DR3:}~Increase verifiability of system outputs};
         \node[drbox] (dr4) at (8,-1.5) {\textbf{DR4:}~Increase deliberate engagement at consequential decision points};
         \node[drbox] (dr5) at (8,-3.0) {\textbf{DR5:}~Decrease cognitive effort of interpreting system outputs};
 
         % ---- Design principles (revised, seven total) ----
-        \node[dpbox] (dp1)  at (17,4.0)  {\textbf{DP1:}~Adapt responses to user expertise};
-        \node[dpbox] (dp2)  at (17,2.6)  {\textbf{DP2:}~Disclose system capabilities and limitations};
-        \node[dpbox] (dp3) at (17,1.2)  {\textbf{DP3:}~Indicate information provenance};
-        \node[dpbox] (dp4) at (17,-0.05)  {\textbf{DP4:}~Surface conflicting information};
-        \node[dpbox] (dp5)  at (17,-1.4) {\textbf{DP5:}~Make system assumptions inspectable and correctable};
-        \node[dpbox] (dp6)  at (17,-2.8) {\textbf{DP6:}~Establish request purpose before querying};
-        \node[dpbox] (dp7)  at (17,-4.05) {\textbf{DP7:}~Provide a shared notes space};
+        \node[dpboxrev] (dp1)  at (17,4.0)  {\textbf{DP1:}~Adapt responses to user expertise};
+        \node[dpboxword] (dp2)  at (17,2.6)  {\textbf{DP2:}~Disclose system limitations};
+        \node[dpboxrev] (dp3) at (17,1.2)  {\textbf{DP3:}~Indicate information provenance};
+        \node[dpboxrev] (dp4) at (17,-0.05)  {\textbf{DP4:}~Surface conflicting information};
+        \node[dpboxrev] (dp5)  at (17,-1.4) {\textbf{DP5:}~Make system assumptions inspectable and correctable};
+        \node[dpboxword] (dp6)  at (17,-2.8) {\textbf{DP6:}~Establish request purpose before querying};
+        \node[dpboxword] (dp7)  at (17,-4.05) {\textbf{DP7:}~Provide a shared notes space};
 
         % ---- Column headings ----
         \node[font=\bfseries] at (0.0,5.0) {Meta-Requirements};
-        \node[font=\bfseries] at (8.5,5.0) {Design Requirements};
+        \node[font=\bfseries] at (8.0,5.0) {Design Requirements};
         \node[font=\bfseries] at (17.0,5.0) {Design Principles};
 
         % ---- MR -> DR edges, unchanged from Figure~\ref{fig:mr-dr-dp-mapping} ----
@@ -522,8 +520,7 @@ Figure~\ref{fig:mr-dr-dp-mapping-revised} updates Figure~\ref{fig:mr-dr-dp-mappi
         \draw[dr5line]          (dr5.east) -- (dp7.west);
     \end{tikzpicture}%
     }
-    % TODO: implement highlighting for revised DPs in blue (border + background)
-    \caption[Revised design principles]{The revised design principles mapped onto the design requirements which they fulfil. Adjusted \ac{DP} are highlighted in blue.}
+    \caption[Revised design principles]{The revised design principles mapped onto the design requirements which they fulfil. Rewording changes are highlighted in blue, revised \ac{DP} in purple.}
     \label{fig:mr-dr-dp-mapping-revised}
 \end{figure}
 

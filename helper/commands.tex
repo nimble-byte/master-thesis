@@ -42,14 +42,16 @@
 % 5. Rationale
 \newcommand{\designprinciple}[5]{%
     \begin{dpbox}
-        \textbf{\textcolor{paletteblue}{#1: #2}}\\[8pt]
+        \textbf{\textcolor{paletteblue}{#1: #2}}\\
         \setlength{\tabcolsep}{8pt}
         \renewcommand{\arraystretch}{1.2}
-        \begin{tabularx}{\linewidth}{@{}l|X}
+        \setlength{\LTpre}{0pt}
+        \setlength{\LTpost}{0pt}
+        \begin{xltabular}{\linewidth}{@{}l|X@{}}
             \textbf{Implementer, Aim, User} & #3 \\[4pt]
             \textbf{Mechanism} & #4 \\[4pt]
             \textbf{Rationale} & #5 \\
-        \end{tabularx}
+        \end{xltabular}
     \end{dpbox}
 }
 
