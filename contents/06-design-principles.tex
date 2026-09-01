@@ -218,18 +218,19 @@ From the data structure presented above, a total of six \acp{DP} were derived us
     \item \textbf{Clearly state system limitations}, to the user during the conversation. This \ac{DP} is motivated by the observation that participants attributed capabilities to the system, without factual basis (pattern code \textit{attributing capability to LLM}). A good example is the expectation, that the \ac{LLM} draws the same conclusion from the provided image: \enquote{aber eigentlich hat er ja das Bild} [but he does have the image] (ID: \texttt{11.014.1}). The attempts to get the \ac{LLM} to solve the maths problems are a prominent example, where the system should clearly state its limitations. By clearly communicating limitations, the user expectations about system capabilities are managed fulfilling \textbf{DR2} \parencite[cf.][]{Amershi2019}.
 
     % former DP-H
-    \item \textbf{Support error detection}, focuses on supporting the user in detecting and attributing errors. This \ac{DP} is anchored in the observation, that users accepted system advice heuristically (as evidenced by the share of heuristic uptake described above). Highlighting the source (e.g. task given, user-provided, externally-retrieved, etc.) of a piece of information in the system response could invite more scrutiny by the users. Additionally, the \ac{LLM} also accepted user input, even if it conflicted with previous inputs. The most prominent example of this behaviour is, when the system adopted a sign error by P08 signalling endorsement \parencite[cf.][]{Sharma2024} of the change. The participant later explicitly commented \enquote{Schade, dass er solche Logikfehler nicht erkennt.} [Shame he doesn't recognise such logical errors.] (ID: \texttt{08.048.6}). This design principle serves to fulfil \textbf{DR1} and \textbf{DR3} by providing sources for information \parencite[cf.][]{Steyvers2025}, and \textbf{DR4} by surfacing conflicting information to the user.
+    \item \textbf{Support error detection}, focuses on supporting the user in detecting and attributing errors. This \ac{DP} is anchored in the observation, that users accepted system advice heuristically (as evidenced by the share of heuristic uptake described above). Highlighting the source (e.g., task given, user-provided, externally-retrieved, etc.) of a piece of information in the system response could invite more scrutiny by the users. Additionally, the \ac{LLM} also accepted user input, even if it conflicted with previous inputs. The most prominent example of this behaviour is, when the system adopted a sign error by P08 signalling endorsement \parencite[cf.][]{Sharma2024} of the change. The participant later explicitly commented \enquote{Schade, dass er solche Logikfehler nicht erkennt.} [Shame he doesn't recognise such logical errors.] (ID: \texttt{08.048.6}). This design principle serves to fulfil \textbf{DR1} and \textbf{DR3} by providing sources for information \parencite[cf.][]{Steyvers2025}, and \textbf{DR4} by surfacing conflicting information to the user.
 
     % former DP-C
     \item \textbf{Make system assumptions inspectable and correctable}, is founded on the observation that participants frequently detected (perceived) errors in the system's assumptions. The data for \textit{Mental Model \& Updates} shows that participants validate the system's outputs by seeking and validating assumptions in the response. The most prominent example is a participant stating \enquote{Deine Annahme \ldots ist falsch} [Your assumption \ldots is wrong] (ID: \texttt{08.016.1}) in a message to the \ac{LLM}, followed by a correction. This \ac{DP} also leans on the finding that Group E participants are more likely to deliberate on the system's outputs than Group B participants, as evidenced by the lower heuristic uptake share (17.4\% against 36.0\%). Similar to \ac{CoT} explanations, surfacing assumptions exposes the system's internal state, which is then deliberated on by the user. The mechanism seeks to prevent the failure mode \textit{\ac{AI}-based confirmation} by supporting conscious deliberation \parencite{Jussupow2021}. This \ac{DP} serves \textbf{DR1}, by making the system's actions more comprehensible \parencite[cf.][]{Amershi2019}, and \textbf{DR5}, by reducing the effort otherwise required to infer why the system behaved as it did.
 
     % former DP-A
-    \item \textbf{Establish request purpose before querying}, aims to force users to deliberately consider what kind of support they are expecting from the system before issuing a request. This \ac{DP} is primarily motivated by two related failure patterns, in which a lack of established expectations or purpose leads to dissatisfaction with the system's response. In the first pattern, participants did not articulate a role at all, to then express their dissatisfaction with the system's response in retrospect, e.g. \enquote{hat es mir jetzt nicht so viel weiter geholfen} [It didn't help me much] (ID: \texttt{10.007.1}). In a related pattern, participants explicitly articulated a query that was incompatible with the system's instructions, which instructed it explicitly not to solve the maths problems (cf. \textbf{CR1}, Section~\ref{sssec:model-selection}), e.g. \enquote{löse es [Gleichungssystem] mir auf und berechne die lösungen} [solve it for me and calculate the solutions] (ID: \texttt{03.024.1}). Both failure patterns can be explained by a lack of consideration (and communication), what is expected from the system. This is also supported by quantitative data: Of the 40 total codes in which participants committed to querying the system (\textit{deciding to ask LLM for guidance/information/verification/solution}), in 17 (42.5\%) the role was inferred from the statements' context rather than explicitly articulated. The principle is intended to address this failure by forcing users to consider and articulate the purpose/goal of their request before issuing it. This \ac{DP} fulfils \textbf{DR4}, by introducing friction at a consequential decision \parencite[cf.][]{Buinca2021, Weisz2025}. It also fulfils \textbf{DR2}, as establishing a role sets a corresponding expectation of behaviour and capability \parencite[cf.][]{Bansal2019}. When applied correctly, the \ac{DP} also helps to reduce cognitive load (\textbf{DR5}), as the improved alignment between request and response reduces the need for further deliberation.
+    \item \textbf{Establish request purpose before querying}, aims to force users to deliberately consider what kind of support they are expecting from the system before issuing a request. This \ac{DP} is primarily motivated by two related failure patterns, in which a lack of established expectations or purpose leads to dissatisfaction with the system's response. In the first pattern, participants did not articulate a role at all, to then express their dissatisfaction with the system's response in retrospect, e.g., \enquote{hat es mir jetzt nicht so viel weiter geholfen} [It didn't help me much] (ID: \texttt{10.007.1}). In a related pattern, participants explicitly articulated a query that was incompatible with the system's instructions, which instructed it explicitly not to solve the maths problems (cf. \textbf{CR1}, Section~\ref{sssec:model-selection}), e.g., \enquote{löse es [Gleichungssystem] mir auf und berechne die lösungen} [solve it for me and calculate the solutions] (ID: \texttt{03.024.1}). Both failure patterns can be explained by a lack of consideration (and communication), what is expected from the system. This is also supported by quantitative data: Of the 40 total codes in which participants committed to querying the system (\textit{deciding to ask LLM for guidance/information/verification/solution}), in 17 (42.5\%) the role was inferred from the statements' context rather than explicitly articulated. The principle is intended to address this failure by forcing users to consider and articulate the purpose/goal of their request before issuing it. This \ac{DP} fulfils \textbf{DR4}, by introducing friction at a consequential decision \parencite[cf.][]{Buinca2021, Weisz2025}. It also fulfils \textbf{DR2}, as establishing a role sets a corresponding expectation of behaviour and capability \parencite[cf.][]{Bansal2019}. When applied correctly, the \ac{DP} also helps to reduce cognitive load (\textbf{DR5}), as the improved alignment between request and response reduces the need for further deliberation.
 
     % former DP-E
     \item \textbf{Provide additional, user-owned working surfaces}, seeks to add additional interaction surfaces alongside the conversational interface, on which users can externalise and manipulate intermediate work. This \ac{DP} is motivated by the observation that participants frequently took notes. Depending on the specific use case, the conversational interface could even be provided as a secondary feature in a larger application, similar to how coding assistants like GitHub Copilot \parencite{GitHubInc2026} or Claude Code \parencite{AnthropicInc2026} are integrated into IDEs. This also aligns with a well documented behaviour called cognitive offloading \parencite{Risko2016}, which describes the tendency to manipulate the environment to support cognitive processes. Participants explicitly stated, they took notes to support their cognitive processes: \enquote{weil ich kann besser denken, wenn ich die Sachen tatsächlich daran schreibe} [because I can think better when I actually write things down] (ID: \texttt{05.025.2}). An \ac{LLM}-readable surface allows the system to access and incorporate the user's intermediate work, reducing the need for manual tracking and re-statement of the information, helping to fulfil \textbf{DR5}.
 \end{enumerate}
 
+% FIXME: revisit the notion regarding DR3
 The six design principles are not fully independent. Instead, several \acp{DP} address the same \ac{DR}, but do so through distinct mechanisms and distinct empirical anchors, making their coverage complementary rather than redundant. \textbf{DR2} is addressed by both \textbf{DP-E} and \textbf{DP-B}, but from opposite directions in the interaction: \textbf{DP-E} aligns expectations before a request is issued, while \textbf{DP-B} aligns them through the system's own disclosure during the response. Similarly, \textbf{DR1} is addressed by \textbf{DP-D}, \textbf{DP-A}, and \textbf{DP-C}, each concerned with a different category of content: system assumptions, task vocabulary, and information provenance. \textbf{DR3} is the only design requirement addressed by a single principle, \textbf{DP-C}, which will be addressed alongside the explanation mechanism gap in Section~\ref{ssec:uncovered-design-space}. Figure~\ref{fig:mr-dr-dp-mapping} summarises the resulting mapping between the meta-requirements, design requirements, and the six initial design principles.
 
 \begin{figure}[ht]
@@ -252,7 +253,7 @@ The six design principles are not fully independent. Instead, several \acp{DP} a
     ]
         % ---- Meta-requirements ----
         \node[mrbox] (mr1) at (0,2.3)  {\textbf{MR1:}~Support accurate ToM attribution};
-        \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable calibrated reliance};
+        \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable appropriate reliance};
         \node[mrbox] (mr3) at (0,-2.3) {\textbf{MR3:}~Support appropriate cognitive engagement};
 
         % ---- Design requirements ----
@@ -276,13 +277,16 @@ The six design principles are not fully independent. Instead, several \acp{DP} a
         \node[font=\bfseries] at (17,4.7) {Design Principles};
 
         % ---- MR -> DR edges, coloured by source MR (cf. Figure~\ref{fig:mr-dr-mapping}) ----
-        \draw[mr1line] (mr1.east) -- (dr1.west);
-        \draw[mr1line] (mr1.east) -- (dr2.west);
-        \draw[mr2line] (mr2.east) -- (dr2.west);
-        \draw[mr2line] (mr2.east) -- (dr3.west);
-        \draw[mr2line] (mr2.east) -- (dr4.west);
-        \draw[mr3line] (mr3.east) -- (dr4.west);
-        \draw[mr3line] (mr3.east) -- (dr5.west);
+        \draw[mr1line]          (mr1.east) -- (dr1.west);
+        \draw[mr1line]          (mr1.east) -- (dr2.west);
+        \draw[mr2line]          (mr2.east) -- (dr1.west);
+        \draw[mr2line]          (mr2.east) -- (dr2.west);
+        \draw[mr2line]          (mr2.east) -- (dr3.west);
+        \draw[mr2line]          (mr2.east) -- (dr4.west);
+        \draw[mr3line]          (mr3.east) -- (dr1.west);
+        \draw[mr3line,partial]  (mr3.east) -- (dr3.west);
+        \draw[mr3line]          (mr3.east) -- (dr4.west);
+        \draw[mr3line]          (mr3.east) -- (dr5.west);
 
         % ---- DR -> DP edges, coloured by source DR; dotted where DP prose marks the service as partial ----
         \draw[dr1line]          (dr1.east) -- (dp1.west);
@@ -334,7 +338,7 @@ The semi-structure format allowed for the identical evaluation of the \ac{DP} ac
     \item \textbf{Closing Discussion:} After all \acp{DP} were discussed, a final set of questions was asked to evaluate the complete set of \acp{DP} to assess their \textit{effectiveness} \parencite{Iivari2021} and \textit{deficit} \parencite{Janiesch2020}. A question to assess \textit{redundancy} and \textit{excess} was planned, but omitted due to an oversight in the interview guide. The interview was closed with two open questions to allow the expert to provide any additional feedback.
 \end{enumerate}
 
-\textbf{Accessibility} \parencite[cf.][]{Iivari2021} was not assessed using a dedicated question, but instead inferred from the discussion of each \ac{DP} and the expert's \ac{DR}-mapping. Two key indicators were used to operationalise accessibility: Firstly, a qualitative measure, based on the clarification-seeking questions raised by the expert during the discussion (e.g.\ requesting the meaning of a term or an example). Secondly, a quantitative measure, based on the agreement between the expert's stated \ac{DR}-mapping and the mapping intended by the derivation in Section~\ref{ssec:initial-design-principles}. The criterion of \textbf{overload} \parencite[cf.][]{Janiesch2020} was not assessed directly, but an indirect signal can be inferred from the actability question, based on the variance in experts' understanding of the mechanism. The complete set of questions asked during the interviews is provided in the Appendix.
+\textbf{Accessibility} \parencite[cf.][]{Iivari2021} was not assessed using a dedicated question, but instead inferred from the discussion of each \ac{DP} and the expert's \ac{DR}-mapping. Two key indicators were used to operationalise accessibility: Firstly, a qualitative measure, based on the clarification-seeking questions raised by the expert during the discussion (e.g., requesting the meaning of a term or an example). Secondly, a quantitative measure, based on the agreement between the expert's stated \ac{DR}-mapping and the mapping intended by the derivation in Section~\ref{ssec:initial-design-principles}. The criterion of \textbf{overload} \parencite[cf.][]{Janiesch2020} was not assessed directly, but an indirect signal can be inferred from the actability question, based on the variance in experts' understanding of the mechanism. The complete set of questions asked during the interviews is provided in the Appendix.
 
 \subsubsection{Result Summary} \label{sssec:interview-results}
 
@@ -379,7 +383,7 @@ In the following the results for each \ac{DP} are discussed in detail, including
 
     % former DP-C
     \item \textbf{Make system assumptions inspectable and correctable} \\
-        All experts mapped \textbf{DP-D} to \textbf{DR3}, showing uniform disagreement with the proposed mapping. The uniformity of the mapping and the lack of clarifying questions, suggest that this is not an \textit{accessibility} problem. Instead, the \ac{DR}-mapping of this \ac{DP} will be reevaluated. Implementation concepts converged on the idea of highlighting assumptions in the system's response using uncertainty as a determinant, e.g. by using hedging language or confidence scores. This indicates that the \ac{DP} is \textit{actable}. It is however noteworthy, that the idea of self-reporting confidence is currently contested in literature \parencite{Kapoor2024}.
+        All experts mapped \textbf{DP-D} to \textbf{DR3}, showing uniform disagreement with the proposed mapping. The uniformity of the mapping and the lack of clarifying questions, suggest that this is not an \textit{accessibility} problem. Instead, the \ac{DR}-mapping of this \ac{DP} will be reevaluated. Implementation concepts converged on the idea of highlighting assumptions in the system's response using uncertainty as a determinant, e.g., by using hedging language or confidence scores. This indicates that the \ac{DP} is \textit{actable}. It is however noteworthy, that the idea of self-reporting confidence is currently contested in literature \parencite{Kapoor2024}.
         % \textcite{Kazemitabaar2024} implemented a comparable feature that extracted problem relevant information and provided them in an editable manner, reporting positive user feedback as a key result.
         % The E03 remark again is something for the discussion. It was voiced during the same excahnge about the verb choices
         % E03 reported that they personally avoid reasoning traces due to low information density and accuracy, providing anecdotal evidence to the findings of \textcite{Lyu2023}. More importantly this remark is direct commentary on the value of \ac{CoT} explanations.
@@ -471,7 +475,7 @@ Three \acp{DP} (\textbf{DP-B}, \textbf{DP-E}, \textbf{DP-F}) were reworded to im
     ]
         % ---- Meta-requirements ----
         \node[mrbox] (mr1) at (0,2.3)  {\textbf{MR1:}~Support accurate ToM attribution};
-        \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable calibrated reliance};
+        \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable appropriate reliance};
         \node[mrbox] (mr3) at (0,-2.3) {\textbf{MR3:}~Support appropriate cognitive engagement};
 
         % ---- Design requirements ----
@@ -496,13 +500,16 @@ Three \acp{DP} (\textbf{DP-B}, \textbf{DP-E}, \textbf{DP-F}) were reworded to im
         \node[font=\bfseries] at (17.0,5.0) {Design Principles};
 
         % ---- MR -> DR edges, unchanged from Figure~\ref{fig:mr-dr-dp-mapping} ----
-        \draw[mr1line] (mr1.east) -- (dr1.west);
-        \draw[mr1line] (mr1.east) -- (dr2.west);
-        \draw[mr2line] (mr2.east) -- (dr2.west);
-        \draw[mr2line] (mr2.east) -- (dr3.west);
-        \draw[mr2line] (mr2.east) -- (dr4.west);
-        \draw[mr3line] (mr3.east) -- (dr4.west);
-        \draw[mr3line] (mr3.east) -- (dr5.west);
+        \draw[mr1line]          (mr1.east) -- (dr1.west);
+        \draw[mr1line]          (mr1.east) -- (dr2.west);
+        \draw[mr2line]          (mr2.east) -- (dr1.west);
+        \draw[mr2line]          (mr2.east) -- (dr2.west);
+        \draw[mr2line]          (mr2.east) -- (dr3.west);
+        \draw[mr2line]          (mr2.east) -- (dr4.west);
+        \draw[mr3line]          (mr3.east) -- (dr1.west);
+        \draw[mr3line,partial]  (mr3.east) -- (dr3.west);
+        \draw[mr3line]          (mr3.east) -- (dr4.west);
+        \draw[mr3line]          (mr3.east) -- (dr5.west);
 
         % ---- DR -> DP edges, revised ----
         \draw[dr1line]          (dr1.east) -- (dp1.west);

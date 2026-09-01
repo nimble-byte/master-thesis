@@ -17,6 +17,7 @@
 \usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{xltabular}
+\usepackage{tocloft}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, fit, backgrounds, matrix, calc}
@@ -68,7 +69,10 @@
 \usepackage{csquotes}
 
 % APA Style für Bibtex
-\usepackage[style=apa,natbib=true,backend=biber]{biblatex}
+\usepackage[style=apa,backend=biber]{biblatex}
+% patch ISBNs
+\usepackage{xpatch}
+  \xpretobibmacro{doi+url}{\printfield{isbn}}{}{}
 
 \DefineBibliographyStrings{english}{
   bibliography = {References},
@@ -110,7 +114,7 @@
       {Master Applied Computer Science}                                    % Studiengang
       {Master Thesis}                                                      % Art der Arbeit
       {23.02.2026}                                                         % Tag der Anmeldung
-      {24.08.2026}                                                         % Tag der Abgabe
+      {15.09.2026}                                                         % Tag der Abgabe
       {Prof. Dr. Christian Janiesch}                                       % Name des Erstgutachters
       {M. Sc. Pauline Speckmann}                                             % Name des Zweitgutachters
 
@@ -139,10 +143,12 @@
     \setcounter{page}{3}
 
 \addcontentsline{toc}{section}{\listfigurename}
+\renewcommand{\cftfigfont}{\figurename~}
 \listoffigures
 \clearpage
 
 \addcontentsline{toc}{section}{\listtablename}
+\renewcommand{\cfttabfont}{\tablename~}
 \listoftables
 \clearpage
 
