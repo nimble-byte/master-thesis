@@ -2,8 +2,10 @@
 \newcommand*{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
 \newcommand{\tablespacing}{
-    \setlength{\tabcolsep}{12pt}
-    \renewcommand{\arraystretch}{1.5}
+    % column separation
+    % \setlength{\tabcolsep}{4pt}
+    % vertical spacing (increases row height)
+    \renewcommand{\arraystretch}{1.25}
 }
 
 \newenvironment{ctable}[1][ht]{
@@ -43,13 +45,15 @@
 \newcommand{\designprinciple}[5]{%
     \begin{dpbox}
         \textbf{\textcolor{paletteblue}{#1: #2}}\\
-        \setlength{\tabcolsep}{8pt}
-        \renewcommand{\arraystretch}{1.2}
+
+        % \setlength{\tabcolsep}{8pt}
+        \renewcommand{\arraystretch}{1.1}
         \setlength{\LTpre}{0pt}
         \setlength{\LTpost}{0pt}
-        \begin{xltabular}{\linewidth}{@{}l|X@{}}
-            \textbf{Implementer, Aim, User} & #3 \\[4pt]
-            \textbf{Mechanism} & #4 \\[4pt]
+
+        \begin{xltabular}{\linewidth}{@{}lX@{}}
+            \textbf{Implementer, Aim, User} & #3 \\
+            \textbf{Mechanism} & #4 \\
             \textbf{Rationale} & #5 \\
         \end{xltabular}
     \end{dpbox}

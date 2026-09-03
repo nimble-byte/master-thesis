@@ -85,12 +85,14 @@ Insights from cognitive psychology further sharpen this terminology. Explanation
 
 \begin{ctable}
     \centering
-    \begin{tabularx}{\textwidth}{l|X|X|X}
+    \begin{tabularx}{\textwidth}{l l X X}
+        \toprule
         \textbf{Question} & \textbf{Reasoning} & \textbf{Description} & \textbf{Example} \\
-        \hline
+        \midrule
         What & Associative & Reasons about which unobserved events may have occurred to cause the observed outcome. & Explanation of which features contributed to the recommendation made. \\
         How & Interventionist & Simulates a change in the situation to assess whether the outcome would still occur. & Explanation of which features would need to change to alter the recommendation. \\
-        Why & Counterfactual & Compares alternative causes to explain why one outcome happened instead of another. & Explanation of which contrasts the actual recommendation with the most plausible alternative.
+        Why & Counterfactual & Compares alternative causes to explain why one outcome happened instead of another. & Explanation of which contrasts the actual recommendation with the most plausible alternative. \\
+        \bottomrule
     \end{tabularx}
     \caption[Types of Explanations]{Types of explanations as a product and associated reasoning, adapted from \textcite{Miller2019}.}
     \label{tab:question-types-explanations}
@@ -159,17 +161,19 @@ Before discussing \ac{ToM} it is important to introduce two general concepts fro
 
 \begin{ctable}
     \centering
-    \begin{tabular}{l|l|l}
+    \begin{tabular}{l l l}
+        \toprule
         & \textbf{Type 1} & \textbf{Type 2} \\
-        \hline
+        \midrule
         \multirow{2}{*}{\textbf{Common Characteristics}} & Autonomous & Deliberate \\
         & Intuitive & Controlled \\
-        \hline
+        \midrule
         \multirow{5}{*}{\textbf{Varying Characteristics}} & Fast & Slow \\
         & Parallel & Serial \\
         & Non-conscious & Conscious \\
         & Biased responses & Normative responses \\
-        & Contextualized & Abstract
+        & Contextualized & Abstract \\
+        \bottomrule
     \end{tabular}
     \caption[Comparison of Type 1 and Type 2 processing]{Comparison of Type 1 and Type 2 processing in dual-process theory. The table differentiates characteristics commonly agreed upon in literature and ones that only find support in some models. \textit{Adapted from \textcite{Evans2013}}.}
     \label{tab:type1-type2-processing}
@@ -187,12 +191,16 @@ The core of \ac{ToM} is the understanding that individuals hold subjective menta
 
 \begin{ctable}
     \centering
-    \begin{tabularx}{\textwidth}{l|X}
+    \begin{tabularx}{\textwidth}{l X}
+        \toprule
         \textbf{Component} & \textbf{Example} \\
-        \hline
+        \midrule
         Beliefs & Alice believes that the coffee shop is open until 6PM. \\
+        \addlinespace
         Desires & Alice wants to get a speciality coffee this afternoon. \\
-        Intentions & (Based on her beliefs and desires) Alice intends to go to the coffee shop at 5PM to get a speciality coffee.
+        \addlinespace
+        Intentions & (Based on her beliefs and desires) Alice intends to go to the coffee shop at 5PM to get a speciality coffee. \\
+        \bottomrule
     \end{tabularx}
     \caption[Example of the BDI components]{Example illustrating the BDI components of Theory of Mind.}
     \label{tab:bdi-example}
@@ -203,16 +211,15 @@ others' representations may only consider certain aspects of reality while ignor
 
 \begin{ctable}[!ht]
     \centering
-    \begin{tabularx}{\textwidth}{l|X|X}
+    \begin{tabularx}{\textwidth}{l X X}
+        \toprule
         \textbf{Signature} & \textbf{Definition} & \textbf{Example} \\
-        \hline
+        \midrule
         Difference & Representing that others' perspectives may differ from one's own. & Alice sees that it is raining outside; Bob, who is inside, does not see the rain. Alice represents that Bob does not perceive the rain. \\
-        \hline
         Incompatibility & Representing that the content of others' perspectives can be incompatible with one's own. & Alice believes the meeting is scheduled for 15:00, while Bob believes it is scheduled for 16:00; their representations about the meeting time are incompatible. \\
-        \hline
         Misrepresentation & Representing that others' perspectives can be inaccurate or false. & Alice thinks her keys are on the kitchen table, but the keys were moved to her bag; Alice's representation is false relative to reality. \\
-        \hline
         Aspectuality & Representing that agents represent objects and situations under specific aspects. & Alice represents an object as a \enquote{toy car} (focusing on its function), while Bob represents the same object only by its colour (\enquote{red object}); Alice represents that Bob focuses on another aspect. \\
+        \bottomrule
     \end{tabularx}
     \caption[Meta-representation signatures]{Four signatures of meta-representation adapted from \textcite{Rakoczy2022}, with illustrative examples.}
     \label{tab:tom-signatures}

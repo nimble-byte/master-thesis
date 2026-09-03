@@ -187,9 +187,10 @@ It is important to note that dimensions have greatly varying sizes (with regard 
 
 \begin{ctable}
     \centering
-    \begin{tabularx}{\textwidth}{X|l|l|l}
+    \begin{tabularx}{\textwidth}{X l l l}
+        \toprule
         \textbf{Aggregate Dimension} & \textbf{Statements} & \textbf{Count (E)} & \textbf{Count (B)} \\
-        \hline
+        \midrule
         Problem Cognition & 537 & 341 (63.5\%) & 196 (36.5\%)\\
         Metacognition & 325 & 193 (59.4\%) & 132 (40.6\%)\\
         Information Exchange & 248 & 167 (67.3\%) & 81 (32.7\%)\\
@@ -197,8 +198,9 @@ It is important to note that dimensions have greatly varying sizes (with regard 
         Mental Model \& Updates & 115 & 56 (48.7\%) & 59 (51.3\%)\\
         Organisation & 66 & 28 (42.4\%) & 38 (57.6\%)\\
         Emotional Expression & 54 & 23 (42.6\%) & 31 (57.4\%) \\
-        \hline
-        \textbf{Total} & \textbf{1466} & \textbf{888 (60.6\%)} & \textbf{578 (39.4\%)}
+        \midrule
+        \textbf{Total} & \textbf{1466} & \textbf{888 (60.6\%)} & \textbf{578 (39.4\%)} \\
+        \bottomrule
     \end{tabularx}
     \caption[Statement counts per aggregate dimension]{Statement counts per aggregate dimension, with the number of statements from each group and the corresponding share in parentheses.}
     \label{tab:statement-counts}
@@ -316,14 +318,16 @@ The six design principles derived in Section~\ref{ssec:initial-design-principles
 
 \begin{ctable}
     \centering
-    \begin{tabularx}{\textwidth}{l|l|X|l}
+    \begin{tabular}{c c c c}
+        \toprule
         \textbf{ID} & \textbf{Education} & \textbf{Current Role} & \textbf{Experience} \\
-        \hline
+        \midrule
         E01 & M.Sc. (\acs{HCI}) & PhD candidate (\acs{HAII}) & 8 months \\
         E02 & M.Sc. (CS) & PhD candidate (\acs{HCI}) & 8 months \\
         E03 & B.Sc. (CS) & Software Engineer \& Designer & 5 years \\
         E04 & M.Sc. (\acs{HCI}) & PhD candidate (\acs{HAII}) & 6 months \\
-    \end{tabularx}
+        \bottomrule
+    \end{tabular}
     \caption[Expert interview participants]{Overview of the four experts, including highest degree of education, current professional role, and years of experience in their current role.}
     \label{tab:expert-participants}
 \end{ctable}
@@ -347,16 +351,18 @@ The interview transcripts were evaluated after the interviews by filling an eval
 \begin{ctable}
     \centering
     % LTeX: enabled=false
-    \begin{tabularx}{\textwidth}{l|X|l|l|l|l}
+    \begin{tabular}{c c c c c c}
+        \toprule
         \textbf{DP} & \textbf{Reference} & \textbf{E01} & \textbf{E02} & \textbf{E03} & \textbf{E04} \\
-        \hline
+        \midrule
         \textbf{DP-A} & DR1 & DR1, \textcolor{paletteochre}{DR5} & DR1, \textcolor{paletteochre}{DR5} & DR1 & \textcolor{palettered}{DR2} \\
         \textbf{DP-B} & DR2 & DR2* & \textcolor{paletteochre}{DR1}, DR2 & DR2* & DR2 \\
         \textbf{DP-C} & DR1, DR3, DR4 & DR3, DR4 & DR3 & DR3 & DR3 \\
         \textbf{DP-D} & DR1, DR5 & \textcolor{palettered}{DR3} & \textcolor{palettered}{DR3} & \textcolor{palettered}{DR3} & \textcolor{palettered}{DR3} \\
         \textbf{DP-E} & DR2, DR4, (DR5) & DR2 & DR2 & \textcolor{palettered}{DR1} & \textcolor{paletteochre}{DR1}*, DR2 \\
-        \textbf{DP-F} & DR5 & \textcolor{paletteochre}{DR4}*, DR5* & \textcolor{palettered}{DR4} & DR5* & DR5* \\
-    \end{tabularx}
+        \textbf{DP-F} & DR5 & \textcolor{paletteochre}{DR4}* or DR5* & \textcolor{palettered}{DR4} & DR5* & DR5* \\
+        \bottomrule
+    \end{tabular}
     % LTeX: enabled=true
     \caption[Expert \ac{DR}-mapping of the initial design principles]{Expert-stated \ac{DR}-mapping for each initial \ac{DP}, against the mapping shown in Section~\ref{ssec:initial-design-principles}. \textcolor{paletteochre}{Ochre} marks an added \ac{DR}, \textcolor{palettered}{red} marks full deviation, and an asterisk marks a mapping voiced only after clarification.}
     \label{tab:dr-mapping-experts}
