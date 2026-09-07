@@ -37,14 +37,15 @@
 \newmdenv[style=dpstyle]{dpbox}
 
 % Parameter order:
+% 0. (optional) Box/title colour, default paletteblue
 % 1. Design Principle ID: DP1, DP2, ...
 % 2. Design Principle Title
 % 3. Implementer, Aim, User
 % 4. Mechanism
 % 5. Rationale
-\newcommand{\designprinciple}[5]{%
-    \begin{dpbox}
-        \textbf{\textcolor{paletteblue}{#1: #2}}\\
+\newcommand{\designprinciple}[6][paletteblue]{%
+    \begin{dpbox}[linecolor=#1]
+        \textbf{\textcolor{#1}{#2: #3}}\\
 
         % \setlength{\tabcolsep}{8pt}
         \renewcommand{\arraystretch}{1.1}
@@ -52,9 +53,9 @@
         \setlength{\LTpost}{0pt}
 
         \begin{xltabular}{\linewidth}{@{}lX@{}}
-            \textbf{Implementer, Aim, User} & #3 \\
-            \textbf{Mechanism} & #4 \\
-            \textbf{Rationale} & #5 \\
+            \textbf{Implementer, Aim, User} & #4 \\
+            \textbf{Mechanism} & #5 \\
+            \textbf{Rationale} & #6 \\
         \end{xltabular}
     \end{dpbox}
 }
