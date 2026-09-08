@@ -36,6 +36,7 @@
 }
 \newmdenv[style=dpstyle]{dpbox}
 
+
 % Parameter order:
 % 0. (optional) Box/title colour, default paletteblue
 % 1. Design Principle ID: DP1, DP2, ...
@@ -52,11 +53,13 @@
         \setlength{\LTpre}{0pt}
         \setlength{\LTpost}{0pt}
 
+        \edef\dpsavedtable{\number\value{table}}
         \begin{xltabular}{\linewidth}{@{}lX@{}}
             \textbf{Implementer, Aim, User} & #4 \\
             \textbf{Mechanism} & #5 \\
             \textbf{Rationale} & #6 \\
         \end{xltabular}
+        \setcounter{table}{\dpsavedtable}
     \end{dpbox}
 }
 
