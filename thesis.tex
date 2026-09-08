@@ -11,31 +11,38 @@
 \usepackage{palatino}
 \usepackage{blindtext}
 \usepackage{multirow}
+\usepackage{multicol}
 \usepackage[ruled,longend]{algorithm2e}
 \usepackage{float}
 \usepackage{tabularx}
-\usepackage{multirow}
+\usepackage{xltabular}
+\usepackage{booktabs}
+\usepackage{tocloft}
 
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, fit}
+\usetikzlibrary{arrows.meta, fit, backgrounds, matrix, calc}
 \definecolor{paletteblue}{HTML}{3B5A77}
 \definecolor{palettegrey}{HTML}{6B6B6B}
 \definecolor{palettered}{HTML}{8C3541}
 \definecolor{paletteochre}{HTML}{C19F38}
+\definecolor{palettegreen}{HTML}{4C7A5C}
+\definecolor{paletteviolet}{HTML}{6B4C6E}
 
 % ---- Shared TikZ styles for thesis figures ----
 \tikzset{
-  thesisnode/.style  = {thick, align=center, rounded corners, font=\footnotesize,
-                        minimum height=0.8cm, inner sep=6pt},
+  thesisnode/.style  = {thick, align=center, rounded corners, font=\footnotesize, minimum height=0.8cm, inner sep=6pt},
   neutralnode/.style = {thesisnode, draw=palettegrey, fill=palettegrey!6},
-  accentnode/.style  = {thesisnode, draw=paletteblue, line width=1pt,
-                        fill=paletteblue!6, text=paletteblue, font=\bfseries\small},
+  accentnode/.style  = {thesisnode, draw=paletteblue, line width=1pt, fill=paletteblue!6, text=paletteblue, font=\bfseries\small},
+  bluenode/.style     = {thesisnode, draw=paletteblue, line width=1pt, fill=paletteblue!6, text=paletteblue},
+  violetnode/.style  = {thesisnode, draw=paletteviolet, line width=1pt, fill=paletteviolet!6, text=paletteviolet},
   mainarr/.style     = {-{Latex[length=2.4mm, width=2mm]}, paletteblue, line width=1.1pt},
   normarr/.style     = {-{Latex[length=2mm, width=1.6mm]}, palettegrey, thick},
 }
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
+
+\usepackage[framemethod=tikz]{mdframed}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -62,7 +69,10 @@
 \usepackage{csquotes}
 
 % APA Style für Bibtex
-\usepackage[style=apa,natbib=true,backend=biber]{biblatex}
+\usepackage[style=apa,backend=biber]{biblatex}
+% patch ISBNs
+\usepackage{xpatch}
+  \xpretobibmacro{doi+url}{\printfield{isbn}}{}{}
 
 \DefineBibliographyStrings{english}{
   bibliography = {References},
@@ -104,9 +114,9 @@
       {Master Applied Computer Science}                                    % Studiengang
       {Master Thesis}                                                      % Art der Arbeit
       {23.02.2026}                                                         % Tag der Anmeldung
-      {24.08.2026}                                                         % Tag der Abgabe
+      {15.09.2026}                                                         % Tag der Abgabe
       {Prof. Dr. Christian Janiesch}                                       % Name des Erstgutachters
-      {Msc. Pauline Speckmann}                                             % Name des Zweitgutachters
+      {M. Sc. Pauline Speckmann}                                             % Name des Zweitgutachters
 
   \clearpage
 
@@ -133,10 +143,12 @@
     \setcounter{page}{3}
 
 \addcontentsline{toc}{section}{\listfigurename}
+\renewcommand{\cftfigfont}{\figurename~}
 \listoffigures
 \clearpage
 
 \addcontentsline{toc}{section}{\listtablename}
+\renewcommand{\cfttabfont}{\tablename~}
 \listoftables
 \clearpage
 

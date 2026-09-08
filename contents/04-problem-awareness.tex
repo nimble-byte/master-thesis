@@ -1,37 +1,37 @@
 \section{Problem Awareness} \label{sec:problem-awareness}
 
-This chapter establishes the meta-requirements that motivate the design principle space developed in Chapter~\ref{sec:design-principles}, through a hermeneutic literature review. Section~\ref{ssec:review-methodology} presents the review methodology, the resulting literature corpus, and the three thematic directions into which the corpus is organised. The subsequent sections discuss the corpus along these three directions: human-\ac{AI} interaction with \ac{GenAI} systems (Section~\ref{ssec:hai-genai}), the attribution of \ac{ToM} to \ac{AI} systems (Section~\ref{ssec:tom-attributions}), and explanations and mental model formation (Section~\ref{ssec:explanations-mental-model-formation}). The meta-requirements derived from these sections are synthesised in Section~\ref{ssec:meta-requirements}.
+This chapter establishes the \acp{MR} that motivate the design principle space developed in Chapter~\ref{sec:design-principles}, through a hermeneutic literature review. Section~\ref{ssec:review-methodology} presents the review methodology, the resulting literature corpus, and the three thematic directions into which the corpus is organised. The subsequent sections discuss the corpus along these three directions: human-\ac{GenAI} interactions (Section~\ref{ssec:hai-genai}), the attribution of \ac{ToM} to \ac{AI} systems (Section~\ref{ssec:tom-attributions}), and explanations and mental model formation (Section~\ref{ssec:explanations-mental-model-formation}). The \acp{MR} derived from these sections are synthesised in Section~\ref{ssec:meta-requirements}.
 
 \subsection{Review Methodology and Corpus} \label{ssec:review-methodology}
 
-The hermeneutic literature review is an interpretive, iterative approach to reviewing literature \parencite{Boell2014}. Rather than exhaustively searching a predefined corpus, the process begins with an initial set of works which is iteratively expanded through search and acquisition cycles \parencite{Boell2014}. During the search new works are discovered (e.g. by tracking citations) and then acquired if they contribute relevant additions to the corpus. The iterative movement between individual works and the evolving whole is the defining characteristic of the hermeneutic circle \parencite{Boell2014}. The process terminates when saturation is reached, i.e., when new sources cease to produce interpretively relevant additions to the corpus.
+The hermeneutic literature review is an interpretive, iterative approach to reviewing literature \parencite{Boell2014}. Rather than exhaustively searching a predefined corpus, the process begins with an initial set of works which is iteratively expanded through search and acquisition cycles \parencite{Boell2014}. During the search, new works are discovered (e.g., by tracking citations) and then acquired if they contribute relevant additions to the corpus. The iterative movement between individual works and the evolving whole is the defining characteristic of the hermeneutic circle \parencite{Boell2014}. The process terminates when saturation is reached, i.e., when new sources cease to produce interpretively relevant additions to the corpus.
 
-Due to the nascent state of the field the hermeneutic approach was uniquely suited for the review. This was reinforced by the interdisciplinary nature of the research topic, as well as practical constraints of a master's thesis scope. The starting corpus consisted of the four works introduced and discussed in Section~\ref{ssec:related-works}: \textcite{Weisz2025}, \textcite{Jussupow2021}, \textcite{Colombatto2025}, and \textcite{Ying2024}. Their relevance to this thesis had already been established, making them a natural starting point for the iterative expansion of the corpus.
+Due to the nascent state of the field, the hermeneutic approach was uniquely suited for the review. This was reinforced by the interdisciplinary nature of the research topic, as well as practical constraints of a master's thesis scope. The starting corpus consisted of the four works introduced and discussed in Section~\ref{ssec:related-works}: \textcite{Weisz2025}, \textcite{Jussupow2021}, \textcite{Colombatto2025}, and \textcite{Ying2024}. Their relevance to this thesis had already been established, making them a natural starting point for the iterative expansion of the corpus.
 
-The corpus was expanded primarily by tracing the citations of the starting corpus forward and backward \parencite[cf.][]{Boell2014}. Forward citation search was conducted using \href{https://scholar.google.com/}{Google Scholar}\footnote{https://scholar.google.com}, but yielded limited results due to the recency of the starting corpus, which is itself a reflection of the nascent state of the field. Backward citation search proved more productive: tracing the references of \textcite{Ying2024} led to \textcite{Shin2021}, whose references in turn led to \textcite{Arrieta2020} and \textcite{Miller2019}. \textcite{Amershi2019} was identified through \textcite{Weisz2025}'s related conference publication on the same design principle framework \parencite{Weisz2024}, which references it directly. \textcite{Hoffman2023} was identified through topical search rather than citation tracking.
+The corpus was expanded primarily by tracing the citations of the starting corpus forward and backwards \parencite[cf.][]{Boell2014}. Forward citation search was conducted using \href{https://scholar.google.com/}{Google Scholar}\footnote{https://scholar.google.com}, but yielded limited results due to the recency of the starting corpus, which is itself a reflection of the nascent state of the field. Backward citation search proved more productive: tracing the references of \textcite{Ying2024} led to \textcite{Shin2021}, whose references in turn led to \textcite{Arrieta2020} and \textcite{Miller2019}. \textcite{Amershi2019} was identified through \textcite{Weisz2025}'s related conference publication on the same design principle framework \parencite{Weisz2024}, which references it directly. \textcite{Hoffman2023} was identified through topical search rather than citation tracking.
 
-Search was bounded thematically to topics relevant to the meta-requirements of this thesis, as established in the previous chapters. Additionally, a temporal boundary was set to 2017 onward, marking the introduction of the transformer architecture \parencite{Vaswani2017} as the technical inflection point that enabled modern \ac{GenAI} systems \parencite{Schneider2024}. Seminal works predating this boundary were included where they provide theoretical foundations that have not been superseded. Saturation was considered reached when new sources were found to either duplicate positions already represented in the corpus or focus on implementation details rather than conceptual or empirical contributions relevant to the meta-requirements.
+The search was bounded thematically to topics relevant to the \acp{MR} of this thesis, as established in the previous chapters. Additionally, a temporal boundary was set to 2017 onward, marking the introduction of the transformer architecture \parencite{Vaswani2017} as the technical inflexion point that enabled modern \ac{GenAI} systems \parencite{Schneider2024}. Seminal works predating this boundary were included where they provide theoretical foundations that have not been superseded. Saturation was considered reached when new sources were found to either duplicate positions already represented in the corpus or focus on implementation details rather than conceptual or empirical contributions relevant to the \acp{MR}.
 
 The resulting corpus of nine works is organised into three thematic directions, which structure the remainder of this chapter:
 
 \begin{itemize}
-    \item \enquote{Human-\ac{AI} interaction with \ac{GenAI}}, covered in Section~\ref{ssec:hai-genai} and centred on \textcite{Weisz2025} and \textcite{Amershi2019}.
+    \item \enquote{Human-\ac{GenAI} interaction}, covered in Section~\ref{ssec:hai-genai} and centred on \textcite{Weisz2025} and \textcite{Amershi2019}.
     \item \enquote{Theory of Mind attributions to \ac{AI} systems}, covered in Section~\ref{ssec:tom-attributions} and centred on \textcite{Jussupow2021}, \textcite{Colombatto2025}, and \textcite{Ying2024}.
-    \item \enquote{Explanations and mental model formation}, covered in Section~\ref{ssec:explanations-mental-model-formation} and centred on \textcite{Miller2019}, \textcite{Shin2021}, \textcite{Hoffman2023}, and \textcite{Arrieta2020}.
+    \item \enquote{Explanations and mental model formation} is covered in Section~\ref{ssec:explanations-mental-model-formation} and centred on \textcite{Miller2019}, \textcite{Shin2021}, \textcite{Hoffman2023}, and \textcite{Arrieta2020}.
 \end{itemize}
 
 % TODO: If there is time, consider finding a second source that was excluded. The goal would be a "standard work" that is widely cited in the field but was excluded
-Saturation was reached with the inclusion of \textcite{Hoffman2023}, which provided new insights into the measurement of mental models and their relationship to explanations. Additional works \parencite[e.g.,][]{Baker2017} concerned themselves with the design of \ac{AI} systems with \ac{ToM} capabilities which is a related but distinct topic that was not included in the corpus as it did not contribute to the meta-requirements of this thesis.
+Saturation was reached with the inclusion of \textcite{Hoffman2023}, which provided new insights into the measurement of mental models and their relationship to explanations. Additional works \parencite[e.g.,][]{Baker2017} concerned themselves with the design of \ac{AI} systems with \ac{ToM} capabilities, which is a related but distinct topic that was not included in the corpus as it did not contribute to the \acp{MR} of this thesis.
 
 Beyond the corpus, additional sources are occasionally cited directly where they provide a concept relevant for understanding the corpus's arguments; such citations do not indicate inclusion in the hermeneutic corpus described above.
 
-\subsection{Human-AI Interaction with GenAI} \label{ssec:hai-genai}
+\subsection{Human-GenAI Interaction} \label{ssec:hai-genai}
 
 \textcite{Amershi2019} provide a set of 18 guidelines for human-\ac{AI} interaction grouped into four categories: guidelines relevant when a system is initially encountered, during regular interaction, when the system is wrong, and over time as the system is used repeatedly. The guidelines were developed through a review of over 150 design recommendations from the literature, and experimentally validated through a study with 49 \ac{HCI} practitioners who applied the guidelines to 20 AI-infused products. Guidelines such as \enquote{make clear what the system can do} (G1) and \enquote{make clear how well the system can do what it can do} (G2) \parencite{Amershi2019} remain intuitively relevant to \ac{GenAI} systems, as do most of the remaining 16. The breadth and empirical grounding of the guidelines means they retain considerable relevance for \ac{GenAI} systems, despite predating their widespread adoption.
 
 However, some guidelines take on heightened importance in the context of \ac{GenAI}, as the differences between discriminative and generative models (cf. Section~\ref{sssec:generative-vs-discriminative}) and the shift in user role (cf. Section~\ref{ssec:related-works}) introduce interaction challenges that existing guidelines did not originally anticipate. \enquote{Make clear why the system did what it did} (G11) \parencite{Amershi2019} becomes more important in this context, as the non-deterministic nature of \ac{GenAI} (cf. Section~\ref{sssec:generative-vs-discriminative}) violates the assumption of reproducible system behaviour \parencite{Weisz2025}. Similarly, \enquote{match relevant social norms} (G5) \parencite{Amershi2019} gains weight as natural language interfaces invite a kind of social interpretation that earlier, more narrowly scoped \ac{AI} products did not. To close this gap, \textcite{Weisz2025} propose a set of six design principles for \ac{GenAI} interaction, which incorporate and complement the existing guidelines while addressing the new challenges posed by \ac{GenAI} systems.
 
-Two of the developed design principles are of particular relevance for establishing this thesis's meta-requirements: \enquote{Design for Mental Models} (DP2) and \enquote{Design for Appropriate Trust and Reliance} (DP3) \parencite{Weisz2025}. The remainder of this section explores the challenges that motivate these two principles in more depth: the consequences of generative variability and anthropomorphism induced by natural language interfaces.
+Two of the developed design principles are of particular relevance for establishing this thesis's \acp{MR}: \enquote{Design for Mental Models} (DP2) and \enquote{Design for Appropriate Trust and Reliance} (DP3) \parencite{Weisz2025}. The remainder of this section explores the challenges that motivate these two principles in more depth: the consequences of generative variability and anthropomorphism induced by natural language interfaces.
 
 \subsubsection*{Generative Variability and Mental Model Formation Challenges}
 
@@ -47,7 +47,7 @@ Natural language is a defining property of many \ac{GenAI} systems, lowering the
 
 The appropriate response to this tendency is contested. \textcite{Weisz2025} report that \textcite{Shneiderman2023} argue anthropomorphic design should be avoided entirely, citing Microsoft's Clippy as a widely recognised example of anthropomorphic design that was not matched by corresponding system capability, resulting in user frustration rather than engagement. Against this, \textcite{Weisz2025} note the human tendency to anthropomorphise interactive and responsive objects more generally \parencite{Muller2004}. They argue that avoiding anthropomorphic design might therefore not resolve the underlying issue. Instead, they focus on a shared consensus that \ac{AI}-based systems should be clearly identifiable as such, and that users should not be actively deceived.
 
-Anthropomorphism is also relevant beyond interface design choices. Users also use the same folk-psychological concepts and reasoning processes used to explain human behaviour (including BDI), to interpret \ac{AI} behaviour \parencite{Miller2019}. This connects the interaction-design concerns discussed in this section directly to the attribution of \ac{ToM} to \ac{AI} systems, which is discussed in Section~\ref{ssec:tom-attributions}.
+Anthropomorphism is also relevant beyond interface design choices. Users also use the same folk-psychological concepts and reasoning processes used to explain human behaviour (including BDI) to interpret \ac{AI} behaviour \parencite{Miller2019}. This connects the interaction-design concerns discussed in this section directly to the attribution of \ac{ToM} to \ac{AI} systems, which is discussed in Section~\ref{ssec:tom-attributions}.
 
 Together, these three challenges motivate \textcite{Weisz2025}'s \textit{Design for Mental Models} (DP2) and \textit{Design for Appropriate Trust and Reliance} (DP3). Explainability gains importance as generative variability undermines reproducible behaviour (G11). This benefits both principles, as explaining a system's behaviour supports both a useful mental model and well-calibrated trust. Generative variability itself is the more specific driver of DP2, while anthropomorphism is the more specific driver of DP3. Sections~\ref{ssec:tom-attributions} and~\ref{ssec:explanations-mental-model-formation} take up these two threads in turn: who attributes what to \ac{GenAI} systems, and how explanations shape those attributions. Figure~\ref{fig:hai-genai-roadmap} summarises this progression.
 
@@ -111,12 +111,14 @@ Higher intelligence attributions were positively correlated with advice acceptan
 
 \begin{ctable}
     \centering
-    \begin{tabularx}{\textwidth}{X|p{3.7cm}|X}
+    \begin{tabularx}{\textwidth}{p{4.5cm} p{3.7cm} X}
+        \toprule
         \textbf{Dimension} & \textbf{Correlation with Advice Acceptance} & \textbf{Interpretation} \\
-        \hline
+        \midrule
         Intelligence (e.g., memory, planning) & Positive & Perceived as functionally relevant to fact-based tasks; supports reliability \\
-        \hline
+        \addlinespace
         Experience (e.g., happiness, fear) & Weakly negative & Associated with volatility and unpredictability; not useful for fact-based tasks \\
+        \bottomrule
     \end{tabularx}
     \caption[Dimensions of mental state attribution and their effect on advice acceptance]{The two dimensions of mental state attribution identified by \textcite{Colombatto2025}, adapted from \textcite{Gray2007}, and their differentiated relationship to advice acceptance. The balance between the two dimensions is task-dependent and may shift for tasks with a stronger emotional or social component.}
     \label{tab:intelligence-experience}
@@ -138,9 +140,9 @@ This last point raises a question that Section~\ref{ssec:explanations-mental-mod
 
 \subsection{Explanations and Mental Model Formation} \label{ssec:explanations-mental-model-formation}
 
-In Section~\ref{sssec:terminology} this thesis adopted a definition of \ac{XAI} as a system that produces details or reasons to make its functioning understandable to a specific audience \parencite{Arrieta2020}. The reference to a specific audience emphasises that successful explanation is not only a result of the faithfulness of the explanation, but also of the recipient's ability to understand it (cf. Section~\ref{sssec:theory-of-mind-ai}). The same account can be a good explanation for one user and a poor one for another.
+In Section~\ref{sssec:terminology}, this thesis adopted a definition of \ac{XAI} as a system that produces details or reasons to make its functioning understandable to a specific audience \parencite{Arrieta2020}. The reference to a specific audience emphasises that successful explanation is not only a result of the faithfulness of the explanation, but also of the recipient's ability to understand it (cf. Section~\ref{sssec:theory-of-mind-ai}). The same account can be a good explanation for one user and a poor one for another.
 
-\textcite{Miller2019} grounds this audience-relativity in social science research, breaking explanations down into a cognitive process, a product, and a social process of sharing explanations (cf. Section~\ref{sssec:terminology}). From this body of research \textcite{Miller2019} draws four key findings that constrain how explanations function:
+\textcite{Miller2019} grounds this audience-relativity in social science research, breaking explanations down into a cognitive process, a product, and a social process of sharing explanations (cf. Section~\ref{sssec:terminology}). From this body of research, \textcite{Miller2019} draws four key findings that constrain how explanations function:
 
 \begin{enumerate}
     \item \textbf{Explanations are contrastive.} People do not ask why an event occurred in absolute terms, but why it occurred rather than some alternative. The contrast case is frequently left unstated and must be inferred from context \parencite{Lipton1990}. An explanation that ignores a user's implicit contrast case answers a different question than the one actually being asked.
@@ -201,84 +203,78 @@ Moderated through \ac{FAT} cues and causability, explanations can therefore shap
 
 \subsubsection*{Explanations as a Mechanism for ToM Calibration}
 
-Taken together, \textcite{Miller2019}, \textcite{Shin2021}, and \textcite{Hoffman2023} describe explanations as the primary mechanism through which users update and calibrate their mental models, and with them their attribution of \ac{ToM} to a system. \textcite{Miller2019} establishes the cognitive and social preconditions an explanation must meet. \textcite{Shin2021} shows that meeting them, through causability, drives trust. \textcite{Hoffman2023} supplies the conceptual distinction needed to assess whether an explanation has achieved its intended effect.
+Taken together, \textcite{Miller2019}, \textcite{Shin2021}, and \textcite{Hoffman2023} describe explanations as the primary mechanism through which users update and calibrate their mental models, and with them their attribution of \ac{ToM} to a system. \textcite{Miller2019} establishes the cognitive and social preconditions an explanation must meet. \textcite{Shin2021} shows that meeting them, through causability, drives trust. \textcite{Hoffman2023} supply the conceptual distinction needed to assess whether an explanation has achieved its intended effect.
 
 \textcite{Weisz2025} translate this into design guidance through DP3, recommending \ac{CoT} explanations and the provision of rationales as strategies for trust calibration in \ac{GenAI}. The friction-based strategy in DP3 connects to the concept of cognitive forcing functions, interventions that interrupt the interaction at key decision points to prompt deliberate processing \parencite{Buinca2021}. Such functions are a complementary intervention for cases where an explanation alone would not prompt the Type 2 processing required to avoid overreliance. The underlying need is not new. \textcite{Amershi2019}'s guideline G11, \enquote{make clear why the system did what it did}, already treated the provision of reasons as a core design requirement for discriminative \ac{AI} (cf. Section~\ref{ssec:hai-genai}). The user need persists for \ac{GenAI} even though the specific mechanism differs.
 
 Explanations are not unconditionally beneficial for calibration. The process model of \textcite{Jussupow2021} contains a pattern they term \textit{AI-based confirmation}, in which physicians build their initial frame, their independent interpretive judgement of the case formed prior to consulting the system, directly from the system's advice rather than from independent analysis. This sits in the confirmation branch of their model and never reaches the belief or validation conflict, because no independent judgement exists for the advice to conflict with. The advice is anchored in before an independent frame can form. A second pattern, which \textcite{Jussupow2021} term \textit{explaining away}, is more cautionary still. Physicians who dismissed disconfirming advice by inventing a reason for the system's apparent error, frequently a reason without any basis, reported the highest confidence and satisfaction of any group, despite the dismissal resting on no actual validation \parencite{Jussupow2021}. An explanation can supply exactly this kind of post-hoc justification. It offers material from which a user can construct a confident but unwarranted dismissal as readily as a well-founded one. This is a counterweight to the otherwise positive framing of explanations in \textcite{Weisz2025} and \textcite{Shin2021}. On the same point, \textcite{Jussupow2021} suggest that explanations support mental-model learning only when a user reaches active consideration. A disconfirmation resolved at the belief conflict produces no learning, whether an explanation was available or not. This is a forward-looking inference rather than a result of their own study, since the system they evaluated provided no explanations.
 
-Across this chapter, explanations are a key mechanism connecting mental model formation (Section~\ref{ssec:hai-genai}) and \ac{ToM} attribution (Section~\ref{ssec:tom-attributions}), though not necessarily the only one. Three constraints carry forward into the meta-requirements derived in Section~\ref{ssec:meta-requirements}: explanations must be selected and calibrated to their audience rather than made exhaustive; their effectiveness depends on the user's existing cognitive state and not on their content alone; and they are not unconditionally beneficial, capable of entrenching miscalibrated confidence as readily as correcting it.
+Across this chapter, explanations are a key mechanism connecting mental model formation (Section~\ref{ssec:hai-genai}) and \ac{ToM} attribution (Section~\ref{ssec:tom-attributions}), though not necessarily the only one. Three constraints carry forward into the \acp{MR} derived in Section~\ref{ssec:meta-requirements}: explanations must be selected and calibrated to their audience rather than made exhaustive; their effectiveness depends on the user's existing cognitive state and not on their content alone; and they are not unconditionally beneficial, capable of entrenching miscalibrated confidence as readily as correcting it.
 
 \subsection{Meta-Requirements} \label{ssec:meta-requirements}
 
-To operationalise the challenges discussed above, this section compiles them into meta-requirements and design requirements as outlined in Section~\ref{ssec:thesis-methodology}. Meta-requirements are goals that a class of artefacts must satisfy; they describe the class of problems to which a design theory applies \parencite{Walls1992}. The three meta-requirements below consolidate the findings of Sections~\ref{ssec:hai-genai}–\ref{ssec:explanations-mental-model-formation} into the goals any \ac{XAI} mechanism must meet to support accurate \ac{ToM} attribution, and form the basis from which the design requirements are derived.
+To operationalise the challenges discussed above, this section compiles them into \acp{MR} and design requirements as outlined in Section~\ref{ssec:thesis-methodology}. \acp{MR} are goals that a class of artefacts must satisfy; they describe the class of problems to which a design theory applies \parencite{Walls1992}. The three \acp{MR} below consolidate the findings of Sections~\ref{ssec:hai-genai} -- \ref{ssec:explanations-mental-model-formation} into the goals supporting effective use of \ac{GenAI} systems, and form the basis from which the design requirements are derived.
 
 \begin{enumerate}[label=\textbf{MR\arabic*}, leftmargin=*]
-    \item \textbf{Support accurate ToM attribution.} Because users attribute mental states to \ac{AI} systems spontaneously, accurate attribution must be supported (cf. Section~\ref{ssec:tom-attributions}). Generative variability \parencite{Weisz2025} and the multidimensionality of what is attributed \parencite{Colombatto2025} complicate this goal. An accurate model of the system's capability is a precondition for relying on its outputs appropriately \parencite{Jussupow2021}, which makes accurate attribution foundational for effective use of \ac{GenAI} systems.
-    \item \textbf{Enable calibrated reliance.} Trust and reliance are frequently treated as interchangeable, yet \textcite{Colombatto2025} show that self-reported trust and actual reliance diverge. \textcite{Shin2021} shows that trust is formed based on \ac{FAT} cues and causability. Miscalibration of reliance in either direction, over- or underreliance, leads to suboptimal outcomes \parencite{Jussupow2021}. At the same time, distrust can be functional, supporting the detection of system error \parencite{Hoffman2023}. Building on DP3 by \textcite{Weisz2025}, this meta-requirement separates trust and reliance, treating the former as a mediator rather than a synonym for the latter.
+    \item \textbf{Support accurate ToM attribution.} Because users attribute mental states to \ac{AI} systems spontaneously, accurate attribution must be supported (cf. Section~\ref{ssec:tom-attributions}). Generative variability \parencite{Weisz2025} and the multidimensionality of what is attributed \parencite{Colombatto2025} complicate this goal. An accurate model of the system's capability is a precondition for relying on its outputs appropriately \parencite{Jussupow2021}, which makes accurate attribution foundational for effective use of \ac{GenAI}.
+    \item \textbf{Enable appropriate reliance.} Trust and reliance are frequently treated as interchangeable, yet \textcite{Colombatto2025} show that self-reported trust and actual reliance diverge. \textcite{Shin2021} shows that trust is formed based on \ac{FAT} cues and causability. Miscalibration of reliance in either direction, over- or underreliance, leads to suboptimal outcomes \parencite{Jussupow2021}. At the same time, distrust can be functional, supporting the detection of system error \parencite{Hoffman2023}. Building on DP3 by \textcite{Weisz2025}, this meta-requirement separates trust and reliance, treating the former as a mediator rather than a synonym for the latter.
     \item \textbf{Support appropriate cognitive engagement.} Users process a system's advice and its explanations through a dual-process structure of reasoning (cf. Sections~\ref{ssec:tom-attributions},~\ref{ssec:explanations-mental-model-formation}). The key challenge is to support the right mode of processing at the right time: users prefer low-cost formats for communicating an \ac{AI} system's mental state \parencite{Ying2024}. Conversely, where heuristic acceptance would risk overreliance, deliberate processing must be induced, for example through friction at key decision points \parencite{Buinca2021,Weisz2025}.
 \end{enumerate}
 
-The meta-requirements presented above can be broken down into more specific mechanisms for which specific design recommendations in the form of design principles can be derived. Additionally, the derivation of design requirements serves to limit the design knowledge to mechanisms concerned with explanations.
+The \acp{MR} above can be broken down into design requirements that describe desired qualities \enquote{in a way that allows for an evaluation of a developed design solution} \parencite{Herm2022}. These design requirements are derived directly from the \acp{MR} through combination and refinement.
 
 \begin{enumerate}[label=\textbf{DR\arabic*}, leftmargin=*]
-    \item \textbf{Calibrate explanations to users.} The same explanation can achieve different levels of causability for different users \parencite{Shin2021}. How well an explanation achieves understanding for a given user can be measured through explanation satisfaction and is distinct from the goodness of the explanation itself \parencite{Hoffman2023}. This aligns with DP2 by \textcite{Weisz2025}, which calls for tailoring outputs to the user's knowledge and capabilities. While DR1 affects the cognitive load of the user, relating it to MR3, it primarily addresses the user's attribution of \ac{ToM} to the system (MR1).
-    \item \textbf{Explain local behaviour.} Extending G11 by \textcite{Amershi2019} to individual outputs, explanations should explain the system's local behaviour. \textcite{Weisz2025} emphasise the impact of generative variability and how this particularly affects the understanding of local behaviour. Explaining local behaviour derives from MR1, by reducing the risk of misattribution of \ac{ToM} to the system.
-    \item \textbf{Account for unfaithful explanations.} Explanations such as \ac{CoT} are not guaranteed to reflect the system's underlying reasoning \parencite{Lyu2023}, corrupting the user's mental model and leading to miscalibrated reliance. This violates MR1 and MR2, and is therefore a critical design consideration. A related concern appears in DP3 by \textcite{Weisz2025}, though their notion of faithfulness is grounded in source material rather than correspondence to the system's reasoning. The goal is to design for the possibility of unfaithful explanations, not to guarantee faithfulness.
-    \item \textbf{Time explanation delivery.} The timing of explanation delivery should be oriented towards the user's curiosity and need for explanation \parencite[cf. G3,][]{Amershi2019}. Explanations should be provided when the user encounters unexpected behaviour or when their mental model is challenged, rather than preemptively or indiscriminately \parencite{Miller2019,Hoffman2023}. Supplying explanations too early may anchor the user's considerations \parencite{Jussupow2021}. This DR addresses MR3 by supporting appropriate cognitive engagement, but also MR1, because an explanation delivered too early undermines the user's ability to form an independent assessment of the system's behaviour.
-    \item \textbf{Guard against passive acceptance.} Addressing MR2 and MR3, by supporting appropriate cognitive engagement, explanations should be designed to avoid heuristic acceptance of the system's outputs, because mere presentation of an explanation does not guarantee appropriate processing, as demonstrated by \textcite{Jussupow2021}. Explanations, combined with additional interventions such as friction, should be designed to support deliberate processing where appropriate \parencite{Buinca2021,Weisz2025}.
-    \item \textbf{Constrain post-hoc dismissal.} An explanation can provide users with material to argue for the dismissal of system outputs, even when that dismissal is unwarranted, like the \enquote{explaining away} pattern in \textcite{Jussupow2021}. As the user is already deliberately processing the system's outputs (unlike DR5), inducing engagement does not address this risk. To address the violations of MR2 and MR3, explanations should be embedded in an interaction design that discourages unfounded dismissal of system outputs.
-    \item \textbf{Select explanation content.} The content of an explanation should present a subset of sufficient causes rather than a complete causal chain \parencite{Miller2019}. An exhaustive causal account increases the mental load of the user without necessarily improving their understanding. Measures of abnormality and intentionality can guide the selection of causes \parencite{Hilton2017}. This directly addresses MR3, by avoiding unnecessary cognitive load.
+    \item \textbf{Increase intelligibility of system behaviour.} Users attribute mental states to \ac{AI} systems spontaneously (cf. Section~\ref{ssec:tom-attributions}). If the behaviour is unintelligible, users form attributions based on assumptions rather than evidence, increasing the risk of misattribution. \textcite{Shin2021} shows that intelligibility is user-relative, with the same information achieving different levels of causability for different users. This need predates \ac{GenAI} \parencite[cf. G11,][]{Amershi2019} and is amplified by generative variability \parencite{Weisz2025}. The \ac{DR} derives from all three \acp{MR}, as intelligibility gives \ac{ToM} attribution accurate grounds on which to form, which in turn supports appropriate reliance and appropriate cognitive engagement.
+    \item \textbf{Align capability expectations with actual system capability.} Complementing \textbf{DR1}, this \ac{DR} focuses on what the system can do and how well it can do it \parencite[cf. G1, G2,][]{Amershi2019}. It is important that a system accurately communicates its capabilities, because users' expectations of what it can do govern whether they accept or override its output \parencite{Bansal2019}. The \ac{DR} derives from \textbf{MR1} and \textbf{MR2}, as capability expectations are both part of the user's model of the system and determine the reliance built upon it.
+    \item \textbf{Increase verifiability of system outputs.} Outputs should be presented such that users can assess their validity. Deriving from \textbf{MR2}, the \ac{DR} is a direct response to the over- and underreliance observed by \textcite{Jussupow2021}. The \ac{DR} also indirectly supports \textbf{MR3}, by supporting deliberation on system outputs. An output can be intelligible (as per \textbf{DR1}) without being verifiable. Confident presentation is not a reliable signal of correctness, and users systematically overestimate the accuracy of \ac{LLM} outputs when judging from the response alone \parencite{Steyvers2025}. \enquote{Verifiability} here refers to the user's ability to assess correctness, not formal verification.
+    \item \textbf{Increase deliberate engagement at consequential decision points.} Users default to heuristic acceptance over systematic processing \parencite{Jussupow2021}, so deliberate processing must be selectively induced where this risks overreliance \parencite{Buinca2021}. Addressing \textbf{MR2} and \textbf{MR3}, this \ac{DR} targets consequential decision points, where the cost of a miscalibrated reliance decision outweighs the cost of engagement. Consequentiality can be operationalised through an action's irreversibility, the cost of correction, or the potential for harm. The cost of engagement is the cognitive load imposed on the user and the frequency with which they are required to engage.
+    \item \textbf{Decrease cognitive effort of interpreting system outputs.} Users prefer low-cost formats for reading a system's state \parencite{Ying2024}, and exhaustive accounts increase mental load without necessarily improving understanding \parencite{Miller2019}. Unnecessary interpretive effort consumes the very capacity that deliberate engagement requires. The \ac{DR} complements \textbf{DR4} by standing in deliberate tension with it, balancing the need for engagement against the need to reduce cognitive load stated in \textbf{MR3}.
 \end{enumerate}
 
-Figure~\ref{fig:mr-dr-mapping} summarises the design theory developed in this section, relating each design requirement to the meta-requirement or combination of meta-requirements from which it derives.
+Figure~\ref{fig:mr-dr-mapping} summarises the design theory developed in this section, relating each design requirement to the meta-requirement or combination of \acp{MR} from which it derives.
 
 \begin{figure}[ht]
     \centering
     \begin{tikzpicture}[
         node distance=0pt,
         mrbox/.style={neutralnode, align=left, text width=5.1cm},
-        drbox/.style={neutralnode, align=left, text width=7cm},
+        drbox/.style={neutralnode, align=left, text width=6cm},
         mr1line/.style={paletteblue, line width=1pt},
         mr2line/.style={palettered, line width=1pt},
         mr3line/.style={paletteochre, line width=1pt},
+        partial/.style={densely dotted},
     ]
-        % ---- Meta-requirements (left column) ----
-        \node[mrbox] (mr1) at (0,2.25)  {\textbf{MR1:}~Support accurate ToM attribution};
-        \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable calibrated reliance};
-        \node[mrbox] (mr3) at (0,-2.25) {\textbf{MR3:}~Support appropriate cognitive engagement};
+        % ---- \acp{MR} (left column) ----
+        \node[mrbox] (mr1) at (0,2.3)  {\textbf{MR1:}~Support accurate ToM attribution};
+        \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable appropriate reliance};
+        \node[mrbox] (mr3) at (0,-2.3) {\textbf{MR3:}~Support appropriate cognitive engagement};
 
-        % ---- Design requirements (right column), ordered to minimise crossings ----
-        \node[drbox] (dr1) at (9.5,3.3)  {\textbf{DR1:}~Calibrate explanations to users};
-        \node[drbox] (dr2) at (9.5,2.2)  {\textbf{DR2:}~Explain local behaviour};
-        \node[drbox] (dr3) at (9.5,1.1)  {\textbf{DR3:}~Account for unfaithful explanations};
-        \node[drbox] (dr4) at (9.5,0.0)  {\textbf{DR4:}~Time explanation delivery};
-        \node[drbox] (dr5) at (9.5,-1.1) {\textbf{DR5:}~Guard against passive acceptance};
-        \node[drbox] (dr6) at (9.5,-2.2) {\textbf{DR6:}~Constrain post-hoc dismissal};
-        \node[drbox] (dr7) at (9.5,-3.3) {\textbf{DR7:}~Select explanation content};
+        % ---- Design requirements (right column), staircase order: no crossings ----
+        \node[drbox] (dr1) at (8.5,3.0)  {\textbf{DR1:}~Increase intelligibility of system behaviour};
+        \node[drbox] (dr2) at (8.5,1.5)  {\textbf{DR2:}~Align capability expectations with actual system capability};
+        \node[drbox] (dr3) at (8.5,0.0)  {\textbf{DR3:}~Increase verifiability of system outputs};
+        \node[drbox] (dr4) at (8.5,-1.5) {\textbf{DR4:}~Increase deliberate engagement at consequential decision points};
+        \node[drbox] (dr5) at (8.5,-3.0) {\textbf{DR5:}~Decrease cognitive effort of interpreting system outputs};
 
         % ---- Column headings ----
-        \node[font=\bfseries] at (0,4.2) {Meta-Requirements};
-        \node[font=\bfseries] at (9.5,4.2) {Design Requirements};
+        \node[font=\bfseries] at (0,4.2) {\acp{MR}};
+        \node[font=\bfseries] at (8.5,4.2) {Design Requirements};
 
         % ---- Connections, coloured by source MR ----
         % MR1 (blue): DR1, DR2
-        \draw[mr1line] (mr1.east) -- (dr1.west);
-        \draw[mr1line] (mr1.east) -- (dr2.west);
-        % MR1+MR2 (blue + red): DR3
-        \draw[mr1line] (mr1.east) -- (dr3.west);
-        \draw[mr2line] (mr2.east) -- (dr3.west);
-        % MR1+MR3 (blue + ochre): DR4
-        \draw[mr1line] (mr1.east) -- (dr4.west);
-        \draw[mr3line] (mr3.east) -- (dr4.west);
-        % MR2+MR3 (red + ochre): DR5, DR6
-        \draw[mr2line] (mr2.east) -- (dr5.west);
-        \draw[mr3line] (mr3.east) -- (dr5.west);
-        \draw[mr2line] (mr2.east) -- (dr6.west);
-        \draw[mr3line] (mr3.east) -- (dr6.west);
-        % MR3 (ochre): DR7
-        \draw[mr3line] (mr3.east) -- (dr7.west);
+        \draw[mr1line]          (mr1.east) -- (dr1.west);
+        \draw[mr1line]          (mr1.east) -- (dr2.west);
+        % MR2 (red): DR2, DR3, DR4
+        \draw[mr2line]          (mr2.east) -- (dr1.west);
+        \draw[mr2line]          (mr2.east) -- (dr2.west);
+        \draw[mr2line]          (mr2.east) -- (dr3.west);
+        \draw[mr2line]          (mr2.east) -- (dr4.west);
+        % MR3 (ochre): DR4, DR5
+        \draw[mr3line]          (mr3.east) -- (dr1.west);
+        \draw[mr3line,partial]  (mr3.east) -- (dr3.west);
+        \draw[mr3line]          (mr3.east) -- (dr4.west);
+        \draw[mr3line]          (mr3.east) -- (dr5.west);
     \end{tikzpicture}
-    \caption{Overview of the meta-requirements and design requirements}
+    \caption{Overview of the initial \acp{MR} and design requirements}
     \label{fig:mr-dr-mapping}
 \end{figure}

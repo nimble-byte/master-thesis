@@ -2,8 +2,10 @@
 \newcommand*{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
 \newcommand{\tablespacing}{
-    \setlength{\tabcolsep}{12pt}
-    \renewcommand{\arraystretch}{1.5}
+    % column separation
+    % \setlength{\tabcolsep}{4pt}
+    % vertical spacing (increases row height)
+    \renewcommand{\arraystretch}{1.25}
 }
 
 \newenvironment{ctable}[1][ht]{
@@ -20,6 +22,45 @@
 }{
     \end{table}
     \endgroup
+}
+
+\mdfdefinestyle{dpstyle}{
+    linecolor=paletteblue,
+    linewidth=1pt,
+    roundcorner=6pt,
+    innertopmargin=8pt,
+    innerbottommargin=8pt,
+    innerleftmargin=8pt,
+    innerrightmargin=8pt,
+    splittopskip=10pt,
+}
+\newmdenv[style=dpstyle]{dpbox}
+
+
+% Parameter order:
+% 0. (optional) Box/title colour, default paletteblue
+% 1. Design Principle ID: DP1, DP2, ...
+% 2. Design Principle Title
+% 3. Implementer, Aim, User
+% 4. Mechanism
+% 5. Rationale
+\newcommand{\designprinciple}[6][paletteblue]{%
+    \begin{dpbox}[linecolor=#1]
+        \textbf{\textcolor{#1}{#2: #3}}\\
+
+        % \setlength{\tabcolsep}{8pt}
+        \renewcommand{\arraystretch}{1.1}
+        \setlength{\LTpre}{0pt}
+        \setlength{\LTpost}{0pt}
+
+        \edef\dpsavedtable{\number\value{table}}
+        \begin{xltabular}{\linewidth}{@{}lX@{}}
+            \textbf{Implementer, Aim, User} & #4 \\
+            \textbf{Mechanism} & #5 \\
+            \textbf{Rationale} & #6 \\
+        \end{xltabular}
+        \setcounter{table}{\dpsavedtable}
+    \end{dpbox}
 }
 
 % LTex: enabled=true
