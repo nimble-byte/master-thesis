@@ -543,17 +543,18 @@ This section discusses the design space that was not covered by the \acp{DP} der
 
 \subsubsection{Gap Analysis} \label{sssec:gap-analysis}
 
-Two gaps remain in the design space covered by Section~\ref{ssec:initial-design-principles}. First, and most significantly, no empirically grounded \ac{DP} addresses the \ac{CoT} explanation mechanism directly, even though this mechanism is precisely the manipulation that distinguishes Group E from Group B. This absence is notable given that \textbf{RQ2} asks whether explanations influence \ac{ToM} attribution: the only defensible empirical finding bearing on \textbf{RQ2} is the heuristic-versus-deliberate split in appraisal engagement described in Section~\ref{ssec:initial-design-principles}, and E02 raised, unprompted, exactly this absence during the expert interviews (Section~\ref{sssec:interview-results}). Second, \textbf{DR2} is covered only one-sidedly by the empirical \acp{DP}: \textbf{DP2} operationalises the negative half of \textbf{DR2} (disclosing limitations), but nothing derived from the data addresses the complementary positive half (communicating capabilities). The remainder of this section develops three possible reasons for the first, more consequential gap; the second gap is addressed directly by a dedicated theory-derived principle in Section~\ref{sssec:theory-dp}.
+The design theory presented in Section~\ref{ssec:design-principle-revision} leaves two gaps in the design space. Firstly, the \acp{DP} derived from the empirical data do not address explanations directly. The only related finding, is the difference in heuristic uptake of \ac{LLM} responses between the two groups. Secondly, \textbf{DR2} is only addressed one-sidedly, with \textbf{DP2} prescribing the disclosure of limitations, but no \ac{DP} addresses the complementary communication of capabilities. There are several potential reasons for these gaps which are discussed below.
 
-\textbf{Reason 1: Task complexity below threshold.} The maths problems used in the study were selected for general solvability and to elicit rich think-aloud data (Section~\ref{sssec:problem-selection}), not to place participants in a position where scrutinising or relying on the \ac{CoT} explanation became necessary to solve the task. This is corroborated by the coding results: \textit{Problem Cognition} is the largest aggregate dimension by statement count (537 statements), indicating that participants' effort centred on performing their own mathematics rather than on evaluating the \ac{LLM}'s output. At the chosen difficulty level, engaging with the explanation was therefore optional rather than necessary.
+The first potential reason, is that the task complexity was too low to induce the need for explanation engagement. This is supported by the coding results showing that participants' effort was focused on solving the problems themselves rather than engaging with the \ac{LLM}: \textit{Problem Cognition} is the largest aggregate dimension by statement count. At the chosen difficulty level, engaging with the explanation (if provided) was optional rather than necessary, leading to the small number of explanation-engagements for group E. Notably, participants of group B never asked for an explanation proactivel, indicating that explanations were not perceived as needed to solve the task.
 
-\textbf{Reason 2: Think-aloud protocol underrepresents silent engagement.} As described in Section~\ref{sssec:experiment-procedure}, the researcher intervened only after an extended period of silence. A brief, silent reading of an explanation would not trigger such an intervention, and does not necessarily surface as a verbalised, and therefore codable, statement: \enquote{thoughts that pass through attention are not always verbalised} \parencite{Ericsson2017}. The coding scheme, which relies on verbalised process and in vivo codes, structurally underrepresents this mode of engagement with explanations.
+Another potential reason, is that the methodological approach could have missed silent engagement with explanations. The think-aloud protocols evaluated for this study may not have captured silent reading (and reflection) of explanations. \textcite{Ericsson2017} notes that \enquote{thoughts that pass through attention are not always verbalised}, and therefore may not be captured in the coding scheme.
 
-\textbf{Reason 3: Quantitative triangulation.} The post-experiment questionnaire evaluated seven constructs: \textit{perceived usefulness} and \textit{perceived ease of use} from the \ac{TAM} questionnaire \parencite{Davis1989}, \textit{computer self-efficacy} from the \ac{CSE} questionnaire \parencite{Compeau1995}, and four \acs{NASA}-\ac{TLX} subscales \parencite{Hart1988} (temporal and physical demand were excluded as inapplicable to the task). The two groups were compared using simple means and a one-sided Mann-Whitney U test. Given the sample size ($N=12$, $|E|=7$, $|B|=5$), the comparison cannot support inferential claims, but can be used as an indication; an alpha of $\alpha=0.1$ was used throughout. The results are summarised in Table~\ref{tab:quant-results-gap}.
+The quantitative data gathered with the post-experiment questionnaires corroborate these hypotheses. Seven constructs were evaluated in total, by calculating the mean for each group and comparing them using a one-sided Mann-Whitney U test, with the null hypothesis, that group E would show higher scores for acceptance and efficacy constructs, and lower scores for workload constructs. An alpha of $\alpha=0.1$ was used throughout, to account for the small sample size and the exploratory nature of the study. The results are summarised in Table~\ref{tab:quant-results-gap}.
 
+% FIXME: the table has a wrong index; I suspect the designprinciple command breaks table counting, which needs to be fixed in the command
 \begin{ctable}
     \centering
-    \begin{tabular}{l r r r}
+    \begin{tabular}{l c c c}
         \toprule
         \textbf{Construct} & \textbf{Mean (B)} & \textbf{Mean (E)} & \textbf{p-value} \\
         \midrule
@@ -566,54 +567,53 @@ Two gaps remain in the design space covered by Section~\ref{ssec:initial-design-
         Frustration $\downarrow$          & 12.200 & 2.571  & 0.005* \\
         \bottomrule
     \end{tabular}
-    \caption[Quantitative results of the gap analysis]{Quantitative comparison of Group B and Group E across the seven \ac{TAM}/\ac{CSE}/\acs{NASA}-\ac{TLX} constructs. Arrows indicate the direction in which the explanation-augmented condition (Group E) was expected to differ from Group B, given the goals underlying \textbf{MR2} and \textbf{MR3}. Constructs marked with * are significant at $\alpha=0.1$ (one-sided Mann-Whitney U).}
+    \caption[Quantitative results of the study]{Quantitative comparison of Group B and Group E. Arrows indicate the direction in which the explanation-augmented condition (Group E) was hypothesised to differ in the original experiment. Constructs marked with * are significant at $\alpha=0.1$.}
     \label{tab:quant-results-gap}
 \end{ctable}
 
-Only two constructs reach significance at the stated threshold. \textbf{Frustration} is significantly lower for Group E ($p=.0054$, one-sided Mann-Whitney U; corroborated by a two-sample t-test, $p=.0032$), a large and robust effect well within even the more conservative $\alpha=.05$. Frustration is, however, an affective and workload construct, not a \ac{ToM} or engagement construct: it shows that the manipulation clearly worked, but through a channel the qualitative coding was not built to detect, since workload relief is not itself an observable engagement behaviour. This directly explains the divergence between the quantitative and qualitative results: a real effect of the explanation exists, just not in the dimension the codebook targets. \textbf{Perceived Usefulness} is higher for Group E, significant only at the stated threshold ($p=.095$; t-test $p=.070$). The direction of this result is consistent with the silent-reading account above: users found the system more useful without this being reflected in a higher volume of codable explanation-engagement statements. The remaining constructs show no significant differences and, while directionally consistent with a lower load for Group E, offer nothing further to build on.
+Only two constructs show significant differences: \textbf{Frustration} shows a large effect, indicating that the explanation-augmentation of the experiment worked in general. Frustration however, is a workload-related construct and not a \ac{ToM}-related construct. \textbf{Perceived Usefulness}, which is a \ac{ToM}-related construct, shows a smaller effect, which is only significant at $\alpha=0.1$, adding further support to the silent-reading hypothesis. The remaining constructs show no significant differences, but are directionally consistent with lower load and higher acceptance and efficacy for group E.
 
 \subsubsection{Theory-derived Design Principles} \label{sssec:theory-dp}
 
-This section proposes five design principles derived from the literature reviewed in Chapters~\ref{sec:fundamentals} and \ref{sec:problem-awareness}, aimed at closing part of the design space identified in Section~\ref{sssec:gap-analysis}. Because these principles were developed after the expert interviews had already concluded, they have not been evaluated in the same way as \textbf{DP1}–\textbf{DP7} and are presented separately, in the same modified Gregor format introduced in Section~\ref{sssec:revised-dp} but in a distinct box style, and numbered \textbf{DP-T1} through \textbf{DP-T5} to avoid ambiguity with the empirically grounded set. Each principle below stands on its own, independent of the design-requirement derivation history from which it originated.
+This section proposes \ac{DP} derived from the literature reviewed in Chapters~\ref{sec:fundamentals} and \ref{sec:problem-awareness}, to close the gaps identified above. Because the \acp{DP} are developed after the expert interviews concluded they are not evaluated in the same way as \textbf{DP1}~--~\textbf{DP7} and are numbered separately to avoid ambiguity. The same modified Gregor format is used and mappings to the \acp{DR} are provided.
 
-Guideline G11 by \textcite{Amershi2019} calls on a system to \enquote{make clear why the system did what it did}, but does not specify the scope of \enquote{why}. \textbf{DP-T1} extends this guideline to the level of individual outputs: rather than only clarifying the system's behaviour in general, an explanation should account for why this particular response was produced. This extension is necessary because generative variability means the same request can yield materially different outputs on repeated invocation \parencite{Weisz2025}, so a general account of the system's behaviour does not by itself explain any single output. \textbf{DP-T1} is distinct from \textbf{DP3}: using the taxonomy of \textcite{Gero2020} introduced in Section~\ref{ssec:hai-genai}, \textbf{DP3} targets \textit{knowledge distribution} (the source of the system's information), while \textbf{DP-T1} targets \textit{local behaviour} (why this specific output was produced) — the same taxonomy, but a different cell. \textbf{DP-T1} closes part of the gap left open in \textbf{DR1}.
+\textbf{DR1} calls for the system to be understandable, with \textbf{DP1}, \textbf{DP3}, and \textbf{DP5} addressing aspects of the requirement. \textbf{DP3} and \textbf{DP5} address the \textit{knowledge distribution} aspect of mental models and \textbf{DP1} prescribes \textit{global behaviour} \parencite{Gero2020}. None of the \acp{DP} address the \textit{local behaviour} aspect, which is particularly important for generative systems, where the same request can yield materially different outputs on repeated invocation \parencite{Weisz2025}. Therefore, \textbf{DP-T1} is proposed to address this gap. Providing local explanations addresses \textbf{DR1}. If the explanations are faithful they can also support \textbf{DR3}, as they allow the user to verify the system's reasoning process.
 
 \designprinciple[palettegrey]{DP-T1}{Explain local behaviour}
-    {For the \textit{developer} to provide \textit{explanations of individual outputs} to \textit{users}}
-    {accompany each output with an account of \textit{why this specific response} was produced, distinct from a general description of the system's overall behaviour.}
-    {Because generative variability means a general account of system behaviour does not explain any single output, explaining local behaviour closes part of the remaining gap in understandability (\textbf{DR1}).}
+    {For the \textit{developer} to provide \textit{explanations of outputs} to \textit{users}}
+    {accompany outputs with an account of \textit{why this specific response} was produced.}
+    {Because generative variability means a general account of system behaviour does not explain any single output, explaining local behaviour is crucial to make system behaviour understandable and verifiable.}
 
-\ac{CoT} explanations are not guaranteed to reflect a system's underlying reasoning process \parencite{Lyu2023}. An explanation that misrepresents the process it purports to describe corrupts the user's mental model and can enable miscalibrated reliance on the system's output. \textbf{DP-T2} does not attempt to guarantee faithfulness, which is not a solved problem; instead, it targets the possibility of unfaithful explanations, and generalises beyond \ac{CoT} to other explanation approaches that face the same risk.
+\ac{CoT} explanations are not guaranteed to reflect a system's underlying reasoning process i.e., be unfaithful to the systems' reasoning process \parencite{Lyu2023}. An unfaithful explanation corrupts the user's mental model and can lead to miscalibrated reliance on the system's output \parencite{Jussupow2021}. Because guaranteeing faithfulness is not a solved problem % TODO: Find a reference, that fixing faithfulness is not a solved problem
+, \textbf{DP-T2} aims to mitigate the risk of unfaithful explanations. By treating explanations as challengeable evidence this \ac{DP} supports \textbf{DR1} and \textbf{DR3}, even where faithfulness cannot be guaranteed.
 
 \designprinciple[palettegrey]{DP-T2}{Account for unfaithful explanations}
-    {For the \textit{developer} to design for the \textit{possibility that an explanation does not reflect the system's true underlying process} for \textit{users}}
-    {avoid designs that require or imply a strict correspondence between an explanation and the system's actual reasoning; treat explanations as \textit{defeasible evidence} of the system's process rather than \textit{proof} of it.}
-    {Because an unfaithful explanation corrupts the user's mental model and can enable miscalibrated reliance, accounting for this possibility protects both understandability (\textbf{DR1}) and verifiability (\textbf{DR3}) even where faithfulness cannot be guaranteed.}
+    {For the \textit{developer} to design for the \textit{possibility of unfaithful explanations} provided to \textit{users}}
+    {design systems that encourage the user to \textit{treat explanations as challengeable evidence of the system's process}, rather than as a definitive account of the system's reasoning.}
+    {Because an unfaithful explanation corrupts the user's mental model and can lead to miscalibrated reliance.}
 
-The timing of explanation delivery should be oriented towards the user's curiosity and need, rather than delivered indiscriminately: G3 by \textcite{Amershi2019} already calls for systems to \enquote{time services based on context}, and \textbf{DP-T3} applies this to explanations specifically. Explanations should be provided when the user encounters unexpected behaviour or their mental model is challenged, not preemptively \parencite{Miller2019,Hoffman2023}, because early or indiscriminate delivery risks anchoring the user's assessment before independent consideration \parencite{Jussupow2021}.
+The timing of explanation delivery should be oriented towards the user's curiosity and need. G3 by \textcite{Amershi2019} already calls for systems to \enquote{time services based on context}, and \textbf{DP-T3} applies this to explanations specifically. Explanations should be provided when the user encounters unexpected behaviour or their mental model is challenged, not preemptively \parencite{Miller2019,Hoffman2023}, because early or indiscriminate delivery risks anchoring the user's assessment before independent consideration \parencite{Jussupow2021}. The mechanism for this \ac{DP} is aspirational rather than directly actionable, as it requires the system to model the user's mental state in real time. \ac{MToM} seeks to address this open problem, but while theoretical frameworks exist, validated implementations are not yet available  \parencite{Wang2021, Wang2024a}. Well-timed explanations support deliberate engagement at crucial points (\textbf{DR4}) and indirectly assist forming an understanding of system behaviour (\textbf{DR1}).
 
 \designprinciple[palettegrey]{DP-T3}{Time explanation delivery}
     {For the \textit{developer} to \textit{time the delivery of explanations} for \textit{users}}
-    {provide explanations \textit{when the user's curiosity is raised or their mental model is challenged} — for example following unexpected behaviour — rather than preemptively or indiscriminately.}
-    {Because early or indiscriminate delivery risks anchoring the user's assessment before an independent one can form, timed delivery supports deliberate engagement at consequential points (\textbf{DR4}) and an independently formed understanding of system behaviour (\textbf{DR1}).}
+    {by providing explanations \textit{when the user's curiosity is raised} or \textit{their mental model is challenged}.}
+    {Because early delivery risks anchoring the user's assessment before an independent one can form. Furthermore, indiscriminate delivery risks overwhelming the user with information.}
 
-\textbf{DP-T3} is aspirational as stated rather than directly actionable: detecting, in real time, that a user's mental model has been \enquote{challenged} requires the system to model the user's mental state. This is precisely the open problem that \ac{MToM} frameworks \parencite{Wang2021,Wang2024a} target, not a mechanism this thesis can treat as solved. The principle should be read as a design goal to work towards rather than a specification ready for implementation.
-
-An explanation can supply exactly the material needed for an unwarranted dismissal of a system's output, the \enquote{explaining away} pattern described by \textcite{Jussupow2021}. Because the user is, by construction, already engaging with the system's output at this point, inducing engagement (as \textbf{DR4} otherwise prescribes) does not address this risk; the risk instead sits at the point of dismissal itself. The concrete mechanism for \textbf{DP-T4} remains an open, unvalidated question. Two brainstormed alternatives are presented in the Mechanism cell below: introducing friction directly at the point of dismissal, analogous to the friction \textbf{DP6} introduces at the point of query, by requiring the user to articulate a reason before overriding or dismissing an output; or tying the cost of dismissal to \textbf{DP4} and \textbf{DP5}, making an unfounded dismissal harder specifically when it contradicts a surfaced conflict or an un-addressed inspectable assumption. Neither has been validated against the data, and choosing between them is left for future work.
+An explanation can supply the material needed by users for an unwarranted dismissal of system output driving the \enquote{explaining away} pattern described by \textcite{Jussupow2021}. Because the user is already engaged with the system's output and explanation, merely inducing engagement does not address this risk. Instead, this risk should be addressed by introducing additional friction at the time of dismissal \parencite[cf.][]{Buinca2021}. A potential implementation of this principle is to require the user to articulate a reason rooted in the facts outside the explanation before overriding or dismissing an output. This mechanism is similar to the friction \textbf{DP6} introduces at the point of query, but is applied at the point of dismissal. This \ac{DP} supports deliberate engagement (\textbf{DR4}).
 
 \designprinciple[palettegrey]{DP-T4}{Constrain post-hoc dismissal}
     {For the \textit{developer} to make \textit{unwarranted dismissal of a system's output} harder for \textit{users}}
-    {\textit{unvalidated, alternative mechanisms}: (a) require the user to \textit{state a reason before overriding or dismissing} an output; or (b) increase the \textit{cost of dismissal when it contradicts} a conflict surfaced by \textbf{DP4} or an assumption made inspectable by \textbf{DP5}.}
-    {Because explanations can supply material for an unwarranted \enquote{explaining away} \parencite{Jussupow2021}, constraining dismissal protects verifiability (\textbf{DR3}) and deliberate engagement (\textbf{DR4}) at the point where a user rejects, rather than accepts, an output.}
+    {require the user to \textit{articulate a fact-based reason for dismissal} before overriding or dismissing an output.}
+    {Because explanations can provide a rationale for \enquote{explaining away} the systems outputs and users should dismiss deliberately.}
 
-Unlike the four principles above, which close previously uncovered ground within \textbf{DR1}, \textbf{DR3}, and \textbf{DR4}, \textbf{DP-T5} addresses an already partially covered design requirement. \textbf{DR2} was defined to cover both capability expectations and their limits, but the empirically derived \textbf{DP2} only operationalises the negative half of this requirement, disclosing limitations as they become relevant. \textbf{DP-T5} complements this with the positive half: proactively communicating what the system can do. This grounding is procedural rather than data-driven — it follows from accurately briefing participants on capabilities and limitations as part of the experiment design, not from a pattern observed in the transcripts, and is accordingly uncoded in the qualitative data.
+The second gap identified in Section~\ref{sssec:gap-analysis} was the lack of \acp{DP} addressing explanations. \textbf{DP-T5} addresses this gap building on G1 and G2 by \textcite{Amershi2019}, which call to disclose the system's capabilities. A key reason, why this was not addressed in the empirical data, is that the communication of capabilities should happen \enquote{initially} \parencite{Amershi2019}. The experiment design did include an initial briefing, which was not captured in the transcripts, and therefore not coded. The \ac{DP} complements \textbf{DP2} by proactively communicating capabilities. The \ac{DP} addresses \textbf{DR2} by ensuring that users are aware of the system's capabilities.
 
 \designprinciple[palettegrey]{DP-T5}{Proactively communicate system capabilities}
-    {For the \textit{developer} to \textit{proactively communicate the system's capabilities} to \textit{users}}
-    {accurately brief users on \textit{what the system can and cannot do}, ahead of or independent of specific interactions, complementing the after-the-fact disclosure of limitations.}
-    {Because capability expectations govern whether users accept or override a system's output \parencite[cf. G1, G2,][]{Amershi2019}, proactively communicating capabilities closes the positive half of \textbf{DR2}, alongside \textbf{DP2}'s coverage of the negative half.}
+    {For the \textit{developer} to \textit{communicate capabilities} to the \textit{users}}
+    {\textit{brief users on the system's capabilities} before the first interaction.}
+    {Because communicating capabilities accurately assists in building the users initial mental model of the system.}
 
-Beyond the five principles above, \textbf{DP1} itself can be extended to cover explanations specifically, rather than only the system's ordinary responses: the same grounding already cited for \textbf{DP1} shows that a given explanation can achieve different levels of causability for different users \parencite{Shin2021}, and tailoring explanations to the user aligns with the audience-specific definition of \ac{XAI} adopted in Section~\ref{sssec:terminology} \parencite{Arrieta2020}.
+Beyond the five principles above, it is important to note that \textbf{DP1} itself can be extended to cover explanations specifically. The same grounding already cited for \textbf{DP1} shows that a given explanation can achieve different levels of causability for different users \parencite{Shin2021}, and tailoring explanations to the user aligns with the audience-specific definition of \ac{XAI} adopted in Section~\ref{sssec:terminology} \parencite{Arrieta2020}.
 
 Figure~\ref{fig:mr-dr-dp-mapping-final} consolidates the complete design theory, combining the seven empirically grounded and expert-evaluated principles from Section~\ref{sssec:revised-dp} with the five theory-derived principles proposed above.
 
@@ -641,35 +641,33 @@ Figure~\ref{fig:mr-dr-dp-mapping-final} consolidates the complete design theory,
         \node[mrbox] (mr2) at (0,0)    {\textbf{MR2:}~Enable appropriate reliance};
         \node[mrbox] (mr3) at (0,-2.3) {\textbf{MR3:}~Support appropriate cognitive engagement};
 
-        % ---- Design requirements (uniform colour -- revision history no longer relevant) ----
-        \node[drbox] (dr1) at (8,3.0)  {\textbf{DR1:}~Increase understandability of system behaviour};
-        \node[drbox] (dr2) at (8,1.5)  {\textbf{DR2:}~Align capability expectations with actual system capability};
+        % ---- Design requirements ----
+        \node[drbox] (dr1) at (8,4.0)  {\textbf{DR1:}~Increase understandability of system behaviour};
+        \node[drbox] (dr2) at (8,2.0)  {\textbf{DR2:}~Align capability expectations with actual system capability};
         \node[drbox] (dr3) at (8,0.0)  {\textbf{DR3:}~Increase verifiability of system outputs};
-        \node[drbox] (dr4) at (8,-1.5) {\textbf{DR4:}~Increase deliberate engagement at consequential decision points};
-        \node[drbox] (dr5) at (8,-3.0) {\textbf{DR5:}~Decrease cognitive effort of interpreting system outputs};
+        \node[drbox] (dr4) at (8,-2.0) {\textbf{DR4:}~Increase deliberate engagement at consequential decision points};
+        \node[drbox] (dr5) at (8,-4.0) {\textbf{DR5:}~Decrease cognitive effort of interpreting system outputs};
 
-        % ---- Design principles: empirically grounded, seven total (uniform colour) ----
-        \node[dpbox] (dp1) at (17,4.0)  {\textbf{DP1:}~Adapt responses to user expertise};
-        \node[dpbox] (dp2) at (17,2.6)  {\textbf{DP2:}~Disclose system limitations};
-        \node[dpbox] (dp3) at (17,1.2)  {\textbf{DP3:}~Indicate information provenance};
-        \node[dpbox] (dp4) at (17,-0.05) {\textbf{DP4:}~Surface conflicting information};
-        \node[dpbox] (dp5) at (17,-1.4) {\textbf{DP5:}~Make system assumptions inspectable and correctable};
-        \node[dpbox] (dp6) at (17,-2.8) {\textbf{DP6:}~Establish request purpose before querying};
-        \node[dpbox] (dp7) at (17,-4.05) {\textbf{DP7:}~Provide a shared notes space};
-
-        % ---- Design principles: theory-derived, five total (highlighted in blue) ----
-        \node[dptbox] (dpt1) at (17,-5.75)  {\textbf{DP-T1:}~Explain local behaviour};
-        \node[dptbox] (dpt2) at (17,-7.05)  {\textbf{DP-T2:}~Account for unfaithful explanations};
-        \node[dptbox] (dpt3) at (17,-8.35)  {\textbf{DP-T3:}~Time explanation delivery};
-        \node[dptbox] (dpt4) at (17,-9.65)  {\textbf{DP-T4:}~Constrain post-hoc dismissal};
-        \node[dptbox] (dpt5) at (17,-10.95) {\textbf{DP-T5:}~Proactively communicate system capabilities};
+        % ---- Design principles ----
+        \node[dptbox] (dpt1) at (17,6.40)  {\textbf{DP-T1:}~Explain local behaviour};
+        \node[dpbox]  (dp2)  at (17,5.4)  {\textbf{DP2:}~Disclose system limitations};
+        \node[dptbox] (dpt5) at (17,4.20)  {\textbf{DP-T5:}~Proactively communicate system capabilities};
+        \node[dpbox]  (dp3)  at (17,2.85)  {\textbf{DP3:}~Indicate information provenance};
+        \node[dptbox] (dpt2) at (17,1.50)  {\textbf{DP-T2:}~Account for unfaithful explanations};
+        \node[dptbox] (dpt3) at (17,0.30)  {\textbf{DP-T3:}~Time explanation delivery};
+        \node[dpbox]  (dp5)  at (17,-0.90) {\textbf{DP5:}~Make system assumptions inspectable and correctable};
+        \node[dptbox] (dpt4) at (17,-2.10) {\textbf{DP-T4:}~Constrain post-hoc dismissal};
+        \node[dpbox]  (dp1)  at (17,-3.25) {\textbf{DP1:}~Adapt responses to user expertise};
+        \node[dpbox]  (dp4)  at (17,-4.40) {\textbf{DP4:}~Surface conflicting information};
+        \node[dpbox]  (dp6)  at (17,-5.60) {\textbf{DP6:}~Establish request purpose before querying};
+        \node[dpbox]  (dp7)  at (17,-6.80) {\textbf{DP7:}~Provide a shared notes space};
 
         % ---- Column headings ----
-        \node[font=\bfseries] at (0.0,5.0) {Meta-Requirements};
-        \node[font=\bfseries] at (8.0,5.0) {Design Requirements};
-        \node[font=\bfseries] at (17.0,5.0) {Design Principles};
+        \node[font=\bfseries] at (0.0,7.4)  {Meta-Requirements};
+        \node[font=\bfseries] at (8.0,7.4)  {Design Requirements};
+        \node[font=\bfseries] at (17.0,7.4) {Design Principles};
 
-        % ---- MR -> DR edges, unchanged ----
+        % ---- MR -> DR edges ----
         \draw[mr1line]          (mr1.east) -- (dr1.west);
         \draw[mr1line]          (mr1.east) -- (dr2.west);
         \draw[mr2line]          (mr2.east) -- (dr1.west);
@@ -681,7 +679,7 @@ Figure~\ref{fig:mr-dr-dp-mapping-final} consolidates the complete design theory,
         \draw[mr3line]          (mr3.east) -- (dr4.west);
         \draw[mr3line]          (mr3.east) -- (dr5.west);
 
-        % ---- DR -> DP edges, empirically grounded set, unchanged ----
+        % ---- DR -> DP edges ----
         \draw[dr1line]          (dr1.east) -- (dp1.west);
         \draw[dr5line]          (dr5.east) -- (dp1.west);
         \draw[dr2line]          (dr2.east) -- (dp2.west);
@@ -696,17 +694,16 @@ Figure~\ref{fig:mr-dr-dp-mapping-final} consolidates the complete design theory,
         \draw[dr5line, partial] (dr5.east) -- (dp6.west);
         \draw[dr5line]          (dr5.east) -- (dp7.west);
 
-        % ---- DR -> DP edges, theory-derived set (new) ----
         \draw[dr1line]          (dr1.east) -- (dpt1.west);
         \draw[dr1line]          (dr1.east) -- (dpt2.west);
+        \draw[dr3line, partial] (dr3.east) -- (dpt1.west);
         \draw[dr3line]          (dr3.east) -- (dpt2.west);
         \draw[dr4line]          (dr4.east) -- (dpt3.west);
         \draw[dr1line, partial] (dr1.east) -- (dpt3.west);
-        \draw[dr3line]          (dr3.east) -- (dpt4.west);
         \draw[dr4line]          (dr4.east) -- (dpt4.west);
         \draw[dr2line]          (dr2.east) -- (dpt5.west);
     \end{tikzpicture}%
     }
-    \caption[Final design theory, including theory-derived design principles]{The complete design theory: the seven empirically grounded and expert-evaluated design principles (Section~\ref{sssec:revised-dp}) together with the five theory-derived design principles proposed in Section~\ref{sssec:theory-dp}, mapped onto the design requirements which they fulfil. Theory-derived principles are highlighted in blue; dotted lines indicate a secondary or partial contribution to a design requirement.}
+    \caption[Final design theory, including theory-derived design principles]{The complete design theory organised to reduce the number of edge crossings. Theory-derived principles are highlighted in blue.}
     \label{fig:mr-dr-dp-mapping-final}
 \end{figure}

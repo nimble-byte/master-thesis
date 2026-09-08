@@ -24,3 +24,4 @@ WebUI
 XAI
 actability
 behaviroural
+palettegrey
