@@ -13,14 +13,17 @@ Human-GenAI
 LimeSurvey
 MATH
 MathVista
+misattribution
 miscalibrated
 Miscalibration
 Non-LLM
 Ollama
 palettegrey
+post-hoc
 prescriptiveness
 Qwen
 satisficing
+SHAP
 supercode
 testmini
 ToM
