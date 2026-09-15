@@ -1,41 +1,60 @@
 \section{Artefact Design} \label{sec:artefact-design}
 
-As the study evaluated in this thesis is not published, its design is described in the following sections. This thesis reuses the data collected in the study and re-evaluates it under the research questions established for this thesis, providing the rationale for the choices made along the way. Together with the development of the chatbot systems used in the study, this constitutes the artefact design step (step \rom{5}) of the method for design principle development \parencite{Moeller2020} introduced in Section~\ref{ssec:mdpd}. Section~\ref{ssec:setting-participants} describes the study's setting: problem selection, the experiment procedure, and the participants. Section~\ref{ssec:chatbot-construction} describes the construction of the chatbots used in the study.
+As the study evaluated in this thesis is not published, its design is described in the following sections. This thesis reuses the data collected in the study and re-evaluates it under the research questions established in Section~\ref{ssec:research-objectives}. This chapter focuses on the aspects of the study design that are relevant to this thesis, providing the rationale for the choices made along the way. For this first Section~\ref{ssec:user-study-design} elaborates the study's research design. Then the design of the chatbots built for the study is described in Section~\ref{ssec:chatbot-implementation}.
 
-\subsection{Setting \& Participants} \label{ssec:setting-participants}
+\subsection{User Study Design} \label{ssec:user-study-design}
 
-The study was designed as mixed-methods study with a between-subjects comparison. Participants were presented three tasks from a pool of maths problems and were asked to solve them with the help of a chatbot. Participants were split into two groups, that received different chatbots. The chatbot for group (E) provided \ac{CoT} explanations for its outputs, while the chatbot for the control group (B) did not. Quantitative data was collected through the task presentation tool and post-experiment questionnaires. Qualitative data was collected through think-aloud protocols during the task solving. Additional qualitative data was gathered based on unprompted feedback from participants after the experiment concluded.
+The study was designed as mixed-methods study with a between-subjects comparison. Participants were presented three tasks from a pool of maths problems and were asked to solve them with the help of a chatbot. Participants were split into two groups, that received different chatbots. The chatbot for group (E) provided \ac{CoT} explanations for its outputs, while the chatbot for the control group (B) did not. Quantitative data was collected through the \ac{PPT} and post-experiment questionnaires. Qualitative data was collected through think-aloud protocols during the task solving. Additional qualitative data was gathered based on unprompted feedback from participants after the experiment concluded.
 
 \subsubsection{Problem Selection} \label{sssec:problem-selection}
 
-Problem selection was guided by two criteria: \enquote{ease of access}, referring to the availability of problems and their correct solutions, and \enquote{complexity}, referring to their level of difficulty. Increasing complexity further would have narrowed the pool of participants able to attempt the tasks unaided, reinforcing the trade-off against ease of access. The problems needed to be complex enough to warrant chatbot assistance and to produce meaningful think-aloud protocols, while remaining solvable by a wide range of potential participants. Inspired by \textcite{Wang2024b}, the problems were drawn from the \enquote{testmini} split of the MathVista dataset \parencite{MathVista2024}, chosen for its publicly available solutions and suitable complexity: the natural-language problems, often combined with an image, require multiple steps and the combination of linguistic and visual information to solve. The MATH dataset \parencite{Hendrycks2021} was considered as an alternative, but its open-answer format and lack of multimodality made it less suitable.
+Problem selection for the study needed to balance two competing requirements. On the one hand, problems needed to be complex enough to induce participants to seek assistance from the chatbot and to produce meaningful think-aloud protocols. On the other hand they needed to be solvable by a wide range of potential participants. This trade-off meant an increase in problem complexity would narrow the pool of potential participants. Inspired by \textcite{Wang2024b}, the problems were drawn from an existing dataset of mathematical problems. Ultimately, a small subset of problems from the \enquote{testmini} split of the MathVista dataset \parencite{MathVista2024} was selected, due to its publicly available solutions, multi-modality, and suitable difficulty. This subset consisted of 15 geometry problems posed in natural language, each with an accompanying image and a set of multiple-choice answers. The MATH dataset \parencite{Hendrycks2021} was considered as an alternative, but its open-answer format and lack of multimodality made it less suitable.
 
-% TODO: add examples of problems from MathVista and MATH dataset?
-
-The pool was pre-selected based on the researcher's classification into three difficulty tiers (easy, medium, hard). Pre-testing with non-participant volunteers showed \enquote{easy} problems to be too simple to produce meaningful think-aloud protocols, leaving a final pool of nine problems (five \enquote{difficult}, four \enquote{medium}), which were translated into German to reduce the language barrier for participants.
+The pre-selected pool was classified into three difficulty tiers (easy, medium, hard) by the researcher. Pre-testing with non-participant volunteers showed \enquote{easy} problems to be too simple to produce meaningful think-aloud protocols, with \enquote{medium} and \enquote{hard} problems consistently inducing participants to seek assistance from the chatbot. The final pool of problems was therefore reduced to nine (five \enquote{difficult}, four \enquote{medium}) which were translated into German to reduce the language barrier for participants.
 
 \subsubsection{Experiment Procedure} \label{sssec:experiment-procedure}
 
-Experiments were conducted as one-on-one sessions between each participant and the researcher, lasting approximately 60 minutes and conducted in a quiet room to minimise distractions and improve the quality of the audio recordings for the think-aloud protocols. The procedure followed three phases, inspired by the experiments performed by \textcite{Jussupow2021} and \textcite{Kazemitabaar2024}: an introduction, the task-solving phase, and a post-experiment questionnaire.
+Experiments were conducted as one-on-one sessions between each participant and the researcher, lasting approximately 60 minutes. They were conducted in a quiet room to minimise distractions and improve the quality of the audio recordings for the think-aloud protocols. The procedure followed three phases, inspired by the experiments performed by \textcite{Jussupow2021} and \textcite{Kazemitabaar2024}: an introduction, the task-solving phase, and a post-experiment questionnaire.
 
-During the introduction, participants were welcomed and provided an overview of the procedure, the think-aloud protocol, and the chatbot. To reduce stress felt by participants, a cover story framed the chatbot itself as the artefact under evaluation; this plausibly directed participants' attention onto the chatbot specifically, which may have helped mitigate — though not eliminate — the risk of attributions toward the chatbot going unverbalised. The researcher then demonstrated the chatbot's key features (multi-modal input, explanations for group (E)), before participants completed a practice task \parencite{VanSomeren1994} to familiarise themselves with the procedure of thinking aloud and the chatbot.
+As suggested by \textcite{VanSomeren1994} during the introduction, participants were welcomed and provided an overview of the procedure and the chatbot. To reduce stress felt by participants, a cover story framed the chatbot itself as the artefact under evaluation. The researcher then explained the chatbot's functionality (multi-modal input, explanations for group (E)) and noted limitations (provides no solutions, smaller local model). Participants were then briefed on the think-aloud protocols and provided a demonstration of the procedure, before being asked to complete a short practice task to familiarise themselves with the procedure and the chatbot. The cover story provides an additional benefit for this study: It directed the participants' attention to the chatbot, which could have helped mitigate the risk of thoughts about the chatbot going unverbalised \parencite{Ericsson2017}.
 
-In the task-solving phase, participants were given three randomly selected tasks in sequence, assisted at their discretion by the chatbot, a scientific calculator, and pen and paper, while being encouraged to think aloud throughout \parencite{VanSomeren1994}. No time limit was set, but participants could request a new problem if they felt the current one was unsolvable. The researcher was present to observe and take notes, intervening only to provide technical assistance if needed or to encourage participants to think aloud if they were silent for an extended period of time.
+Once participants were familiar with the chatbot and procedure, they were given three randomly selected tasks. They had to solve each with the help of the chatbot, a scientific calculator, and pen and paper. They could use all assistance at their discretion, while thinking aloud throughout \parencite{VanSomeren1994}. No time limit was set, but participants could request a new task if they felt the current one was unsolvable. The researcher was present to observe and take notes, intervening only to provide technical assistance if needed or to encourage participants to think aloud if they were silent for an extended period of time.
 
-The post-experiment questionnaire comprised a demographic questionnaire, the \ac{TAM} questionnaire \parencite{Davis1989}, the \ac{CSE} questionnaire \parencite{Compeau1995}, and the \acs{NASA}-\ac{TLX} questionnaire \parencite{Hart1988}, all administered in German with items translated from their original English versions by the researcher; the questionnaires are included in the Appendix.
+After completion of the tasks, participants were asked to complete a post-experiment questionnaire. It consisted of a demographic questionnaire and three established instruments: the \ac{TAM} questionnaire \parencite{Davis1989}, the \ac{CSE} questionnaire \parencite{Compeau1995}, and the \acs{NASA}-\ac{TLX} questionnaire \parencite{Hart1988}. The questionnaires were administered in German, with items translated from their original English versions by the researcher. The questionnaires are included in the Appendix. The selection of instruments was guided by the research questions of the original study, which focused on the cognition and metacognition of participants. The data collected through the questionnaires therefore provide only limited insight into \ac{ToM} attribution and are only used for triangulation in this thesis.
 
-The audio recordings of the think-aloud protocols were transcribed using OpenAI Whisper \parencite{Radford2023} and manually corrected by the researcher, then combined with the chatbot's chat logs and the researcher's notes for the subsequent analysis.
+The audio recordings of the think-aloud protocols were transcribed using OpenAI Whisper \parencite{Radford2023} and manually corrected by the researcher. They then were combined with the chatbot's chat logs for analysis.
 
 \subsubsection{Participants} \label{sssec:participants}
 
-Participants were recruited through convenience sampling from two sources: (1) students recruited through the chair of Enterprise Computing at the TU Dortmund, and (2) colleagues and acquaintances of the researcher. These channels were chosen to reach participants with a background in \ac{STEM}, to ensure a basic level of mathematical proficiency required for the tasks. Participants were split pseudo-randomly into the two groups (E) and (B), by alternately assigning participants to the groups as they were recruited.
+Participants were recruited through convenience sampling from two sources: (1) students recruited through the chair of Enterprise Computing at the TU Dortmund, and (2) colleagues and acquaintances of the researcher. These channels were chosen to reach participants with a background in \ac{STEM}, to ensure a basic level of mathematical proficiency required for the problems. Participants were split pseudo-randomly into the two groups (E) and (B), by alternately assigning participants to the groups as they were recruited.
 
-In total 20 participants were asked to take part in the study, of which 15 responded to the recruitment message. Thirteen participants were able to schedule an experiment session, with two participants dropping out due to time constraints. The final sample consisted of 12 participants, as one participant was excluded from the analysis, due to unusable think-aloud protocols. The participant selection process is visualised in the flowchart in Figure~\ref{fig:part-flow}.
+In total 20 participants were asked to take part in the study, of which 15 responded to the recruitment message. 13 participants were able to schedule an experiment session, with two participants dropping out due to time constraints. The final sample consisted of twelve participants, as one participant was excluded from the analysis, due to unusable think-aloud protocols. The selection process is visualised in Figure~\ref{fig:part-flow}.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.6\textwidth]{images/fig-participant_flowchart.png}
-    \caption{Participant selection flowchart}
+    \begin{tikzpicture}[
+        exclbox/.style = {neutralnode, densely dashed, fill=white},
+    ]
+        % Retained sample at each stage
+        \node[accentnode] (n1) at (0,0)   {20 invited};
+        \node[accentnode] (n2) at (3.6,0) {15 available};
+        \node[accentnode] (n3) at (7.4,0) {13 performed};
+        \node[accentnode] (n4) at (11.1,0) {12 analysed};
+
+        % Excluded at each transition
+        \node[exclbox] (e1) at (1.8,-1.2) {$-5$ no response};
+        \node[exclbox] (e2) at (5.4,-1.2) {$-2$ time constraints};
+        \node[exclbox] (e3) at (9.2,-1.2) {$-1$ unusable data};
+
+        \draw[mainarr] (n1.east) -- (n2.west);
+        \draw[mainarr] (n2.east) -- (n3.west);
+        \draw[mainarr] (n3.east) -- (n4.west);
+
+        \draw[normarr] (1.8,0) -- (e1.north);
+        \draw[normarr] (5.4,0) -- (e2.north);
+        \draw[normarr] (9.2,0) -- (e3.north);
+    \end{tikzpicture}
+    \caption[Participant selection flowchart]{Selection process of participants with exclusions at each stage.}
     \label{fig:part-flow}
 \end{figure}
 
@@ -80,9 +99,9 @@ The final sample consisted only of male participants, with 7 participants in gro
 
 Participants were recruited almost exclusively through the personal network of the researcher, with only one participant of the final sample recruited through the university chair. They were not compensated for their participation, but were offered a debriefing after the experiment, in which they were informed about the purpose of the study. Each participant was assigned a unique participant ID, used to link their responses with their questionnaire data and to anonymise audio recordings, transcriptions, and chat logs for the analysis.
 
-\subsection{Chatbot Construction} \label{ssec:chatbot-construction}
+\subsection{Chatbot Implementation} \label{ssec:chatbot-implementation}
 
-Two software components were required for the study: a tool for presenting tasks and recording responses, and the chatbots used by participants for task-solving. As the chatbot was not itself the artefact evaluated by the study, but rather a means to investigate the effects of explanations on users, both components were guided primarily by practical constraints, rather than by an aim to optimise performance or user experience beyond what was necessary for the study:
+Two software components were required for the study: the tool for presenting problems and recording solutions, and the chatbots to assist participants in solving the tasks. Both were implemented by the researcher as a means to facilitate the study resulting in their design being guided primarily by practical constraints. The following requirements were identified for the artefacts, based on the study's context and constraints:
 
 % ---
 % New requirement IDs replace the retired C1-C4 / CR1-CR3 scheme:
@@ -93,35 +112,25 @@ Two software components were required for the study: a tool for presenting tasks
 %   usability is discussed qualitatively below where relevant.
 % ---
 \begin{enumerate}[label=(\textbf{R\arabic*}),leftmargin=3em]
-    \item The study was carried out by a single researcher within one semester and was self-funded, so tool implementation needed to be efficient and free of monetary cost.
+    \item Tool implementation needed to be efficient and free of monetary cost, as the study was carried out by a single researcher within one semester and was self-funded.
     \item Tools needed to comply with German data protection regulation (GDPR) and additional regulatory burdens for research studies, favouring local or university-hosted data storage.
-    \item The chatbot must not solve the problems for participants outright, but only provide assistance in the form of hints and explanations, to ensure participants collaborated actively with the chatbot and produced meaningful think-aloud protocols.
+    \item The chatbot must not solve the problems for participants outright, but only provide assistance in the form of hints and explanations. This served to ensure participants collaborated actively with the chatbot and produced meaningful think-aloud protocols.
 \end{enumerate}
 
-Usability was a partial corollary of these constraints; its influence on specific choices is noted below.
+A custom web application (Next.js) was built to present problems to participants and record their responses, with source code available in a public repository \parencite{Goepfert2025}. Figure~\ref{fig:problem-tool} shows the \ac{PPT} interface.
 
-A custom web application (Next.js) was built to present tasks to participants and record their responses, with source code available in a public repository \parencite{Goepfert2025}. Figure~\ref{fig:task-tool} shows the task tool interface.
-
-% TODO: swap this screenshot for one showing a different example task from the pool, so it also serves as an implicit example-task illustration; check whether the caption still needs adjustment afterwards.
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/fig-task_viewer.png}
-    \caption[Screenshot of the task tool]{Screenshot of the task tool with simple column layout. At the top a progress bar shows the progress for participants. Below that the task is displayed with the task ID, the image, the translated task text and response options. Below the tasks are buttons to replace the current task and progress to the next task, once a response is given.}
-    \label{fig:task-tool}
+    \includegraphics[width=0.5\textwidth]{images/fig-task.png}
+    \caption[Screenshot of the problem presentation tool]{Screenshot of a task from the \ac{PPT}. The task is displayed with the task ID, the image, the translated task text and response options.}
+    \label{fig:problem-tool}
 \end{figure}
 
-The chatbot required more deliberate design, as it needed to remain functional and usable for participants while respecting the constraints above. An offline \ac{LLM}, run locally through LM Studio, was selected to power it (\textbf{R1}, \textbf{R2}). Candidate models were identified via Hugging Face, filtering for parameter counts under 30 billion and release dates from 2024 onward; after removing duplicates, three models remained for evaluation: Gemma 3 27B \parencite{GemmaTeam2025}, Mistral Small 3.2 \parencite{Mistral2025}, and Qwen 30B \parencite{Qwen2025}. System prompts were designed to elicit the desired behaviour, identical between the two chatbot variants except for a zero-shot chain-of-thought instruction \parencite{Wei2022, Kojima2022} added for group (E).
+The chatbot required more deliberate design, as it needed to remain functional for participants and to help uphold the cover story of the study.
+\href{https://lmstudio.ai/}{LM Studio}\footnote{https://lmstudio.ai} was chosen to locally run an \ac{LLM}, as it is a ready-to-use all in one solution for running local conversational agents with support for a wide variety of models and convenient features for managing model presets. Candidate models were identified via \href{https://huggingface.co/}{Hugging Face}\footnote{https://huggingface.co/}, by model size below 16GB and release date from 2024 onward. After removing duplicates, three models remained for evaluation: Gemma 3 27B \parencite{GemmaTeam2025}, Mistral Small 3.2 \parencite{Mistral2025}, and Qwen 3 30B \parencite{Qwen2025}. After testing each model with identical prompts against problems from the pool, Mistral Small 3.2 was selected as the base model. Qwen 3 was eliminated before, as it frequently violated \textbf{R3}. Gemma 3 was ruled out after testing, as its more verbose responses were assumed to increase the risk of the chatbot inadvertently solving the problems.
 
-% TODO: pending decision whether to keep the Qwen-elimination detail below, or cut it if space runs short.
-Each candidate was tested against problems from the pool and evaluated on response quality against \textbf{R3}. Qwen 30B was eliminated, as it frequently solved problems outright rather than only providing hints, violating \textbf{R3}. Gemma 3 and Mistral Small 3.2 performed comparably; Mistral Small 3.2 was ultimately selected, as Gemma's more verbose responses were expected to be less user-friendly for participants and to increase the risk of the chatbot inadvertently solving problems for participants (\textbf{R3}).
+Since both chatbot variants were implemented in LM Studio, the interface was near-identical for both groups. This ensured a functionally identical user experience for both groups, with the explanation blocks for group (E) being the only difference. Both chatbots were tested on several tasks by volunteers before the study providing feedback which resulted in tuned system prompts. The chain of thought was wrapped in an HTML-style \texttt{<think>} tag, rendered as a collapsed, click-to-expand element. Figure~\ref{fig:chatbots} shows screenshots of the introductory task demonstration for both chatbots.
 
-\ac{CoT} explanations were chosen as the explanation mechanism for group (E) over the LIME and SHAP methods introduced in Section~\ref{sssec:xai-methods}, primarily on grounds of feasibility: unlike LIME and SHAP, which do not transfer well to generative models and require surrogate-model machinery, \ac{CoT} explanations can be elicited through training or even zero-shot prompting, and so can be implemented with minimal technical overhead \parencite{Wei2022, Kojima2022}.
-
-Adding a \ac{CoT} instruction to only the explanation group's system prompt introduces a dual manipulation: beyond the presence of a visible explanation, \textcite{Wei2022} report that \ac{CoT} prompting can itself improve response quality on complex tasks, so a between-group difference cannot be cleanly attributed to the presence of an explanation alone. Isolating this confound would have required a substantially more complex study design, outside the scope available to a single researcher in one semester (\textbf{R1}); this trade-off was accepted for the study reported here.
-
-Since both chatbot variants were implemented in LM Studio, the interface was identical for both groups, ensuring that the presence of explanations was the only difference between them. Through the system prompt, the chain of thought was wrapped in an HTML-style \texttt{<think>} tag, rendered as a collapsed, click-to-expand element. Figure~\ref{fig:chatbots} shows screenshots of the introductory task demonstration for both chatbots.
-
-% TODO: confirm whether the source screenshots themselves need updating for the (C) -> (B) group-label fix, if the label is visible in the UI.
 \begin{figure}[ht]
     \centering
     \begin{subfigure}{0.49\textwidth}
@@ -138,3 +147,7 @@ Since both chatbot variants were implemented in LM Studio, the interface was ide
     \caption[Screenshots of chatbot variants]{Screenshots of the introductory task demonstration for both chatbots. The chatbot for group (E) shows the examples of the collapsed and expanded explanations, while the chatbot for group (B) does not show any explanations.}
     \label{fig:chatbots}
 \end{figure}
+
+\ac{CoT} explanations were chosen as the explanation mechanism for group (E), primarily on the grounds of \textbf{R1}. Their implementation requires only a single additional instruction in the system prompt \parencite{Wei2022, Kojima2022}. Alternative explainability methods often need to be implemented model specific and require technical expertise to interpret \parencite{Kumarage2026}. The two different system prompts for the chatbots were simply stored as presets in LM Studio, with the only difference being the additional instruction for group (E) to provide \ac{CoT} explanations. The complete prompts are included in the Appendix.
+
+The drawbacks this approach are twofold. First, \ac{CoT} prompting has the side effect of increasing model response quality \parencite{Wei2022}. While this is a benefit in most contexts, it potentially introduces a confounding variable to this study. This risk was accepted as a trade-off for the practical benefits of \ac{CoT} prompting under requirement \textbf{R1}. Second, \ac{CoT} explanations are not necessarily faithful to the model's actual reasoning process \parencite{Lyu2023}. This risk was also accepted under \textbf{R1} and its potential impact on this thesis results is discussed in Chapter~\ref{sec:discussion}.
