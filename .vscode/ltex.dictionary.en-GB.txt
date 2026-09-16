@@ -2,6 +2,8 @@ actability
 actable
 aspectuality
 Aspectuality
+BToM
+CAID
 causability
 Causability
 challengeable
@@ -9,6 +11,7 @@ ChatGPT
 CoT
 explainee
 Gioia
+HAII
 Human-GenAI
 LimeSurvey
 MATH
@@ -16,6 +19,7 @@ MathVista
 misattribution
 miscalibrated
 Miscalibration
+MToM
 Non-LLM
 Ollama
 palettegrey
